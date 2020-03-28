@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: saml-microservice-dev
+  host: localhost
+  port: 5432
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: saml-microservice-test
+  host: localhost
+  port: 5432
