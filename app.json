@@ -1,0 +1,20 @@
+{
+  "name": "saml-microservice",
+  "description": "This app does one little thing, and does it well.",
+  "keywords": [
+    "enterprise",
+    "sso",
+  ],
+  "repository": "https://github.com/sbauch/saml-microservice",
+  "env": {
+    "SESSION_SECRET": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+    }
+  ]
+}
