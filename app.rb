@@ -43,7 +43,7 @@ class App < Sinatra::Base
     OmniAuth::MultiProvider.register(
       self,
       provider_name: 'saml',
-      issuer: 'Ruby Demo',
+      issuer: ENV['HEROKU_APP_NAME']
       identity_provider_id_regex: /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/,
       path_prefix: '/auth/saml',
       callback_suffix: 'callback',
