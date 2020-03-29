@@ -73,7 +73,8 @@ class App < Sinatra::Base
       extra&.
       response_object&.
       attributes
-    puts attributes = env['omniauth.auth']
+
+    puts env['omniauth.auth']
     puts '====================================================================='
     puts attributes
     user = Models::User.where(
