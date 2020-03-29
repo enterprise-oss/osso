@@ -23,7 +23,7 @@ module Models
           issuer: "id:#{id}",
         )
       else
-        raise "#{x} not implemented"
+        raise "#{provider} not implemented"
       end
     end
   end
