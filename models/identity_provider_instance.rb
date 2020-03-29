@@ -11,6 +11,8 @@ module Models
           'idp_sso_target_url',
         ).merge(
           issuer: id,
+          name_identifier_format:
+            'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
         )
       when 'azure'
         attributes.slice(

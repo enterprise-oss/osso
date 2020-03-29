@@ -46,8 +46,6 @@ class App < Sinatra::Base
       identity_provider_id_regex: /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/,
       path_prefix: '/auth/saml',
       callback_suffix: 'callback',
-      name_identifier_format:
-        'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
     ) do |idp_instance_id, rack_env|
       idp = Models::IdentityProviderInstance.find(idp_instance_id)
 
