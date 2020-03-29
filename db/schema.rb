@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_28_211118) do
+ActiveRecord::Schema.define(version: 2020_03_29_010209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_03_28_211118) do
     t.string "domain", null: false
     t.string "idp_sso_target_url", null: false
     t.text "idp_cert", null: false
+    t.string "assertion_consumer_service_url"
     t.index ["domain", "provider"], name: "index_identity_provider_instances_on_domain_and_provider", unique: true
   end
 
