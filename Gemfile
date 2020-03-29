@@ -6,7 +6,7 @@ source 'https://rubygems.org'
 
 gem 'doorkeeper', require: false
 gem 'omniauth'
-gem 'omniauth-multi-provider-saml'
+gem 'omniauth-multi-provider'
 gem 'omniauth-saml'
 gem 'pg'
 gem 'rack-contrib'

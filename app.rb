@@ -5,7 +5,7 @@ require 'bundler/setup'
 require 'rack/contrib'
 require 'omniauth'
 require 'omniauth-saml'
-require 'omniauth-multi-provider-saml'
+require 'omniauth-multi-provider'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/contrib'
@@ -40,19 +40,21 @@ class App < Sinatra::Base
   use Rack::Session::Cookie, secret: ENV.fetch('SESSION_SECRET')
 
   use OmniAuth::Builder do
-    OmniAuth::SAML::MultiProvider.register(
+    OmniAuth::MultiProvider.register(
       self,
-      provider: :saml,
+      provider_name: 'saml',
       issuer: 'Ruby Demo',
-      identity_provider_id_regex: /(\w|\.)+/,
+      identity_provider_id_regex: /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/,
+      path_prefix: '/auth/saml',
+      callback_suffix: 'callback',
       name_identifier_format:
         'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-    ) do |domain, _rack_env|
-      identity_provider_instance = Models::IdentityProviderInstance.find_by!(
-        domain: domain,
-      )
+    ) do |idp_instance_id, rack_env|
+      idp = Models::IdentityProviderInstance.find(idp_instance_id)
 
-      identity_provider_instance.saml_options
+      rack_env['saml_identity_provider'] = idp
+
+      idp.saml_options
     end
   end
 
@@ -60,12 +62,16 @@ class App < Sinatra::Base
     render :html, :index
   end
 
-  post '/single_sign_on' do
-    # get domain
-    # find provider
+  get '/login' do
+    render :html, :login
   end
 
-  post '/auth/saml/:domain/callback' do
+  post '/single_sign_on' do
+    domain = params['domain'] || params['email']&.split('@')&.last
+    redirect "/auth/saml/#{domain}"
+  end
+
+  post '/auth/saml/:idp_id/callback' do
     attributes = env['omniauth.auth']&.
       extra&.
       response_object&.
