@@ -32,13 +32,6 @@ class CreateOauthTables < ActiveRecord::Migration[6.0]
     create_table :oauth_access_tokens, id: :uuid do |t|
       t.uuid :resource_owner_id
       t.references :application, type: :uuid
-
-      # If you use a custom token generator you may need to change this column
-      # from string to text, so that it accepts tokens larger than 255
-      # characters. More info on custom token generators in:
-      # https://github.com/doorkeeper-gem/doorkeeper/tree/v3.0.0.rc1#custom-access-token-generator
-      #
-      # t.text :token, null: false
       t.string :token, null: false
 
       t.string   :refresh_token
