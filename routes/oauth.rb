@@ -6,6 +6,10 @@ module Routes
   module Oauth
     extend Sinatra::Extension
 
+    # Send your users here in order to being an auhtentication
+    # flow. This flow follows the authorization grant oauth
+    # spec with one exception - you must also pass the domain
+    # of the user who wants to sign in.
     get '/oauth/authorize' do
       Rack::OAuth2::Server::Authorize.new do |req, _res|
         client = Models::OauthClient.find_by!(identifier: req.client_id)
@@ -27,6 +31,9 @@ module Routes
       return erb :error
     end
 
+    # Exchange an authorization code token for a user profile.
+    # In addition to the token, you must include all paramaters
+    # required by Oauth spec: redirect_uri, client ID, and client secret
     post '/oauth/token' do
       code = Models::AuthorizationCode.valid.find_by_token!(params[:code])
 

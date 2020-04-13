@@ -37,6 +37,7 @@ class App < Sinatra::Base
     status 404
   end
 
+  register ::Routes::Admin
   register ::Routes::Auth
   register ::Routes::Oauth
 end

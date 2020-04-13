@@ -19,11 +19,11 @@ module Models
 
     def setup
       super
-      if refresh_token
-        self.user = refresh_token.user
-        self.client = refresh_token.client
-        self.expires_at = [expires_at, refresh_token.expires_at].min
-      end
+      return unless refresh_token
+
+      self.user = refresh_token.user
+      self.client = refresh_token.client
+      self.expires_at = [expires_at, refresh_token.expires_at].min
     end
   end
 end

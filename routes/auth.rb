@@ -24,7 +24,6 @@ module Routes
         path_prefix: '/auth/saml',
         callback_suffix: 'callback',
       ) do |saml_provider_id, env|
-        # raise saml_provider_id
         # If we are redirecting from the Oauth route, we
         # know that this is an SP Initiated login, and
         # can set a redirect. Otherwise we use the client's
@@ -35,13 +34,17 @@ module Routes
         end
 
         provider = Models::SamlProvider.find(saml_provider_id)
-        env['saml_provider'] = provider
         provider.saml_options
       end
     end
 
-    post '/auth/saml/:uuid/callback' do
-      provider = env['saml_provider']
+    # Enterprise users are sent here after authenticating against
+    # their Identity Provider. We find or create a user record,
+    # and then create an authorization code for that user. The user
+    # is redirected back to your application with this code
+    # as a URL query param, which you then exhange for a user profile
+    post '/auth/saml/:id/callback' do
+      provider = Models::SamlProvider.find(params[:id])
       oauth_client = provider.oauth_client
       redirect_uri = env['redirect_uri'] || oauth_client.default_redirect_uri
 
@@ -53,8 +56,10 @@ module Routes
       user = Models::User.where(
         email: attributes[:email],
         idp_id: attributes[:id],
-        saml_provider_id: provider.id,
-      ).first_or_create!
+      ).first_or_create! do |new_user|
+        new_user.enterprise_account_id = provider.enterprise_account_id
+        new_user.saml_provider_id = provider.id
+      end
 
       authorization_code = user.authorization_codes.create!(
         oauth_client: oauth_client,

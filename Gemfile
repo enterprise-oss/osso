@@ -4,7 +4,7 @@ ruby '2.5.6'
 
 source 'https://rubygems.org'
 
-gem 'doorkeeper', require: false
+gem 'jwt'
 gem 'omniauth'
 gem 'omniauth-multi-provider'
 gem 'omniauth-saml'
