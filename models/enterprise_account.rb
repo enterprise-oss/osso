@@ -5,7 +5,7 @@ module Models
   # your own Account model. Persisting the EnterpriseAccount id
   # in your application's database is recommended. The table also
   # includes fields for external IDs such that you can persist
-  # your ID for an account in SAMLBox.
+  # your ID for an account in your Osso instance.
   class EnterpriseAccount < ActiveRecord::Base
     has_many :users
     has_many :saml_providers

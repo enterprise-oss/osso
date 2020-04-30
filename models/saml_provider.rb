@@ -14,6 +14,16 @@ module Models
         '#saml_options must be defined on each provider specific subclass',
       )
     end
+
+    def assertion_consumer_service_url
+      [
+        ENV.fetch('BASE_URL'),
+        'auth',
+        'saml',
+        id,
+        'callback',
+      ].join('/')
+    end
   end
 end
 

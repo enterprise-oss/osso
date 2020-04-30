@@ -5,36 +5,24 @@ require 'jwt'
 module Routes
   module Admin
     extend Sinatra::Extension
+    helpers Helpers::Auth
 
-    helpers do
-      def protected!
-        return if authorized?
-
-        redirect ENV['JWT_URL']
-      end
-
-      def token
-        @token ||= request.env['admin_token'] ||
-          request['admin_token'] ||
-          session['admin_token']
-      end
-
-      def authorized?
-        JWT.decode(
-          token,
-          ENV['JWT_HMAC_SECRET'],
-          true,
-          { algorithm: 'HS256' },
-        )
-
-        session['admin_token'] = token
-      rescue JWT::DecodeError
-        false
-      end
+    before do
+      chomp_token
     end
 
     get '/admin' do
-      protected!
+      admin_protected!
+
+      erb :admin
+    end
+
+    get '/admin/enterprise/:domain' do
+      enterprise_protected!(params[:domain])
+
+      @enterprise = Models::EnterpriseAccount.where(
+        domain: params[:domain],
+      ).first_or_create
 
       erb :admin
     end

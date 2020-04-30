@@ -11,6 +11,7 @@ require 'sinatra/base'
 require 'sinatra/contrib'
 require 'sinatra/json'
 
+require_relative 'helpers/helpers'
 require_relative 'lib/oauth2_token'
 require_relative 'models/models'
 require_relative 'routes/routes'
