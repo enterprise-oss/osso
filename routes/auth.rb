@@ -33,7 +33,7 @@ module Routes
     # their Identity Provider. We find or create a user record,
     # and then create an authorization code for that user. The user
     # is redirected back to your application with this code
-    # as a URL query param, which you then exhange for a user profile
+    # as a URL query param, which you then exhange for an access token
     post '/auth/saml/:id/callback' do
       provider = Models::SamlProvider.find(params[:id])
       oauth_client = provider.oauth_client
