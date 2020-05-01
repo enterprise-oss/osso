@@ -80,8 +80,6 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack-vcr (0.1.5)
-      vcr (>= 2.9)
     rainbow (3.0.0)
     rake (12.3.3)
     rexml (3.2.4)
@@ -130,7 +128,6 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
-    vcr (5.1.0)
     webmock (3.7.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -153,7 +150,6 @@ DEPENDENCIES
   rack-contrib
   rack-oauth2
   rack-test
-  rack-vcr
   rake
   rspec
   rubocop
@@ -161,7 +157,6 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-contrib
-  vcr
   webmock
 
 RUBY VERSION

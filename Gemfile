@@ -28,7 +28,5 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'rack-test'
-  gem 'rack-vcr'
   gem 'rubocop'
-  gem 'vcr'
 end
