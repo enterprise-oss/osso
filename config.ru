@@ -2,7 +2,6 @@
 
 require 'rubygems'
 require 'bundler'
-require 'rack/test'
 
 Bundler.require
 
