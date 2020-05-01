@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_163451) do
+ActiveRecord::Schema.define(version: 2020_05_01_203026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -98,9 +98,9 @@ ActiveRecord::Schema.define(version: 2020_04_13_163451) do
   create_table "saml_providers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "provider", null: false
     t.string "domain", null: false
-    t.string "idp_sso_target_url", null: false
-    t.text "idp_cert", null: false
-    t.string "assertion_consumer_service_url"
+    t.string "idp_sso_target_url"
+    t.text "idp_cert"
+    t.string "assertion_consumer_service_url", null: false
     t.uuid "enterprise_account_id"
     t.uuid "oauth_client_id"
     t.index ["domain", "provider"], name: "index_saml_providers_on_domain_and_provider", unique: true
