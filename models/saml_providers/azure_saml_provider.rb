@@ -3,6 +3,10 @@
 module Models
   # Subclass for Azure / ADFS IDP instances
   class AzureSamlProvider < Models::SamlProvider
+    def name
+      'Azure'
+    end
+
     def saml_options
       attributes.slice(
         'domain',

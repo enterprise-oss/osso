@@ -32,7 +32,7 @@ class App < Sinatra::Base
   end
 
   use Rack::PostBodyContentTypeParser
-  use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
+  use Rack::Session::Cookie, secret: ENV['SESSION_SECRET'], key: 'osso.session'
 
   error ActiveRecord::RecordNotFound do
     status 404

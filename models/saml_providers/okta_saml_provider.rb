@@ -3,6 +3,10 @@
 module Models
   # Subclass for Okta IDP instances
   class OktaSamlProvider < Models::SamlProvider
+    def name
+      'Okta'
+    end
+
     def saml_options
       attributes.slice(
         'domain',

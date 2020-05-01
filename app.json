@@ -1,20 +1,32 @@
 {
-  "name": "saml-microservice",
-  "description": "This app does one little thing, and does it well.",
+  "name": "Osso",
+  "description": "Open Source Single Sign-On - authenticate SAML users from SSO IDPs into your application",
   "keywords": [
     "enterprise",
     "sso",
+    "SAML"
   ],
-  "repository": "https://github.com/sbauch/saml-microservice",
+  "repository": "https://github.com/enterprise-oss/osso",
   "env": {
+    "BASE_URL": {
+      "description": "The host where your application is deployed - be sure to update to match a custom domain",
+      "generator": "myosso.herokuapp.com"
+    },
     "SESSION_SECRET": {
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
+    "JWT_HMAC_SECRET": {
+      "description": "A secret key for verifying the integrity of signed JWTs from your application.",
+      "generator": "secret"
+    },
+    "JWT_URL": {
+      "description": "The authorization URL in your application where Osso can send a user to get a JWT",
+    }
   },
   "addons": [
     {
-      "plan": "heroku-postgresql",
+      "plan": "heroku-postgresql"
     }
   ]
 }

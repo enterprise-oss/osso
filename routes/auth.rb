@@ -23,16 +23,7 @@ module Routes
         identity_provider_id_regex: UUID_REGEXP,
         path_prefix: '/auth/saml',
         callback_suffix: 'callback',
-      ) do |saml_provider_id, env|
-        # If we are redirecting from the Oauth route, we
-        # know that this is an SP Initiated login, and
-        # can set a redirect. Otherwise we use the client's
-        # default redirect URI for IDP Initiated login
-        if Routes::Auth.internal_redirect?(env)
-          referrer = URI.parse(env['HTTP_REFERER'])
-          env['redirect_uri'] = CGI.parse(referrer.query)
-        end
-
+      ) do |saml_provider_id, _env|
         provider = Models::SamlProvider.find(saml_provider_id)
         provider.saml_options
       end
@@ -66,7 +57,7 @@ module Routes
         redirect_uri: redirect_uri,
       )
 
-      redirect(redirect_uri + "?code=#{authorization_code.token}")
+      redirect(redirect_uri + "?code=#{CGI.escape(authorization_code.token)}&state=#{session[:oauth_state]}")
     end
   end
 end

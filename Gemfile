@@ -5,7 +5,6 @@ ruby '2.5.6'
 source 'https://rubygems.org'
 
 gem 'jwt'
-gem 'omniauth'
 gem 'omniauth-multi-provider'
 gem 'omniauth-saml'
 gem 'pg'

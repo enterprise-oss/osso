@@ -18,9 +18,10 @@ module Routes
 
       @enterprise = Models::EnterpriseAccount
         .includes(:saml_providers)
-        .find_by!(domain: params[:domain])
+        .find_by!(domain: params[:domain] || 'vcardme.com')
 
       if @enterprise.single_provider?
+        session[:oauth_state] = params[:state]
         redirect "/auth/saml/#{@enterprise.provider.id}"
       end
 
@@ -45,8 +46,14 @@ module Routes
         req.invalid_grant! if code.redirect_uri != req.redirect_uri
         res.access_token = code.access_token.to_bearer_token
       end.call(env)
+    end
 
-      json user: code.user
+    get '/oauth/me' do
+      json Models::AccessToken
+        .includes(:user)
+        .valid
+        .find_by_token!(params[:access_token])
+        .user
     end
   end
 end

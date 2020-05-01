@@ -7,6 +7,14 @@ module Models
     self.inheritance_column = :provider
     belongs_to :enterprise_account
     belongs_to :oauth_client
+    has_many :users
+
+    def name
+      raise(
+        NoMethodError,
+        '#name must be defined on each provider specific subclass',
+      )
+    end
 
     def saml_options
       raise(

@@ -11,6 +11,7 @@ module Models
       {
         email: email,
         id: id,
+        idp: saml_provider.name,
       }
     end
   end
