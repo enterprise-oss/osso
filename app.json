@@ -9,8 +9,8 @@
   "repository": "https://github.com/enterprise-oss/osso",
   "env": {
     "BASE_URL": {
-      "description": "The host where your application is deployed - be sure to update to match a custom domain",
-      "value": "myosso.herokuapp.com"
+      "description": "The host where your application is deployed - replace APP-NAME with the app name you choose above, and be usre to update this ENV var when you set up a custom domain",
+      "value": "APP-NAME.herokuapp.com"
     },
     "SESSION_SECRET": {
       "description": "A secret key for verifying the integrity of signed cookies.",
