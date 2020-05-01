@@ -6,6 +6,7 @@
     "sso",
     "SAML"
   ],
+  "logo": "https://www.ossoapp.com/img/logo.svg",
   "repository": "https://github.com/enterprise-oss/osso",
   "env": {
     "BASE_URL": {
@@ -17,7 +18,7 @@
       "generator": "secret"
     },
     "JWT_HMAC_SECRET": {
-      "description": "A secret key for verifying the integrity of signed JWTs from your application.",
+      "description": "A secret key for verifying the integrity of signed JWTs from your application - you'll need to add this to your main application environment to sign JWTs for authenticating the Admin UI",
       "generator": "secret"
     },
     "JWT_URL": {
