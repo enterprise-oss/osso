@@ -27,7 +27,7 @@ module Routes
 
       erb :multiple_providers
 
-    rescue Rack::OAuth2::Server::Authorize::BadRequest => e
+    rescue e
       @error = e
       return erb :error
     end
