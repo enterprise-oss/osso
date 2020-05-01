@@ -10,7 +10,7 @@ module Routes
     # flow. This flow follows the authorization grant oauth
     # spec with one exception - you must also pass the domain
     # of the user who wants to sign in.
-    post '/oauth/authorize' do
+    get '/oauth/authorize' do
       Rack::OAuth2::Server::Authorize.new do |req, _res|
         client = Models::OauthClient.find_by!(identifier: req.client_id)
         req.verify_redirect_uri!(client.redirect_uris)
@@ -18,7 +18,7 @@ module Routes
 
       @enterprise = Models::EnterpriseAccount
         .includes(:saml_providers)
-        .find_by!(domain: params[:domain])
+        .find_by(domain: params[:domain])
 
       if @enterprise.single_provider?
         session[:oauth_state] = params[:state]
