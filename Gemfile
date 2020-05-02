@@ -4,7 +4,7 @@ ruby '2.6.4'
 
 source 'https://rubygems.org'
 
-gem 'osso', '0.0.1.1'
+gem 'osso', '0.0.2'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'

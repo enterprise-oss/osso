@@ -56,7 +56,7 @@ GEM
     omniauth-saml (1.10.1)
       omniauth (~> 1.3, >= 1.3.2)
       ruby-saml (~> 1.7)
-    osso (0.0.1)
+    osso (0.0.2)
       jwt
       omniauth-multi-provider
       omniauth-saml
@@ -147,7 +147,7 @@ PLATFORMS
 DEPENDENCIES
   database_cleaner-active_record
   dotenv
-  osso
+  osso (= 0.0.2)
   pg
   pry
   rake
