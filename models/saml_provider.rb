@@ -9,6 +9,8 @@ module Models
     belongs_to :oauth_client
     has_many :users
 
+    before_create :create_enterprise_account
+
     def name
       raise(
         NoMethodError,
@@ -31,6 +33,16 @@ module Models
         id,
         'callback',
       ].join('/')
+    end
+
+    alias acs_url assertion_consumer_service_url
+
+    def create_enterprise_account
+      return if enterprise_account_id
+
+      self.enterprise_account = Models::EnterpriseAccount.create(
+        domain: domain,
+      )
     end
   end
 end

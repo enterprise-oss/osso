@@ -4,7 +4,6 @@ FactoryBot.define do
   factory :saml_provider, class: Models::SamlProvider do
     id { SecureRandom.uuid }
     domain { Faker::Internet.domain_name }
-    enterprise_account
     oauth_client
     idp_cert do
       <<~CERT
