@@ -7,12 +7,10 @@ module Models
     belongs_to :refresh_token
 
     def to_bearer_token
-      bearer_token = Rack::OAuth2::AccessToken::Bearer.new(
+      Rack::OAuth2::AccessToken::Bearer.new(
         access_token: token,
         expires_in: expires_in,
       )
-
-      bearer_token
     end
 
     private

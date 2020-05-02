@@ -7,10 +7,12 @@ FactoryBot.define do
     idp_id { SecureRandom.hex(32) }
     saml_provider { create(:okta_saml_provider) }
     enterprise_account
-    authorization_codes do
-      [
-        create(:authorization_code),
-      ]
+    after(:create) do |user|
+      create(
+        :authorization_code,
+        user: user,
+        redirect_uri: user.oauth_client.redirect_uri_values.sample,
+      )
     end
   end
 end

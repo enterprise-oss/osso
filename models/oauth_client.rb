@@ -13,7 +13,6 @@ module Models
     validates :name, :secret, presence: true
     validates :identifier, presence: true, uniqueness: true
 
-    # TODO: implement this better
     def default_redirect_uri
       redirect_uris.find(&:primary)
     end
@@ -25,8 +24,8 @@ module Models
     private
 
     def setup
-      self.identifier = SecureRandom.base64(16)
-      self.secret = SecureRandom.base64(64)
+      self.identifier = SecureRandom.hex(16)
+      self.secret = SecureRandom.hex(64)
     end
   end
 end

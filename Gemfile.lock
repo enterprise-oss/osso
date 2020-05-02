@@ -50,7 +50,6 @@ GEM
     multi_json (1.14.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nofxx-annotate (3.0.1)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     omniauth (1.9.1)
@@ -107,7 +106,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
     ruby-progressbar (1.10.1)
-    ruby-saml (1.9.0)
+    ruby-saml (1.11.0)
       nokogiri (>= 1.5.10)
     ruby2_keywords (0.0.2)
     safe_yaml (1.0.5)
@@ -146,25 +145,24 @@ DEPENDENCIES
   factory_bot
   faker
   jwt
-  nofxx-annotate
   omniauth-multi-provider
   omniauth-saml
   pg
   pry
+  rack (~> 2.0.0)
   rack-contrib
   rack-oauth2
   rack-test
   rake
   rspec
   rubocop
-  ruby-saml (~> 1.9.0)
   sinatra
   sinatra-activerecord
   sinatra-contrib
   webmock
 
 RUBY VERSION
-   ruby 2.5.6p201
+   ruby 2.6.4p104
 
 BUNDLED WITH
    2.1.4

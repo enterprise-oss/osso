@@ -9,6 +9,7 @@ module Models
   class EnterpriseAccount < ActiveRecord::Base
     has_many :users
     has_many :saml_providers
+    belongs_to :oauth_client
 
     def single_provider?
       saml_providers.one?

@@ -9,8 +9,8 @@ module Routes
   module Auth
     extend Sinatra::Extension
     UUID_REGEXP =
-      /[0-9a-f]{8}-[0-9a-f]{3,4}-[0-9a-f]{4}-[0-9a-f]{3,4}-[0-9a-f]{12}/
-        .freeze
+      /[0-9a-f]{8}-[0-9a-f]{3,4}-[0-9a-f]{4}-[0-9a-f]{3,4}-[0-9a-f]{12}/.
+        freeze
 
     def self.internal_redirect?(env)
       env['HTTP_REFERER']&.match(env['SERVER_NAME'])
@@ -39,10 +39,10 @@ module Routes
       oauth_client = provider.oauth_client
       redirect_uri = env['redirect_uri'] || oauth_client.default_redirect_uri.uri
 
-      attributes = env['omniauth.auth']
-        &.extra
-        &.response_object
-        &.attributes
+      attributes = env['omniauth.auth']&.
+        extra&.
+        response_object&.
+        attributes
 
       user = Models::User.where(
         email: attributes[:email],

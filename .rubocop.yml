@@ -1,5 +1,6 @@
 AllCops:
   Exclude:
+    - client/**/*
     - db/**/*
     - node_modules/**/*
 
@@ -61,7 +62,7 @@ Layout/ArgumentAlignment:
 Layout/DotPosition:
   Description: "Checks the position of the dot in multi-line method calls."
   StyleGuide: "https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains"
-  EnforcedStyle: leading
+  EnforcedStyle: trailing
 
 Layout/LineLength:
   Exclude: 

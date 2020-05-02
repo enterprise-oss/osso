@@ -12,8 +12,6 @@ module Models
       if primary_was.true? && primary.false?
 
       end
-      self.identifier = SecureRandom.base64(16)
-      self.secret = SecureRandom.base64(64)
     end
   end
 end

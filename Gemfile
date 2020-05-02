@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby '2.5.6'
+ruby '2.6.4'
 
 source 'https://rubygems.org'
 
@@ -8,10 +8,10 @@ gem 'jwt'
 gem 'omniauth-multi-provider'
 gem 'omniauth-saml'
 gem 'pg'
+gem 'rack', '~> 2.0.0'
 gem 'rack-contrib'
 gem 'rack-oauth2'
 gem 'rake'
-gem 'ruby-saml', '~> 1.9.0'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-contrib', require: 'sinatra/extension'

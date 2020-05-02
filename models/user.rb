@@ -7,6 +7,10 @@ module Models
     has_many :authorization_codes, dependent: :delete_all
     has_many :access_tokens, dependent: :delete_all
 
+    def oauth_client
+      saml_provider.oauth_client
+    end
+
     def as_json(*)
       {
         email: email,

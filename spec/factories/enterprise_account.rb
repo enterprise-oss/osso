@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :enterprise_account, class: Models::EnterpriseAccount do
     id { SecureRandom.uuid }
     domain { Faker::Internet.domain_name }
+    oauth_client
   end
 
   factory :enterprise_with_okta, parent: :enterprise_account do

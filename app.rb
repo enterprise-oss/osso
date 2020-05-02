@@ -21,17 +21,12 @@ require_relative 'routes/routes'
 # and creating a dB connection, etc.
 class App < Sinatra::Base
   configure :development, :production do
-    db = URI.parse(ENV.fetch('DATABASE_URL'))
     ActiveRecord::Base.establish_connection(
-      adapter: 'postgresql',
-      host: db.host,
-      username: db.user,
-      password: db.password,
-      database: db.path[1..-1],
+      ENV.fetch('DATABASE_URL'),
     )
   end
 
-  use Rack::PostBodyContentTypeParser
+  use Rack::JSONBodyParser
   use Rack::Session::Cookie, secret: ENV['SESSION_SECRET']
 
   error ActiveRecord::RecordNotFound do
