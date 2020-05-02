@@ -5,11 +5,6 @@ if ENV['RACK_ENV'].nil? || ENV['RACK_ENV'] == 'development'
   require 'pry'
 end
 
-# require 'rack/contrib'
-# require 'sinatra/base'
-# require 'sinatra/contrib'
-# require 'sinatra/json'
-
 require 'osso'
 
 class App < Sinatra::Base

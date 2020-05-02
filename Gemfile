@@ -4,22 +4,15 @@ ruby '2.6.4'
 
 source 'https://rubygems.org'
 
-gem 'jwt'
-gem 'omniauth-multi-provider'
-gem 'omniauth-saml'
 gem 'osso', path: '../osso-rb'
 gem 'pg'
-gem 'rack', '~> 2.0.0'
-gem 'rack-contrib'
-gem 'rack-oauth2'
 gem 'rake'
 gem 'sinatra'
-gem 'sinatra-activerecord'
-gem 'sinatra-contrib', require: 'sinatra/extension'
+# gem 'sinatra-activerecord'
+# gem 'sinatra-contrib', require: 'sinatra/extension'
 
 group :test do
   gem 'database_cleaner-active_record'
-  gem 'factory_bot'
   gem 'rspec'
   gem 'webmock'
 end
