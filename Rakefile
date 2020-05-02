@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'sinatra/activerecord'
-require 'sinatra/activerecord/rake'
 require './app'
 
 osso = Gem::Specification.find_by_name('osso')
-Dir.glob("#{osso.gem_dir}/lib/tasks/*.rake").each { |r| load r }
+osso_rakefile = "#{osso.gem_dir}/lib/osso/Rakefile"
+load osso_rakefile
+
 Dir.glob('lib/tasks/*.rake').each { |r| load r }

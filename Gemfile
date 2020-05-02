@@ -17,8 +17,6 @@ end
 
 group :development, :test do
   gem 'dotenv'
-  gem 'faker'
   gem 'pry'
-  gem 'rack-test'
   gem 'rubocop'
 end
