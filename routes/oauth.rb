@@ -13,12 +13,12 @@ module Routes
     get '/oauth/authorize' do
       Rack::OAuth2::Server::Authorize.new do |req, _res|
         client = Models::OauthClient.find_by!(identifier: req.client_id)
-        req.verify_redirect_uri!(client.redirect_uris)
+        req.verify_redirect_uri!(client.redirect_uri_values)
       end.call(env)
 
       @enterprise = Models::EnterpriseAccount
         .includes(:saml_providers)
-        .find_by(domain: params[:domain])
+        .find_by!(domain: params[:domain])
 
       if @enterprise.single_provider?
         session[:oauth_state] = params[:state]
@@ -27,7 +27,7 @@ module Routes
 
       erb :multiple_providers
 
-    rescue e
+    rescue Rack::OAuth2::Server::Authorize::BadRequest => e
       @error = e
       return erb :error
     end

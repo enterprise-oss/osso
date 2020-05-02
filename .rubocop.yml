@@ -3,7 +3,7 @@ AllCops:
     - db/**/*
     - node_modules/**/*
 
-# new in 0.80
+# New rules must be explicitly opted into / out of
 Lint/RaiseException:
   Enabled: true
 Lint/StructNewOverride:
@@ -13,6 +13,10 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Style/ExponentialNotation:
   Enabled: true
 
 Style/TrailingCommaInArguments:

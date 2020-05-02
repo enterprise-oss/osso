@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_204047) do
+ActiveRecord::Schema.define(version: 2020_05_02_120616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -90,9 +90,15 @@ ActiveRecord::Schema.define(version: 2020_05_01_204047) do
     t.string "name", null: false
     t.string "secret", null: false
     t.string "identifier", null: false
-    t.jsonb "redirect_uris", default: [], null: false
     t.index ["identifier"], name: "index_oauth_clients_on_identifier", unique: true
-    t.index ["redirect_uris"], name: "index_oauth_clients_on_redirect_uris", using: :gin
+  end
+
+  create_table "redirect_uris", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "uri", null: false
+    t.boolean "primary", default: false, null: false
+    t.uuid "oauth_client_id"
+    t.index ["oauth_client_id"], name: "index_redirect_uris_on_oauth_client_id"
+    t.index ["uri", "primary"], name: "index_redirect_uris_on_uri_and_primary", unique: true
   end
 
   create_table "saml_providers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

@@ -37,7 +37,7 @@ module Routes
     post '/auth/saml/:id/callback' do
       provider = Models::SamlProvider.find(params[:id])
       oauth_client = provider.oauth_client
-      redirect_uri = env['redirect_uri'] || oauth_client.default_redirect_uri
+      redirect_uri = env['redirect_uri'] || oauth_client.default_redirect_uri.uri
 
       attributes = env['omniauth.auth']
         &.extra

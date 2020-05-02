@@ -16,7 +16,7 @@ describe Routes::Oauth do
             domain: 'bar.org',
             client_id: client.identifier,
             response_type: 'code',
-            redirect_uri: client.redirect_uris.sample,
+            redirect_uri: client.redirect_uri_values.sample,
           )
 
           expect(last_response.status).to eq(404)
@@ -32,7 +32,7 @@ describe Routes::Oauth do
             domain: enterprise.domain,
             client_id: client.identifier,
             response_type: 'code',
-            redirect_uri: client.redirect_uris.sample,
+            redirect_uri: client.redirect_uri_values.sample,
           )
 
           provider_id = enterprise.saml_providers.first.id
@@ -52,7 +52,7 @@ describe Routes::Oauth do
             domain: enterprise.domain,
             client_id: client.identifier,
             response_type: 'code',
-            redirect_uri: client.redirect_uris.sample,
+            redirect_uri: client.redirect_uri_values.sample,
           )
 
           expect(last_response).to be_ok

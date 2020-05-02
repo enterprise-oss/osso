@@ -4,11 +4,9 @@ FactoryBot.define do
   factory :oauth_client, class: Models::OauthClient do
     id { SecureRandom.uuid }
     name { Faker::Internet.domain_name }
-    redirect_uris do
-      [
-        Faker::Internet.url(path: '/saml-box/callback'),
-        Faker::Internet.url(host: 'localhost:9292'),
-      ]
+    after(:create) do |client|
+      create(:primary_redirect_uri, oauth_client: client)
+      create(:redirect_uri, oauth_client: client)
     end
   end
 end
