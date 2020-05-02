@@ -4,12 +4,10 @@ ruby '2.6.4'
 
 source 'https://rubygems.org'
 
-gem 'osso', path: '../osso-rb'
+gem 'osso'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
-# gem 'sinatra-activerecord'
-# gem 'sinatra-contrib', require: 'sinatra/extension'
 
 group :test do
   gem 'database_cleaner-active_record'
