@@ -1,3 +1,18 @@
+PATH
+  remote: ../osso-rb
+  specs:
+    osso (0.1.1)
+      jwt
+      omniauth-multi-provider
+      omniauth-saml
+      rack (~> 2.0.0)
+      rack-contrib
+      rack-oauth2
+      rake
+      sinatra
+      sinatra-activerecord
+      sinatra-contrib
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -147,6 +162,7 @@ DEPENDENCIES
   jwt
   omniauth-multi-provider
   omniauth-saml
+  osso!
   pg
   pry
   rack (~> 2.0.0)
