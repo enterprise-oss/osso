@@ -4,7 +4,7 @@ ruby '2.6.4'
 
 source 'https://rubygems.org'
 
-gem 'osso', path: '../osso-rb'
+gem 'osso'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
