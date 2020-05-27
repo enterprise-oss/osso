@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
+require 'osso'
 require './app'
 
 osso = Gem::Specification.find_by_name('osso')
