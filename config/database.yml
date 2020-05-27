@@ -1,7 +1,11 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
+  host: 0.0.0.0
+  username: postgres
+  password:
   pool: 5
-  database: saml-microservice-dev
-  host: localhost
-  port: 5432
+
+development:
+  <<: *default
+  database: saml-microservice_dev
