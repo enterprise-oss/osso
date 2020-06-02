@@ -4,10 +4,12 @@ ruby '2.6.4'
 
 source 'https://rubygems.org'
 
-gem 'osso'
+gem 'graphql'
+gem 'osso', path: '../osso-rb'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
+gem 'sinatra-cors'
 
 group :test do
   gem 'database_cleaner-active_record'
@@ -16,6 +18,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'sinatra-contrib'
   gem 'dotenv'
   gem 'pry'
   gem 'rubocop'

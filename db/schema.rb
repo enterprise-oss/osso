@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_135008) do
+ActiveRecord::Schema.define(version: 2020_06_01_131227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 2020_05_02_135008) do
   end
 
   create_table "saml_providers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "provider", null: false
+    t.string "provider"
     t.string "domain", null: false
     t.string "idp_sso_target_url"
     t.text "idp_cert"

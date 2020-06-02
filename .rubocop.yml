@@ -1,24 +1,9 @@
 AllCops:
+  NewCops: enable
   Exclude:
     - client/**/*
     - db/**/*
     - node_modules/**/*
-
-# New rules must be explicitly opted into / out of
-Lint/RaiseException:
-  Enabled: true
-Lint/StructNewOverride:
-  Enabled: true
-Style/HashEachMethods:
-  Enabled: true
-Style/HashTransformKeys:
-  Enabled: true
-Style/HashTransformValues:
-  Enabled: true
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-Style/ExponentialNotation:
-  Enabled: true
 
 Style/TrailingCommaInArguments:
   Description: "Checks for trailing comma in argument lists."
