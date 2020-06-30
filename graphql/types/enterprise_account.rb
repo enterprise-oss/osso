@@ -11,7 +11,7 @@ module Types
     field :id, ID, null: false
     field :name, String, null: false
     field :domain, String, null: false
-    field :provider, Types::SamlProvider, null: true
+    field :identity_providers, [Types::IdentityProvider], null: true
     field :status, String, null: false
 
     def name
@@ -22,8 +22,8 @@ module Types
       'active'
     end
 
-    def provider
-      object.provider || object.saml_providers.create(domain: object.domain)
+    def identity_providers
+      object.saml_providers
     end
   end
 end

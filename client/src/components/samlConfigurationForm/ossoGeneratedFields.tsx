@@ -6,7 +6,6 @@ import {
   Button,
   Typography,
 } from 'antd';
-import { SamlProvider, OssoInputProps, OssoProvider, OssoInput } from '../../utils/@enterprise-oss/osso/index';
 
 
 const InputComponent = ({ label, ...inputProps }: OssoInputProps) => (
@@ -14,8 +13,10 @@ const InputComponent = ({ label, ...inputProps }: OssoInputProps) => (
     <Input {...inputProps} />
   </Form.Item>
 );
+import { OssoInput, OssoInputProps, OssoProviderDetails } from '@enterprise-oss/osso';
+import { SamlProvider } from '../../pages/enterpriseAccount';
 
-export default function OssoGeneratedFields({ provider, samlProvider }: { provider: OssoProvider, samlProvider: SamlProvider }) {
+export default function OssoGeneratedFields({ providerDetails, samlProvider }: { providerDetails: OssoProviderDetails, samlProvider: SamlProvider }) {
 
   return (
     <Card title="2. Osso Generated">
@@ -25,8 +26,8 @@ export default function OssoGeneratedFields({ provider, samlProvider }: { provid
         the values here, and they are also included in the documentation you can
         download below.
       </Typography.Paragraph>
-      {provider.ossoGeneratedFields.map((field: OssoInput) => (
-        <InputComponent key={field.name} {...field.inputProps} value={samlProvider[field.name]} />
+      {providerDetails.ossoGeneratedFields.map((field: OssoInput) => (
+        <InputComponent key={field.name} {...field.inputProps} value={samlProvider[field.name as keyof SamlProvider]} />
       ))}
       <Typography.Paragraph>
         Osso provides full documentation for your customer to set up your
@@ -35,10 +36,10 @@ export default function OssoGeneratedFields({ provider, samlProvider }: { provid
       </Typography.Paragraph>
       <Button>Download Docs for this Enterprise</Button>
 
-      {provider.serviceProviderMetadata && (
+      {providerDetails.serviceProviderMetadata && (
         <>
           <Typography.Paragraph>
-            {provider.label} supports configuring an application with Service
+            {providerDetails.label} supports configuring an application with Service
             Provider metadata. Osso generates this XML metadata file for you, which
             you can provide to your customer along with the documentation to allow
             them to set up your application more easily.

@@ -1,40 +1,15 @@
-
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import React from 'react';
 import { Avatar, Table, Tag, Space } from 'antd';
 import { Link } from 'react-router-dom';
+import { useEnterpriseAccounts, EnterpriseAccount } from '@enterprise-oss/osso'
 
-enum Status {
-  new = 'new',
-  active = 'ACTIVE',
-}
-
-interface Enterprise {
-  key: string,
-  name: string,
-  domain: string,
-  status: Status,
-}
-
-const ACCOUNTS_QUERY = gql`
-  {
-    enterpriseAccounts {
-      id
-      domain
-      name
-      status
-    }
-  }
-`;
-
-export default function() {
-  const { loading, error, data } = useQuery(ACCOUNTS_QUERY);
+export default function () {
+  const { loading, data } = useEnterpriseAccounts();
 
   return (
-    <Table rowKey='id' dataSource={data?.enterpriseAccounts}>
+    <Table loading={loading} rowKey='id' dataSource={data?.enterpriseAccounts}>
       <Table.Column title="Name" dataIndex="name" key="name" render={
-        (text: String, record: Enterprise) => (
+        (text: String, record: EnterpriseAccount) => (
           <>
             <Avatar src={`https://logo.clearbit.com/${record.domain}`} />
             <Link to={`/enterprise/${record.domain}`}>{text}</Link>
@@ -48,7 +23,7 @@ export default function() {
         render={(status: String) => (
           <Tag color={status == 'active' ? 'green' : 'gold'}>
             {status.toUpperCase()}
-          </Tag>  
+          </Tag>
         )}
       />
     </Table>

@@ -1,75 +1,49 @@
-import { ChildDataProps, graphql } from '@apollo/react-hoc';
-
-import { gql } from 'apollo-boost';
-import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
-import useOssoConfig from '../../utils/@enterprise-oss/osso/useOssoConfig';
+import React, { useState } from 'react';
 import SamlConfigForm from '../../components/samlConfigurationForm/index';
-import { Enterprise } from '../../utils/@enterprise-oss/osso/index';
+import { useIdentityProvider, useEnterpriseAccount, EnterpriseAccount, useOssoFields } from '@enterprise-oss/osso'
+import { InputProps } from './index.types';
 
-const ACCOUNT_QUERY = gql`
-  query EnterpriseAccount($domain: String!) {
-    enterpriseAccount(domain: $domain) {
-      id
-      domain
-      name
-      status
-      provider {
-        id
-        provider
-        acsUrl
-      }
-    }
-  }
-`;
+import { Card, Button, Select } from 'antd';
+const Option = Select.Option;
 
 interface EnterpriseAccountProps {
-  enterpriseAccount: Enterprise,
+  enterpriseAccount: EnterpriseAccount,
 }
 
-function EnterpriseAccount({ enterpriseAccount }: EnterpriseAccountProps) {
-  const {
-    // handleSubmit,
-    // handleInputChange,
-    inputs,
-  } = useOssoConfig(enterpriseAccount);
-  console.log(inputs);
+export default (props: InputProps) => {
+  const { data, loading } = useEnterpriseAccount(props.match.params.domain);
+  const { providers } = useOssoFields();
+  const [provider, setProvider] = useState<string>();
+  const { createProvider } = useIdentityProvider();
 
-  return <SamlConfigForm samlProvider={enterpriseAccount.provider} />;
-}
-
-interface Response {
-  enterpriseAccount: Enterprise;
-}
-
-interface MatchParams {
-  domain: string;
-}
-
-interface MatchProps extends RouteComponentProps {
-  params: MatchParams,
-}
-
-type InputProps = {
-  match: MatchProps;
-};
-
-type Variables = {
-  domain: string;
-};
-
-type ChildProps = ChildDataProps<MatchProps, Response, Variables>;
-
-const withEnterpriseAccount = graphql<InputProps, Response, Variables, ChildProps>(
-  ACCOUNT_QUERY, {
-  options: ({ match: { params: { domain } } }) => (
-    { variables: { domain } }
-  ),
-}
-);
-
-export default withEnterpriseAccount(({ data: { loading, enterpriseAccount, error } }) => {
   if (loading) return <div>Loading</div>;
-  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
-  return <EnterpriseAccount enterpriseAccount={enterpriseAccount!} />;
-});
+  const { enterpriseAccount } = data;
+
+  const onCreate = () => {
+    createProvider(
+      enterpriseAccount?.id,
+      provider
+    )
+  }
+
+  return (
+    <div>
+      <Card title="Configure Identity Provider">
+        <p>To add a new Identity provider for {enterpriseAccount?.name}, first choose the Identity Provider Service</p>
+        <Select style={{ width: 120 }} onChange={(value) => setProvider(value as string)}>
+          {Object.values(providers).map((provider) => (
+            <Option value={provider.value}>{provider.label}</Option>
+          ))}
+        </Select>
+        <Button onClick={onCreate}>Get Started</Button>
+      </Card>
+
+
+      {enterpriseAccount?.identityProviders?.map((provider) => (
+        <Card key={provider.id}>
+          {JSON.stringify(provider, null, 2)}
+        </Card>
+      ))}
+    </div>
+  )
+}

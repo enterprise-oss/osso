@@ -7,7 +7,7 @@ import {
   Typography,
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { OssoProvider } from '../../utils/@enterprise-oss/osso/index';
+import { OssoProviderDetails } from '@enterprise-oss/osso';
 
 
 const normFile = (_state: any, e: any) => {
@@ -21,7 +21,7 @@ const normFile = (_state: any, e: any) => {
 };
 
 
-export default function IdpGeneratedFields({ provider }: { provider: OssoProvider }) {
+export default function IdpGeneratedFields({ provider }: { provider: OssoProviderDetails }) {
 
   return (
     <Card title="3. Complete Configuration">

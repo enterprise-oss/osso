@@ -1,5 +1,4 @@
-import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloClient } from 'apollo-client';
+import { OssoProvider } from '@enterprise-oss/osso';
 import * as React from 'react';
 import './antd.css';
 import { Layout, Menu } from 'antd';
@@ -13,43 +12,27 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { HttpLink } from 'apollo-link-http';
-
-const cache = new InMemoryCache();
-const link = new HttpLink({
-  uri: 'http://localhost:9292/graphql',
-  credentials: 'same-origin',
-});
-
-const client = new ApolloClient({
-  cache,
-  link,
-  defaultOptions: {
-    watchQuery: {
-      fetchPolicy: 'cache-and-network',
-    },
-  },
-});
 
 import './App.css';
-import brand from './resources/brand.svg';
+import Brand from './resources/brand.svg';
 
+import DeveloperConfig from './pages/developerConfiguration/index'
 import EnterpriseAccount from './pages/enterpriseAccount/index';
 import EnterpriseAccounts from './pages/enterpriseAccounts/index';
 
 function App() {
   const location = useLocation();
+  console.log(location.pathname.split('/')[1])
   return (
-    <ApolloProvider client={client}>
+    <OssoProvider>
       <Layout>
         <Sider width={220}>
-          <img className="brand" src={brand} />
-          <Menu mode="inline" selectedKeys={[location.pathname]}>
-            <Menu.Item key="/">
+          <Brand className="brand" />
+          <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
+            <Menu.Item key={null}>
               <NavLink to="/">Home</NavLink>
             </Menu.Item>
-            <Menu.Item key="/enterprise">
+            <Menu.Item key="enterprise">
               <NavLink to="/enterprise">Enterprise Customers</NavLink>
             </Menu.Item>
             <Menu.Item key="/config">
@@ -66,13 +49,17 @@ function App() {
                 <EnterpriseAccounts />
               </Route>
               <Route path="/enterprise/:domain" component={EnterpriseAccount} />
+              <Route exact path="/config">
+                <DeveloperConfig />
+              </Route>
             </Switch>
           </Content>
           <Footer>Footer</Footer>
         </Layout>
       </Layout>
-    </ApolloProvider>
+    </OssoProvider>
   );
 }
 
 export default App;
+

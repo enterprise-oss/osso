@@ -5,7 +5,7 @@ module Resolvers
     type [Types::EnterpriseAccount], null: true
 
     def resolve
-      return Osso::Models::EnterpriseAccount.all if context[:scope] == :admin 
+      return Osso::Models::EnterpriseAccount.all if context[:scope] == :admin
 
       Array(Osso::Models::EnterpriseAccount.find_by(domain: context[:scope]))
     end

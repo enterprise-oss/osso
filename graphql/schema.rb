@@ -14,6 +14,7 @@ GraphQL::Relay::BaseConnection.register_connection_implementation(
 class OssoSchema < GraphQL::Schema
   query Types::QueryType
   mutation Types::MutationType
+  use GraphQL::Pagination::Connections
 
   def self.id_from_object(object, _type_definition = nil, _query_ctx = nil)
     GraphQL::Schema::UniqueWithinType.encode(object.class.name, object.id)
@@ -28,8 +29,8 @@ class OssoSchema < GraphQL::Schema
     case obj
     when Osso::Models::EnterpriseAccount
       Types::EnterpriseAccount
-    when Osso::Models::SamlProivder
-      Types::SamlProivder
+    when Osso::Models::SamlProvider
+      Types::IdentityProvider
     else
       raise("Unexpected object: #{obj}")
     end

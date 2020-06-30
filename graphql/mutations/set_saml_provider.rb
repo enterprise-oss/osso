@@ -4,10 +4,10 @@ module Mutations
   class SetSamlProvider < BaseMutation
     null false
 
-    argument :provider, Types::IdentityProvider, required: true
+    argument :provider, Types::IdentityProviderService, required: true
     argument :id, ID, required: true
 
-    field :saml_provider, Types::SamlProvider, null: false
+    field :identity_provider, Types::IdentityProvider, null: false
     field :errors, [String], null: false
 
     def resolve(provider:, id:)

@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Card,
   Form,
@@ -10,10 +10,10 @@ import {
   Upload,
   Typography,
 } from 'antd';
-import { SamlProvider, availableProviders, OssoInputProps } from '../../utils/@enterprise-oss/osso/index';
+import { SamlProvider } from '../../pages/enterpriseAccount/index';
 import OssoGeneratedFields from './ossoGeneratedFields';
 import IdpGeneratedFields from './idpGeneratedFields';
-
+import { useOssoFields, useProvider } from '@enterprise-oss/osso';
 
 const formItemLayout = {
   labelCol: {
@@ -24,21 +24,17 @@ const formItemLayout = {
   },
 };
 
-const SET_PROVIDER = gql`
-  mutation SetProvider($id: ID!, $provider: IdentityProvider!) {
-  setSamlProvider(input: {id: $id, provider: $provider}) {
-    samlProvider {
-      id
-      provider
-    }
-  }
-}
-`
 
-const SamlConfigForm = ({ samlProvider }: { samlProvider: SamlProvider }) => {
-  const [setProvider] = useMutation(SET_PROVIDER);
-  const provider = samlProvider?.provider && availableProviders[samlProvider.provider];
+const SamlConfigForm = ({ id }: { id: string }) => {
+  const { identityProvider: { fetch, data, setProviderService } } = useProvider();
+  useEffect(() => {
+    fetch(id)
+  }, [])
 
+  const { providers, fieldsForProvider } = useOssoFields();
+  const providerDetails = fieldsForProvider(data?.provider)
+  if (!data) return null;
+  console.log("PROVIDER", data)
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -52,30 +48,28 @@ const SamlConfigForm = ({ samlProvider }: { samlProvider: SamlProvider }) => {
     >
       <Card title="1. Identity Provider">
         <Typography.Paragraph>
-          Select the Identity Provider your customer will use for Single Sign On to
+          Select the Identity Provider service your customer will use for Single Sign On to
           your application.
         </Typography.Paragraph>
         <Form.Item>
           <Radio.Group
-            onChange={(e) => setProvider({
-              variables: {
-                id: samlProvider.id,
-                provider: e.target.value.value,
-              }
-            })}
-            value={provider}
+            onChange={(e) => setProviderService(
+              data?.id,
+              e.target.value,
+            )}
+            value={data?.provider}
           >
-            {Object.values(availableProviders).map((provider) => (
-              <Radio key={provider.value} value={provider}>{provider.label}</Radio>
+            {Object.values(providers).map((providerOption) => (
+              <Radio key={providerOption.value} value={providerOption.value}>{providerOption.label}</Radio>
             ))}
           </Radio.Group>
         </Form.Item>
       </Card>
 
-      {provider && <OssoGeneratedFields provider={provider} samlProvider={samlProvider} />}
-      {provider && <IdpGeneratedFields provider={provider} />}
+      {providerDetails && <OssoGeneratedFields providerDetails={providerDetails} samlProvider={data} />}
+      {providerDetails && <IdpGeneratedFields provider={providerDetails} />}
 
-      < Form.Item >
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Save
         </Button>

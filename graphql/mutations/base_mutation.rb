@@ -8,5 +8,13 @@ module Mutations
     # field_class Types::BaseField
     # # This is used for generating the `input: { ... }` object type
     # input_object_class Types::BaseInputObject
+
+    def return_data(data)
+      data.merge(errors: [])
+    end
+
+    def return_error(error)
+      error.merge(data: nil)
+    end
   end
 end

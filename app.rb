@@ -6,7 +6,6 @@ require 'sinatra/cors'
 require 'osso'
 require_relative 'graphql/schema'
 
-
 class App < Sinatra::Base
   include Osso::AppConfig
   include Helpers::Auth # TODO: namespace helpers in gem
@@ -24,7 +23,7 @@ class App < Sinatra::Base
   register Sinatra::Cors
 
   set :allow_origin, '*'
-  set :allow_methods, 'GET,HEAD,POST'
+  set :allow_methods, 'GET,HEAD,POST,OPTIONS'
   set :allow_headers, 'content-type,if-modified-since'
   set :expose_headers, 'location,link'
 
