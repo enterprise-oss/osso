@@ -1,0 +1,35 @@
+{
+  "name": "Osso",
+  "description": "Open Source Single Sign-On - authenticate SAML users from SSO IDPs into your application",
+  "keywords": [
+    "enterprise",
+    "sso",
+    "SAML"
+  ],
+  "logo": "https://www.ossoapp.com/img/logo.svg",
+  "repository": "https://github.com/enterprise-oss/osso",
+  "website": "https://ossoapp.com",
+  "success_url": "https://ossoapp.com/docs/guides/deployment#post-deployment",
+  "env": {
+    "BASE_URL": {
+      "description": "The host where your application is deployed - replace APP-NAME with the app name you choose above, and be usre to update this ENV var when you set up a custom domain",
+      "value": "https://APP-NAME.herokuapp.com"
+    },
+    "SESSION_SECRET": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "JWT_HMAC_SECRET": {
+      "description": "A secret key for verifying the integrity of signed JWTs from your application - you'll need to add this to your main application environment to sign JWTs for authenticating the Admin UI",
+      "generator": "secret"
+    },
+    "JWT_URL": {
+      "description": "The authorization URL in your application where Osso can send a user to get a JWT"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql"
+    }
+  ]
+}

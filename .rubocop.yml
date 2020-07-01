@@ -1,0 +1,67 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - client/**/*
+    - db/**/*
+    - node_modules/**/*
+
+Style/TrailingCommaInArguments:
+  Description: "Checks for trailing comma in argument lists."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas"
+  EnforcedStyleForMultiline: comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+  Enabled: true
+
+Style/TrailingCommaInArrayLiteral:
+  Description: "Checks for trailing comma in array literals."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas"
+  EnforcedStyleForMultiline: comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+  Enabled: true
+
+Style/TrailingCommaInHashLiteral:
+  Description: "Checks for trailing comma in hash literals."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas"
+  EnforcedStyleForMultiline: comma
+  SupportedStylesForMultiline:
+    - comma
+    - consistent_comma
+    - no_comma
+  Enabled: true
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+  
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  Description: "Checks the position of the dot in multi-line method calls."
+  StyleGuide: "https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains"
+  EnforcedStyle: trailing
+
+Layout/LineLength:
+  Exclude: 
+    - 'spec/**/**.*'
+
+Metrics/BlockLength:
+  Exclude: 
+    - 'spec/**/*'
+
+Metrics/AbcSize:
+  Max: 20
+
+Style/Documentation:
+  Enabled: false
+  Exclude:
+    - 'spec/**/*'
+    - 'db/**.*'
