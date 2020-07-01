@@ -12,7 +12,7 @@ module Mutations
     def resolve(enterprise_account_id:, provider_service:)
       enterprise_account = Osso::Models::EnterpriseAccount.find(enterprise_account_id)
       identity_provider = enterprise_account.saml_providers.create!(
-        provider: provider_service,
+        provider: provider_service || 'OKTA',
         domain: enterprise_account.domain,
       )
 

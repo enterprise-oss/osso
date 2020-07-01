@@ -9,6 +9,7 @@
     "build:theme": "lessc --js ./src/index.less ./src/antd.css"
   },
   "devDependencies": {
+    "@enterprise-oss/osso": "link:../../frontend/osso",
     "@parcel/transformer-svg-react": "^2.0.0-beta.1",
     "@parcel/transformer-typescript-tsc": "^2.0.0-beta.1",
     "@parcel/ts-utils": "^2.0.0-beta.1",
@@ -22,21 +23,21 @@
     "browserslist": "^4.12.2",
     "eslint": "^7.1.0",
     "jest": "^25.4.0",
-    "parcel": "^2.0.0-beta.1",
+    "parcel": "^2.0.0-nightly.318",
     "prettier": "^2.0.0",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^16.13.1",
     "typescript": "^3.8.0"
   },
   "dependencies": {
     "@ant-design/colors": "^4.0.0",
     "@apollo/react-hoc": "^3.1.5",
     "@apollo/react-hooks": "^3.1.5",
-    "@enterprise-oss/osso": "link:../../frontend/osso",
     "antd": "^4.2.5",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.0.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "browserslist": [
     "last 1 Chrome version"

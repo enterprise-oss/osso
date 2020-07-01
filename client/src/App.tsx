@@ -41,7 +41,7 @@ function App() {
           </Menu>
         </Sider>
         <Layout>
-          <Header>Header</Header>
+          <Header>Header HMR</Header>
           <Content className="main">
             <Redirect from="/" to="/enterprise" />
             <Switch>
