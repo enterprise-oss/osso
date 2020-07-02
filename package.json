@@ -5,7 +5,7 @@
   "author": "Sam Bauch <sbauch@gmail.com>",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "postinstall": "cd client && yarn build"
+    "postinstall": "cd client && yarn install && yarn build"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
