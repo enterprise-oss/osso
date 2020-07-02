@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require 'dotenv/tasks'
+require 'dotenv/load'
+require 'dotenv/tasks' if defined? Dotenv
 require 'osso'
 require './app'
 require 'osso/rake'
