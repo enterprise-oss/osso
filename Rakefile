@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
-require 'dotenv/load'
-require 'dotenv/tasks' if defined? Dotenv
+if ENV['RACK_ENV'] == 'development'
+  require 'dotenv/load'
+  require 'dotenv/tasks'
+end
+
 require 'osso'
 require './app'
 require 'osso/rake'
