@@ -2,6 +2,7 @@
   "scripts": {
     "start": "parcel ./src/index.tsx",
     "build": "parcel build ./src/index.tsx",
+    "clean": "rm -rf dist",
     "test": "jest",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
     "lint": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
@@ -11,7 +12,6 @@
     "@babel/core": "^7.10.4",
     "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@enterprise-oss/osso": "link:../../frontend/osso",
     "@svgr/parcel-plugin-svgr": "^5.4.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",
@@ -34,6 +34,7 @@
     "@ant-design/colors": "^4.0.0",
     "@apollo/react-hoc": "^3.1.5",
     "@apollo/react-hooks": "^3.1.5",
+    "@enterprise-oss/osso": "link:../../frontend/osso",
     "antd": "^4.4.0",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.0.0",
