@@ -1,0 +1,10 @@
+{
+  "name": "osso",
+  "version": "1.0.0",
+  "repository": "git@github.com:enterprise-oss/osso.git",
+  "author": "Sam Bauch <sbauch@gmail.com>",
+  "license": "LICENSE",
+  "scripts": {
+    "postinstall": "cd client && yarn build"
+  }
+}
