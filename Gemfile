@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+gem 'dotenv', require: 'dotenv/load', groups: %i[development test]
+
 ruby '2.6.4'
 
 source 'https://rubygems.org'
@@ -19,7 +21,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'dotenv'
   gem 'pry'
   gem 'rubocop'
   gem 'sinatra-contrib'
