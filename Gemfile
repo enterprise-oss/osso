@@ -2,7 +2,7 @@
 
 gem 'dotenv', require: 'dotenv/load', groups: %i[development test]
 
-ruby '2.6.4'
+ruby '2.6.6'
 
 source 'https://rubygems.org'
 
