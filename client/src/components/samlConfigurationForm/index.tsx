@@ -6,7 +6,7 @@ import {
   Upload,
   Tooltip,
 } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import UploadOutlined from '@ant-design/icons/UploadOutlined';
 
 import { IdpGeneratedFields, OssoGeneratedFields, OssoInputProps } from '@enterprise-oss/osso';
 

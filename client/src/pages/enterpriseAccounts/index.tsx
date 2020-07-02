@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Table, Tag, Space } from 'antd';
+import { Avatar, Table, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 import { useEnterpriseAccounts, EnterpriseAccount } from '@enterprise-oss/osso'
 

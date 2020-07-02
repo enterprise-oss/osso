@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-optional-chaining",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": "css"
+      }
+    ]
+  ],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-typescript"
+  ]
+}
