@@ -8,7 +8,7 @@ import {
 } from 'antd';
 import UploadOutlined from '@ant-design/icons/UploadOutlined';
 
-import { IdpGeneratedFields, OssoGeneratedFields, OssoInputProps } from '@enterprise-oss/osso';
+import { IdpGeneratedFields, OssoGeneratedFields, OssoInputProps } from '@enterprise-oss/osso-react';
 
 const formItemLayout = {
   labelCol: {

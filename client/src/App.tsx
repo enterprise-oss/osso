@@ -1,4 +1,4 @@
-import { OssoProvider } from '@enterprise-oss/osso';
+import { OssoProvider } from '@enterprise-oss/osso-react';
 import * as React from 'react';
 import './antd.css';
 import { Layout, Menu } from 'antd';

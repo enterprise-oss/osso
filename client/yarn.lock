@@ -1050,18 +1050,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@enterprise-oss/osso@git+ssh://git@github.com:enterprise-oss/osso-react.git":
-  version "1.0.0"
-  resolved "git+ssh://git@github.com:enterprise-oss/osso-react.git#b16f475cd9ccb02bce499c6c9e5198aa811f90a0"
-  dependencies:
-    "@apollo/react-hooks" "^3.1.5"
-    antd "^4.4.0"
-    apollo-boost "^0.4.9"
-    apollo-cache-inmemory "^1.6.6"
-    apollo-client "^2.6.10"
-    apollo-link-http "^1.5.17"
-    graphql "^15.1.0"
-    react "^16.13.1"
+"@enterprise-oss/osso@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.1.tgz#846ce1656bb1deb26a098a19bdf29b8a549a6d00"
+  integrity sha512-2T1Kfy9BnaSkCeaYXLSiE9eXPTIiDzwTaXSJKSjwPCpZD2xdQcgI2dETcZu6LqaZk4SiG6V1AAYpB9wc07WNMw==
 
 "@iarna/toml@^2.2.0":
   version "2.2.5"
@@ -1940,7 +1932,7 @@ apollo-link-http-common@^0.2.16:
     ts-invariant "^0.4.0"
     tslib "^1.9.3"
 
-apollo-link-http@^1.3.1, apollo-link-http@^1.5.17:
+apollo-link-http@^1.3.1:
   version "1.5.17"
   resolved "https://registry.yarnpkg.com/apollo-link-http/-/apollo-link-http-1.5.17.tgz#499e9f1711bf694497f02c51af12d82de5d8d8ba"
   integrity sha512-uWcqAotbwDEU/9+Dm9e1/clO7hTB2kQ/94JYcGouBVLjoKmTeJTUPQKcJGpPwUjZcSqgYicbFqQSoJIW0yrFvg==
@@ -4007,7 +3999,7 @@ graphql-tag@^2.4.2:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
   integrity sha512-4FOv3ZKfA4WdOKJeHdz6B3F/vxBLSgmBcGeAFPf4n1F64ltJUvOOerNj0rsJxONQGdhUMynQIvd6LzB+1J5oKA==
 
-graphql@^15.0.0, graphql@^15.1.0:
+graphql@^15.0.0:
   version "15.2.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.2.0.tgz#d9c655a523a3196d4b23657ec6ec5963b3bd4970"
   integrity sha512-tsceRyHfgzZo+ee0YK3o8f0CR0cXAXxRlxoORWFo/CoM1bVy3UXGWeyzBcf+Y6oqPvO27BDmOEVATcunOO/MrQ==
