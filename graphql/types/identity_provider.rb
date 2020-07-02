@@ -13,8 +13,8 @@ module Types
     field :service, Types::IdentityProviderService, null: true
     field :domain, String, null: false
     field :acs_url, String, null: false
-    field :idp_sso_target_url, String, required: true
-    field :idp_cert, String, required: true
+    field :sso_url, String, null: true
+    field :sso_cert, String, null: true
     field :configured, Boolean, null: false
 
     def service
@@ -23,6 +23,14 @@ module Types
 
     def configured
       @object.idp_sso_target_url && @object.idp_cert
+    end
+
+    def sso_cert
+      @object.idp_cert
+    end
+
+    def sso_url
+      @object.idp_sso_target_url
     end
   end
 end

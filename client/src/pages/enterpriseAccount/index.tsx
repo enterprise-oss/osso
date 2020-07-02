@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import SamlConfigForm from '../../components/samlConfigurationForm/index';
-import { createIdentityProvider, useEnterpriseAccount, EnterpriseAccount, useOssoFields } from '@enterprise-oss/osso'
+import { createIdentityProvider, useEnterpriseAccount, EnterpriseAccount, useOssoFields, IdentityProvider } from '@enterprise-oss/osso'
 import { InputProps } from './index.types';
 
 import { Card, Button, Select } from 'antd';
 const Option = Select.Option;
-
-interface EnterpriseAccountProps {
-  enterpriseAccount: EnterpriseAccount,
-}
 
 export default (props: InputProps) => {
   const { data, loading } = useEnterpriseAccount(props.match.params.domain);
@@ -28,7 +24,7 @@ export default (props: InputProps) => {
 
   return (
     <div>
-      {enterpriseAccount?.identityProviders?.map((provider) => (
+      {enterpriseAccount?.identityProviders?.map((provider: IdentityProvider) => (
         <Card title={provider.service} key={provider.id}>
           <SamlConfigForm id={provider.id} />
         </Card>

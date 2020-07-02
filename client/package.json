@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "oldstart": "tsc --noEmit && parcel ./src/index.tsx",
-    "start": "parcel serve ./src/index.tsx",
+    "start": "parcel ./src/index.tsx",
     "build": "parcel build ./src/index.tsx",
     "test": "jest",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
@@ -10,9 +9,7 @@
   },
   "devDependencies": {
     "@enterprise-oss/osso": "link:../../frontend/osso",
-    "@parcel/transformer-svg-react": "^2.0.0-beta.1",
-    "@parcel/transformer-typescript-tsc": "^2.0.0-beta.1",
-    "@parcel/ts-utils": "^2.0.0-beta.1",
+    "@svgr/parcel-plugin-svgr": "^5.4.0",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",
     "@types/react": "^16.9.35",
@@ -23,7 +20,7 @@
     "browserslist": "^4.12.2",
     "eslint": "^7.1.0",
     "jest": "^25.4.0",
-    "parcel": "^2.0.0-nightly.318",
+    "parcel-bundler": "^1.12.4",
     "prettier": "^2.0.0",
     "react": "^16.13.1",
     "typescript": "^3.8.0"
@@ -35,9 +32,9 @@
     "antd": "^4.2.5",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.0.0",
-    "react-router-dom": "^5.2.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
   },
   "browserslist": [
     "last 1 Chrome version"

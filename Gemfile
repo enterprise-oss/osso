@@ -5,7 +5,7 @@ ruby '2.6.4'
 source 'https://rubygems.org'
 
 gem 'graphql'
-gem 'osso', path: '../osso-rb'
+gem 'osso'
 gem 'pg'
 gem 'rake'
 gem 'sinatra'
@@ -18,8 +18,8 @@ group :test do
 end
 
 group :development, :test do
-  gem 'sinatra-contrib'
   gem 'dotenv'
   gem 'pry'
   gem 'rubocop'
+  gem 'sinatra-contrib'
 end

@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
-  Card,
   Form,
   Input,
-  Radio,
   Button,
   Upload,
-  Typography,
   Tooltip,
 } from 'antd';
-import IdpGeneratedFields from './idpGeneratedFields';
-import { OssoGeneratedFields, OssoInputProps, useOssoFields, useIdentityProvider } from '@enterprise-oss/osso';
+import { UploadOutlined } from '@ant-design/icons';
+
+import { IdpGeneratedFields, OssoGeneratedFields, OssoInputProps } from '@enterprise-oss/osso';
 
 const formItemLayout = {
   labelCol: {
@@ -21,13 +19,24 @@ const formItemLayout = {
   },
 };
 
-const InputComponent = ({ label, copyable, ...inputProps }: OssoInputProps) => (
+const UploadComponent = () => (
+  <Upload.Dragger name="files" action="/upload.do">
+    <p className="ant-upload-drag-icon">
+      <UploadOutlined />
+    </p>
+    <p className="ant-upload-text">Click to choose or drag XML Federated Metadata file</p>
+    <p className="ant-upload-hint">.XML files will be parsed for configuration</p>
+  </Upload.Dragger>
+)
+
+const InputComponent = ({ onChange, label, copyable, ...inputProps }: OssoInputProps) => (
   <Form.Item label={label}>
     <Input
+      onChange={(e) => onChange && onChange(e.target.value)}
       {...inputProps}
       suffix={copyable && (
         <Tooltip title="Extra information">
-          COPY
+          <span>COPY</span>
         </Tooltip>
       )
       }
@@ -35,40 +44,19 @@ const InputComponent = ({ label, copyable, ...inputProps }: OssoInputProps) => (
   </Form.Item>
 );
 
-const SamlConfigForm = ({ id }: { id: string }) => {
-  const { loading, data } = useIdentityProvider(id);
-  const { fieldsForProvider } = useOssoFields();
-
-  if (loading) return null;
-  const providerDetails = fieldsForProvider(data?.identityProvider?.service)
-
-  const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
-  };
-
-  return (
-    <Form
-      {...formItemLayout}
-      onFinish={onFinish}
-      layout="vertical"
-    >
-
-      {providerDetails &&
-        <OssoGeneratedFields
-          InputComponent={InputComponent}
-          providerDetails={providerDetails}
-          identityProvider={data?.identityProvider}
-        />
-      }
-      {providerDetails && <IdpGeneratedFields provider={providerDetails} />}
-
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Save
-        </Button>
-      </Form.Item>
-    </Form >
-  );
-};
+const SamlConfigForm = ({ id }: { id: string }) => (
+  <Form {...formItemLayout} layout="vertical">
+    <OssoGeneratedFields
+      InputComponent={InputComponent}
+      identityProvider={{ id }}
+    />
+    <IdpGeneratedFields
+      ButtonComponent={(props) => <Button {...props} type="primary" htmlType="submit">Submit</Button>}
+      InputComponent={InputComponent}
+      UploadComponent={UploadComponent}
+      identityProvider={{ id }}
+    />
+  </Form >
+);
 
 export default SamlConfigForm;
