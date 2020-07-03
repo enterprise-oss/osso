@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# require 'dotenv/tasks'
+require 'dotenv/load' unless ENV['RACK_ENV']
 
 require './app'
 require 'osso'
