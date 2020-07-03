@@ -1,6 +1,6 @@
 import { OssoProvider } from '@enterprise-oss/osso';
 import * as React from 'react';
-// import './antd.css';
+import './antd.css';
 import { Layout, Menu } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 import {
