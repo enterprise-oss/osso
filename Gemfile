@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso', path: '../osso-rb'
+gem 'osso'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rake'
