@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
-# if ENV['RACK_ENV'] == 'development'
-require 'dotenv/load'
-require 'dotenv/tasks'
-# end
+# require 'dotenv/tasks'
 
-require 'osso'
 require './app'
+require 'osso'
 require 'osso/rake'
 require 'sinatra/activerecord/rake'
 
