@@ -47,10 +47,10 @@ function App() {
               <Route exact path="/enterprise">
                 <EnterpriseAccounts />
               </Route>
-              {/* <Route path="/enterprise/:domain" component={EnterpriseAccount} />
-            <Route exact path="/config">
-              <DeveloperConfig />
-            </Route> */}
+              <Route path="/enterprise/:domain" component={EnterpriseAccount} />
+              <Route exact path="/config">
+                <DeveloperConfig />
+              </Route>
             </Switch>
           </Content>
           <Footer>Footer</Footer>
