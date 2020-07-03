@@ -3,7 +3,6 @@ import SamlConfigForm from '../../components/samlConfigurationForm/index';
 import {
   createIdentityProvider,
   useEnterpriseAccount,
-  EnterpriseAccount,
   useOssoFields,
   IdentityProvider,
 } from '@enterprise-oss/osso';
