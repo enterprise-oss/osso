@@ -23,7 +23,7 @@ function App() {
   const location = useLocation();
   console.log(location.pathname.split('/')[1])
   return (
-    <OssoProvider>
+    <OssoProvider client={{ uri: process.env.OSSO_BASE_URL! }}>
       <Layout>
         <Sider width={220}>
           <img src={Brand} className="brand" />
