@@ -2,7 +2,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "start": "parcel ./src/index.tsx",
-    "build": "parcel build ./src/index.tsx",
+    "build": "parcel build ./src/index.tsx --out-dir ../public",
     "clean": "rm -rf dist",
     "test": "jest",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
