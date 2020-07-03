@@ -2,7 +2,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "start": "parcel ./client/src/index.tsx",
-    "build": "parcel build ./client/src/index.tsx --no-minify --experimental-scope-hoisting --out-dir ./public",
+    "build": "node client/scripts/fix-rc-table.js && parcel build ./client/src/index.tsx --out-dir ./public",
     "clean": "rm -rf client/dist",
     "test": "jest",
     "format": "prettier --write 'client/src/**/*.{js,jsx,ts,tsx}'",
@@ -39,11 +39,17 @@
     "antd": "^4.4.0",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.0.0",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
   },
-  "browserslist": [
-    "last 1 Chrome version"
-  ]
+  "browserslist": {
+    "development": [
+      "last 1 Chrome version"
+    ],
+    "production": [
+      "defaults"
+    ]
+  }
 }

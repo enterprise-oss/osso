@@ -1,12 +1,12 @@
 {
   "plugins": [
-    "@babel/plugin-proposal-optional-chaining",
     [
       "import",
       {
         "libraryName": "antd",
         "libraryDirectory": "es"
-      }
+      },
+      "import-antd"
     ],
     [
       "import",

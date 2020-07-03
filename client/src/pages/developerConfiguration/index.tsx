@@ -3,34 +3,36 @@ import { ChildDataProps, graphql } from '@apollo/react-hoc';
 import { gql } from 'apollo-boost';
 import React from 'react';
 
-const CONFIG_QUERY = gql`
-  query DeveloperConfig {
-    oAuthClients {
-      id
-      name
-      status
-    }
-  }
-`;
+export default () => <p>config</p>;
 
-function DeveloperConfig({}: any) {
-  return <div>ok</div>;
-}
+// const CONFIG_QUERY = gql`
+//   query DeveloperConfig {
+//     oAuthClients {
+//       id
+//       name
+//       status
+//     }
+//   }
+// `;
 
-interface Response {
-  oAuthClients: any; // TODO
-}
+// function DeveloperConfig({}: any) {
+//   return <div>ok</div>;
+// }
 
-type ChildProps = ChildDataProps<{}, Response, {}>;
+// interface Response {
+//   oAuthClients: any; // TODO
+// }
 
-const withEnterpriseAccount = graphql<{}, Response, {}, ChildProps>(
-  CONFIG_QUERY,
-);
+// type ChildProps = ChildDataProps<{}, Response, {}>;
 
-export default withEnterpriseAccount(
-  ({ data: { loading, oAuthClients, error } }) => {
-    if (loading) return <div>Loading</div>;
-    if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
-    return <DeveloperConfig oAuthClients={oAuthClients!} />;
-  },
-);
+// const withEnterpriseAccount = graphql<{}, Response, {}, ChildProps>(
+//   CONFIG_QUERY,
+// );
+
+// export default withEnterpriseAccount(
+//   ({ data: { loading, oAuthClients, error } }) => {
+//     if (loading) return <div>Loading</div>;
+//     if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
+//     return <DeveloperConfig oAuthClients={oAuthClients!} />;
+//   },
+// );
