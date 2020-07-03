@@ -5,11 +5,9 @@ export interface MatchParams {
 }
 
 export interface MatchProps extends RouteComponentProps {
-  params: MatchParams,
+  params: MatchParams;
 }
 
 export type InputProps = {
   match: MatchProps;
 };
-
-

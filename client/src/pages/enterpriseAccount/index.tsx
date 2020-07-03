@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import SamlConfigForm from '../../components/samlConfigurationForm/index';
-import { createIdentityProvider, useEnterpriseAccount, EnterpriseAccount, useOssoFields, IdentityProvider } from '@enterprise-oss/osso'
+import {
+  createIdentityProvider,
+  useEnterpriseAccount,
+  EnterpriseAccount,
+  useOssoFields,
+  IdentityProvider,
+} from '@enterprise-oss/osso';
 import { InputProps } from './index.types';
 
 import { Card, Button, Select } from 'antd';
@@ -16,23 +22,28 @@ export default (props: InputProps) => {
   const { enterpriseAccount } = data;
 
   const onCreate = () => {
-    createProvider(
-      enterpriseAccount?.id,
-      provider
-    )
-  }
+    createProvider(enterpriseAccount?.id, provider);
+  };
 
   return (
     <div>
-      {enterpriseAccount?.identityProviders?.map((provider: IdentityProvider) => (
-        <Card title={provider.service} key={provider.id}>
-          <SamlConfigForm id={provider.id} />
-        </Card>
-      ))}
+      {enterpriseAccount?.identityProviders?.map(
+        (provider: IdentityProvider) => (
+          <Card title={provider.service} key={provider.id}>
+            <SamlConfigForm id={provider.id} />
+          </Card>
+        ),
+      )}
 
       <Card title="Configure Identity Provider">
-        <p>To add a new Identity provider for {enterpriseAccount?.name}, first choose the Identity Provider Service</p>
-        <Select style={{ width: 120 }} onChange={(value) => setProvider(value as string)}>
+        <p>
+          To add a new Identity provider for {enterpriseAccount?.name}, first
+          choose the Identity Provider Service
+        </p>
+        <Select
+          style={{ width: 120 }}
+          onChange={(value) => setProvider(value as string)}
+        >
           {Object.values(providers).map((provider) => (
             <Option value={provider.value}>{provider.label}</Option>
           ))}
@@ -40,5 +51,5 @@ export default (props: InputProps) => {
         <Button onClick={onCreate}>Get Started</Button>
       </Card>
     </div>
-  )
-}
+  );
+};

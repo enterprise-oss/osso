@@ -13,7 +13,7 @@ const CONFIG_QUERY = gql`
   }
 `;
 
-function DeveloperConfig({ }: any) {
+function DeveloperConfig({}: any) {
   return <div>ok</div>;
 }
 
@@ -21,15 +21,16 @@ interface Response {
   oAuthClients: any; // TODO
 }
 
-
 type ChildProps = ChildDataProps<{}, Response, {}>;
 
 const withEnterpriseAccount = graphql<{}, Response, {}, ChildProps>(
-  CONFIG_QUERY
+  CONFIG_QUERY,
 );
 
-export default withEnterpriseAccount(({ data: { loading, oAuthClients, error } }) => {
-  if (loading) return <div>Loading</div>;
-  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
-  return <DeveloperConfig oAuthClients={oAuthClients!} />;
-});
+export default withEnterpriseAccount(
+  ({ data: { loading, oAuthClients, error } }) => {
+    if (loading) return <div>Loading</div>;
+    if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
+    return <DeveloperConfig oAuthClients={oAuthClients!} />;
+  },
+);
