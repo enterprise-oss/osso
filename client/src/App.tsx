@@ -23,7 +23,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <OssoProvider client={{ uri: process.env.OSSO_BASE_URL! }}>
+    <OssoProvider>
       <Layout>
         <Sider width={220}>
           <img src={Brand} className="brand" />
