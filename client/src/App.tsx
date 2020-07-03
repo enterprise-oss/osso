@@ -1,4 +1,3 @@
-import { OssoProvider } from '@enterprise-oss/osso';
 import * as React from 'react';
 import './antd.css';
 import { Layout, Menu } from 'antd';
@@ -23,40 +22,39 @@ function App() {
   const location = useLocation();
   console.log(location.pathname.split('/')[1])
   return (
-    <OssoProvider client={{ uri: process.env.OSSO_BASE_URL! }}>
+
+    <Layout>
+      <Sider width={220}>
+        <img src={Brand} className="brand" />
+        <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
+          <Menu.Item key=''>
+            <NavLink to="/">Home</NavLink>
+          </Menu.Item>
+          <Menu.Item key="enterprise">
+            <NavLink to="/enterprise">Enterprise Customers</NavLink>
+          </Menu.Item>
+          <Menu.Item key="/config">
+            <NavLink to="/config">Developer Configuration</NavLink>
+          </Menu.Item>
+        </Menu>
+      </Sider>
       <Layout>
-        <Sider width={220}>
-          <img src={Brand} className="brand" />
-          <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
-            <Menu.Item key=''>
-              <NavLink to="/">Home</NavLink>
-            </Menu.Item>
-            <Menu.Item key="enterprise">
-              <NavLink to="/enterprise">Enterprise Customers</NavLink>
-            </Menu.Item>
-            <Menu.Item key="/config">
-              <NavLink to="/config">Developer Configuration</NavLink>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header>Header HMR</Header>
-          <Content className="main">
-            <Redirect from="/" to="/enterprise" />
-            <Switch>
-              <Route exact path="/enterprise">
-                <EnterpriseAccounts />
-              </Route>
-              <Route path="/enterprise/:domain" component={EnterpriseAccount} />
-              <Route exact path="/config">
-                <DeveloperConfig />
-              </Route>
-            </Switch>
-          </Content>
-          <Footer>Footer</Footer>
-        </Layout>
+        <Header>Header HMR</Header>
+        <Content className="main">
+          <Redirect from="/" to="/enterprise" />
+          <Switch>
+            <Route exact path="/enterprise">
+              <EnterpriseAccounts />
+            </Route>
+            <Route path="/enterprise/:domain" component={EnterpriseAccount} />
+            <Route exact path="/config">
+              <DeveloperConfig />
+            </Route>
+          </Switch>
+        </Content>
+        <Footer>Footer</Footer>
       </Layout>
-    </OssoProvider>
+    </Layout>
   );
 }
 
