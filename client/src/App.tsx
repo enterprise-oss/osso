@@ -12,7 +12,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-
 import './App.css';
 import Brand from './resources/brand.svg';
 
@@ -27,7 +26,7 @@ function App() {
     <OssoProvider>
       <Layout>
         <Sider width={220}>
-          <Brand className="brand" />
+          <img src={Brand} className="brand" />
           <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
             <Menu.Item key=''>
               <NavLink to="/">Home</NavLink>
