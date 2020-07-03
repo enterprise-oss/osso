@@ -9,3 +9,6 @@ default: &default
 development:
   <<: *default
   database: osso-development
+production:
+  <<: *default
+  database: osso-development

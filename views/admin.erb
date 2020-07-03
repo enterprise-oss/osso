@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Osso</title>
+    <% if ENV['RACK_ENV'] === 'development' %>
+        <link rel="stylesheet" type="text/css" href="http://localhost:1234/index.css">
+    <% else %>  
+      <script src="/index.css"></script>
+    <% end %> 
+  </head>
+  <body>
+    <%= ENV['RACK_ENV'] %>
+    <div id="root"></div>
+  </body>
+  <% if ENV['RACK_ENV'] === 'development' %>
+    <script src="http://localhost:1234/index.js"></script>
+  <% else %>  
+    <script src="/index.js"></script>
+  <% end %> 
+</html>

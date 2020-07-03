@@ -1,6 +1,3 @@
-import { ChildDataProps, graphql } from '@apollo/react-hoc';
-
-import { gql } from 'apollo-boost';
 import React from 'react';
 
 export default () => <p>config</p>;

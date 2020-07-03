@@ -28,6 +28,7 @@ class App < Sinatra::Base
   set :expose_headers, 'location,link'
 
   post '/graphql' do
+    raise ENV['RACK_ENV']
     enterprise_protected!
 
     result = OssoSchema.execute(

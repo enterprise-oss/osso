@@ -88,6 +88,15 @@
     ts-invariant "^0.4.4"
     tslib "^1.10.0"
 
+"@apollo/react-ssr@^3.1.5":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@apollo/react-ssr/-/react-ssr-3.1.5.tgz#53703cd493afcde567acc6d5512cab03dafce6de"
+  integrity sha512-wuLPkKlctNn3u8EU8rlECyktpOUCeekFfb0KhIKknpGY6Lza2Qu0bThx7D9MIbVEzhKadNNrzLcpk0Y8/5UuWg==
+  dependencies:
+    "@apollo/react-common" "^3.1.4"
+    "@apollo/react-hooks" "^3.1.5"
+    tslib "^1.10.0"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -1050,10 +1059,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@enterprise-oss/osso@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.4.tgz#014f562f3f0546ef95fd827b194aca2cab633214"
-  integrity sha512-tOk2FDycjPoEZVueXZ54AayNXC2Y9nNWsUEzDr4E7E32R0F0HRP91KLOodGFZYswt6f3KtRqcAhi2qOAMuIEIg==
+"@enterprise-oss/osso@0.0.5-alpha.8":
+  version "0.0.5-alpha.8"
+  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.8.tgz#af0bf53e888d64a924a13d216e54adbb112837fa"
+  integrity sha512-xpKCpM2xl4LjzNnKzHfXlbeP0R9tP6Vnis3sEmo/U5LsfFHg3m6vy2pNntQv/zN53LwgwBlArnITStRvTIzLkw==
   dependencies:
     "@apollo/react-hooks" "^3.1.5"
     apollo-boost "^0.4.9"
@@ -1061,6 +1070,7 @@
     apollo-client "^2.6.10"
     apollo-link-http "^1.5.17"
     graphql "^15.1.0"
+    react-apollo "^3.1.5"
 
 "@iarna/toml@^2.2.0":
   version "2.2.5"
@@ -7807,6 +7817,17 @@ rc-virtual-list@^1.1.0, rc-virtual-list@^1.1.2:
     classnames "^2.2.6"
     raf "^3.4.1"
     rc-util "^5.0.0"
+
+react-apollo@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-3.1.5.tgz#36692d393c47e7ccc37f0a885c7cc5a8b4961c91"
+  integrity sha512-xOxMqxORps+WHrUYbjVHPliviomefOpu5Sh35oO3osuOyPTxvrljdfTLGCggMhcXBsDljtS5Oy4g+ijWg3D4JQ==
+  dependencies:
+    "@apollo/react-common" "^3.1.4"
+    "@apollo/react-components" "^3.1.5"
+    "@apollo/react-hoc" "^3.1.5"
+    "@apollo/react-hooks" "^3.1.5"
+    "@apollo/react-ssr" "^3.1.5"
 
 react-dom@^16.13.1:
   version "16.13.1"
