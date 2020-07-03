@@ -6,11 +6,10 @@
     <% if ENV['RACK_ENV'] === 'development' %>
         <link rel="stylesheet" type="text/css" href="http://localhost:1234/index.css">
     <% else %>  
-      <script src="/index.css"></script>
+        <link rel="stylesheet" type="text/css" href="/index.css">
     <% end %> 
   </head>
   <body>
-    <%= ENV['RACK_ENV'] %>
     <div id="root"></div>
   </body>
   <% if ENV['RACK_ENV'] === 'development' %>
