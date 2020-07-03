@@ -24,37 +24,40 @@ function App() {
   const location = useLocation();
   console.log(location.pathname.split('/')[1])
   return (
-    <Layout>
-      <Sider width={220}>
-        <Brand className="brand" />
-        <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
-          <Menu.Item key=''>
-            <NavLink to="/">Home</NavLink>
-          </Menu.Item>
-          <Menu.Item key="enterprise">
-            <NavLink to="/enterprise">Enterprise Customers</NavLink>
-          </Menu.Item>
-          <Menu.Item key="/config">
-            <NavLink to="/config">Developer Configuration</NavLink>
-          </Menu.Item>
-        </Menu>
-      </Sider>
+    <OssoProvider>
       <Layout>
-        <Header>Header HMR</Header>
-        <Content className="main">
-          <Switch>
-            <Route exact path="/admin/enterprise">
-              <EnterpriseAccounts />
-            </Route>
-            <Route path="/admin/enterprise/:domain" component={EnterpriseAccount} />
-            <Route exact path="/admin/config">
-              <DeveloperConfig />
-            </Route>
-          </Switch>
-        </Content>
-        <Footer>Footer</Footer>
+        <Sider width={220}>
+          <Brand className="brand" />
+          <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
+            <Menu.Item key=''>
+              <NavLink to="/">Home</NavLink>
+            </Menu.Item>
+            <Menu.Item key="enterprise">
+              <NavLink to="/enterprise">Enterprise Customers</NavLink>
+            </Menu.Item>
+            <Menu.Item key="/config">
+              <NavLink to="/config">Developer Configuration</NavLink>
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Layout>
+          <Header>Header HMR</Header>
+          <Content className="main">
+            <Redirect from="/" to="/enterprise" />
+            <Switch>
+              <Route exact path="/enterprise">
+                <EnterpriseAccounts />
+              </Route>
+              <Route path="/enterprise/:domain" component={EnterpriseAccount} />
+              <Route exact path="/config">
+                <DeveloperConfig />
+              </Route>
+            </Switch>
+          </Content>
+          <Footer>Footer</Footer>
+        </Layout>
       </Layout>
-    </Layout>
+    </OssoProvider>
   );
 }
 
