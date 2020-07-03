@@ -2,7 +2,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "start": "parcel ./client/src/index.tsx",
-    "build": "parcel build ./client/src/index.tsx --experimental-scope-hoisting --out-dir ./public",
+    "build": "NODE_ENV=development parcel build ./client/src/index.tsx --experimental-scope-hoisting --out-dir ./public",
     "clean": "rm -rf client/dist",
     "test": "jest",
     "format": "prettier --write 'client/src/**/*.{js,jsx,ts,tsx}'",
@@ -29,7 +29,6 @@
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "parcel-plugin-compress": "^2.0.2",
     "prettier": "^2.0.0",
-    "react": "^16.13.1",
     "typescript": "^3.8.0"
   },
   "dependencies": {
