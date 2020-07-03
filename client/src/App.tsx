@@ -13,7 +13,7 @@ import {
 } from 'react-router-dom';
 
 import './App.css';
-import Brand from './resources/brand.svg';
+// import Brand from './resources/brand.svg';
 
 import DeveloperConfig from './pages/developerConfiguration/index';
 import EnterpriseAccount from './pages/enterpriseAccount/index';
@@ -26,7 +26,7 @@ function App() {
     <OssoProvider>
       <Layout>
         <Sider width={220}>
-          <Brand className="brand" />
+          {/* <Brand className="brand" /> */}
           <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
             <Menu.Item key="">
               <NavLink to="/">Home</NavLink>
