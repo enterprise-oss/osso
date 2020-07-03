@@ -2,7 +2,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "start": "parcel ./client/src/index.tsx",
-    "build": "NODE_ENV=development parcel build ./client/src/index.tsx --no-minify --experimental-scope-hoisting --out-dir ./public",
+    "build": "parcel build ./client/src/index.tsx --no-minify --experimental-scope-hoisting --out-dir ./public",
     "clean": "rm -rf client/dist",
     "test": "jest",
     "format": "prettier --write 'client/src/**/*.{js,jsx,ts,tsx}'",
