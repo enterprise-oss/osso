@@ -1,0 +1,40 @@
+{
+  "name": "@enterprise-oss/osso",
+  "license": "SEE LICENSE IN LICENSE",
+  "version": "0.0.5-alpha.12+0ecb3031",
+  "description": "React components for Osso",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "sbauch",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "clean": "rm -rf dist",
+    "develop": "tsc && rollup -c rollup-dev.config.js --watch",
+    "lint": "tsc && eslint ./src --fix",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.0.0-rc.10",
+    "graphql": "^15.1.0"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(png|svg)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/examples"
+    ],
+    "files": [
+      "dist",
+      "examples"
+    ]
+  }
+}
