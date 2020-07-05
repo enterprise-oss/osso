@@ -5,6 +5,7 @@ import {
   useEnterpriseAccount,
   useOssoFields,
   IdentityProvider,
+  Providers,
 } from '@enterprise-oss/osso';
 import { InputProps } from './index.types';
 
@@ -14,7 +15,7 @@ export default (props: InputProps) => {
   const Option = Select.Option;
   const { data, loading } = useEnterpriseAccount(props.match.params.domain);
   const { providers } = useOssoFields();
-  const [provider, setProvider] = useState<string>();
+  const [provider, setProvider] = useState<Providers>();
   const { createProvider } = createIdentityProvider();
 
   if (loading) return <div>Loading</div>;
@@ -41,10 +42,10 @@ export default (props: InputProps) => {
         </p>
         <Select
           style={{ width: 120 }}
-          onChange={(value) => setProvider(value as string)}
+          onChange={(value) => setProvider(value as Providers)}
         >
           {Object.values(providers).map((provider) => (
-            <Option value={provider.value}>{provider.label}</Option>
+            <Option key={provider.value} value={provider.value}>{provider.label}</Option>
           ))}
         </Select>
         <Button onClick={onCreate}>Get Started</Button>

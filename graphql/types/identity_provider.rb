@@ -9,7 +9,7 @@ module Types
 
     global_id_field :gid
     field :id, ID, null: false
-    field :enterprise_Account_id, ID, null: false
+    field :enterprise_account_id, ID, null: false
     field :service, Types::IdentityProviderService, null: true
     field :domain, String, null: false
     field :acs_url, String, null: false
