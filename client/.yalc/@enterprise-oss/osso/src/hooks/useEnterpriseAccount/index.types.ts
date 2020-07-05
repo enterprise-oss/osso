@@ -1,1 +1,0 @@
-export { EnterpriseAccount } from '~/types';
