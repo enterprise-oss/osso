@@ -1,7 +1,7 @@
 {
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "start": "parcel serve ./client/src/index.tsx",
+    "start": "yalc add @enterprise-oss/osso && parcel serve ./client/src/index.tsx",
     "build": "parcel build ./client/src/index.tsx --dist-dir ./public",
     "clean": "rm -rf client/dist && rm -rf .parcel-cache",
     "test": "jest",
@@ -35,7 +35,7 @@
     "@ant-design/colors": "^4.0.0",
     "@ant-design/icons": "^4.2.1",
     "@apollo/client": "^3.0.0-rc.10",
-    "@enterprise-oss/osso": "^0.0.5-alpha.16",
+    "@enterprise-oss/osso": "^0.0.5-alpha.17",
     "antd": "^4.4.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

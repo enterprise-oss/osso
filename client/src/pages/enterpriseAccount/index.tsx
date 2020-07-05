@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SamlConfigForm from '../../components/samlConfigurationForm/index';
 import {
   createIdentityProvider,
+  useIdentityProvider,
   useEnterpriseAccount,
   useOssoFields,
   IdentityProvider,
@@ -10,6 +11,7 @@ import {
 import { InputProps } from './index.types';
 
 import { Card, Button, Select } from 'antd';
+import { OssoProvider } from '@enterprise-oss/osso/dist/types';
 
 export default (props: InputProps) => {
   const Option = Select.Option;
@@ -44,7 +46,7 @@ export default (props: InputProps) => {
           style={{ width: 120 }}
           onChange={(value) => setProvider(value as Providers)}
         >
-          {Object.values(providers).map((provider) => (
+          {Object.values(providers as OssoProvider[]).map((provider) => (
             <Option key={provider.value} value={provider.value}>{provider.label}</Option>
           ))}
         </Select>
