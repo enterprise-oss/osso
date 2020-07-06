@@ -1,0 +1,12 @@
+steps:
+  - command: "bundle install && bundle exec rspec"
+    label: ":rspec: Specs"
+
+  - command: "yarn install && tsc"
+    label: ":typescript: Check Types"
+
+  - command: "yarn run test"
+    label: ":jest: Tests"
+
+  - command: "yarn build"
+    label: "\U0001F3D7 :react: Build"
