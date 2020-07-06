@@ -2,7 +2,7 @@ steps:
   - command: "bundle install && bundle exec rspec"
     label: ":rspec: Specs"
 
-  - command: "yarn install && tsc"
+  - command: "yarn install && yarn tsc -p client --declaration false"
     label: ":typescript: Check Types"
 
   - command: "yarn run test"

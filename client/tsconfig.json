@@ -5,9 +5,16 @@
     "jsx": "react",
     "declaration": true,
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node"
-  }
+    "moduleResolution": "Node",
+    "outDir": "dist",
+  },
+  "include": [
+    "./src/*"
+  ],
+  "exclude": [
+    "../node_modules/*"
+  ]
 }

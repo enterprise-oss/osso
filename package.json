@@ -3,6 +3,7 @@
   "scripts": {
     "start": "yalc add @enterprise-oss/osso && parcel serve ./client/src/index.tsx",
     "build": "parcel build ./client/src/index.tsx --dist-dir ./public",
+    "checktypes": "tsc -p client",
     "clean": "rm -rf client/dist && rm -rf .parcel-cache",
     "test": "jest",
     "format": "prettier --write 'client/src/**/*.{js,jsx,ts,tsx}'",
