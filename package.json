@@ -5,7 +5,7 @@
     "build": "yarn parcel build ./client/src/index.tsx --dist-dir ./public",
     "checktypes": "tsc -p client",
     "clean": "rm -rf client/dist && rm -rf .parcel-cache",
-    "test": "jest",
+    "test": "yarn jest",
     "format": "prettier --write 'client/src/**/*.{js,jsx,ts,tsx}'",
     "lint": "prettier --check 'client/src/**/*.{js,jsx,ts,tsx}'",
     "build:theme": "lessc --js ./client/src/index.less ./src/antd.css"
