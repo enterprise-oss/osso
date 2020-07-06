@@ -2,7 +2,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "start": "yalc add @enterprise-oss/osso && parcel serve ./client/src/index.tsx",
-    "build": "parcel build ./client/src/index.tsx --dist-dir ./public",
+    "build": "yarn parcel build ./client/src/index.tsx --dist-dir ./public",
     "checktypes": "tsc -p client",
     "clean": "rm -rf client/dist && rm -rf .parcel-cache",
     "test": "jest",
@@ -26,6 +26,7 @@
     "browserslist": "^4.12.2",
     "eslint": "^7.1.0",
     "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^25.4.0",
     "parcel": "^2.0.0-beta.1",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
@@ -55,5 +56,15 @@
     "hooks": {
       "pre-commit": "yalc check"
     }
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(png|svg)$": "<rootDir>/client/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/.yalc/*",
+      "<rootDir>/node_modules/*"
+    ]
   }
 }
