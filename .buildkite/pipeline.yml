@@ -5,8 +5,8 @@ steps:
   - command: "yarn install && yarn tsc -p client --declaration false"
     label: ":typescript: Check Types"
 
-  - command: "yarn run test"
+  - command: "yarn --cwd client run test"
     label: ":jest: Tests"
 
-  - command: "yarn build"
+  - command: "yarn --cwd client build"
     label: ":react: Build"
