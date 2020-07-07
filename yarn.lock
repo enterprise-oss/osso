@@ -1026,9 +1026,9 @@
     minimist "^1.2.0"
 
 "@enterprise-oss/osso@^0.0.5-alpha.17":
-  version "0.0.5-alpha.17"
-  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.17.tgz#375a0e8314af5f30bea4f993ed97dc7c2b554b3e"
-  integrity sha512-1S9ruDOHo/LtFIY9Cz0tE2vu9k58jvVC5hdzriAC7us/Le9tajkPwLNQe2yfezb2Ie0SzP64LINnyFCn5ILhrg==
+  version "0.0.5-alpha.27"
+  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.27.tgz#4462350ad356dbf3953e1cb9efaaf7b5cd9a0dba"
+  integrity sha512-MClrUwO3ItDFPAZTilpeE7/U3UV8npOnmIcm0d3foB7o0Atn2DswIw1bg54WWesuxaJ+hfjMlQFglb7E+B5qtA==
   dependencies:
     "@apollo/client" "^3.0.0-rc.10"
     graphql "^15.1.0"
@@ -2250,6 +2250,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.14.tgz#24a0b5959f16ac141aeb0c5b3cd7a15b7c64cbce"
   integrity sha512-syUgf67ZQpaJj01/tRTknkMNoBBLWJOBODF0Zm4NrXmiSuxjymFrxnTu1QVYRubhVkRcZLYZG8STTwJRdVm/WQ==
 
+"@types/node@^14.0.18":
+  version "14.0.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.18.tgz#5111b2285659442f9f95697386a2b42b875bd7e9"
+  integrity sha512-0Z3nS5acM0cIV4JPzrj9g/GH0Et5vmADWtip3YOXOp1NpOLU8V3KoZDc8ny9c1pe/YSYYzQkAWob6dyV/EWg4g==
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.0.tgz#e486d0d97396d79beedd0a6e33f4534ff6b4973e"
@@ -2318,6 +2323,11 @@
   integrity sha512-yYn5EKHO3MPEMSOrcAb1dLWY+68CG29LiXKsWmmpVHqoP5+ZRiAVLyUHvPNrO2dABDdUGZvavMsaGpWNjM6N2g==
   dependencies:
     "@types/jest" "*"
+
+"@types/webpack-env@^1.15.2":
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.15.2.tgz#927997342bb9f4a5185a86e6579a0a18afc33b0a"
+  integrity sha512-67ZgZpAlhIICIdfQrB5fnDvaKFcDxpKibxznfYRVAT4mQE41Dido/3Ty+E3xGBmTogc5+0Qb8tWhna+5B8z1iQ==
 
 "@types/yargs-parser@*":
   version "15.0.0"
@@ -4782,9 +4792,9 @@ graphql-tag@^2.10.2:
   integrity sha512-4FOv3ZKfA4WdOKJeHdz6B3F/vxBLSgmBcGeAFPf4n1F64ltJUvOOerNj0rsJxONQGdhUMynQIvd6LzB+1J5oKA==
 
 graphql@^15.1.0:
-  version "15.2.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.2.0.tgz#d9c655a523a3196d4b23657ec6ec5963b3bd4970"
-  integrity sha512-tsceRyHfgzZo+ee0YK3o8f0CR0cXAXxRlxoORWFo/CoM1bVy3UXGWeyzBcf+Y6oqPvO27BDmOEVATcunOO/MrQ==
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
+  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
 
 growly@^1.3.0:
   version "1.3.0"
@@ -5733,11 +5743,6 @@ jest-matcher-utils@^25.1.0, jest-matcher-utils@^25.5.0:
     jest-diff "^25.5.0"
     jest-get-type "^25.2.6"
     pretty-format "^25.5.0"
-
-jest-matchmedia-mock@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/jest-matchmedia-mock/-/jest-matchmedia-mock-1.0.1.tgz#da1c75be82a3b3e46e6c8ae195aa54e4a6032eb4"
-  integrity sha512-IXk2AnldfsCRmhB4pFY0Eb9mk2NxFqOgOwA4DxKOJ22T5bn/j3DzM5s3cdKxuEowmpuXK1gPXAIlVGIC+kb/fA==
 
 jest-message-util@^25.5.0:
   version "25.5.0"

@@ -4,6 +4,7 @@
     "module": "esnext",
     "jsx": "react",
     "declaration": true,
+    "skipLibCheck": false,
     "sourceMap": true,
     "strict": false,
     "esModuleInterop": true,
@@ -15,12 +16,16 @@
       "~*": [
         "./src/*"
       ]
-    }
+    },
+    "typeRoots": [
+      "./src/@types",
+      "../node_modules/@types"
+    ],
   },
   "include": [
     "./src/*"
   ],
   "exclude": [
-    "../node_modules/*"
+    "*/node_modules/*"
   ]
 }
