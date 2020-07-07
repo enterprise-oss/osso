@@ -10,6 +10,14 @@
   "repository": "https://github.com/enterprise-oss/osso",
   "website": "https://ossoapp.com",
   "success_url": "https://ossoapp.com/docs/guides/deployment#post-deployment",
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
   "env": {
     "BASE_URL": {
       "description": "The host where your application is deployed - replace APP-NAME with the app name you choose above, and be usre to update this ENV var when you set up a custom domain",
@@ -31,5 +39,10 @@
     {
       "plan": "heroku-postgresql"
     }
-  ]
+  ],
+  "environments": {
+    "review": {
+      "addons": []
+    }
+  }
 }
