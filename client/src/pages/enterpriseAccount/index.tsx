@@ -46,7 +46,7 @@ export default (props: InputProps) => {
           style={{ width: 120 }}
           onChange={(value) => setProvider(value as Providers)}
         >
-          {Object.values(providers as OssoProvider[]).map((provider) => (
+          {(Object.values(providers) as OssoProvider[]).map((provider) => (
             <Option key={provider.value} value={provider.value}>{provider.label}</Option>
           ))}
         </Select>

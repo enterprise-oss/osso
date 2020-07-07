@@ -4,10 +4,27 @@
     "module": "esnext",
     "jsx": "react",
     "declaration": true,
+    "skipLibCheck": false,
     "sourceMap": true,
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node"
-  }
+    "moduleResolution": "Node",
+    "baseUrl": ".",
+    "paths": {
+      "~*": [
+        "./src/*"
+      ]
+    },
+    "typeRoots": [
+      "./src/@types",
+      "../node_modules/@types"
+    ],
+  },
+  "include": [
+    "./src/*"
+  ],
+  "exclude": [
+    "*/node_modules/*"
+  ]
 }

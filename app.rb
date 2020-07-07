@@ -26,6 +26,10 @@ class App < Sinatra::Base
   set :allow_headers, 'content-type,if-modified-since'
   set :expose_headers, 'location,link'
 
+  get '/' do
+    redirect '/admin/enterprise' # TODO: once we bump the gem: if ENV['RACK_ENV'] == 'development'
+  end
+
   post '/graphql' do
     enterprise_protected!
 

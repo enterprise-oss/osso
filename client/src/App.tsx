@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './antd.css';
 import { Layout, Menu } from 'antd';
 import {
@@ -42,7 +42,6 @@ function App() {
         <Layout>
           <Header>Header HMR</Header>
           <Content className="main">
-            <Redirect from="/" to="/enterprise" />
             <Switch>
               <Route exact path="/enterprise">
                 <EnterpriseAccounts />
