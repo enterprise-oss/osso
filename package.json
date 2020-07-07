@@ -72,7 +72,8 @@
     },
     "testPathIgnorePatterns": [
       "<rootDir>/.yalc/*",
-      "<rootDir>/node_modules/*"
+      "<rootDir>/node_modules/*",
+      "<rootDir>/cypress/*"
     ],
     "setupFiles": [
       "<rootDir>/client/jest.setup.js"
