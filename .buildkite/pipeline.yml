@@ -11,5 +11,5 @@ steps:
   - command: "yarn install && yarn build"
     label: ":react: Build"
  
-  - command: "yarn cypress run"
+  - command: "yarn install && yarn cypress run"
     label: ":cypress: e2e"
