@@ -1,4 +1,7 @@
 steps:
+  - command: "yarn install && yarn cypress run"
+    label: ":cypress: e2e"
+
   - command: "bundle install && bundle exec rspec"
     label: ":rspec: Specs"
 
@@ -11,5 +14,3 @@ steps:
   - command: "yarn install && yarn build"
     label: ":react: Build"
  
-  - command: "yarn install && yarn cypress run"
-    label: ":cypress: e2e"
