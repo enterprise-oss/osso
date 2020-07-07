@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import SamlConfigForm from '../../components/samlConfigurationForm/index';
 import {
   createIdentityProvider,
-  useIdentityProvider,
   useEnterpriseAccount,
   useOssoFields,
   IdentityProvider,
