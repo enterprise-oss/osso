@@ -42,7 +42,6 @@ function App() {
         <Layout>
           <Header>Header HMR</Header>
           <Content className="main">
-            <Redirect from="/" to="/enterprise" />
             <Switch>
               <Route exact path="/enterprise">
                 <EnterpriseAccounts />

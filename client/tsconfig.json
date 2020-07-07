@@ -10,6 +10,12 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
     "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "~*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "./src/*"
