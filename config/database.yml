@@ -11,5 +11,5 @@ development:
   database: osso-development
 test:
   <<: *default
-  host: ''
+  host: 'localhost'
   database: osso-test
