@@ -1,3 +1,19 @@
+PATH
+  remote: ../osso-rb
+  specs:
+    osso (0.0.3.1)
+      activesupport (>= 6.0.3.2)
+      jwt
+      omniauth-multi-provider
+      omniauth-saml
+      rack (>= 2.1.4)
+      rack-contrib
+      rack-oauth2
+      rake
+      sinatra
+      sinatra-activerecord
+      sinatra-contrib
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +45,10 @@ GEM
       database_cleaner (~> 1.8.0)
     diff-lcs (1.4.4)
     dotenv (2.7.5)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
     graphql (1.11.1)
     hashdiff (1.0.1)
     hashie (4.1.0)
@@ -56,18 +76,6 @@ GEM
     omniauth-saml (1.10.2)
       omniauth (~> 1.3, >= 1.3.2)
       ruby-saml (~> 1.9)
-    osso (0.0.3.1)
-      activesupport (>= 6.0.3.2)
-      jwt
-      omniauth-multi-provider
-      omniauth-saml
-      rack (>= 2.1.4)
-      rack-contrib
-      rack-oauth2
-      rake
-      sinatra
-      sinatra-activerecord
-      sinatra-contrib
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
@@ -87,6 +95,8 @@ GEM
       rack (>= 2.1.0)
     rack-protection (2.0.8.1)
       rack
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rake (13.0.1)
     regexp_parser (1.7.1)
@@ -154,18 +164,21 @@ DEPENDENCIES
   activesupport (>= 6.0.3.2)
   database_cleaner-active_record
   dotenv
+  factory_bot
+  faker
   graphql
-  osso
+  osso!
   pg
   pry
   rack (>= 2.1.4)
+  rack-test
   rake
-  rspec
+  rspec (~> 3.2)
   rubocop
   sinatra
   sinatra-contrib
   sinatra-cors
-  webmock
+  webmock (~> 3.0)
 
 RUBY VERSION
    ruby 2.6.6p146

@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso'
+gem 'osso', path: '../osso-rb'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rake'
@@ -17,8 +17,11 @@ gem 'sinatra-cors'
 
 group :test do
   gem 'database_cleaner-active_record'
-  gem 'rspec'
-  gem 'webmock'
+  gem 'factory_bot'
+  gem 'faker'
+  gem 'rack-test'
+  gem 'rspec', '~> 3.2'
+  gem 'webmock', '~> 3.0'
 end
 
 group :development, :test do
