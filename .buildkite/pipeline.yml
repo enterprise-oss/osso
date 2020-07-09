@@ -1,7 +1,7 @@
 steps:
 
   - commands: 
-    - "bundle install"
+    - "bundle update"
     - "bundle exec rspec"
     label: ":rspec:"
   
