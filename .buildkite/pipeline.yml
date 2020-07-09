@@ -27,7 +27,6 @@ steps:
   - wait
   
   - commands: 
-      - "bundle install" 
       - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
