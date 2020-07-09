@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default () => <p>config</p>;
+export default function DeveloperConfig() {
+  return <p>config</p>;
+}
 
 // const CONFIG_QUERY = gql`
 //   query DeveloperConfig {

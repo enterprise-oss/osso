@@ -1,22 +1,32 @@
 steps:
 
   - commands: 
-    - "bundle install"
+    - "bundle update"
     - "bundle exec rspec"
     label: ":rspec:"
-
+  
   - commands: 
     - "yarn install"
     - "yarn tsc -p client --declaration false"
     label: ":typescript:"
 
+  - wait
+  
+  - commands: 
+    - "yarn install"
+    - "yarn lint"
+    label: ":eslint:"
+
+  - wait
+  
   - commands: 
     - "yarn install"
     - "yarn test"
     label: ":jest:"
 
+  - wait
+  
   - commands: 
-      - "bundle install" 
       - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
