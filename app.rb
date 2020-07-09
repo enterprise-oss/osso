@@ -3,7 +3,6 @@
 require 'sinatra/reloader'
 require 'sinatra/cors'
 require 'osso'
-require_relative 'graphql/schema'
 
 class App < Sinatra::Base
   include Osso::AppConfig
@@ -27,7 +26,7 @@ class App < Sinatra::Base
   set :expose_headers, 'location,link'
 
   get '/' do
-    # redirect '/admin/enterprise' # TODO: once we bump the gem: if ENV['RACK_ENV'] == 'development'
+    redirect '/admin/enterprise' # if ENV['RACK_ENV'] == 'development'
   end
 
   get '/health' do
@@ -37,7 +36,7 @@ class App < Sinatra::Base
   post '/graphql' do
     enterprise_protected!
 
-    result = OssoSchema.execute(
+    result = Osso::GraphQL::Schema.execute(
       params[:query],
       variables: params[:variables],
       context: { scope: current_scope },
