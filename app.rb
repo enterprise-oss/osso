@@ -27,7 +27,11 @@ class App < Sinatra::Base
   set :expose_headers, 'location,link'
 
   get '/' do
-    redirect '/admin/enterprise' # TODO: once we bump the gem: if ENV['RACK_ENV'] == 'development'
+    # redirect '/admin/enterprise' # TODO: once we bump the gem: if ENV['RACK_ENV'] == 'development'
+  end
+
+  get '/health' do
+    'ok'
   end
 
   post '/graphql' do

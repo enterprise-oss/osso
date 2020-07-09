@@ -37,20 +37,20 @@ const InputComponent = ({
   copyable,
   ...inputProps
 }: OssoInputProps) => (
-    <Form.Item label={label}>
-      <Input
-        onChange={(e) => onChange && onChange(e.target.value)}
-        {...inputProps}
-        suffix={
-          copyable && (
-            <Tooltip title="Extra information">
-              <span>COPY</span>
-            </Tooltip>
-          )
-        }
-      />
-    </Form.Item>
-  );
+  <Form.Item label={label}>
+    <Input
+      onChange={(e) => onChange && onChange(e.target.value)}
+      {...inputProps}
+      suffix={
+        copyable && (
+          <Tooltip title="Extra information">
+            <span>COPY</span>
+          </Tooltip>
+        )
+      }
+    />
+  </Form.Item>
+);
 
 const SamlConfigForm = ({ id }: { id: string }) => (
   <Form {...formItemLayout} layout="vertical">
