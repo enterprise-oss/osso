@@ -4,17 +4,20 @@ steps:
     - "bundle install"
     - "bundle exec rspec"
     label: ":rspec:"
-
+  
   - commands: 
     - "yarn install"
     - "yarn tsc -p client --declaration false"
     label: ":typescript:"
 
+  - wait
+  
   - commands: 
-    - "yarn install"
     - "yarn test"
     label: ":jest:"
 
+  - wait
+  
   - commands: 
       - "bundle install" 
       - "yarn install"
