@@ -7,7 +7,7 @@ require_relative 'graphql/schema'
 
 class App < Sinatra::Base
   include Osso::AppConfig
-  include Helpers::Auth # TODO: namespace helpers in gem
+  include Osso::Helpers::Auth
 
   configure :development do
     register Sinatra::Reloader
