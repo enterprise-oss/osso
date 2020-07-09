@@ -10,7 +10,9 @@ development:
   <<: *default
   database: osso-development
 test:
-  <<: *default
-  host: ''
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: osso-test
-  password: password
+  host: ''
+  port: 5432
