@@ -46,7 +46,9 @@ export default (props: InputProps) => {
           onChange={(value) => setProvider(value as Providers)}
         >
           {(Object.values(providers) as OssoProvider[]).map((provider) => (
-            <Option key={provider.value} value={provider.value}>{provider.label}</Option>
+            <Option key={provider.value} value={provider.value}>
+              {provider.label}
+            </Option>
           ))}
         </Select>
         <Button onClick={onCreate}>Get Started</Button>

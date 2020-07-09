@@ -8,7 +8,7 @@
     "clean": "rm -rf client/dist && rm -rf .parcel-cache",
     "test": "jest",
     "format": "prettier --write 'client/src/**/*.{js,jsx,ts,tsx}'",
-    "lint": "prettier --check 'client/src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint 'client/src/**/*.{js,jsx,ts,tsx}' --fix",
     "build:theme": "lessc --js ./client/src/index.less ./src/antd.css"
   },
   "devDependencies": {
@@ -32,10 +32,13 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^7.1.0",
+    "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-react": "^7.20.3",
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.4.0",
     "jest-fetch-mock": "^3.0.3",
+    "jsonwebtoken": "^8.5.1",
     "parcel": "^2.0.0-beta.1",
     "parcel-plugin-bundle-visualiser": "^1.2.0",
     "prettier": "^2.0.0",
