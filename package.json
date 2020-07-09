@@ -11,6 +11,7 @@
     "test": "jest",
     "format": "prettier --write 'client/src/**/*.{js,jsx,ts,tsx}'",
     "lint": "eslint 'client/src/**/*.{js,jsx,ts,tsx}' --fix",
+    "ci:lint": "prettier 'client/src/**/*.{js,jsx,ts,tsx}' && eslint 'client/src/**/*.{js,jsx,ts,tsx}'",
     "build:theme": "lessc --js ./client/src/index.less ./src/antd.css"
   },
   "devDependencies": {
