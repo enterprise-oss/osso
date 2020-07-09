@@ -1,16 +1,23 @@
 steps:
 
-  - command: "bundle install && bundle exec rspec"
-    label: ":rspec: Specs"
-
-  - command: "yarn install && yarn tsc -p client --declaration false"
-    label: ":typescript: Check Types"
-
-  - command: "yarn install && yarn run test"
-    label: ":jest: Tests"
+  - commands: 
+    - "bundle install"
+    - "bundle exec rspec"
+    label: ":rspec:"
 
   - commands: 
-      - "bundle install && yarn install"
+    - "yarn install"
+    - "yarn tsc -p client --declaration false"
+    label: ":typescript:"
+
+  - commands: 
+    - "yarn install"
+    - "yarn test"
+    label: ":jest:"
+
+  - commands: 
+      - "bundle install" 
+      - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
     label: ":cypress:"
