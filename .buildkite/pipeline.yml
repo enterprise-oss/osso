@@ -15,7 +15,7 @@ steps:
   - commands: 
     - "yarn install"
     - "yarn ci:lint"
-    label: ":prettier: :plus: :eslint:"
+    label: ":prettier: :heavy_plus_sign: :eslint:"
 
   - wait
   
