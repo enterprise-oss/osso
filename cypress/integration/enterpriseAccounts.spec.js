@@ -7,6 +7,7 @@ describe('EnterpriseAccounts', () => {
 
     it('successfully loads', () => {
       cy.visit('/admin/enterprise')
+      expect(true).to.equal(true)
     })
   })
 

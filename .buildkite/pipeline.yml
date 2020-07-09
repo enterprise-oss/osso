@@ -11,8 +11,7 @@ steps:
 
   - commands: 
       - "bundle install && yarn install"
-      - "bundle exec rackup -p 9292"
       - "yarn build"
-      - "yarn cypress run"
+      - "yarn cypress:ci"
     label: ":cypress:"
  
