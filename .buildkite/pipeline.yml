@@ -9,6 +9,8 @@ steps:
     - "yarn install"
     - "yarn tsc -p client --declaration false"
     label: ":typescript:"
+    artifact_paths:
+      - "node_modules/**/*"
 
   - wait
   
