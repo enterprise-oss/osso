@@ -12,7 +12,7 @@ import { InputProps } from './index.types';
 import { Card, Button, Select } from 'antd';
 import { OssoProvider } from '@enterprise-oss/osso/dist/types';
 
-export default (props: InputProps) => {
+export default function enterpriseAccount(props: InputProps) {
   const Option = Select.Option;
   const { data, loading } = useEnterpriseAccount(props.match.params.domain);
   const { providers } = useOssoFields();
@@ -55,4 +55,4 @@ export default (props: InputProps) => {
       </Card>
     </div>
   );
-};
+}

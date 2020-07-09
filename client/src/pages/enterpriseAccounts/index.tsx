@@ -3,7 +3,7 @@ import { Avatar, Table, Tag } from 'antd';
 import { Link } from 'react-router-dom';
 import { useEnterpriseAccounts, EnterpriseAccount } from '@enterprise-oss/osso';
 
-export default function () {
+export default function enterpriseAccounts() {
   const { loading, data } = useEnterpriseAccounts();
   return (
     <Table loading={loading} rowKey="id" dataSource={data?.enterpriseAccounts}>

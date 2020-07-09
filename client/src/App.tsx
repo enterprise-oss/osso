@@ -1,12 +1,7 @@
 import React from 'react';
 import './antd.css';
 import { Layout, Menu } from 'antd';
-import {
-  Switch,
-  Route,
-  useLocation,
-  NavLink,
-} from 'react-router-dom';
+import { Switch, Route, useLocation, NavLink } from 'react-router-dom';
 
 import './App.css';
 import Brand from './resources/brand.svg';
