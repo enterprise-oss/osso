@@ -13,6 +13,7 @@ steps:
   - wait
   
   - commands: 
+    - "yarn install"
     - "yarn test"
     label: ":jest:"
 
