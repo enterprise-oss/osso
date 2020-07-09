@@ -22,5 +22,5 @@ steps:
       - "yarn cypress:ci"
     label: ":cypress:"
     artifact_paths:
-      - cypress/videos
+      - cypress/videos/*
  
