@@ -1,8 +1,9 @@
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: Automatic merge dependabot
     conditions:
       - author=dependabot[bot]
       - status-success=buildkite/osso
     actions:
       merge:
         method: merge
+        strict: true
