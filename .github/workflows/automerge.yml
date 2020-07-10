@@ -1,11 +1,11 @@
 name: automerge dependabot
-on: [check_run]
+on: [status]
 
 jobs:
   automerge:
     name: automerge dependabot
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    if: github.actor == 'dependabot[bot]' && status == 'success'
     steps:
       - name: merge
         uses: actions/github-script@0.2.0
