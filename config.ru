@@ -8,15 +8,8 @@ end
 
 require 'rubygems'
 require 'bundler'
-require 'osso'
 
 Bundler.require
 
 require './app'
-
-run Rack::URLMap.new(
-  '/' => App,
-  '/admin' => Osso::Admin,
-  '/auth' => Osso::Auth,
-  '/oauth' => Osso::Oauth,
-)
+run App

@@ -17,11 +17,7 @@ module RSpecMixin
   include Rack::Test::Methods
 
   def app
-    Rack::URLMap.new(
-      '/admin' => Osso::Admin,
-      '/auth' => Osso::Auth,
-      '/oauth' => Osso::Oauth,
-    )
+    App
   end
 
   def last_json_response
