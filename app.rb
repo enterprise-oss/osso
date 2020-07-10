@@ -7,6 +7,7 @@ require 'osso'
 class App < Sinatra::Base
   include Osso::AppConfig
   include Osso::Helpers::Auth
+  include Osso::RouteMap
 
   configure :development do
     register Sinatra::Reloader
@@ -31,17 +32,5 @@ class App < Sinatra::Base
 
   get '/health' do
     'ok'
-  end
-
-  post '/graphql' do
-    enterprise_protected!
-
-    result = Osso::GraphQL::Schema.execute(
-      params[:query],
-      variables: params[:variables],
-      context: { scope: current_scope },
-    )
-
-    json result
   end
 end
