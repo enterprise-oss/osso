@@ -5,8 +5,16 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+  labels:
+    - "dependencies"
+    - "javascript"
+    - "automerge"
 - package-ecosystem: bundler
   directory: "/"
   schedule:
     interval: daily
   open-pull-requests-limit: 10
+  labels:
+    - "dependencies"
+    - "ruby"
+    - "automerge"
