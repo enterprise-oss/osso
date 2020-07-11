@@ -5,6 +5,8 @@ steps:
     - "bundle exec rspec"
     label: ":rspec:"
   
+  - wait
+  
   - commands: 
     - "yarn install"
     - "yarn tsc -p client --declaration false"
