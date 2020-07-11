@@ -3,7 +3,7 @@ import './antd.css';
 import { Layout, Menu } from 'antd';
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 
-import './App.module.css';
+import './App.css';
 import Logo from './resources/Logo.svg';
 import Customers from './resources/Customers.svg';
 
