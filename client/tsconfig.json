@@ -4,7 +4,7 @@
     "module": "esnext",
     "jsx": "react",
     "declaration": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "sourceMap": true,
     "strict": false,
     "esModuleInterop": true,
@@ -30,6 +30,7 @@
     "./src/*"
   ],
   "exclude": [
-    "*/node_modules/*"
+    "node_modules",
+    ".yalc"
   ]
 }

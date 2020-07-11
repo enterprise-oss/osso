@@ -40,7 +40,11 @@ function App() {
           >
             <Menu.Item
               key="enterprise"
-              icon={<Customers style={{ marginRight: 10 }} />}
+              icon={
+                <div style={{ marginRight: 10 }}>
+                  <Customers />
+                </div>
+              }
             >
               Customers
             </Menu.Item>
