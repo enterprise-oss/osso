@@ -80,7 +80,8 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(png|svg)$": "<rootDir>/client/__mocks__/fileMock.js",
-      "\\.(css|less)$": "identity-obj-proxy"
+      "\\.(css|less)$": "identity-obj-proxy",
+      "~(.*)$": "<rootDir>/$1"
     },
     "testPathIgnorePatterns": [
       "<rootDir>/.yalc/*",
