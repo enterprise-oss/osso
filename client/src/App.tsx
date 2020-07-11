@@ -36,7 +36,7 @@ function App() {
           <Menu
             mode="inline"
             selectedKeys={[location.pathname.split('/')[1]]}
-            onClick={(e) => history.push(e.key)}
+            onClick={(e) => history.push(e.key as string)}
           >
             <Menu.Item
               key="enterprise"
@@ -48,7 +48,7 @@ function App() {
           </Menu>
         </Sider>
         <Layout>
-          <Header location={location} />
+          <Header />
           <Content className="main">
             <Switch>
               <Route exact path="/enterprise" component={EnterpriseAccounts} />
