@@ -1,5 +1,23 @@
 .brand {
-  margin: 12px 0 52px 24px;
+  height: 64px;
+  margin: 0 auto 22px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.back {
+  margin-right: 12px;
+  margin-top: 4px;
+}
+
+.brand > h1 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  margin-left: 10px;
 }
 
 .main{

@@ -1,51 +1,61 @@
 import React from 'react';
 import './antd.css';
 import { Layout, Menu } from 'antd';
-import { Switch, Route, useLocation, NavLink } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  useLocation,
+  NavLink,
+  useHistory,
+} from 'react-router-dom';
 
 import './App.css';
-import Brand from './resources/brand.svg';
+import Logo from './resources/Logo.svg';
+import Customers from './resources/Customers.svg';
 
 import DeveloperConfig from './pages/developerConfiguration/index';
 import EnterpriseAccount from './pages/enterpriseAccount/index';
 import EnterpriseAccounts from './pages/enterpriseAccounts/index';
 import { OssoProvider } from '@enterprise-oss/osso';
 
+import Header from './components/Header/index';
+
 function App() {
-  const { Header, Footer, Sider, Content } = Layout;
+  const { Footer, Sider, Content } = Layout;
   const location = useLocation();
+  const history = useHistory();
 
   return (
     <OssoProvider>
       <Layout>
         <Sider width={220}>
-          <img src={Brand} className="brand" />
-          <Menu mode="inline" selectedKeys={[location.pathname.split('/')[1]]}>
-            <Menu.Item key="">
-              <NavLink to="/">Home</NavLink>
+          <div className="brand">
+            <Logo />
+            <h1>Osso</h1>
+          </div>
+          <Menu
+            mode="inline"
+            selectedKeys={[location.pathname.split('/')[1]]}
+            onClick={(e) => history.push(e.key)}
+          >
+            <Menu.Item
+              key="enterprise"
+              icon={<Customers style={{ marginRight: 10 }} />}
+            >
+              Customers
             </Menu.Item>
-            <Menu.Item key="enterprise">
-              <NavLink to="/enterprise">Enterprise Customers</NavLink>
-            </Menu.Item>
-            <Menu.Item key="/config">
-              <NavLink to="/config">Developer Configuration</NavLink>
-            </Menu.Item>
+            <Menu.Item key="config">Developer</Menu.Item>
           </Menu>
         </Sider>
         <Layout>
-          <Header>Header HMR</Header>
+          <Header location={location} />
           <Content className="main">
             <Switch>
-              <Route exact path="/enterprise">
-                <EnterpriseAccounts />
-              </Route>
+              <Route exact path="/enterprise" component={EnterpriseAccounts} />
               <Route path="/enterprise/:domain" component={EnterpriseAccount} />
-              <Route exact path="/config">
-                <DeveloperConfig />
-              </Route>
+              <Route exact path="/config" component={DeveloperConfig} />
             </Switch>
           </Content>
-          <Footer>Footer</Footer>
         </Layout>
       </Layout>
     </OssoProvider>

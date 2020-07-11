@@ -1,0 +1,45 @@
+.header {
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.back {
+  margin-right: 12px;
+  transition: all 2s;
+}
+
+.noBack {
+  /* flex: 0 1 0px; */
+  max-width: 0px;
+  overflow: hidden;
+}
+
+.separator {
+  width: 1px;
+  height: 28px;
+  background-color: #e8e8e8;
+  margin-right: 16px;
+  display: inline-flex;
+}
+
+.breadcrumb {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 0;
+  margin-right: 16px;
+}
+
+.breadcrumbRoot {
+  cursor: pointer;
+  color: #4E61A5;
+}
