@@ -17,6 +17,7 @@ export default function EnterpriseHeader({
           Add New
         </Button>
       </div>
+      {enterpriseAccount?.status}
     </div>
   );
 }

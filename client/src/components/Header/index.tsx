@@ -5,6 +5,7 @@ import { useEnterpriseAccount } from '@enterprise-oss/osso';
 import styles from './index.module.css';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import classnames from 'classnames';
+import { InputProps } from 'src/pages/enterpriseAccount/index.types';
 
 export default function Header() {
   const location = useLocation();
@@ -29,7 +30,7 @@ export default function Header() {
         {nested && (
           <>
             <Separator />
-            <span className={styles.breadcrumb}>Loom</span>
+            <EnterpriseAccountName domain={pathArray[1]} />
           </>
         )}
       </div>
@@ -41,7 +42,9 @@ function Separator() {
   return <div className={styles.separator}></div>;
 }
 
-function EnterpriseAccountName(props) {
+function EnterpriseAccountName(props: InputProps) {
   const { data } = useEnterpriseAccount(props.match.params.domain);
-  return data?.enterpriseAccount?.name;
+  return (
+    <span className={styles.breadcrumb}>{data?.enterpriseAccount?.name}</span>
+  );
 }

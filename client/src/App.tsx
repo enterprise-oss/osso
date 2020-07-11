@@ -1,13 +1,7 @@
 import React from 'react';
 import './antd.css';
 import { Layout, Menu } from 'antd';
-import {
-  Switch,
-  Route,
-  useLocation,
-  NavLink,
-  useHistory,
-} from 'react-router-dom';
+import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
 
 import './App.css';
 import Logo from './resources/Logo.svg';
@@ -21,7 +15,7 @@ import { OssoProvider } from '@enterprise-oss/osso';
 import Header from './components/Header/index';
 
 function App() {
-  const { Footer, Sider, Content } = Layout;
+  const { Sider, Content } = Layout;
   const location = useLocation();
   const history = useHistory();
 
