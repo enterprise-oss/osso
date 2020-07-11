@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <Layout.Header className={styles.header}>
       <div className={styles.breadcrumbs}>
-        <span
+        <h1
           onClick={() => nested && history.push(`/${pathArray[0]}`)}
           className={classnames(styles.breadcrumb, {
             [styles.breadcrumbRoot]: nested,
@@ -25,7 +25,7 @@ export default function Header() {
             className={classnames(styles.back, { [styles.noBack]: !nested })}
           />
           Customers
-        </span>
+        </h1>
         {nested && (
           <>
             <Separator />
