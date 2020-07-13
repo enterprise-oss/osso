@@ -29,7 +29,7 @@ steps:
   - wait
   
   - commands: 
-      - "yarn install"
+      - "yarn install --force"
       - "yarn build"
       - "yarn cypress:ci"
     label: ":cypress:"
