@@ -10,7 +10,7 @@ steps:
   - commands: 
     - "yarn install --force"
     - "node -v"
-    - "yarn tsc -p client --declaration false"
+    - "tsc -p client --declaration false"
     label: ":typescript:"
 
   - wait
