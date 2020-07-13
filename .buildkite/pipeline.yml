@@ -32,9 +32,10 @@ steps:
       - "yarn parcel --version"
       - "yarn install --force"
       - "yarn build && echo 'Done'"
+      - "ls ./public"
     label: "🏗"
     artifact_paths:
-      - public/**/*
+      - public/*
 
   - wait
   
