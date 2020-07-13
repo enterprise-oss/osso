@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-if ENV['RACK_ENV'].nil? || ENV['RACK_ENV'] == 'development'
+if ENV['RACK_ENV'] != 'production'
   require 'dotenv'
   Dotenv.load('.env.development', '.env')
   require 'pry'
