@@ -1,15 +1,14 @@
 steps:
 
   - commands: 
-    - "bundle update"
+    - "bundle install"
     - "bundle exec rspec"
     label: ":rspec:"
   
   - wait
   
   - commands: 
-    - "yarn install --production=false"
-    - "node -v"
+    - "yarn install"
     - "tsc -p client --declaration false"
     label: ":typescript:"
 
@@ -30,8 +29,7 @@ steps:
   - wait
 
   - commands: 
-      - "yarn parcel --version"
-      - "yarn install --force"
+      - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
     label: ":parcel: :cypress:"
