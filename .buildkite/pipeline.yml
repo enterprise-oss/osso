@@ -35,4 +35,4 @@ steps:
     label: ":cypress:"
     artifact_paths:
       - cypress/videos/*
-      - public/*
+      - public/**/*
