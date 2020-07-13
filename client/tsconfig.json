@@ -4,7 +4,7 @@
     "module": "esnext",
     "jsx": "react",
     "declaration": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "sourceMap": true,
     "strict": false,
     "esModuleInterop": true,
@@ -13,18 +13,24 @@
     "baseUrl": ".",
     "paths": {
       "~*": [
-        "./src/*"
+        "../*"
       ]
     },
     "typeRoots": [
       "./src/@types",
       "../node_modules/@types"
     ],
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
   "include": [
     "./src/*"
   ],
   "exclude": [
-    "*/node_modules/*"
+    "node_modules",
+    ".yalc"
   ]
 }

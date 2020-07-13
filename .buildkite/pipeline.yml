@@ -1,13 +1,15 @@
 steps:
 
   - commands: 
-    - "bundle update"
+    - "bundle install"
     - "bundle exec rspec"
     label: ":rspec:"
   
+  - wait
+  
   - commands: 
     - "yarn install"
-    - "yarn tsc -p client --declaration false"
+    - "tsc -p client --declaration false"
     label: ":typescript:"
 
   - wait
@@ -25,12 +27,12 @@ steps:
     label: ":jest:"
 
   - wait
-  
+
   - commands: 
       - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
-    label: ":cypress:"
+    label: ":parcel: :cypress:"
     artifact_paths:
+      - public/*
       - cypress/videos/*
- 

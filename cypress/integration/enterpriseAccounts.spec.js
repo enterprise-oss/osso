@@ -5,9 +5,9 @@ describe('EnterpriseAccounts', () => {
       cy.login('admin@saas.com', 'admin')
     })
 
-    it('successfully loads', () => {
+    it('renders a header title', () => {
       cy.visit('/admin/enterprise')
-      expect(true).to.equal(true)
+      cy.get('h1').should('contain', 'Customers')
     })
   })
 
