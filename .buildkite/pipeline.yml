@@ -32,15 +32,8 @@ steps:
       - "yarn parcel --version"
       - "yarn install --force"
       - "yarn build"
-      - "ls ./public"
-    label: "🏗"
+      - "yarn cypress:ci"
+    label: ":parcel: :cypress:"
     artifact_paths:
       - public/*
-
-  - wait
-  
-  - commands: 
-      - "yarn cypress:ci"
-    label: ":cypress:"
-    artifact_paths:
       - cypress/videos/*
