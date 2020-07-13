@@ -27,12 +27,18 @@ steps:
     label: ":jest:"
 
   - wait
-  
-  - commands: 
+
+- commands: 
       - "yarn install --force"
       - "yarn build"
+    label: "🏗"
+    artifact_paths:
+      - public/**/*
+
+  - wait
+  
+  - commands: 
       - "yarn cypress:ci"
     label: ":cypress:"
     artifact_paths:
       - cypress/videos/*
-      - public/**/*
