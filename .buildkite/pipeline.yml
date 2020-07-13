@@ -8,7 +8,7 @@ steps:
   - wait
   
   - commands: 
-    - "yarn install --force"
+    - "yarn install --check-files"
     - "node -v"
     - "tsc -p client --declaration false"
     label: ":typescript:"
