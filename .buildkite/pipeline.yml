@@ -31,7 +31,7 @@ steps:
   - commands: 
       - "yarn parcel --version"
       - "yarn install --force"
-      - "yarn build && echo 'Done'"
+      - "yarn build"
       - "ls ./public"
     label: "🏗"
     artifact_paths:
