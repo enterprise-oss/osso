@@ -3,6 +3,7 @@
 <html>
   <head>
     <title>Osso</title>
+    <p><%= ENV['RACK_ENV'] %> </p>
     <% if ENV['RACK_ENV'] === 'development' %>
         <link rel="stylesheet" type="text/css" href="http://localhost:1234/index.css">
     <% else %>  
