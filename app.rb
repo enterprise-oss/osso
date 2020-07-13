@@ -13,12 +13,7 @@ class App < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  configure :development, :production do
-    ActiveRecord::Base.establish_connection(
-      ENV.fetch('DATABASE_URL'),
-    )
-  end
-
+  register Sinatra::ActiveRecordExtension
   register Sinatra::Cors
 
   set :allow_origin, '*'
