@@ -28,7 +28,7 @@ steps:
 
   - wait
 
-- commands: 
+  - commands: 
       - "yarn install --force"
       - "yarn build"
     label: "🏗"
