@@ -13,14 +13,16 @@
 }
 
 .back {
+  margin-right: 0;
+  transition: width 0.2s linear;
   margin-right: 12px;
-  transition: all 2s;
+  display: inline-flex;
+  width: 20px;
+  overflow: hidden;
 }
 
 .noBack {
-  /* flex: 0 1 0px; */
-  max-width: 0px;
-  overflow: hidden;
+  width: 0;
 }
 
 .separator {
@@ -32,6 +34,7 @@
 }
 
 .breadcrumb {
+  transition: all 0.2s;
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;
