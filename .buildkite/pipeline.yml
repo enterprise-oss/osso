@@ -9,6 +9,7 @@ steps:
   
   - commands: 
     - "yarn install"
+    - "node -v"
     - "yarn tsc -p client --declaration false"
     label: ":typescript:"
 
