@@ -1,11 +1,12 @@
 import React from 'react';
 import './antd.css';
-import { Layout, Menu } from 'antd';
-import { Switch, Route, useLocation, useHistory } from 'react-router-dom';
+import { Layout } from 'antd';
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import Logo from './resources/Logo.svg';
-import Customers from './resources/Customers.svg';
+
+import Menu from '~client/src/components/Menu';
 
 import DeveloperConfig from './pages/developerConfiguration/index';
 import EnterpriseAccount from './pages/enterpriseAccount/index';
@@ -16,9 +17,6 @@ import Header from './components/Header/index';
 
 function App() {
   const { Sider, Content } = Layout;
-  const location = useLocation();
-  const history = useHistory();
-
   return (
     <OssoProvider>
       <Layout>
@@ -27,23 +25,7 @@ function App() {
             <Logo />
             <h1>Osso</h1>
           </div>
-          <Menu
-            mode="inline"
-            selectedKeys={[location.pathname.split('/')[1]]}
-            onClick={(e) => history.push(e.key as string)}
-          >
-            <Menu.Item
-              key="enterprise"
-              icon={
-                <div style={{ marginRight: 10 }}>
-                  <Customers />
-                </div>
-              }
-            >
-              Customers
-            </Menu.Item>
-            <Menu.Item key="config">Developer</Menu.Item>
-          </Menu>
+          <Menu />
         </Sider>
         <Layout>
           <Header />
