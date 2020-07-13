@@ -29,6 +29,7 @@ steps:
   - wait
 
   - commands: 
+      - "yarn parcel --version"
       - "yarn install --force"
       - "yarn build"
     label: "🏗"
