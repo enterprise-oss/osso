@@ -1,28 +1,31 @@
 import React from 'react';
-import Customers from '~/client/src/resources/Customers.svg';
+import { SettingOutlined, TeamOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 export default function HorizontalRule() {
   const history = useHistory();
+  const { pathname } = useLocation();
 
+  const selectedKeys = pathname
+    .split('/')
+    .filter((key) => !['', 'admin'].includes(key));
+
+  console.log(selectedKeys);
   return (
     <Menu
       mode="inline"
-      selectedKeys={[location.pathname.split('/')[1]]}
+      theme="light"
+      style={{ border: 'none' }}
+      selectedKeys={selectedKeys}
       onClick={(e) => history.push(e.key as string)}
     >
-      <Menu.Item
-        key="enterprise"
-        icon={
-          <div style={{ marginRight: 10 }}>
-            <Customers />
-          </div>
-        }
-      >
+      <Menu.Item key="enterprise" icon={<TeamOutlined />}>
         Customers
       </Menu.Item>
-      <Menu.Item key="config">Developer</Menu.Item>
+      <Menu.Item key="config" icon={<SettingOutlined />}>
+        Developer
+      </Menu.Item>
     </Menu>
   );
 }

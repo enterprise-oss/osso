@@ -4,7 +4,7 @@ import { Layout } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
-import Logo from './resources/Logo.svg';
+import LogoWhite from './resources/LogoWhite.svg';
 
 import Menu from '~client/src/components/Menu';
 
@@ -20,16 +20,26 @@ function App() {
   return (
     <OssoProvider>
       <Layout>
-        <Sider width={220}>
+        <Sider
+          width={220}
+          style={{
+            overflow: 'auto',
+            height: '100vh',
+            position: 'fixed',
+            left: 0,
+            zIndex: 10,
+            boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
+          }}
+        >
           <div className="brand">
-            <Logo />
+            <LogoWhite />
             <h1>Osso</h1>
           </div>
           <Menu />
         </Sider>
-        <Layout>
+        <Layout style={{ marginLeft: 220 }}>
           <Header />
-          <Content className="main">
+          <Content className="main" style={{ marginTop: 88 }}>
             <Switch>
               <Route exact path="/enterprise" component={EnterpriseAccounts} />
               <Route path="/enterprise/:domain" component={EnterpriseAccount} />
