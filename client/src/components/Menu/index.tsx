@@ -1,10 +1,9 @@
 import { SettingOutlined, TeamOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
-import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Menu as AntMenu } from 'antd';
+import React, { ReactElement } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
-export default function HorizontalRule() {
-  const history = useHistory();
+export default function Menu(): ReactElement {
   const { pathname } = useLocation();
 
   const selectedKeys = pathname
@@ -13,19 +12,18 @@ export default function HorizontalRule() {
 
   console.log(selectedKeys);
   return (
-    <Menu
+    <AntMenu
       mode="inline"
       theme="light"
       style={{ border: 'none' }}
       selectedKeys={selectedKeys}
-      onClick={(e) => history.push(e.key as string)}
     >
-      <Menu.Item key="enterprise" icon={<TeamOutlined />}>
-        Customers
-      </Menu.Item>
-      <Menu.Item key="config" icon={<SettingOutlined />}>
-        Developer
-      </Menu.Item>
-    </Menu>
+      <AntMenu.Item key="enterprise" icon={<TeamOutlined />}>
+        <NavLink to="/enterprise">Customers</NavLink>
+      </AntMenu.Item>
+      <AntMenu.Item key="config" icon={<SettingOutlined />}>
+        <NavLink to="/config">Developer</NavLink>
+      </AntMenu.Item>
+    </AntMenu>
   );
 }

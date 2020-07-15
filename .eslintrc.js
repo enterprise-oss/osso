@@ -24,7 +24,7 @@ module.exports = {
   },
   plugins: ["simple-import-sort"],
   rules: {
-    indent: ["error", 2],
+    indent: "off",
     "linebreak-style": ["error", "unix"],
     quotes: "off",
     semi: "off",
