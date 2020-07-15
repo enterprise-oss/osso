@@ -1,6 +1,6 @@
-import React from 'react';
 import { SettingOutlined, TeamOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
+import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 export default function HorizontalRule() {

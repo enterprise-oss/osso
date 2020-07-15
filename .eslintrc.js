@@ -4,10 +4,10 @@ module.exports = {
     es6: true,
   },
   extends: [
-    "prettier",
-    "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
     "plugin:cypress/recommended",
   ],
   globals: {
@@ -22,7 +22,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["prettier", "react", "@typescript-eslint"],
+  plugins: ["simple-import-sort"],
   rules: {
     indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
@@ -31,6 +31,9 @@ module.exports = {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
     "prettier/prettier": ["error"],
+    "sort-imports": "off",
+    "import/order": "off",
+    "simple-import-sort/sort": "error",
   },
   settings: {
     react: { version: "detect" },

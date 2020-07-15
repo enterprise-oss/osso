@@ -1749,7 +1749,7 @@ html {
 }
 .ant-badge-status-processing {
   position: relative;
-  background-color: #1890ff;
+  background-color: #4E61A5;
 }
 .ant-badge-status-processing::after {
   position: absolute;
@@ -1757,7 +1757,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid #1890ff;
+  border: 1px solid #4E61A5;
   border-radius: 50%;
   animation: antStatusProcessing 1.2s infinite ease-in-out;
   content: '';
@@ -1802,7 +1802,7 @@ html {
   background: #52c41a;
 }
 .ant-badge-status-blue {
-  background: #1890ff;
+  background: #4E61A5;
 }
 .ant-badge-status-geekblue {
   background: #2f54eb;
@@ -17201,7 +17201,7 @@ textarea.ant-pagination-options-quick-jumper input {
   transition: all 0.3s;
 }
 .ant-progress-steps-item-active {
-  background: #1890ff;
+  background: #4E61A5;
 }
 .ant-progress-small.ant-progress-line,
 .ant-progress-small.ant-progress-line .ant-progress-text .anticon {
@@ -17233,12 +17233,12 @@ textarea.ant-pagination-options-quick-jumper input {
   animation: ant-progress-appear 0.3s;
 }
 .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
-  stroke: #1890ff;
+  stroke: #4E61A5;
 }
 .ant-progress-success-bg,
 .ant-progress-bg {
   position: relative;
-  background-color: #1890ff;
+  background-color: #4E61A5;
   border-radius: 100px;
   transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
 }
@@ -21597,14 +21597,14 @@ tr.ant-table-expanded-row:hover > td {
   border-color: #52c41a;
 }
 .ant-tag-blue {
-  color: #1890ff;
-  background: #e6f7ff;
-  border-color: #91d5ff;
+  color: #4E61A5;
+  background: #d8dde6;
+  border-color: #c0c4cc;
 }
 .ant-tag-blue-inverse {
   color: #fff;
-  background: #1890ff;
-  border-color: #1890ff;
+  background: #4E61A5;
+  border-color: #4E61A5;
 }
 .ant-tag-geekblue {
   color: #2f54eb;
@@ -21632,9 +21632,9 @@ tr.ant-table-expanded-row:hover > td {
   border-color: #b7eb8f;
 }
 .ant-tag-processing {
-  color: #1890ff;
-  background: #e6f7ff;
-  border-color: #91d5ff;
+  color: #4E61A5;
+  background: #d8dde6;
+  border-color: #c0c4cc;
 }
 .ant-tag-error {
   color: #f5222d;
@@ -22116,10 +22116,10 @@ tr.ant-table-expanded-row:hover > td {
   background-color: #52c41a;
 }
 .ant-tooltip-blue .ant-tooltip-inner {
-  background-color: #1890ff;
+  background-color: #4E61A5;
 }
 .ant-tooltip-blue .ant-tooltip-arrow-content {
-  background-color: #1890ff;
+  background-color: #4E61A5;
 }
 .ant-tooltip-geekblue .ant-tooltip-inner {
   background-color: #2f54eb;

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Layout } from 'antd';
-import { useHistory, useLocation } from 'react-router-dom';
-import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import styles from './index.module.css';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { useEnterpriseAccount } from '@enterprise-oss/osso';
+import { Layout } from 'antd';
 import classnames from 'classnames';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+
+import styles from './index.module.css';
 
 export default function Header() {
   const location = useLocation();

@@ -1,6 +1,7 @@
 import { EnterpriseAccount } from '@enterprise-oss/osso';
 import { Button } from 'antd';
 import React from 'react';
+
 import styles from './index.module.css';
 export default function EnterpriseHeader({
   enterpriseAccount,

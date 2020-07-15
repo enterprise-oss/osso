@@ -1,9 +1,11 @@
+import { CalendarOutlined } from '@ant-design/icons';
 import { EnterpriseAccount } from '@enterprise-oss/osso';
 import { Avatar, Tag } from 'antd';
 import React from 'react';
-import styles from './index.module.css';
-import { CalendarOutlined } from '@ant-design/icons';
+
 import Hr from '../Hr';
+import styles from './index.module.css';
+
 export default function EnterpriseHeader({
   enterpriseAccount,
 }: {

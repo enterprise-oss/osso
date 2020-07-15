@@ -1,19 +1,18 @@
-import React from 'react';
 import './antd.css';
-import { Layout } from 'antd';
-import { Switch, Route } from 'react-router-dom';
-
 import './App.css';
-import LogoWhite from './resources/LogoWhite.svg';
+
+import { OssoProvider } from '@enterprise-oss/osso';
+import { Layout } from 'antd';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import Menu from '~client/src/components/Menu';
 
+import Header from './components/Header/index';
 import DeveloperConfig from './pages/developerConfiguration/index';
 import EnterpriseAccount from './pages/enterpriseAccount/index';
 import EnterpriseAccounts from './pages/enterpriseAccounts/index';
-import { OssoProvider } from '@enterprise-oss/osso';
-
-import Header from './components/Header/index';
+import LogoWhite from './resources/LogoWhite.svg';
 
 function App() {
   const { Sider, Content } = Layout;
