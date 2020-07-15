@@ -1,41 +1,31 @@
-import React from 'react';
 import './antd.css';
-import { Layout } from 'antd';
-import { Switch, Route } from 'react-router-dom';
 
-import './App.css';
-import Logo from './resources/Logo.svg';
-
-import Menu from '~client/src/components/Menu';
-
-import DeveloperConfig from './pages/developerConfiguration/index';
-import EnterpriseAccount from './pages/enterpriseAccount/index';
-import EnterpriseAccounts from './pages/enterpriseAccounts/index';
 import { OssoProvider } from '@enterprise-oss/osso';
+import { Layout } from 'antd';
+import React, { ReactElement } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import Header from './components/Header/index';
+import styles from './App.module.css';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import DeveloperConfig from './pages/developerConfiguration';
+import EnterpriseAccount from './pages/enterpriseAccount';
+import EnterpriseAccounts from './pages/enterpriseAccounts';
 
-function App() {
-  const { Sider, Content } = Layout;
+function App(): ReactElement {
   return (
     <OssoProvider>
       <Layout>
-        <Sider width={220}>
-          <div className="brand">
-            <Logo />
-            <h1>Osso</h1>
-          </div>
-          <Menu />
-        </Sider>
-        <Layout>
+        <Sidebar />
+        <Layout className={styles.main}>
           <Header />
-          <Content className="main">
+          <Layout.Content className={styles.content}>
             <Switch>
               <Route exact path="/enterprise" component={EnterpriseAccounts} />
               <Route path="/enterprise/:domain" component={EnterpriseAccount} />
               <Route exact path="/config" component={DeveloperConfig} />
             </Switch>
-          </Content>
+          </Layout.Content>
         </Layout>
       </Layout>
     </OssoProvider>

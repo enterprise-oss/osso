@@ -1,0 +1,26 @@
+.root {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  z-Index: 10;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.brand {
+  height: 64px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand h1 {
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 600;
+  color: #4E61A5;
+  margin: 0;
+  margin-left: 10px;
+}

@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import './index.css';
+
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import { InputProps } from './index.types';
+import { Card, Col, Modal, Row } from 'antd';
+import React, { useState } from 'react';
 
 import AccountHeader from '~/client/src/components/AccountHeader';
 import AccountIdentityProviders from '~/client/src/components/AccountIdentityProviders';
-import UsersTable from '~/client/src/components/UsersTable';
 import RecentLoginsTable from '~/client/src/components/RecentLoginsTable';
+import UsersTable from '~/client/src/components/UsersTable';
 
-import { Card, Col, Modal, Row } from 'antd';
-
-import './index.css';
+import { InputProps } from './index.types';
 
 export default function enterpriseAccount(props: InputProps) {
   const { data } = useEnterpriseAccount(props.match.params.domain);

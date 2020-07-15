@@ -1,12 +1,11 @@
-import React from 'react';
-import { Form, Input, Button, Upload, Tooltip } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-
 import {
   IdpGeneratedFields,
   OssoGeneratedFields,
   OssoInputProps,
 } from '@enterprise-oss/osso';
+import { Button, Form, Input, Tooltip, Upload } from 'antd';
+import React from 'react';
 
 const formItemLayout = {
   labelCol: {

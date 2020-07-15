@@ -1,19 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { Layout } from 'antd';
-import { useHistory, useLocation } from 'react-router-dom';
-import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import styles from './index.module.css';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import { useEnterpriseAccount } from '@enterprise-oss/osso';
+import { Layout } from 'antd';
 import classnames from 'classnames';
+import React, { ReactElement, useEffect, useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 
-export default function Header() {
+import styles from './index.module.css';
+
+export default function Header(): ReactElement {
   const location = useLocation();
   const history = useHistory();
   const [headerState, setHeaderState] = useState({
     backPath: '/',
     Inner: null,
     nested: false,
+    Outer: '',
   });
+
+  const outerForPath = (pathElements) => {
+    switch (pathElements[0]) {
+      case 'enterprise':
+        return 'Customers';
+      case 'config':
+        return 'Configuration';
+    }
+  };
+
+  const innerForPath = (pathElements) => {
+    if (pathElements.length === 1) return;
+
+    switch (pathElements[0]) {
+      case 'enterprise':
+        return <EnterpriseAccountName domain={pathElements[1]} />;
+    }
+  };
 
   useEffect(() => {
     const pathArray = location.pathname.split('/').filter(Boolean);
@@ -21,12 +41,13 @@ export default function Header() {
 
     setHeaderState({
       backPath: '/' + pathArray[0],
-      Inner: <EnterpriseAccountName domain={pathArray[1]} />,
+      Inner: innerForPath(pathArray),
       nested,
+      Outer: outerForPath(pathArray),
     });
   }, [location.pathname]);
 
-  const { nested, backPath, Inner } = headerState;
+  const { nested, backPath, Inner, Outer } = headerState;
 
   return (
     <Layout.Header className={styles.header}>
@@ -40,7 +61,7 @@ export default function Header() {
           <ArrowLeftOutlined
             className={classnames(styles.back, { [styles.noBack]: !nested })}
           />
-          Customers
+          {Outer}
         </h1>
         {nested && (
           <>
