@@ -2,7 +2,7 @@ steps:
 
   - commands: 
     - "bundle install"
-    - "bundle exec db:migrate"
+    - "bundle exec rake db:migrate"
     - "bundle exec rspec"
     label: ":rspec:"
   
