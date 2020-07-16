@@ -1,14 +1,16 @@
-describe('EnterpriseAccounts', () => {
-
-  describe('with an Admin user', () => {
+describe("EnterpriseAccounts", () => {
+  describe("with an Admin user", () => {
     before(() => {
-      cy.login('admin@saas.com', 'admin')
-    })
+      cy.login("admin@saas.com", "admin");
+    });
 
-    it('renders a header title', () => {
-      cy.visit('/admin/enterprise')
-      cy.get('h1').should('contain', 'Customers')
-    })
-  })
-
-})
+    it("can create an enterprise account", () => {
+      cy.visit("/admin/enterprise");
+      cy.get("button#addNew").click();
+      cy.get("input#domain").type("foo.com");
+      cy.get("input#name").type("Foo");
+      cy.contains("OK").click();
+      cy.get("table tr").last().should("contain", "Foo");
+    });
+  });
+});

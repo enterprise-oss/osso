@@ -56,7 +56,11 @@ ActiveRecord::Schema.define(version: 2020_07_15_205801) do
     t.string "domain", null: false
     t.string "sso_url"
     t.text "sso_cert"
+    t.uuid "enterprise_account_id"
+    t.uuid "oauth_client_id"
     t.index ["domain"], name: "index_identity_providers_on_domain"
+    t.index ["enterprise_account_id"], name: "index_identity_providers_on_enterprise_account_id"
+    t.index ["oauth_client_id"], name: "index_identity_providers_on_oauth_client_id"
   end
 
   create_table "oauth_access_grants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -112,22 +116,10 @@ ActiveRecord::Schema.define(version: 2020_07_15_205801) do
     t.index ["uri", "primary"], name: "index_redirect_uris_on_uri_and_primary", unique: true
   end
 
-  create_table "saml_providers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "provider"
-    t.string "domain", null: false
-    t.string "idp_sso_target_url"
-    t.text "idp_cert"
-    t.uuid "enterprise_account_id"
-    t.uuid "oauth_client_id"
-    t.index ["domain", "provider"], name: "index_saml_providers_on_domain_and_provider", unique: true
-    t.index ["enterprise_account_id"], name: "index_saml_providers_on_enterprise_account_id"
-    t.index ["oauth_client_id"], name: "index_saml_providers_on_oauth_client_id"
-  end
-
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", null: false
     t.string "idp_id", null: false
-    t.uuid "saml_provider_id"
+    t.uuid "identity_provider_id"
     t.uuid "enterprise_account_id"
     t.index ["email", "idp_id"], name: "index_users_on_email_and_idp_id", unique: true
     t.index ["enterprise_account_id"], name: "index_users_on_enterprise_account_id"
@@ -137,5 +129,5 @@ ActiveRecord::Schema.define(version: 2020_07_15_205801) do
   add_foreign_key "oauth_access_grants", "users", column: "resource_owner_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "users", column: "resource_owner_id"
-  add_foreign_key "users", "saml_providers"
+  add_foreign_key "users", "identity_providers"
 end

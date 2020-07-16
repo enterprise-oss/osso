@@ -1,31 +1,13 @@
-import { ArrowLeftOutlined, PlusOutlined } from '@ant-design/icons';
-import {
-  createEnterpriseAccount,
-  useEnterpriseAccount,
-} from '@enterprise-oss/osso';
-import { Button, Layout } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
+import { useEnterpriseAccount } from '@enterprise-oss/osso';
+import { Layout } from 'antd';
 import classnames from 'classnames';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
+import CreateAccountButton from '~/client/src/components/CreateAccountButton';
+
 import styles from './index.module.css';
-
-function CreateAccountButton(): ReactElement {
-  const { createAccount, loading } = createEnterpriseAccount();
-
-  return (
-    <Button
-      type="secondary"
-      disabled={loading}
-      onClick={() =>
-        createAccount(`foo${Math.random()}`, `foo.com?${Math.random()}`)
-      }
-      icon={<PlusOutlined />}
-    >
-      Add New Customer
-    </Button>
-  );
-}
 
 export default function Header(): ReactElement {
   const location = useLocation();
