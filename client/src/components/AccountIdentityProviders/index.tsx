@@ -1,6 +1,6 @@
 import { EnterpriseAccount } from '@enterprise-oss/osso';
 import { Button } from 'antd';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import styles from './index.module.css';
 export default function EnterpriseHeader({
@@ -9,7 +9,7 @@ export default function EnterpriseHeader({
 }: {
   enterpriseAccount: EnterpriseAccount;
   onAdd: () => void;
-}) {
+}): ReactElement {
   return (
     <div>
       <div className={styles.topRow}>
