@@ -1,5 +1,4 @@
 import { ArrowLeftOutlined, PlusOutlined } from '@ant-design/icons';
-import create from '@ant-design/icons/lib/components/IconFont';
 import {
   createEnterpriseAccount,
   useEnterpriseAccount,
