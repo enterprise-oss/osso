@@ -48,10 +48,28 @@
     lodash "^4.17.15"
     resize-observer-polyfill "^1.5.0"
 
-"@apollo/client@^3.0.0", "@apollo/client@^3.0.0-rc.10":
+"@apollo/client@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.0.0.tgz#d620fdd660e590920a3fcfed85b8602b74d3fe45"
   integrity sha512-r9fYhjUpcwcvLJuNmJQlY1gkPyU08icXtekxY3ZNYMR5FUrml0QTIBHsgJTsVQX7HecNF+bPHJyrJhmv5O1jWQ==
+  dependencies:
+    "@types/zen-observable" "^0.8.0"
+    "@wry/context" "^0.5.2"
+    "@wry/equality" "^0.1.9"
+    fast-json-stable-stringify "^2.0.0"
+    graphql-tag "^2.10.4"
+    hoist-non-react-statics "^3.3.2"
+    optimism "^0.12.1"
+    prop-types "^15.7.2"
+    symbol-observable "^1.2.0"
+    ts-invariant "^0.4.4"
+    tslib "^1.10.0"
+    zen-observable "^0.8.14"
+
+"@apollo/client@^3.0.0-rc.10":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.0.1.tgz#51ba7aedd0ee2415fedb582974bf73e4ea97755d"
+  integrity sha512-d+3f6ZhPPjnhRzUEHMUtaUfRKpx3cFE6QtLh8yuy0TH9phHuXx4CVWJHfnu8KfJ+MfcC3xiRcw4AaMHC2VwLnw==
   dependencies:
     "@types/zen-observable" "^0.8.0"
     "@wry/context" "^0.5.2"
@@ -1071,10 +1089,9 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@enterprise-oss/osso@^0.0.5-alpha.27":
+"@enterprise-oss/osso@git+https://github.com/enterprise-oss/osso-react.git#sbauch/create-account-mutation":
   version "0.0.5-alpha.27"
-  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.27.tgz#4462350ad356dbf3953e1cb9efaaf7b5cd9a0dba"
-  integrity sha512-MClrUwO3ItDFPAZTilpeE7/U3UV8npOnmIcm0d3foB7o0Atn2DswIw1bg54WWesuxaJ+hfjMlQFglb7E+B5qtA==
+  resolved "git+https://github.com/enterprise-oss/osso-react.git#af863b994529148af964cf9cd402ccb5ff0c834e"
   dependencies:
     "@apollo/client" "^3.0.0-rc.10"
     graphql "^15.1.0"
