@@ -15,7 +15,7 @@ function CreateAccountButton(): ReactElement {
 
   return (
     <Button
-      type="primary"
+      type="secondary"
       disabled={loading}
       onClick={() =>
         createAccount(`foo${Math.random()}`, `foo.com?${Math.random()}`)
