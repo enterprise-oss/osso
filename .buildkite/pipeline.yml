@@ -30,7 +30,6 @@ steps:
   - wait
 
   - commands: 
-      - RACK_ENV=test bundle exec rake db:reset
       - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
