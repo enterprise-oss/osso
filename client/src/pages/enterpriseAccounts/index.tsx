@@ -1,9 +1,9 @@
 import { EnterpriseAccount, useEnterpriseAccounts } from '@enterprise-oss/osso';
-import { Avatar, Table, Tag } from 'antd';
-import React from 'react';
+import { Table, Tag } from 'antd';
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function enterpriseAccounts() {
+export default function enterpriseAccounts(): ReactElement {
   const { loading, data } = useEnterpriseAccounts();
   return (
     <Table loading={loading} rowKey="id" dataSource={data?.enterpriseAccounts}>
@@ -12,10 +12,7 @@ export default function enterpriseAccounts() {
         dataIndex="name"
         key="name"
         render={(text: string, record: EnterpriseAccount) => (
-          <>
-            {/* <Avatar src={`https://logo.clearbit.com/${record.domain}`} /> */}
-            <Link to={`/enterprise/${record.domain}`}>{text}</Link>
-          </>
+          <Link to={`/enterprise/${record.domain}`}>{text}</Link>
         )}
       />
       <Table.Column title="Domain" dataIndex="domain" key="domain" />
