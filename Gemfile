@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso', git: 'git@github.com:enterprise-oss/osso-rb.git', branch: 'sbauch/remove-single-table-inheritance'
+gem 'osso' # , git: 'git@github.com:enterprise-oss/osso-rb.git', branch: 'sbauch/remove-single-table-inheritance'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rake'

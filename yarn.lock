@@ -1089,9 +1089,10 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@enterprise-oss/osso@git+ssh://git@github.com:enterprise-oss/osso-react.git#sbauch/create-account-mutation":
-  version "0.0.5-alpha.27"
-  resolved "git+ssh://git@github.com:enterprise-oss/osso-react.git#af863b994529148af964cf9cd402ccb5ff0c834e"
+"@enterprise-oss/osso@latest":
+  version "0.0.5-alpha.28"
+  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.28.tgz#deff8564db6e383ff6a899302ac3816d82564178"
+  integrity sha512-6XmHOoP5a8QlHgX5x7TdW2rHFcVDwKZhll6vAu9udf8PlJ78BIxgakx9p2n2tFkqRYEd48wgCaAayhTGYVhKXQ==
   dependencies:
     "@apollo/client" "^3.0.0-rc.10"
     graphql "^15.1.0"
