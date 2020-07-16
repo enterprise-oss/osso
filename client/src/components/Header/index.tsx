@@ -1,6 +1,6 @@
-import { ArrowLeftOutlined } from '@ant-design/icons';
+import { ArrowLeftOutlined, DownOutlined } from '@ant-design/icons';
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import { Layout } from 'antd';
+import { Button, Dropdown, Layout, Menu } from 'antd';
 import classnames from 'classnames';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
@@ -39,11 +39,27 @@ export default function Header(): ReactElement {
     }
   };
 
+  const menu = (
+    <Menu>
+      <Menu.Item key="1">1st item</Menu.Item>
+      <Menu.Item key="2">2nd item</Menu.Item>
+      <Menu.Item key="3">3rd item</Menu.Item>
+    </Menu>
+  );
+
   const actionForPath = (pathElements) => {
     if (pathElements[0] == 'enterprise') {
       if (pathElements.length === 1) {
         return <CreateAccountButton />;
       }
+
+      return (
+        <Dropdown overlay={menu}>
+          <Button type="primary">
+            Actions <DownOutlined />
+          </Button>
+        </Dropdown>
+      );
     }
 
     return null;

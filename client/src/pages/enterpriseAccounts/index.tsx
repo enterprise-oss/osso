@@ -13,7 +13,7 @@ export default function enterpriseAccounts() {
         key="name"
         render={(text: string, record: EnterpriseAccount) => (
           <>
-            <Avatar src={`https://logo.clearbit.com/${record.domain}`} />
+            {/* <Avatar src={`https://logo.clearbit.com/${record.domain}`} /> */}
             <Link to={`/enterprise/${record.domain}`}>{text}</Link>
           </>
         )}
