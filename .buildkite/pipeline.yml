@@ -2,6 +2,8 @@ steps:
 
   - commands: 
     - "bundle install"
+    - "be rake db:drop"
+    - "be rake db:create"
     - "RACK_ENV=test bundle exec rake db:migrate"
     - "bundle exec rspec"
     label: ":rspec:"
@@ -30,7 +32,7 @@ steps:
   - wait
 
   - commands: 
-      - bundle exec rake db:reset
+      - RACK_ENV=test bundle exec rake db:reset
       - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
