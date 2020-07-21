@@ -1,9 +1,10 @@
-import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import { Button, Card, Col, Modal, Row } from 'antd';
-import React, { ReactElement, useState } from 'react';
+import { IdentityProvider, useEnterpriseAccount } from '@enterprise-oss/osso';
+import { Card, Col, Row } from 'antd';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 import AccountHeader from '~/client/src/components/AccountHeader';
 import AccountIdentityProviders from '~/client/src/components/AccountIdentityProviders';
+import IdentityProviderForm from '~/client/src/components/IdentityProviderForm';
 import RecentLoginsTable from '~/client/src/components/RecentLoginsTable';
 import UsersTable from '~/client/src/components/UsersTable';
 
@@ -13,6 +14,14 @@ import { InputProps } from './index.types';
 export default function enterpriseAccount(props: InputProps): ReactElement {
   const { data } = useEnterpriseAccount(props.match.params.domain);
   const [modalOpen, setModalOpen] = useState(false);
+  const [identityProvider, setIdentityProvider] = useState<IdentityProvider>();
+
+  useEffect(() => {
+    if (modalOpen) return;
+    setTimeout(() => {
+      setIdentityProvider(undefined);
+    }, 500);
+  }, [modalOpen]);
 
   return (
     <>
@@ -33,7 +42,17 @@ export default function enterpriseAccount(props: InputProps): ReactElement {
           <Card className={styles.card}>
             <AccountIdentityProviders
               onAdd={() => setModalOpen(true)}
+              onFinalize={(identityProvider) => {
+                setIdentityProvider(identityProvider);
+                setModalOpen(true);
+              }}
               enterpriseAccount={data?.enterpriseAccount}
+            />
+            <IdentityProviderForm
+              closeModal={() => setModalOpen(false)}
+              enterpriseAccount={data?.enterpriseAccount}
+              identityProvider={identityProvider}
+              open={modalOpen}
             />
           </Card>
         </Col>
@@ -43,24 +62,6 @@ export default function enterpriseAccount(props: InputProps): ReactElement {
           </Card>
         </Col>
       </Row>
-      <Modal
-        width={640}
-        title="New Identity Provider"
-        visible={modalOpen}
-        onCancel={() => setModalOpen(false)}
-        footer={
-          <div className={styles.buttonRow}>
-            <Button onClick={() => setModalOpen(false)}>Cancel</Button>
-            <Button type="primary" loading={false}>
-              Done
-            </Button>
-          </div>
-        }
-      >
-        <h2 className={styles.modalHeader}>
-          1. Which Identity Provider does the customer use?
-        </h2>
-      </Modal>
     </>
   );
 }

@@ -10,7 +10,6 @@ export default function Menu(): ReactElement {
     .split('/')
     .filter((key) => !['', 'admin'].includes(key));
 
-  console.log(selectedKeys);
   return (
     <AntMenu
       mode="inline"

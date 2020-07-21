@@ -1,7 +1,7 @@
 import { Table } from 'antd';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export default function UsersTable() {
+export default function UsersTable(): ReactElement {
   const data = null;
   return (
     <div>

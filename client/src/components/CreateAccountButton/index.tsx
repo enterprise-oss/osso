@@ -1,11 +1,18 @@
-import { PlusOutlined } from '@ant-design/icons';
+import { LinkOutlined, PlusOutlined } from '@ant-design/icons';
 import { createEnterpriseAccount } from '@enterprise-oss/osso';
 import { Button, Form, Input, Modal } from 'antd';
 import React, { ReactElement, useState } from 'react';
+import { useDebounce } from 'use-debounce';
+
+import styles from './index.module.css';
 
 export default function CreateAccountButton(): ReactElement {
   const { createAccount, loading } = createEnterpriseAccount();
   const [modalOpen, setModalOpen] = useState(false);
+  const [domain, setDomain] = useState('');
+  const [imageResult, setImageResult] = useState(true);
+  const [debouncedDomain] = useDebounce(domain, 300);
+
   const [form] = Form.useForm();
 
   return (
@@ -20,7 +27,7 @@ export default function CreateAccountButton(): ReactElement {
         Add New Customer
       </Button>
       <Modal
-        title="New Enterprise Customer"
+        title="New Customer"
         onCancel={() => setModalOpen(false)}
         onOk={() => {
           form
@@ -38,24 +45,42 @@ export default function CreateAccountButton(): ReactElement {
       >
         <Form
           form={form}
-          name="basic"
-          initialValues={{ remember: true }}
+          layout="vertical"
           onFinishFailed={(e) => console.log(e)}
+          hideRequiredMark={true}
         >
           <Form.Item
-            label="Domain"
-            name="domain"
-            rules={[{ required: true, message: 'Add a domain' }]}
-          >
-            <Input id="domain" />
-          </Form.Item>
-
-          <Form.Item
-            label="Name"
+            label="Customer name"
             name="name"
             rules={[{ required: true, message: 'Add a name' }]}
           >
-            <Input id="name" />
+            <Input id="name" placeholder="Company" />
+          </Form.Item>
+
+          <Form.Item
+            label="Customer domain"
+            name="domain"
+            rules={[{ required: true, message: 'Add a domain' }]}
+          >
+            <Input
+              id="domain"
+              onChange={(e) => {
+                setDomain(e.target.value);
+                setTimeout(() => setImageResult(true), 350);
+              }}
+              placeholder="example.com"
+              prefix={
+                debouncedDomain && imageResult ? (
+                  <img
+                    className={styles.companyLogo}
+                    src={`https://logo.clearbit.com/${debouncedDomain}`}
+                    onError={() => setImageResult(false)}
+                  />
+                ) : (
+                  <LinkOutlined className={styles.linkIcon} />
+                )
+              }
+            />
           </Form.Item>
         </Form>
       </Modal>

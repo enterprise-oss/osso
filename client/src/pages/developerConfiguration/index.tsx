@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-export default function DeveloperConfig() {
+export default function DeveloperConfig(): ReactElement {
   return <p>config</p>;
 }
 
