@@ -29,18 +29,33 @@ export default function CreateAccountButton(): ReactElement {
       <Modal
         title="New Customer"
         onCancel={() => setModalOpen(false)}
-        onOk={() => {
-          form
-            .validateFields()
-            .then(({ name, domain }) => {
-              createAccount(name, domain);
-              form.resetFields();
-              setModalOpen(false);
-            })
-            .catch((error) => {
-              console.error(error);
-            });
-        }}
+        footer={
+          <div className={styles.buttonRow}>
+            <Button onClick={() => setModalOpen(false)}>Cancel</Button>
+            <Button
+              disabled={
+                !form.isFieldsTouched(true) ||
+                !!form.getFieldsError().filter(({ errors }) => errors.length)
+                  .length
+              }
+              type="primary"
+              onClick={() => {
+                form
+                  .validateFields()
+                  .then(({ name, domain }) => {
+                    createAccount(name, domain);
+                    form.resetFields();
+                    setModalOpen(false);
+                  })
+                  .catch((error) => {
+                    console.error(error);
+                  });
+              }}
+            >
+              Done
+            </Button>
+          </div>
+        }
         visible={modalOpen}
       >
         <Form
