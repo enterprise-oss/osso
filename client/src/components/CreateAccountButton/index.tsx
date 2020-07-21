@@ -34,7 +34,7 @@ export default function CreateAccountButton(): ReactElement {
             <Button onClick={() => setModalOpen(false)}>Cancel</Button>
             <Button
               disabled={
-                !form.isFieldsTouched(true) ||
+                !form.isFieldsTouched(false) ||
                 !!form.getFieldsError().filter(({ errors }) => errors.length)
                   .length
               }
