@@ -16,7 +16,7 @@ describe("EnterpriseAccounts", () => {
       cy.get("input#domain").type(domain);
       cy.get("input#name").type(company);
 
-      cy.contains("OK").click();
+      cy.contains("Done").click();
 
       cy.get("table tr").last().get("td > a").contains(company).click();
 
