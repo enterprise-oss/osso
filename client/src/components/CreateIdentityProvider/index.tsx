@@ -1,19 +1,15 @@
 import {
-  configureIdentityProvider,
   createIdentityProvider,
   EnterpriseAccount,
   IdentityProvider,
-  IdpGeneratedFields,
   OssoGeneratedFields,
   Providers,
 } from '@enterprise-oss/osso';
-import { Button, Form, Modal, Spin } from 'antd';
+import { Button, Modal, Spin } from 'antd';
 import React, { ReactElement, useEffect, useState } from 'react';
 
 import CopyValueComponent from '~/client/src/components/Osso/CopyValueComponent';
-import InputComponent from '~/client/src/components/Osso/InputComponent';
 import LinkComponent from '~/client/src/components/Osso/LinkComponent';
-import UploadComponent from '~/client/src/components/Osso/UploadComponent';
 import ProviderPicker from '~/client/src/components/ProviderPicker';
 
 import styles from './index.module.css';
@@ -74,13 +70,11 @@ enum FormSteps {
   PickProvider,
   Loading,
   Documentation,
-  Finalize,
 }
 
 export default function IdentityProviderForm({
   closeModal,
   enterpriseAccount,
-  identityProvider: existingProvider,
   open,
 }: {
   closeModal: () => void;
@@ -89,17 +83,13 @@ export default function IdentityProviderForm({
   open: boolean;
 }): ReactElement {
   const { createProvider, data, loading } = createIdentityProvider();
-  const { configureProvider } = configureIdentityProvider();
   const [service, setService] = useState<Providers>();
   const [step, setStep] = useState<FormSteps>(FormSteps.PickProvider);
-
-  const identityProvider =
-    existingProvider || data?.createIdentityProvider?.identityProvider;
+  const identityProvider = data?.createIdentityProvider?.identityProvider;
 
   useEffect(() => {
     if (loading) return setStep(FormSteps.Loading);
     if (!identityProvider?.id) return setStep(FormSteps.PickProvider);
-    if (identityProvider.configured) return setStep(FormSteps.Finalize);
     if (identityProvider.service) return setStep(FormSteps.Documentation);
 
     return () => setStep(FormSteps.PickProvider);
@@ -112,8 +102,6 @@ export default function IdentityProviderForm({
     createProvider(enterpriseAccount.id, service);
   };
 
-  const [form] = Form.useForm();
-
   const modalBody = () => {
     switch (step) {
       case FormSteps.PickProvider:
@@ -122,25 +110,6 @@ export default function IdentityProviderForm({
         return <Loader />;
       case FormSteps.Documentation:
         return <Documentation identityProvider={identityProvider} />;
-      case FormSteps.Finalize:
-        return (
-          <Form
-            form={form}
-            layout="vertical"
-            onFinishFailed={(e) => console.log(e)}
-            hideRequiredMark={true}
-          >
-            <IdpGeneratedFields
-              onChange={(formState) => {
-                form.setFieldsValue(formState);
-              }}
-              ButtonComponent={() => null}
-              InputComponent={InputComponent}
-              identityProvider={identityProvider}
-              UploadComponent={UploadComponent}
-            />
-          </Form>
-        );
     }
   };
 
@@ -155,11 +124,7 @@ export default function IdentityProviderForm({
           </Button>
         );
       case FormSteps.Documentation:
-        return (
-          <Button onClick={() => setStep(FormSteps.PickProvider)}>Back</Button>
-        );
-      case FormSteps.Finalize:
-        return <Button onClick={closeModal}>Cancel</Button>;
+        return <>&nbsp;</>;
     }
   };
 
@@ -180,26 +145,7 @@ export default function IdentityProviderForm({
         return <Button loading={true}>Next</Button>;
       case FormSteps.Documentation:
         return (
-          <Button onClick={() => setStep(FormSteps.Finalize)} type="primary">
-            Next
-          </Button>
-        );
-      case FormSteps.Finalize:
-        return (
-          <Button
-            type="primary"
-            onClick={() => {
-              form
-                .validateFields()
-                .then((formState) => {
-                  configureProvider(identityProvider?.id, formState);
-                  closeModal();
-                })
-                .catch((error) => {
-                  console.error(error);
-                });
-            }}
-          >
+          <Button onClick={closeModal} type="primary">
             Done
           </Button>
         );

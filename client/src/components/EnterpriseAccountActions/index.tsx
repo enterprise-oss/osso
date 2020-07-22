@@ -3,7 +3,7 @@ import { useEnterpriseAccount } from '@enterprise-oss/osso';
 import { Button, Dropdown, Menu } from 'antd';
 import React, { ReactElement, useState } from 'react';
 
-import IdentityProviderForm from '~/client/src/components/IdentityProviderForm';
+import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
 
 // import styles from './index.module.css';
 
@@ -32,7 +32,7 @@ export default function EnterpriseAccountActions({
         </Button>
       </Dropdown>
 
-      <IdentityProviderForm
+      <CreateIdentityProvider
         closeModal={() => setModalOpen(false)}
         enterpriseAccount={data?.enterpriseAccount}
         open={modalOpen}
