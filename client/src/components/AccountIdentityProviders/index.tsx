@@ -1,4 +1,3 @@
-import { yellow } from '@ant-design/colors';
 import {
   InfoCircleFilled,
   PlusCircleFilled,
