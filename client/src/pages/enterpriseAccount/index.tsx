@@ -25,7 +25,7 @@ export default function enterpriseAccount(
         </Col>
         <Col span={12}>
           <Card className={styles.card}>
-            {!data.enterpriseAccount ? (
+            {loading && !data.enterpriseAccount ? (
               <Spin />
             ) : (
               <AccountIdentityProviders
