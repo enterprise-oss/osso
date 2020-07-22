@@ -1,6 +1,5 @@
 import {
   configureIdentityProvider,
-  EnterpriseAccount,
   IdentityProvider,
   IdpGeneratedFields,
 } from '@enterprise-oss/osso';
