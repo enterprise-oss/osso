@@ -40,13 +40,15 @@ function IdentityProviderStatusCard({
   );
 }
 
-const order = ['error', 'pending', 'configured', 'active'];
-const statusComparator = ({ status: a }, { status: b }): number => {
-  if (a === b) return 0;
-  const aIdx = order.findIndex(a);
-  const bIdx = order.findIndex(b);
-  return aIdx < bIdx ? -1 : 1;
-};
+// TODO: pending should come first, but we dont currently have
+// a status enum on the graphql type
+// const order = ['error', 'pending', 'configured', 'active'];
+// const statusComparator = ({ status: a }, { status: b }): number => {
+//   if (a === b) return 0;
+//   const aIdx = order.findIndex(a);
+//   const bIdx = order.findIndex(b);
+//   return aIdx < bIdx ? -1 : 1;
+// };
 
 export default function AccountIdentityProviders({
   enterpriseAccount,
