@@ -166,7 +166,6 @@ export default function AccountIdentityProviders({
       <ConfigureIdentityProvider
         closeModal={() => setModalOpen(false)}
         open={modalOpen}
-        enterpriseAccount={enterpriseAccount}
         identityProvider={editingIdentityProvider}
       />
     </>

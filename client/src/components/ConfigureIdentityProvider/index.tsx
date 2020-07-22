@@ -10,16 +10,14 @@ import React, { ReactElement } from 'react';
 import InputComponent from '~/client/src/components/Osso/InputComponent';
 import UploadComponent from '~/client/src/components/Osso/UploadComponent';
 
-import styles from './index.module.css';
+// import styles from './index.module.css';
 
 export default function ConfigureIdentityProvider({
   closeModal,
-  enterpriseAccount,
   identityProvider,
   open,
 }: {
   closeModal: () => void;
-  enterpriseAccount: EnterpriseAccount;
   identityProvider?: IdentityProvider;
   open: boolean;
 }): ReactElement {
