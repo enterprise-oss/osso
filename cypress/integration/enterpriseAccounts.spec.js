@@ -23,7 +23,7 @@ describe("EnterpriseAccounts", () => {
       cy.url().should("include", `/enterprise/${domain}`);
 
       cy.get("button").contains("Actions").click();
-      cy.get("li").contains("Add new IDP").click();
+      cy.contains("Add new IDP").click();
     });
   });
 });
