@@ -42,7 +42,7 @@ function IdentityProviderStatusCard({
 
 export default function AccountIdentityProviders({
   enterpriseAccount,
-  onFinalize,
+  onFinalize: _onFinalize,
 }: {
   enterpriseAccount: EnterpriseAccount;
   onFinalize: (identityProvider: IdentityProvider) => void;
