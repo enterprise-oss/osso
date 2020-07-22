@@ -1,5 +1,5 @@
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import { Card, Col, Row } from 'antd';
+import { Card, Col, Row, Spin } from 'antd';
 import React, { ReactElement } from 'react';
 
 import AccountHeader from '~/client/src/components/AccountHeader';
@@ -13,7 +13,7 @@ import { EnterpriseAccountPageProps } from './index.types';
 export default function enterpriseAccount(
   props: EnterpriseAccountPageProps,
 ): ReactElement {
-  const { data } = useEnterpriseAccount(props.match.params.domain);
+  const { data, loading } = useEnterpriseAccount(props.match.params.domain);
 
   return (
     <>
@@ -25,12 +25,16 @@ export default function enterpriseAccount(
         </Col>
         <Col span={12}>
           <Card className={styles.card}>
-            <AccountIdentityProviders
-              onFinalize={(_identityProvider) => {
-                console.log('on finalize');
-              }}
-              enterpriseAccount={data?.enterpriseAccount}
-            />
+            {!data.enterpriseAccount ? (
+              <Spin />
+            ) : (
+              <AccountIdentityProviders
+                onFinalize={(_identityProvider) => {
+                  console.log('on finalize');
+                }}
+                enterpriseAccount={data?.enterpriseAccount}
+              />
+            )}
           </Card>
         </Col>
       </Row>
