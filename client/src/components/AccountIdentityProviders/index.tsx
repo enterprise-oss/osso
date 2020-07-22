@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons';
 import { EnterpriseAccount, IdentityProvider } from '@enterprise-oss/osso';
 import { Button, Card, Pagination, Tag } from 'antd';
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 
 import styles from './index.module.css';
 
