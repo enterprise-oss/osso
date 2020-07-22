@@ -5,8 +5,8 @@ import {
   WarningFilled,
 } from '@ant-design/icons';
 import { EnterpriseAccount, IdentityProvider } from '@enterprise-oss/osso';
-import { Button, Card, Pagination, Tag } from 'antd';
-import React, { ReactElement, useState } from 'react';
+import { Button, Card, Carousel, Pagination, Tag } from 'antd';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 
 import styles from './index.module.css';
 
@@ -40,6 +40,14 @@ function IdentityProviderStatusCard({
   );
 }
 
+const order = ['error', 'pending', 'configured', 'active'];
+const statusComparator = ({ status: a }, { status: b }): number => {
+  if (a === b) return 0;
+  const aIdx = order.findIndex(a);
+  const bIdx = order.findIndex(b);
+  return aIdx < bIdx ? -1 : 1;
+};
+
 export default function AccountIdentityProviders({
   enterpriseAccount,
   onFinalize: _onFinalize,
@@ -49,18 +57,14 @@ export default function AccountIdentityProviders({
 }): ReactElement {
   const { identityProviders } = enterpriseAccount;
   const [currentProviderPage, setCurrentProviderPage] = useState(1);
+  const carousel = useRef(null);
 
-  console.log(identityProviders.length);
-  // useEffect(() => {
-  //   if (currentProviderIndex > identityProviders.length) {
-  //     return setCurrentProviderIndex(0);
-  //   }
-  // }, [identityProviders, currentProviderIndex]);
-
-  const currentProvider = identityProviders[currentProviderPage - 1];
+  useEffect(() => {
+    carousel.current?.goTo(currentProviderPage - 1);
+  }, [currentProviderPage, carousel]);
 
   return (
-    <div>
+    <div className={styles.root}>
       <div className={styles.topRow}>
         <h1>Identity providers</h1>
         <Pagination
@@ -74,58 +78,66 @@ export default function AccountIdentityProviders({
           total={identityProviders.length - 1}
         />
       </div>
-      {identityProviders?.length === 0 ? (
-        <IdentityProviderStatusCard
-          body={
-            <>
-              <PlusCircleFilled
-                className={styles.icon}
-                style={{ color: blue.primary }}
-              />
-              <p>
-                Start the onboarding process by adding the Identity Provider
-                used by {enterpriseAccount.name}. You’ll also need to provide
-                their preferred domain.
-              </p>
-            </>
-          }
-          footer={<Button type="primary">Add new Identity Provider</Button>}
-        />
-      ) : (
-        <IdentityProviderStatusCard
-          identityProvider={currentProvider}
-          body={
-            <>
-              {currentProvider.configured ? (
-                <InfoCircleFilled
-                  className={styles.icon}
-                  style={{ color: green.primary }}
-                />
-              ) : (
-                <WarningFilled
-                  className={styles.icon}
-                  style={{ color: gold.primary }}
-                />
-              )}
-              <p>
-                {currentProvider.configured
-                  ? 'This IDP is configured and ready for users to sign in. Once a user has signed in successfully, the status will change to Active.'
-                  : 'Users from this IDP won’t be able to sign in until you or your customer finishes configuration.'}
-              </p>
-            </>
-          }
-          footer={
-            !currentProvider.configured && (
+      <div className={styles.carouselContainer}>
+        {identityProviders?.length === 0 ? (
+          <IdentityProviderStatusCard
+            body={
               <>
-                <Button>Download Setup</Button>
-                <Button style={{ marginLeft: 15 }} type="primary">
-                  Complete setup
-                </Button>
+                <PlusCircleFilled
+                  className={styles.icon}
+                  style={{ color: blue.primary }}
+                />
+                <p>
+                  Start the onboarding process by adding the Identity Provider
+                  used by {enterpriseAccount.name}. You’ll also need to provide
+                  their preferred domain.
+                </p>
               </>
-            )
-          }
-        />
-      )}
+            }
+            footer={<Button type="primary">Add new Identity Provider</Button>}
+          />
+        ) : (
+          <Carousel dots={false} className={styles.slickSlide} ref={carousel}>
+            {identityProviders.map((idp) => (
+              <div key={idp.id}>
+                <IdentityProviderStatusCard
+                  identityProvider={idp}
+                  body={
+                    <>
+                      {idp.configured ? (
+                        <InfoCircleFilled
+                          className={styles.icon}
+                          style={{ color: green.primary }}
+                        />
+                      ) : (
+                        <WarningFilled
+                          className={styles.icon}
+                          style={{ color: gold.primary }}
+                        />
+                      )}
+                      <p>
+                        {idp.configured
+                          ? 'This IDP is configured and ready for users to sign in. Once a user has signed in successfully, the status will change to Active.'
+                          : 'Users from this IDP won’t be able to sign in until you or your customer finishes configuration.'}
+                      </p>
+                    </>
+                  }
+                  footer={
+                    !idp.configured && (
+                      <>
+                        <Button>Download Setup</Button>
+                        <Button style={{ marginLeft: 15 }} type="primary">
+                          Complete setup
+                        </Button>
+                      </>
+                    )
+                  }
+                />
+              </div>
+            ))}
+          </Carousel>
+        )}
+      </div>
     </div>
   );
 }

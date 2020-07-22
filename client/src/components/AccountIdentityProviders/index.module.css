@@ -1,3 +1,7 @@
+.root{ 
+  max-width: 100%;
+}
+
 .topRow {
   display: flex;
   flex-direction: row;
@@ -9,6 +13,29 @@
 .topRow > h1 {
   font-weight: 600;
 }
+
+.carouselContainer {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.carouselContainer > div {
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slickSlide {
+  overflow: hidden;
+  max-width: 543px;
+  width: 100%;
+}
+
+.slickSlide h3 {
+  color: #fff;
+}
+
 
 .cardRoot {
   margin-bottom: 24px;
