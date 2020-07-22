@@ -1,28 +1,21 @@
 import { EnterpriseAccount, IdentityProvider } from '@enterprise-oss/osso';
-import { Button, Card, Tag } from 'antd';
+import { Card, Tag } from 'antd';
 import React, { ReactElement } from 'react';
 
-import styles from './index.module.css';
-
 // TODO: this has a lot of inline styles since we aren't so settled on design
+// import styles from './index.module.css';
 
 export default function EnterpriseHeader({
   enterpriseAccount,
-  onAdd,
   onFinalize,
 }: {
   enterpriseAccount: EnterpriseAccount;
-  onAdd: () => void;
   onFinalize: (identityProvider: IdentityProvider) => void;
 }): ReactElement {
   return (
     <div>
-      <div className={styles.topRow}>
-        <h1>Identity providers</h1>
-        <Button onClick={onAdd} type="primary">
-          Add New
-        </Button>
-      </div>
+      <h1>Identity providers</h1>
+
       {enterpriseAccount?.identityProviders?.map((idp) => (
         <Card
           style={{ marginBottom: 24 }}
