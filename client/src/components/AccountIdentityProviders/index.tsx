@@ -1,4 +1,4 @@
-import { blue, gold, green } from '@ant-design/colors';
+import { yellow } from '@ant-design/colors';
 import {
   InfoCircleFilled,
   PlusCircleFilled,
@@ -9,6 +9,7 @@ import { Button, Card, Carousel, Pagination, Tag } from 'antd';
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
+import { blue, gold, green } from '~/client/src/utils/colors';
 
 import styles from './index.module.css';
 
