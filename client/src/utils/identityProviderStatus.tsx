@@ -102,7 +102,6 @@ export function StatusActions({
         <>
           <Button
             type="ghost"
-            target="_blank"
             href={identityProvider.documentationPdfUrl}
             icon={<DownloadOutlined />}
           >
