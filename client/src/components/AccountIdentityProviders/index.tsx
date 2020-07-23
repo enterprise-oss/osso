@@ -1,10 +1,10 @@
-import { PlusCircleFilled } from '@ant-design/icons';
 import { EnterpriseAccount, IdentityProvider } from '@enterprise-oss/osso';
-import { Button, Card, Carousel, Pagination } from 'antd';
+import { Card, Carousel, Pagination } from 'antd';
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
-import { blue } from '~/client/src/utils/colors';
+import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
+import EmptyAccountIdentityProviders from '~/client/src/components/EmptyAccountIdentityProviders';
 import {
   byStatus,
   StatusActions,
@@ -14,34 +14,6 @@ import {
 } from '~/client/src/utils/identityProviderStatus';
 
 import styles from './index.module.css';
-
-function IdentityProviderStatusCard({
-  body,
-  identityProvider,
-  footer,
-}: {
-  body: ReactElement;
-  identityProvider?: IdentityProvider;
-  footer: ReactElement;
-}): ReactElement {
-  return (
-    <Card
-      className={styles.cardRoot}
-      size="small"
-      title={
-        identityProvider && (
-          <div className={styles.cardTitle}>
-            <p>{identityProvider.service}</p>
-            <StatusTag identityProvider={identityProvider} />
-          </div>
-        )
-      }
-    >
-      <div className={styles.cardBody}>{body}</div>
-      <div className={styles.cardFooter}>{footer}</div>
-    </Card>
-  );
-}
 
 export default function AccountIdentityProviders({
   enterpriseAccount,
@@ -67,6 +39,8 @@ export default function AccountIdentityProviders({
     IdentityProvider
   >();
 
+  const [createModalOpen, setCreateModalOpen] = useState(false);
+
   const configure = (identityProvider: IdentityProvider) => {
     const { __typename, ...editing } = identityProvider;
     setEditingIdentityProvider(editing);
@@ -85,27 +59,14 @@ export default function AccountIdentityProviders({
             pageSize={1}
             onChange={(page) => setCurrentProviderPage(page)}
             current={currentProviderPage}
-            defaultCurrent={0}
             total={identityProviders.length - 1}
           />
         </div>
         <div className={styles.carouselContainer}>
           {identityProviders?.length === 0 ? (
-            <IdentityProviderStatusCard
-              body={
-                <>
-                  <PlusCircleFilled
-                    className={styles.icon}
-                    style={{ color: blue.primary }}
-                  />
-                  <p>
-                    Start the onboarding process by adding the Identity Provider
-                    used by {enterpriseAccount.name}. You’ll also need to
-                    provide their preferred domain.
-                  </p>
-                </>
-              }
-              footer={<Button type="primary">Add new Identity Provider</Button>}
+            <EmptyAccountIdentityProviders
+              enterpriseAccount={enterpriseAccount}
+              onAdd={() => setCreateModalOpen(true)}
             />
           ) : (
             <Carousel dots={false} className={styles.slickSlide} ref={carousel}>
@@ -131,10 +92,7 @@ export default function AccountIdentityProviders({
                     <div className={styles.cardFooter}>
                       <StatusActions
                         identityProvider={idp}
-                        onActions={[
-                          () => console.log('a'),
-                          () => configure(idp),
-                        ]}
+                        onActions={[null, () => configure(idp)]}
                       />
                     </div>
                   </Card>
@@ -148,6 +106,11 @@ export default function AccountIdentityProviders({
         closeModal={() => setModalOpen(false)}
         open={modalOpen}
         identityProvider={editingIdentityProvider}
+      />
+      <CreateIdentityProvider
+        closeModal={() => setCreateModalOpen(false)}
+        enterpriseAccount={enterpriseAccount}
+        open={createModalOpen}
       />
     </>
   );
