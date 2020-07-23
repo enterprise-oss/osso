@@ -1,11 +1,9 @@
 import { DownOutlined } from '@ant-design/icons';
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
 import { Button, Dropdown, Menu } from 'antd';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
-
-// import styles from './index.module.css';
 
 export default function EnterpriseAccountActions({
   domain,
@@ -13,6 +11,15 @@ export default function EnterpriseAccountActions({
   domain: string;
 }): ReactElement {
   const [modalOpen, setModalOpen] = useState(false);
+  const [key, setKey] = useState(Math.random());
+
+  useEffect(() => {
+    if (modalOpen) return;
+    setTimeout(() => {
+      setKey(Math.random());
+    }, 500);
+  }, [modalOpen]);
+
   const { data } = useEnterpriseAccount(domain);
 
   const menu = (
@@ -33,6 +40,7 @@ export default function EnterpriseAccountActions({
       </Dropdown>
 
       <CreateIdentityProvider
+        key={key}
         closeModal={() => setModalOpen(false)}
         enterpriseAccount={data?.enterpriseAccount}
         open={modalOpen}

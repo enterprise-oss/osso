@@ -66,6 +66,27 @@ function Loader(): ReactElement {
   );
 }
 
+function ModalBody({
+  step,
+  service,
+  setService,
+  identityProvider,
+}: {
+  step: FormSteps;
+  service: Providers;
+  setService: (service: Providers) => void;
+  identityProvider: IdentityProvider;
+}): ReactElement {
+  switch (step) {
+    case FormSteps.PickProvider:
+      return <ChooseProvider onChange={setService} service={service} />;
+    case FormSteps.Loading:
+      return <Loader />;
+    case FormSteps.Documentation:
+      return <Documentation identityProvider={identityProvider} />;
+  }
+}
+
 enum FormSteps {
   PickProvider,
   Loading,
@@ -87,37 +108,19 @@ export default function IdentityProviderForm({
   const [step, setStep] = useState<FormSteps>(FormSteps.PickProvider);
   const identityProvider = data?.createIdentityProvider?.identityProvider;
 
-  const [key, setKey] = useState(Math.random());
-
-  useEffect(() => {
-    if (open) return;
-    setKey(Math.random());
-  }, [open]);
-
   useEffect(() => {
     if (loading) return setStep(FormSteps.Loading);
     if (!identityProvider?.id) return setStep(FormSteps.PickProvider);
     if (identityProvider.service) return setStep(FormSteps.Documentation);
 
     return setStep(FormSteps.PickProvider);
-  }, [identityProvider, loading, open]);
+  }, [identityProvider]);
 
   const onSubmit = () => {
     if (identityProvider?.id) {
       return closeModal();
     }
     createProvider(enterpriseAccount.id, service);
-  };
-
-  const ModalBody = () => {
-    switch (step) {
-      case FormSteps.PickProvider:
-        return <ChooseProvider onChange={setService} service={service} />;
-      case FormSteps.Loading:
-        return <Loader />;
-      case FormSteps.Documentation:
-        return <Documentation identityProvider={identityProvider} />;
-    }
   };
 
   const DestructiveButton = () => {
@@ -161,7 +164,6 @@ export default function IdentityProviderForm({
 
   return (
     <Modal
-      // destroyOnClose={true}
       width={640}
       title="New Identity Provider"
       visible={open}
@@ -173,7 +175,12 @@ export default function IdentityProviderForm({
         </div>
       }
     >
-      <ModalBody key={key} />
+      <ModalBody
+        step={step}
+        identityProvider={identityProvider}
+        service={service}
+        setService={setService}
+      />
     </Modal>
   );
 }
