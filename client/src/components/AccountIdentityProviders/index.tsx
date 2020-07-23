@@ -1,14 +1,17 @@
-import {
-  InfoCircleFilled,
-  PlusCircleFilled,
-  WarningFilled,
-} from '@ant-design/icons';
+import { PlusCircleFilled } from '@ant-design/icons';
 import { EnterpriseAccount, IdentityProvider } from '@enterprise-oss/osso';
-import { Button, Card, Carousel, Pagination, Tag } from 'antd';
+import { Button, Card, Carousel, Pagination } from 'antd';
 import React, { ReactElement, useEffect, useRef, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
-import { blue, gold, green } from '~/client/src/utils/colors';
+import { blue } from '~/client/src/utils/colors';
+import {
+  byStatus,
+  StatusActions,
+  StatusCopy,
+  StatusIcon,
+  StatusTag,
+} from '~/client/src/utils/identityProviderStatus';
 
 import styles from './index.module.css';
 
@@ -29,9 +32,7 @@ function IdentityProviderStatusCard({
         identityProvider && (
           <div className={styles.cardTitle}>
             <p>{identityProvider.service}</p>
-            <Tag color={identityProvider.configured ? 'green' : 'gold'}>
-              {identityProvider.configured ? 'Active' : 'Pending'}
-            </Tag>
+            <StatusTag identityProvider={identityProvider} />
           </div>
         )
       }
@@ -41,16 +42,6 @@ function IdentityProviderStatusCard({
     </Card>
   );
 }
-
-// TODO: pending should come first, but we dont currently have
-// a status enum on the graphql type
-// const order = ['error', 'pending', 'configured', 'active'];
-// const statusComparator = ({ status: a }, { status: b }): number => {
-//   if (a === b) return 0;
-//   const aIdx = order.findIndex(a);
-//   const bIdx = order.findIndex(b);
-//   return aIdx < bIdx ? -1 : 1;
-// };
 
 export default function AccountIdentityProviders({
   enterpriseAccount,
@@ -67,9 +58,9 @@ export default function AccountIdentityProviders({
     carousel.current?.goTo(currentProviderPage - 1);
   }, [currentProviderPage, carousel]);
 
-  useEffect(() => {
-    setCurrentProviderPage(identityProviders.length - 1);
-  }, [identityProviders.length]);
+  // useEffect(() => {
+  //   setCurrentProviderPage(identityProviders.length - 1);
+  // }, [identityProviders.length]);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editingIdentityProvider, setEditingIdentityProvider] = useState<
@@ -118,45 +109,35 @@ export default function AccountIdentityProviders({
             />
           ) : (
             <Carousel dots={false} className={styles.slickSlide} ref={carousel}>
-              {identityProviders.map((idp) => (
+              {[...identityProviders].sort(byStatus).map((idp) => (
                 <div key={idp.id}>
-                  <IdentityProviderStatusCard
-                    identityProvider={idp}
-                    body={
-                      <>
-                        {idp.configured ? (
-                          <InfoCircleFilled
-                            className={styles.icon}
-                            style={{ color: green.primary }}
-                          />
-                        ) : (
-                          <WarningFilled
-                            className={styles.icon}
-                            style={{ color: gold.primary }}
-                          />
-                        )}
-                        <p>
-                          {idp.configured
-                            ? 'This IDP is configured and ready for users to sign in. Once a user has signed in successfully, the status will change to Active.'
-                            : 'Users from this IDP won’t be able to sign in until you or your customer finishes configuration.'}
-                        </p>
-                      </>
+                  <Card
+                    className={styles.cardRoot}
+                    size="small"
+                    title={
+                      <div className={styles.cardTitle}>
+                        <p>{idp.service}</p>
+                        <StatusTag identityProvider={idp} />
+                      </div>
                     }
-                    footer={
-                      !idp.configured && (
-                        <>
-                          <Button>Download Setup</Button>
-                          <Button
-                            onClick={() => configure(idp)}
-                            style={{ marginLeft: 15 }}
-                            type="primary"
-                          >
-                            Complete setup
-                          </Button>
-                        </>
-                      )
-                    }
-                  />
+                  >
+                    <div className={styles.cardBody}>
+                      <StatusIcon
+                        className={styles.icon}
+                        identityProvider={idp}
+                      />
+                      <StatusCopy identityProvider={idp} />
+                    </div>
+                    <div className={styles.cardFooter}>
+                      <StatusActions
+                        identityProvider={idp}
+                        onActions={[
+                          () => console.log('a'),
+                          () => configure(idp),
+                        ]}
+                      />
+                    </div>
+                  </Card>
                 </div>
               ))}
             </Carousel>

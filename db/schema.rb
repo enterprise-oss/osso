@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_205801) do
+ActiveRecord::Schema.define(version: 2020_07_22_230116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -51,17 +51,8 @@ ActiveRecord::Schema.define(version: 2020_07_15_205801) do
     t.index ["oauth_client_id"], name: "index_enterprise_accounts_on_oauth_client_id"
   end
 
-  create_table "identity_providers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "service"
-    t.string "domain", null: false
-    t.string "sso_url"
-    t.text "sso_cert"
-    t.uuid "enterprise_account_id"
-    t.uuid "oauth_client_id"
-    t.index ["domain"], name: "index_identity_providers_on_domain"
-    t.index ["enterprise_account_id"], name: "index_identity_providers_on_enterprise_account_id"
-    t.index ["oauth_client_id"], name: "index_identity_providers_on_oauth_client_id"
-  end
+# Could not dump table "identity_providers" because of following StandardError
+#   Unknown type 'identity_provider_status' for column 'status'
 
   create_table "oauth_access_grants", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "resource_owner_id", null: false

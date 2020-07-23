@@ -3,13 +3,13 @@ import {
   IdentityProvider,
   IdpGeneratedFields,
 } from '@enterprise-oss/osso';
-import { Form, Modal } from 'antd';
+import { Button, Form, Modal } from 'antd';
 import React, { ReactElement } from 'react';
 
 import InputComponent from '~/client/src/components/Osso/InputComponent';
 import UploadComponent from '~/client/src/components/Osso/UploadComponent';
 
-// import styles from './index.module.css';
+import styles from './index.module.css';
 
 export default function ConfigureIdentityProvider({
   closeModal,
@@ -29,18 +29,27 @@ export default function ConfigureIdentityProvider({
       title="Complete setup"
       visible={open}
       onCancel={closeModal}
-      okText="Done"
-      onOk={() => {
-        form
-          .validateFields()
-          .then((formState) => {
-            configureProvider(identityProvider?.id, formState);
-            closeModal();
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }}
+      footer={
+        <div className={styles.buttonRow}>
+          <Button onClick={closeModal}>Cancel</Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              form
+                .validateFields()
+                .then((formState) => {
+                  configureProvider(identityProvider?.id, formState);
+                  closeModal();
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+            }}
+          >
+            Save
+          </Button>
+        </div>
+      }
     >
       <Form
         form={form}
