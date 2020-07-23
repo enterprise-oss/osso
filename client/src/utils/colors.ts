@@ -4,7 +4,7 @@ const presetPrimaryColors: {
   [key: string]: string;
 } = {
   red: '#EC5B56',
-  gold: '#FF9800',
+  gold: '#FFCD83',
   green: '#73BA9B',
   blue: '#4E61A5',
 };
