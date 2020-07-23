@@ -93,7 +93,7 @@ export function StatusActions({
 }: {
   identityProvider: IdentityProvider;
   className?: string;
-  onActions?: ((arg?: any) => void)[];
+  onActions?: ((arg?: MouseEvent) => void)[];
 }): ReactElement {
   switch (identityProvider.status) {
     case IdentityProviderStatus.pending:

@@ -1,6 +1,6 @@
 import { EnterpriseAccount, IdentityProvider } from '@enterprise-oss/osso';
-import { Card, Carousel, Pagination } from 'antd';
-import React, { ReactElement, useEffect, useRef, useState } from 'react';
+import { Card, Pagination } from 'antd';
+import React, { ReactElement, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
 import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
@@ -22,7 +22,9 @@ export default function AccountIdentityProviders({
   enterpriseAccount: EnterpriseAccount;
   onFinalize: (identityProvider: IdentityProvider) => void;
 }): ReactElement {
-  const { identityProviders } = enterpriseAccount;
+  const identityProviders = [...enterpriseAccount?.identityProviders].sort(
+    byStatus,
+  );
   const [currentProvider, setCurrentProvider] = useState(
     identityProviders?.[0],
   );
