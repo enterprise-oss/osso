@@ -24,7 +24,7 @@ export default function enterpriseAccount(
           </Card>
         </Col>
         <Col span={12}>
-          <Card className={styles.card}>
+          <Card className={styles.card} bodyStyle={{ height: '100%' }}>
             {loading ? (
               <Spin />
             ) : (

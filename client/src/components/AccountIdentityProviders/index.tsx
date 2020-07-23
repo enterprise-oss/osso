@@ -23,12 +23,9 @@ export default function AccountIdentityProviders({
   onFinalize: (identityProvider: IdentityProvider) => void;
 }): ReactElement {
   const { identityProviders } = enterpriseAccount;
-  const [currentProviderPage, setCurrentProviderPage] = useState(1);
-  const carousel = useRef(null);
-
-  useEffect(() => {
-    carousel.current?.goTo(currentProviderPage - 1);
-  }, [currentProviderPage, carousel]);
+  const [currentProvider, setCurrentProvider] = useState(
+    identityProviders?.[0],
+  );
 
   // useEffect(() => {
   //   setCurrentProviderPage(identityProviders.length - 1);
@@ -57,9 +54,11 @@ export default function AccountIdentityProviders({
             hideOnSinglePage={true}
             showQuickJumper={false}
             pageSize={1}
-            onChange={(page) => setCurrentProviderPage(page)}
-            current={currentProviderPage}
-            total={identityProviders.length - 1}
+            onChange={(page) =>
+              setCurrentProvider(identityProviders?.[page - 1])
+            }
+            current={identityProviders?.indexOf(currentProvider) + 1}
+            total={identityProviders?.length}
           />
         </div>
         <div className={styles.carouselContainer}>
@@ -69,38 +68,39 @@ export default function AccountIdentityProviders({
               onAdd={() => setCreateModalOpen(true)}
             />
           ) : (
-            <Carousel dots={false} className={styles.slickSlide} ref={carousel}>
-              {[...identityProviders].sort(byStatus).map((idp) => (
-                <div key={idp.id}>
-                  <Card
-                    className={styles.cardRoot}
-                    bodyStyle={{ padding: 24 }}
-                    headStyle={{ padding: '0 16px 0 24px' }}
-                    size="small"
-                    title={
-                      <div className={styles.cardTitle}>
-                        <p>{idp.service}</p>
-                        <StatusTag identityProvider={idp} />
-                      </div>
-                    }
-                  >
-                    <div className={styles.cardBody}>
-                      <StatusIcon
-                        className={styles.icon}
-                        identityProvider={idp}
-                      />
-                      <StatusCopy identityProvider={idp} />
-                    </div>
-                    <div className={styles.cardFooter}>
-                      <StatusActions
-                        identityProvider={idp}
-                        onActions={[null, () => configure(idp)]}
-                      />
-                    </div>
-                  </Card>
+            <Card
+              key={currentProvider.id}
+              className={styles.cardRoot}
+              bodyStyle={{
+                padding: 24,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+              }}
+              headStyle={{ padding: '0 16px 0 24px' }}
+              size="small"
+              title={
+                <div className={styles.cardTitle}>
+                  <p>{currentProvider.service}</p>
+                  <StatusTag identityProvider={currentProvider} />
                 </div>
-              ))}
-            </Carousel>
+              }
+            >
+              <div className={styles.cardBody}>
+                <StatusIcon
+                  className={styles.icon}
+                  identityProvider={currentProvider}
+                />
+                <StatusCopy identityProvider={currentProvider} />
+              </div>
+              <div className={styles.cardFooter}>
+                <StatusActions
+                  identityProvider={currentProvider}
+                  onActions={[null, () => configure(currentProvider)]}
+                />
+              </div>
+            </Card>
           )}
         </div>
       </div>

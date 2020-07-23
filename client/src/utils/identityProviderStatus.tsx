@@ -54,7 +54,6 @@ export function StatusIcon({
   identityProvider: IdentityProvider;
   className: string;
 }): ReactElement {
-  console.log(gold);
   switch (identityProvider.status) {
     case IdentityProviderStatus.pending:
       return (
@@ -66,21 +65,21 @@ export function StatusIcon({
     case IdentityProviderStatus.configured:
       return (
         <InfoCircleFilled
-          color={color(identityProvider.status).primary}
+          style={{ color: color(identityProvider.status).primary }}
           className={className}
         />
       );
     case IdentityProviderStatus.active:
       return (
         <CheckCircleFilled
-          color={color(identityProvider.status).primary}
+          style={{ color: color(identityProvider.status).primary }}
           className={className}
         />
       );
     case IdentityProviderStatus.error:
       return (
         <ExclamationCircleFilled
-          color={color(identityProvider.status).primary}
+          style={{ color: color(identityProvider.status).primary }}
           className={className}
         />
       );
