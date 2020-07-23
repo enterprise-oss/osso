@@ -74,6 +74,8 @@ export default function AccountIdentityProviders({
                 <div key={idp.id}>
                   <Card
                     className={styles.cardRoot}
+                    bodyStyle={{ padding: 24 }}
+                    headStyle={{ padding: '0 16px 0 24px' }}
                     size="small"
                     title={
                       <div className={styles.cardTitle}>

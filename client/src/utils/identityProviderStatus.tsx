@@ -108,7 +108,7 @@ export function StatusActions({
           </Button>
           <Button
             onClick={(args) => onActions[1](args)}
-            style={{ marginLeft: 15 }}
+            style={{ marginLeft: 16 }}
             type="primary"
           >
             Complete setup
@@ -154,7 +154,11 @@ export function StatusTag({
   className?: string;
 }): ReactElement {
   return (
-    <Tag color={colorString(identityProvider.status)} className={className}>
+    <Tag
+      style={{ margin: 0 }}
+      color={colorString(identityProvider.status)}
+      className={className}
+    >
       {identityProvider.status}
     </Tag>
   );
