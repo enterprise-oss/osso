@@ -95,7 +95,6 @@ export function StatusActions({
   className?: string;
   onActions?: ((arg?: any) => void)[];
 }): ReactElement {
-  console.log(identityProvider);
   switch (identityProvider.status) {
     case IdentityProviderStatus.pending:
       return (

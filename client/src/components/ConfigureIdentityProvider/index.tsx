@@ -46,7 +46,7 @@ export default function ConfigureIdentityProvider({
                 });
             }}
           >
-            Save
+            Done
           </Button>
         </div>
       }
@@ -65,6 +65,9 @@ export default function ConfigureIdentityProvider({
           InputComponent={InputComponent}
           identityProvider={identityProvider}
           UploadComponent={UploadComponent}
+          classes={{
+            formInstructions: styles.ossoFormInstructions,
+          }}
         />
       </Form>
     </Modal>

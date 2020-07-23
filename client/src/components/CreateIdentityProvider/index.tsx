@@ -87,13 +87,20 @@ export default function IdentityProviderForm({
   const [step, setStep] = useState<FormSteps>(FormSteps.PickProvider);
   const identityProvider = data?.createIdentityProvider?.identityProvider;
 
+  const [key, setKey] = useState(Math.random());
+
+  useEffect(() => {
+    if (open) return;
+    setKey(Math.random());
+  }, [open]);
+
   useEffect(() => {
     if (loading) return setStep(FormSteps.Loading);
     if (!identityProvider?.id) return setStep(FormSteps.PickProvider);
     if (identityProvider.service) return setStep(FormSteps.Documentation);
 
-    return () => setStep(FormSteps.PickProvider);
-  }, [identityProvider]);
+    return setStep(FormSteps.PickProvider);
+  }, [identityProvider, loading, open]);
 
   const onSubmit = () => {
     if (identityProvider?.id) {
@@ -102,7 +109,7 @@ export default function IdentityProviderForm({
     createProvider(enterpriseAccount.id, service);
   };
 
-  const modalBody = () => {
+  const ModalBody = () => {
     switch (step) {
       case FormSteps.PickProvider:
         return <ChooseProvider onChange={setService} service={service} />;
@@ -154,6 +161,7 @@ export default function IdentityProviderForm({
 
   return (
     <Modal
+      // destroyOnClose={true}
       width={640}
       title="New Identity Provider"
       visible={open}
@@ -165,7 +173,7 @@ export default function IdentityProviderForm({
         </div>
       }
     >
-      {modalBody()}
+      <ModalBody key={key} />
     </Modal>
   );
 }

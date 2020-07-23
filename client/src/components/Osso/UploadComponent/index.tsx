@@ -3,6 +3,8 @@ import { OssoInputProps } from '@enterprise-oss/osso';
 import { Upload } from 'antd';
 import React, { ReactElement } from 'react';
 
+import styles from './index.module.css';
+
 export default function UploadComponent({
   label: _label,
   type: _type,
@@ -10,7 +12,7 @@ export default function UploadComponent({
   ...inputProps
 }: OssoInputProps): ReactElement {
   return (
-    <>
+    <div className={styles.root}>
       <Upload.Dragger
         {...inputProps}
         beforeUpload={(file: File) => {
@@ -36,6 +38,6 @@ export default function UploadComponent({
           .XML files will be parsed for configuration
         </p>
       </Upload.Dragger>
-    </>
+    </div>
   );
 }
