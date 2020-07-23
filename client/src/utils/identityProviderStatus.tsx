@@ -93,7 +93,8 @@ export function StatusActions({
 }: {
   identityProvider: IdentityProvider;
   className?: string;
-  onActions?: ((arg?: MouseEvent) => void)[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onActions?: ((arg?: any) => void)[];
 }): ReactElement {
   switch (identityProvider.status) {
     case IdentityProviderStatus.pending:
