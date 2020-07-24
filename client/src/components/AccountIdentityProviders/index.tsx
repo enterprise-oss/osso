@@ -75,13 +75,12 @@ export default function AccountIdentityProviders({
               className={styles.cardRoot}
               bodyStyle={{
                 padding: 24,
-                height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
+                flexGrow: 1,
               }}
               headStyle={{ padding: '0 16px 0 24px' }}
-              size="small"
               title={
                 <div className={styles.cardTitle}>
                   <p>{currentProvider.service}</p>

@@ -32,6 +32,8 @@
 
 .cardRoot {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .cardTitle {
@@ -62,4 +64,11 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 1080px) {
+  .cardFooter > a + .cardFooter > button {
+    margin-top: 6px;
+  }
 }

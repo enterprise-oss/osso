@@ -27,7 +27,6 @@ export default function CreateAccountButton(): ReactElement {
         Add New Customer
       </Button>
       <Modal
-        destroyOnClose={true}
         title="New Customer"
         onCancel={() => setModalOpen(false)}
         footer={

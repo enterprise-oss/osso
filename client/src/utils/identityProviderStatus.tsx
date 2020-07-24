@@ -102,6 +102,7 @@ export function StatusActions({
         <>
           <Button
             type="ghost"
+            style={{ marginLeft: 16, marginTop: 6 }}
             href={identityProvider.documentationPdfUrl}
             icon={<DownloadOutlined />}
           >
@@ -109,7 +110,7 @@ export function StatusActions({
           </Button>
           <Button
             onClick={(args) => onActions[1](args)}
-            style={{ marginLeft: 16 }}
+            style={{ marginLeft: 16, marginTop: 6 }}
             type="primary"
           >
             Complete setup

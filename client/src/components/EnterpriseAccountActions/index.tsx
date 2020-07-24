@@ -1,7 +1,11 @@
 import { DownOutlined } from '@ant-design/icons';
-import { useEnterpriseAccount } from '@enterprise-oss/osso';
+import {
+  deleteEnterpriseAccount,
+  useEnterpriseAccount,
+} from '@enterprise-oss/osso';
 import { Button, Dropdown, Menu } from 'antd';
 import React, { ReactElement, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
 
@@ -21,19 +25,27 @@ export default function EnterpriseAccountActions({
   }, [modalOpen]);
 
   const { data } = useEnterpriseAccount(domain);
-
-  const menu = (
-    <Menu>
-      <Menu.Item onClick={() => setModalOpen(true)} key="addIdp">
-        Add new IDP
-      </Menu.Item>
-      <Menu.Item key="destroyCustomer">Delete customer</Menu.Item>
-    </Menu>
-  );
-
+  const { deleteAccount } = deleteEnterpriseAccount();
+  const history = useHistory();
   return (
     <>
-      <Dropdown overlay={menu}>
+      <Dropdown
+        overlay={
+          <Menu>
+            <Menu.Item onClick={() => setModalOpen(true)}>
+              Add new IDP
+            </Menu.Item>
+            <Menu.Item
+              onClick={() => {
+                deleteAccount(data?.enterpriseAccount?.id);
+                history.replace('/enterprise');
+              }}
+            >
+              Delete customer
+            </Menu.Item>
+          </Menu>
+        }
+      >
         <Button type="primary">
           Actions <DownOutlined />
         </Button>

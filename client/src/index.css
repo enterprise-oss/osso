@@ -9,14 +9,9 @@ body {
   min-height: 100%;
   display: flex;
   flex-grow: 1;
+  overscroll-behavior-x: none;
 }
 
-
-.slick-track {
-  display: flex;
-}
-
-.slick-track .slick-slide {
-  display: flex;
-  height: auto;
+.ant-card-body::after {
+  display: none !important;
 }
