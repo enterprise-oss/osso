@@ -4,9 +4,18 @@ import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function enterpriseAccounts(): ReactElement {
-  const { loading, data } = useEnterpriseAccounts();
+  const { loading, data } = useEnterpriseAccounts({ limit: 1 });
+
+  const accounts = data?.enterpriseAccounts?.edges.map((edge) => edge.node);
+  // const hasNextPage = data?.enterpriseAccounts?.pageInfo?.hasNextPage;
+  const total = data?.enterpriseAccounts?.totalCount;
   return (
-    <Table loading={loading} rowKey="id" dataSource={data?.enterpriseAccounts}>
+    <Table
+      pagination={{ pageSize: 1, total }}
+      loading={loading}
+      rowKey="id"
+      dataSource={accounts}
+    >
       <Table.Column
         title="Name"
         dataIndex="name"
