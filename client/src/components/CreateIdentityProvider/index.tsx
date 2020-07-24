@@ -5,7 +5,7 @@ import {
   OssoGeneratedFields,
   Providers,
 } from '@enterprise-oss/osso';
-import { Button, Modal, Spin } from 'antd';
+import { Button, Form, Modal, Spin } from 'antd';
 import React, { ReactElement, useEffect, useState } from 'react';
 
 import CopyValueComponent from '~/client/src/components/Osso/CopyValueComponent';
@@ -24,7 +24,7 @@ function ChooseProvider({
   return (
     <>
       <h2 className={styles.modalHeader}>
-        1. Which Identity Provider does the customer use?
+        Which Identity Provider does the customer use?
       </h2>
       <ProviderPicker
         onChange={(service) => {
@@ -44,15 +44,16 @@ function Documentation({
   return (
     <>
       <h2 className={styles.modalHeader}>
-        2. Here&apos;s the info they&apos;ll need to continue setup with{' '}
+        Here&apos;s the info they&apos;ll need to continue setup with{' '}
         {identityProvider?.service}:
       </h2>
-
-      <OssoGeneratedFields
-        LinkComponent={LinkComponent}
-        InputComponent={CopyValueComponent}
-        identityProvider={identityProvider}
-      />
+      <Form layout="vertical">
+        <OssoGeneratedFields
+          LinkComponent={LinkComponent}
+          InputComponent={CopyValueComponent}
+          identityProvider={identityProvider}
+        />
+      </Form>
     </>
   );
 }

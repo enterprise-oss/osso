@@ -1,7 +1,7 @@
-import { CopyOutlined } from '@ant-design/icons';
+import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import { OssoInputProps } from '@enterprise-oss/osso';
-import { Button, Tooltip } from 'antd';
-import React, { ReactElement } from 'react';
+import { Form, Input, Tooltip } from 'antd';
+import React, { ReactElement, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import styles from './index.module.css';
@@ -9,24 +9,34 @@ import styles from './index.module.css';
 export default function CopyValueComponent({
   label,
   copyable,
+  onChange: _onChange,
   ...inputProps
 }: OssoInputProps): ReactElement {
+  const [copied, setCopied] = useState(false);
+
+  const onCopy = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 5000);
+  };
+
   return (
-    <div className={styles.root}>
-      <label className={styles.label}>{label}:</label>
-      <div className={styles.valueContainer}>
-        <p className={styles.value}>{inputProps.value}</p>
-        {copyable && (
-          <CopyToClipboard
-            text={inputProps.value}
-            className={styles.copyContainer}
-          >
-            <Tooltip title="Copy to clipboard">
-              <Button shape="circle" icon={<CopyOutlined />} type="ghost" />
-            </Tooltip>
-          </CopyToClipboard>
-        )}
-      </div>
-    </div>
+    <Form.Item label={label}>
+      <Input
+        {...inputProps}
+        suffix={
+          copyable && (
+            <CopyToClipboard
+              onCopy={onCopy}
+              text={inputProps.value}
+              className={styles.copyContainer}
+            >
+              <Tooltip title="Copy to clipboard">
+                {copied ? <CheckOutlined /> : <CopyOutlined />}
+              </Tooltip>
+            </CopyToClipboard>
+          )
+        }
+      />
+    </Form.Item>
   );
 }
