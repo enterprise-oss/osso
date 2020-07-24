@@ -28,4 +28,9 @@ class App < Sinatra::Base
   get '/health' do
     'ok'
   end
+
+  # TODO: move to gem and build the actual PDF writer
+  get '/identity_provider/documentation/:id' do
+    send_file('okta.pdf', disposition: 'attachment', filename: 'Okta Setup Docs.pdf')
+  end
 end

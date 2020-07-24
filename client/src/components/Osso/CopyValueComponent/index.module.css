@@ -1,0 +1,26 @@
+.root{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  margin-bottom: 24px;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.valueContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.value{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4E61A5;
+  margin-right: 8px;
+}

@@ -4,7 +4,6 @@ require 'dotenv/load' unless ENV['RACK_ENV']
 
 require './app'
 require 'osso'
-require 'osso/rake'
 require 'sinatra/activerecord/rake'
 
 osso = Gem::Specification.find_by_name('osso')

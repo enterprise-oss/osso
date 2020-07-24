@@ -1,8 +1,11 @@
 steps:
 
   - commands: 
-    - "bundle install"
-    - "bundle exec rspec"
+    - bundle install
+    - RACK_ENV=test bundle exec rake db:drop
+    - RACK_ENV=test bundle exec rake db:create
+    - RACK_ENV=test bundle exec rake db:migrate
+    - bundle exec rspec
     label: ":rspec:"
   
   - wait

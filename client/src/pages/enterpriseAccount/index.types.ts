@@ -8,6 +8,6 @@ export interface MatchProps extends RouteComponentProps {
   params: MatchParams;
 }
 
-export type InputProps = {
+export type EnterpriseAccountPageProps = {
   match: MatchProps;
 };

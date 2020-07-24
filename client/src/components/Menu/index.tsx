@@ -10,7 +10,6 @@ export default function Menu(): ReactElement {
     .split('/')
     .filter((key) => !['', 'admin'].includes(key));
 
-  console.log(selectedKeys);
   return (
     <AntMenu
       mode="inline"
@@ -22,7 +21,7 @@ export default function Menu(): ReactElement {
         <NavLink to="/enterprise">Customers</NavLink>
       </AntMenu.Item>
       <AntMenu.Item key="config" icon={<SettingOutlined />}>
-        <NavLink to="/config">Developer</NavLink>
+        <NavLink to="/config">Configuration</NavLink>
       </AntMenu.Item>
     </AntMenu>
   );

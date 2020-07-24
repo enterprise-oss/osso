@@ -7,7 +7,7 @@
     "start": "parcel serve ./client/src/index.tsx",
     "build": "parcel build ./client/src/index.tsx --dist-dir ./public --log-level=error",
     "typecheck": "tsc --noEmit -p client",
-    "clean": "rm -rf client/dist && rm -rf .parcel-cache && rm -rf public/*",
+    "clean": "rm -rf client/dist && rm -rf .parcel-cache",
     "test": "jest",
     "lint": "eslint 'client/src/**/*.{js,jsx,ts,tsx}'",
     "lintfix": "eslint 'client/src/**/*.{js,jsx,ts,tsx}' --fix",
@@ -41,6 +41,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-simple-import-sort": "^5.0.3",
+    "faker": "^4.1.0",
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
@@ -59,12 +60,15 @@
     "@ant-design/colors": "^4.0.4",
     "@ant-design/icons": "^4.2.1",
     "@apollo/client": "^3.0.2",
-    "@enterprise-oss/osso": "^0.0.5-alpha.27",
+    "@enterprise-oss/osso": "^0.0.5-alpha.33",
     "antd": "^4.4.3",
+    "fast-xml-parser": "^3.17.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "use-debounce": "^3.4.3"
   },
   "browserslist": {
     "development": [

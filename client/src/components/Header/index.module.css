@@ -5,8 +5,11 @@
   flex-direction: row;
   align-items: center;
   position: fixed; 
-  z-index: 1;
-  width: 100%; 
+  left: 220px;
+  right: 0;
+  justify-content: space-between;
+  z-index: 9;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .breadcrumbs {
