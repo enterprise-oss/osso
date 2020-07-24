@@ -1,6 +1,6 @@
 import { EnterpriseAccount, IdentityProvider } from '@enterprise-oss/osso';
 import { Card, Pagination } from 'antd';
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
 import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
@@ -29,9 +29,9 @@ export default function AccountIdentityProviders({
     identityProviders?.[0],
   );
 
-  // useEffect(() => {
-  //   setCurrentProviderPage(identityProviders.length - 1);
-  // }, [identityProviders.length]);
+  useEffect(() => {
+    setCurrentProvider(identityProviders[0]);
+  }, [identityProviders.length]);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editingIdentityProvider, setEditingIdentityProvider] = useState<
@@ -64,12 +64,7 @@ export default function AccountIdentityProviders({
           />
         </div>
         <div className={styles.carouselContainer}>
-          {identityProviders?.length === 0 ? (
-            <EmptyAccountIdentityProviders
-              enterpriseAccount={enterpriseAccount}
-              onAdd={() => setCreateModalOpen(true)}
-            />
-          ) : (
+          {currentProvider ? (
             <Card
               key={currentProvider.id}
               className={styles.cardRoot}
@@ -102,6 +97,11 @@ export default function AccountIdentityProviders({
                 />
               </div>
             </Card>
+          ) : (
+            <EmptyAccountIdentityProviders
+              enterpriseAccount={enterpriseAccount}
+              onAdd={() => setCreateModalOpen(true)}
+            />
           )}
         </div>
       </div>
