@@ -19,7 +19,7 @@ export default function enterpriseAccounts(): ReactElement {
 
   const handlePagination = () => {
     if (!data) return;
-    console.log('paginate');
+
     fetchMore({
       variables: {
         first: PAGE_SIZE,
@@ -31,11 +31,8 @@ export default function enterpriseAccounts(): ReactElement {
   useEffect(handlePagination, [page]);
 
   const handleSort = () => {
-    if (!sort) return;
+    if (!data) return;
     const [field, order] = sort;
-
-    // TODO: Handle 'unordered'
-    if (!(field && order && refetch)) return;
 
     refetch({
       first: PAGE_SIZE,
