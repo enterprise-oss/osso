@@ -35,7 +35,7 @@ export default function enterpriseAccounts(): ReactElement {
     const [field, order] = sort;
 
     // TODO: Handle 'unordered'
-    if (!(field && order)) return;
+    if (!(field && order && refetch)) return;
 
     refetch({
       first: PAGE_SIZE,
