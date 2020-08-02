@@ -1,21 +1,78 @@
 import { EnterpriseAccount, useEnterpriseAccounts } from '@enterprise-oss/osso';
 import { Table, Tag } from 'antd';
-import React, { ReactElement } from 'react';
+import { SorterResult } from 'antd/lib/table/interface';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const PAGE_SIZE = 10;
+
 export default function enterpriseAccounts(): ReactElement {
-  const { loading, data } = useEnterpriseAccounts();
+  const { loading, data, fetchMore, refetch } = useEnterpriseAccounts({
+    limit: PAGE_SIZE,
+  });
+
+  const accounts = data?.enterpriseAccounts?.edges.map((edge) => edge.node);
+  const total = data?.enterpriseAccounts?.totalCount;
+  const pageInfo = data?.enterpriseAccounts?.pageInfo;
+  const [page, setPage] = useState<number>(1);
+  const [sort, setSort] = useState<[string, string]>(['created_at', 'desc']);
+
+  const handlePagination = () => {
+    if (!data) return;
+
+    fetchMore({
+      variables: {
+        first: PAGE_SIZE,
+        ...(pageInfo.endCursor && { after: pageInfo.endCursor }),
+      },
+    });
+  };
+
+  useEffect(handlePagination, [page]);
+
+  const handleSort = () => {
+    if (!data) return;
+    const [field, order] = sort;
+
+    refetch({
+      first: PAGE_SIZE,
+      sortColumn: field as string,
+      sortOrder: order,
+    });
+  };
+
+  useEffect(handleSort, [sort]);
+
   return (
-    <Table loading={loading} rowKey="id" dataSource={data?.enterpriseAccounts}>
+    <Table
+      onChange={(
+        pagination,
+        _filters,
+        { field, order }: SorterResult<EnterpriseAccount>,
+      ) => {
+        setSort([field as string, order]);
+        setPage(pagination.current);
+      }}
+      pagination={{ pageSize: PAGE_SIZE, total }}
+      loading={loading}
+      rowKey="id"
+      dataSource={accounts}
+    >
       <Table.Column
         title="Name"
         dataIndex="name"
+        sorter={true}
         key="name"
         render={(text: string, record: EnterpriseAccount) => (
           <Link to={`/enterprise/${record.domain}`}>{text}</Link>
         )}
       />
-      <Table.Column title="Domain" dataIndex="domain" key="domain" />
+      <Table.Column
+        sorter={true}
+        title="Domain"
+        dataIndex="domain"
+        key="domain"
+      />
       <Table.Column
         title="Status"
         dataIndex="status"
