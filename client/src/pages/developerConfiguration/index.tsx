@@ -1,37 +1,26 @@
+import { OauthClient, useOAuthClients } from '@enterprise-oss/osso';
+import { Table } from 'antd';
 import React, { ReactElement } from 'react';
-
+import { Link } from 'react-router-dom';
 export default function DeveloperConfig(): ReactElement {
-  return <p>config</p>;
+  const { data, loading, error } = useOAuthClients();
+
+  console.log({ data, loading, error });
+  return (
+    <Table
+      loading={loading}
+      rowKey="id"
+      dataSource={data?.oauthClients}
+      pagination={false}
+    >
+      <Table.Column
+        title="Name"
+        dataIndex="name"
+        key="name"
+        render={(text: string, record: OauthClient) => (
+          <Link to={`/config/${record.id}`}>{text}</Link>
+        )}
+      />
+    </Table>
+  );
 }
-
-// const CONFIG_QUERY = gql`
-//   query DeveloperConfig {
-//     oAuthClients {
-//       id
-//       name
-//       status
-//     }
-//   }
-// `;
-
-// function DeveloperConfig({}: any) {
-//   return <div>ok</div>;
-// }
-
-// interface Response {
-//   oAuthClients: any; // TODO
-// }
-
-// type ChildProps = ChildDataProps<{}, Response, {}>;
-
-// const withEnterpriseAccount = graphql<{}, Response, {}, ChildProps>(
-//   CONFIG_QUERY,
-// );
-
-// export default withEnterpriseAccount(
-//   ({ data: { loading, oAuthClients, error } }) => {
-//     if (loading) return <div>Loading</div>;
-//     if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
-//     return <DeveloperConfig oAuthClients={oAuthClients!} />;
-//   },
-// );
