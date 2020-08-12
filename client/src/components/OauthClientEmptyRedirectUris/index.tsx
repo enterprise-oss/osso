@@ -1,5 +1,4 @@
 import { PlusCircleFilled } from '@ant-design/icons';
-import { EnterpriseAccount } from '@enterprise-oss/osso';
 import { Button, Card } from 'antd';
 import React, { ReactElement } from 'react';
 
