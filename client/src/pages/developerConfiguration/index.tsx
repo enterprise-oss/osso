@@ -2,10 +2,10 @@ import { OauthClient, useOAuthClients } from '@enterprise-oss/osso';
 import { Table } from 'antd';
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
-export default function DeveloperConfig(): ReactElement {
-  const { data, loading, error } = useOAuthClients();
 
-  console.log({ data, loading, error });
+export default function DeveloperConfig(): ReactElement {
+  const { data, loading } = useOAuthClients();
+
   return (
     <Table
       loading={loading}
@@ -14,7 +14,7 @@ export default function DeveloperConfig(): ReactElement {
       pagination={false}
     >
       <Table.Column
-        title="Name"
+        title="Oauth Client"
         dataIndex="name"
         key="name"
         render={(text: string, record: OauthClient) => (

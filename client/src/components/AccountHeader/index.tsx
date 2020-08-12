@@ -4,6 +4,7 @@ import { Avatar, Tag } from 'antd';
 import React, { ReactElement } from 'react';
 
 import Hr from '../Hr';
+import Timestamp from '../Timestamp';
 import styles from './index.module.css';
 
 export default function EnterpriseHeader({
@@ -25,7 +26,12 @@ export default function EnterpriseHeader({
           </div>
           <div>
             <CalendarOutlined />
-            <span className={styles.since}>Since May 24, 2020</span>
+            <span className={styles.since}>
+              Since{' '}
+              {enterpriseAccount && (
+                <Timestamp timestamp={enterpriseAccount.createdAt} />
+              )}
+            </span>
           </div>
         </div>
       </div>

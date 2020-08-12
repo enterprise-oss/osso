@@ -1,12 +1,14 @@
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { useEnterpriseAccount } from '@enterprise-oss/osso';
+import { useEnterpriseAccount, useOAuthClient } from '@enterprise-oss/osso';
 import { Layout } from 'antd';
 import classnames from 'classnames';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import CreateAccountButton from '~/client/src/components/CreateAccountButton';
+import CreateOauthClientButton from '~/client/src/components/CreateOauthClientButton';
 import EnterpriseAccountActions from '~/client/src/components/EnterpriseAccountActions';
+import OauthClientActions from '~/client/src/components/OauthClientActions';
 
 import styles from './index.module.css';
 
@@ -37,6 +39,8 @@ export default function Header(): ReactElement {
     switch (pathElements[0]) {
       case 'enterprise':
         return <EnterpriseAccountName domain={pathElements[1]} />;
+      case 'config':
+        return <OauthClientName id={pathElements[1]} />;
     }
   };
 
@@ -47,6 +51,14 @@ export default function Header(): ReactElement {
       }
 
       return <EnterpriseAccountActions domain={pathElements[1]} />;
+    }
+
+    if (pathElements[0] == 'config') {
+      if (pathElements.length === 1) {
+        return <CreateOauthClientButton />;
+      }
+
+      return <OauthClientActions id={pathElements[1]} />;
     }
 
     return null;
@@ -102,4 +114,9 @@ function EnterpriseAccountName({ domain }: { domain: string }) {
   return (
     <span className={styles.breadcrumb}>{data?.enterpriseAccount?.name}</span>
   );
+}
+
+function OauthClientName({ id }: { id: string }) {
+  const { data } = useOAuthClient(id);
+  return <span className={styles.breadcrumb}>{data?.oauthClient?.name}</span>;
 }

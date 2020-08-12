@@ -50,6 +50,7 @@ export default function OauthClientConfig(
         </Col>
       </Row>
       <RedirectUrisModal
+        oauthClientId={data?.oauthClient?.id}
         open={modalOpen}
         closeModal={() => setModalOpen(false)}
       />

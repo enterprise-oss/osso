@@ -1,5 +1,5 @@
 import { PlusOutlined } from '@ant-design/icons';
-// import { createIdentityProvider } from '@enterprise-oss/osso';
+import { addRedirectUris } from '@enterprise-oss/osso';
 import { Button, Form, Input, Modal } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import React, { ReactElement, useState } from 'react';
@@ -7,13 +7,16 @@ import React, { ReactElement, useState } from 'react';
 import styles from './index.module.css';
 
 export default function RedirectUrisModal({
+  oauthClientId,
   closeModal,
   open,
 }: {
+  oauthClientId: string;
   closeModal: () => void;
   open: boolean;
 }): ReactElement {
   const [uriCount, setUriCount] = useState(1);
+  const { addUris } = addRedirectUris();
 
   const [form] = useForm();
   return (
@@ -22,6 +25,7 @@ export default function RedirectUrisModal({
       title="New redirect"
       visible={open}
       onCancel={closeModal}
+      destroyOnClose={true}
       footer={
         <div className={styles.buttonRow}>
           <Button
@@ -38,8 +42,10 @@ export default function RedirectUrisModal({
             onClick={() => {
               form
                 .validateFields()
-                .then((formValues) => {
-                  console.log(Object.values(formValues));
+                .then((uris) => {
+                  addUris(Object.values(uris), oauthClientId);
+                })
+                .then(() => {
                   form.resetFields();
                   setUriCount(1);
                   closeModal();
@@ -54,9 +60,17 @@ export default function RedirectUrisModal({
         </div>
       }
     >
-      <Form layout="vertical" form={form}>
+      <Form layout="vertical" form={form} hideRequiredMark={true}>
         {Array.from({ length: uriCount }).map((_, index) => (
           <Form.Item
+            validateTrigger="onBlur"
+            rules={[
+              {
+                required: true,
+                type: 'url',
+                message: 'Enter a valid URI with protocol',
+              },
+            ]}
             key={index}
             name={`uri-${index}`}
             label={`URI #${index + 1}`}

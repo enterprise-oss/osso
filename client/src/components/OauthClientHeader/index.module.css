@@ -1,8 +1,10 @@
 .topRow {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   margin-bottom: 24px;
+  justify-content: space-between;
+  width: '100%',
 }
 
 .avatar {
