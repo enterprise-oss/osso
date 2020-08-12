@@ -4,20 +4,20 @@ import { Button, Dropdown, Menu } from 'antd';
 import React, { ReactElement } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const newName = (name: string) => {
-  if (name.match(/.*\s-\scopy$/)) {
-    return name + ' (1)';
-  }
+// const newName = (name: string) => {
+//   if (name.match(/.*\s-\scopy$/)) {
+//     return name + ' (1)';
+//   }
 
-  const regex = /.*\s-\scopy\s\((\d)\)$/g;
-  const match = regex.exec(name);
+//   const regex = /.*\s-\scopy\s\((\d)\)$/g;
+//   const match = regex.exec(name);
 
-  if (match) {
-    return name.replace(match[1], String(parseInt(match[1], 10) + 1));
-  }
+//   if (match) {
+//     return name.replace(match[1], String(parseInt(match[1], 10) + 1));
+//   }
 
-  return name + ' - copy';
-};
+//   return name + ' - copy';
+// };
 
 export default function EnterpriseAccountActions({
   id,
