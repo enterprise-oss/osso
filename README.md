@@ -5,7 +5,7 @@
     </td>
     <td><br/><br/>
     
-**Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Admin UI or osso-react to configure SAML for your customers that demand it, and sign them in to your application using OAuth.
+**Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Admin UI or osso-react to configure SAML for your customers that demand it, and sign them in to your application using OAuth with one of our OAuth client libraries.
 <br/><br/>
 <table>
   <tr>
@@ -21,6 +21,14 @@
 <td>
     
 **osso-react** <br/> [![Build status](https://badge.buildkite.com/3ef31f87d8369e801ccdfde95f3e25dce4ba791a0f6dac288e.svg?branch=main)](https://buildkite.com/enterpriseoss/osso-react)
+</td>
+<td>
+    
+**omniauth-osso** <br/> [![Build status](https://badge.buildkite.com/3ef31f87d8369e801ccdfde95f3e25dce4ba791a0f6dac288e.svg?branch=main)](https://buildkite.com/enterpriseoss/osso-react)
+</td>
+<td>
+    
+**passport-osso** <br/> [![Build status](https://badge.buildkite.com/3ef31f87d8369e801ccdfde95f3e25dce4ba791a0f6dac288e.svg?branch=main)](https://buildkite.com/enterpriseoss/osso-react)
 </td>
 </tr>
 </table>
