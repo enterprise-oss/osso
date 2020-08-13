@@ -1,4 +1,4 @@
-<table><tr><td><img width="200"  src="https://github.com/enterprise-oss/osso/blob/main/public/favicon/android-chrome-192x192.png?raw=true"></td><td>
+<table><tr><td><img width="200"  src="https://github.com/enterprise-oss/osso/blob/main/public/favicon/android-chrome-512x512.png?raw=true"></td><td>
 
 **Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Admin UI or osso-react to configure SAML for your customers that demand it, and sign them in to your application using OAuth.<br>
    [![Build status](https://badge.buildkite.com/7e933f15ee68031e7bd2da5f0f5fcff77c7a2898911507de2a.svg)](https://buildkite.com/enterpriseoss/osso)</a></a></td></tr></table><br><p align="center"><img width="600px" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/en-video.gif"></p>
