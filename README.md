@@ -1,11 +1,23 @@
-<table><tr><td><img width="200" src="https://github.com/enterprise-oss/osso/blob/main/public/favicon/android-chrome-512x512.png?raw=true"></td><td>**Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Admin UI or osso-react to configure SAML for your customers that demand it, and sign them in to your application using OAuth.<br/>[![Build status](https://badge.buildkite.com/7e933f15ee68031e7bd2da5f0f5fcff77c7a2898911507de2a.svg)](https://buildkite.com/enterpriseoss/osso)</td></tr></table>
-<br><br>
+<table>
+  <tr>
+    <td>
+      <img width="200"  src="https://github.com/enterprise-oss/osso/blob/main/public/favicon/android-chrome-512x512.png?raw=true" />
+    </td>
+    <td>
+    
+**Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Admin UI or osso-react to configure SAML for your customers that demand it, and sign them in to your application using OAuth.
+<br/><br/>
+[![Build status](https://badge.buildkite.com/7e933f15ee68031e7bd2da5f0f5fcff77c7a2898911507de2a.svg?branch=main)](https://buildkite.com/enterpriseoss/osso)
+    </td>
+  </tr>
+</table>
+<br>
 <p align="center">
   <img width="600px" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/en-video.gif" />
 </p>
    
 <a href="#">
-  <img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/quick-n.png" width="40px" />
+  <img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/quick-n.png" width="40px">
 </a>
 
 ## Quick Start
@@ -16,21 +28,18 @@ The fastest way to get started is to [deploy to Heroku](https://docs.eventnative
 
 We also offer paid hosted plans that can reduce the integration workload on your development team.
 
+Git-based deploys are another recommended way to deploy and maintain your own Osso instance. Updates will primarily be made in osso-rb and osso-react, libraries that provide the core functionality, so be sure to stay on top of updates with something like @dependabot.
 
-For production deployment we suggest Docker:
- * [Official ksense/eventnative](https://hub.docker.com/r/ksense/eventnative) image
- * [Docker deployment guide](https://docs.eventnative.dev/deployment/deploy-with-docker)
- * Also, you can [build EventNative from sources](https://docs.eventnative.dev/deployment/build-from-sources) and use configuration management of your choice
-
+We also offer A Dockerfile for Docker based deploys. *TODO: get some help with this*
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/feat-n.png" width="40px" /></a>
 
 ## Features
  * **Treat SAML like OAuth**: SAML is clunky, and you're probably already using OAuth. Osso provides an OAuth server, an Admin UI for managing OAuth clients, and OAuth client libraries for Ruby and NodeJS. Let Osso worry about the ugly SAML bits, while your team can focus on making your application great.
  
- * **SAML Config in our UI or yours**: Got a deal on fire that requires SAML? Get started quickly by configuring your customers' SAML providers in the Osso Admin UI. Down the road, allow your customers to configure their SAML provider themselves in your setting page with our React library.
+ * **SAML Config in our UI or yours**: For every customer who demands SAML SSO, you'll need to go through a multistep process of creating a secure handshake between Osso and the customer's SAML provider. Get started quickly by configuring your customers' SAML providers in the Osso Admin UI, or allow your customers to perform configuration themselves in your UI with hooks and components from our React library.
  
- * **Capture Events stopped by AdBlock**: Since EventNative is hosted on your domain, you get events for all users; not just those without AdBlock.
+ * **Docs for your whole team and customers**: SAML is an open specification, but each provider uses specific terminolgoy and offers their own workflows for adding a new application. Osso provides thorough documentation for every provider we support, and generates PDFs with the data your customer needs to configure your app in their provider.
 
 
 
@@ -52,14 +61,9 @@ Please see our extensive documentation [here](https://eventnative-docs.ksense.io
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/com-n.png" width="40px" /></a>
 ##  Community
-We are made for developers, by developers and would love to have you join our community.
- * [Wiki](https://github.com/ksensehq/eventnative/wiki) - Check out our development wiki.
- * [Slack](https://join.slack.com/t/eventnative/shared_invite/zt-gincgy2s-ZYwXXBjw_GIN1PhVzgaUNA) - Join our slack.
- * [Email](mailto:team@eventnative.org) - Send us an email.
- * Submit a pull request!
-
+We'd be thrilled to receive community contributions, but please note that Osso is owned and managed by a for-profit company, EnterpriseOSS, and you will not be compensated for your contributions. The goal of the project is to provide boilerplate code that you can evaluate to be certain you're confident running it in production, lowering the cost of adding better security for your customers while staying off of the SSO Wall of Shame.
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/bb6a40cc5f0a84d29b270f510ea4f632f3314e71/artwork/ksense-logo.svg" width="40px" /></a>
 ## Open Source
 
-EventNative is developed and maintained by [kSense](https://ksense.io/) under the MIT license. We charge for ETL from other datasources and let you connect your EventNative destination to kSense for analysis if you choose.
+Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like Sentry and MariaDB. While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with EnterpriseOSS hosted Osso plans.
