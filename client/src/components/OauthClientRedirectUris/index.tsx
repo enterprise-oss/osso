@@ -1,9 +1,5 @@
 import { StarFilled } from '@ant-design/icons';
-import { OauthClient, RedirectUri } from '@enterprise-oss/osso';
-import {
-  deleteRedirectUri,
-  markRedirectUriPrimary,
-} from '@enterprise-oss/osso';
+import { OauthClient } from '@enterprise-oss/osso';
 import { Table, Tooltip } from 'antd';
 import React, { ReactElement } from 'react';
 
@@ -18,9 +14,6 @@ export default function AccountIdentityProviders({
     a.primary === b.primary ? 0 : a.primary ? -1 : 1,
   );
 
-  const { deleteUri } = deleteRedirectUri();
-  const { markPrimary } = markRedirectUriPrimary();
-
   return (
     <Table dataSource={sortedUris} pagination={false} rowKey="id">
       <Table.Column
@@ -34,24 +27,6 @@ export default function AccountIdentityProviders({
               <Tooltip title="Primary">
                 <StarFilled style={{ color: blue.primary, marginLeft: 6 }} />
               </Tooltip>
-            )}
-          </>
-        )}
-      />
-      <Table.Column
-        title="Actions"
-        key="actions"
-        align="right"
-        render={(_value: never, redirectUri: RedirectUri) => (
-          <>
-            <a onClick={() => deleteUri(redirectUri.id)}>Delete</a>
-
-            {!redirectUri.primary && (
-              <>
-                {' '}
-                |{' '}
-                <a onClick={() => markPrimary(redirectUri.id)}>Make Primary</a>
-              </>
             )}
           </>
         )}

@@ -36,7 +36,7 @@ export default function OauthClientConfig(
             <div className={styles.cardTopRow}>
               <h1>Redirects</h1>
               <Button size="small" onClick={() => setModalOpen(true)}>
-                Add new
+                Edit
               </Button>
             </div>
             {loading ? (
@@ -49,11 +49,14 @@ export default function OauthClientConfig(
           </Card>
         </Col>
       </Row>
-      <RedirectUrisModal
-        oauthClientId={data?.oauthClient?.id}
-        open={modalOpen}
-        closeModal={() => setModalOpen(false)}
-      />
+      {data && (
+        <RedirectUrisModal
+          redirectUris={data?.oauthClient?.redirectUris}
+          oauthClientId={data?.oauthClient?.id}
+          open={modalOpen}
+          closeModal={() => setModalOpen(false)}
+        />
+      )}
     </>
   );
 }
