@@ -7,7 +7,7 @@ import {
 import { RedirectUri, useOAuthClient } from '@enterprise-oss/osso';
 import { Button, Form, Input, Modal, Tooltip } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import React, { ReactElement, useEffect, useReducer } from 'react';
+import React, { ReactElement, useReducer } from 'react';
 
 import styles from './index.module.css';
 
