@@ -1087,14 +1087,16 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@enterprise-oss/osso@^0.0.5-alpha.36":
-  version "0.0.5-alpha.36"
-  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.36.tgz#052709ced499cd71de25c31c9bdd1711437f6b94"
-  integrity sha512-bEJ6h6ssAahOtxBTFKxQQO6j5GB/bsxjjeJzUSJH0m8VueZuVGeyKJa6nh7CKyCUIQSZXzFe0sx3FeGw/hw9Aw==
+"@enterprise-oss/osso@^0.0.5-alpha.40":
+  version "0.0.5-alpha.40"
+  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.40.tgz#0770b3ebca4777e9ca8c324ef0ce8acf05a24ea2"
+  integrity sha512-DMF5UjIBk/LwmVrijDEp86cf+fjnl75GMsNN3gUTvSOHbRtVe2jDeeg+QJwqSAp2eTkbuZod6n61RMFPWywCPw==
   dependencies:
     "@apollo/client" "^3.0.0-rc.10"
+    "@types/jest" "^26.0.7"
     fast-xml-parser "^3.17.4"
     graphql "^15.1.0"
+    pdf-lib "^1.9.0"
 
 "@hapi/address@^4.1.0":
   version "4.1.0"
@@ -2142,6 +2144,21 @@
     chrome-trace-event "^1.0.2"
     nullthrows "^1.1.1"
 
+"@pdf-lib/standard-fonts@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@pdf-lib/standard-fonts/-/standard-fonts-0.0.4.tgz#49fffa97fe1a5fff9b8b60fd9decf79b10bd0982"
+  integrity sha512-2pg8hXnChVAF6aSFraXtwB0cx/AgE15FvuLJbdPJSq9LYp1xMp0lapH4+t1HsdD9cA05rnWYLqlEBwS4YK1jLg==
+  dependencies:
+    base64-arraybuffer "^0.1.5"
+    pako "^1.0.6"
+
+"@pdf-lib/upng@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@pdf-lib/upng/-/upng-1.0.1.tgz#7dc9c636271aca007a9df4deaf2dd7e7960280cb"
+  integrity sha512-dQK2FUMQtowVP00mtIksrlZhdFXQZPC+taih1q4CvPZ5vqdxR/LKBaFg0oAfzd1GlHZXXSPdQfzQnt+ViGvEIQ==
+  dependencies:
+    pako "^1.0.10"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -2402,10 +2419,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@*":
-  version "26.0.3"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.3.tgz#79534e0e94857171c0edc596db0ebe7cb7863251"
-  integrity sha512-v89ga1clpVL/Y1+YI0eIu1VMW+KU7Xl8PhylVtDKVWaSUHBHYPLXMQGBdrpHewaKoTvlXkksbYqPgz8b4cmRZg==
+"@types/jest@*", "@types/jest@^26.0.7":
+  version "26.0.9"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.9.tgz#0543b57da5f0cd949c5f423a00c56c492289c989"
+  integrity sha512-k4qFfJ5AUKrWok5KYXp2EPm89b0P/KZpl7Vg4XuOTVVQEhLDBDBU3iBFrjjdgd8fLw96aAtmnwhXHl63bWeBQQ==
   dependencies:
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
@@ -3105,6 +3122,11 @@ base-x@^3.0.8:
   integrity sha512-Rl/1AWP4J/zRrk54hhlxH4drNxPJXYUaKffODVI53/dAsV4t9fBxyxYKAVPU1XBHxYwOWP9h9H0hM2MVw4YfJA==
   dependencies:
     safe-buffer "^5.0.1"
+
+base64-arraybuffer@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
+  integrity sha1-c5JncZI7Whl0etZmqlzUv5xunOg=
 
 base64-js@^1.0.2:
   version "1.3.1"
@@ -8139,7 +8161,7 @@ p-try@^2.0.0:
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
   integrity sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
 
-pako@~1.0.5:
+pako@^1.0.10, pako@^1.0.11, pako@^1.0.6, pako@~1.0.5:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
@@ -8310,6 +8332,16 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
+
+pdf-lib@^1.9.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.10.0.tgz#04c8c2f1b56e24758b25b6234e940f4f133ffc63"
+  integrity sha512-r9+GL84EI7HIwkgDo191ArhGZgbUPqPRwddTrfV6Th7U4u8UayPixx0FZ/Sv8Dl3K/AZLQ1nrUVFqjTlmy9uJQ==
+  dependencies:
+    "@pdf-lib/standard-fonts" "^0.0.4"
+    "@pdf-lib/upng" "^1.0.1"
+    pako "^1.0.11"
+    tslib "^1.11.1"
 
 pend@~1.2.0:
   version "1.2.0"
@@ -10753,7 +10785,7 @@ ts-invariant@^0.4.4:
   dependencies:
     tslib "^1.9.3"
 
-tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
+tslib@^1.10.0, tslib@^1.11.1, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
