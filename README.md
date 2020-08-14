@@ -47,9 +47,9 @@
 
 
 ## Features
- * **Treat SAML like OAuth**: SAML is clunky, and you're probably already using OAuth. Osso provides an OAuth server, an Admin UI for managing OAuth clients, and OAuth client libraries for Ruby and NodeJS. Let Osso worry about the ugly SAML bits, while your team can focus on making your application great.
+ * **Treat SAML like OAuth**: SAML is clunky, and you're probably already using OAuth. Osso provides an OAuth server, an Admin UI for managing OAuth clients, and OAuth client libraries for Ruby and NodeJS. Let Osso worry about the ugly SAML bits and customer configuration while your team focuses on your core application.
  
- * **SAML Config in Osso's UI or yours**: For every customer who demands SAML SSO, you'll need to go through a multistep process of creating a secure handshake between Osso and the customer's SAML provider. Get started quickly by configuring your customers' SAML providers in the Osso Admin UI, or allow your customers to perform configuration themselves in your UI with hooks and components from our React library.
+ * **SAML Config in Osso's UI or yours**: For every customer who demands SAML SSO, you'll need to go through a multistep process of creating a secure handshake between Osso and the customer's SAML provider. Get started quickly by configuring your customers' SAML providers in the Osso Admin UI, or allow your customers to perform configuration themselves in your UI with hooks and components from our React library [osso-react](https://github.com/enterprise-oss/osso-react).
  
  * **Docs for everyone**: SAML is an open specification, but each provider uses specific terminolgoy and offers their own workflows for adding a new application. Osso generates PDF documentation with the data your customer needs to configure your app in any provider, and provides thorough documentation for your team who integrates and manages your Osso instance.
 
@@ -60,7 +60,7 @@
 
 ## Get Started
 
-### Deploy
+#### Deploy
 The fastest way to get started is to [deploy to Heroku](https://docs.eventnative.dev/deployment/deploy-on-heroku):
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
@@ -71,13 +71,13 @@ Git-based deploys are another recommended way to deploy and maintain your own Os
 
 We also offer A Dockerfile for Docker based deploys. *TODO: get some help with this. maybe make a list of options?*
 
-### Authenticate to Admin UI
+#### Authenticate to Admin UI
 
 Osso uses JWTs for Admin auth. Craft a JWT on your own server with `{scope: 'admin', email: 'you@company.com'}`, sign it with your `JWT_HMAC_SECRET` and send yourself to Osso with a `token` query parameter - see our JWT Authentication docs for more.
 
 Osso hosted plans let you skip this step, and provide a team management portal (SAML auth supported 😉) for logging in to your Osso Admin UI.
 
-### Consume OAuth
+#### Consume OAuth
 
 When a user wants to sign in to your application with SAML, send them to Osso with their email domain as part of an OAuth 2.0 authorization flow. Osso routes the user to their SAML provider, normalizes the payload, and sends them back to your application to complete the OAuth flow.
 
@@ -85,11 +85,13 @@ Use [omniauth-osso](https://github.com/enterprise-oss/omniauth-osso) or [passpor
 
 ## Documentation
 
-Please see our extensive documentation [here](https://eventnative-docs.ksense.io). Key sections include:
- * [Deployment](https://docs.eventnative.dev/deployment) - Getting EventNative running on Heroku, Docker, and building from source.
- * [Configuration](https://docs.eventnative.dev/configuration) - How to modify EventNative's `yaml` file. 
- * [Geo Data](https://docs.eventnative.dev/geo-data-resolution) - Configuring data enrichment with [MaxMind](https://www.maxmind.com/en/home).
- * [Scaling](https://docs.eventnative.dev/scaling-eventnative) - How to setup a distributed deployment of EventNative. 
+Osso's primary documentation is at [ossoapp.com](https://ossoapp.com). Key sections include:
+* [SSO and SAML Background](https://docs.eventnative.dev/scaling-eventnative) - Learn about Single Sign-On and SAML, why your customers want it and how to integrate it to your offering. 
+ * [Deployment](https://docs.eventnative.dev/deployment) - Guides for deploying Osso to Heroku, via git or Docker, plus how to keep your instance up to date.
+ * [JWT Authentication](https://docs.eventnative.dev/configuration) - Authenticating admin or end-users to your Osso instance to configure SAML providers or OAuth clients.
+ * [OAuth Setup](https://docs.eventnative.dev/configuration) - Authenticating SAML users to your application via OAuth.  
+ * [Self-serve Integration](https://docs.eventnative.dev/geo-data-resolution) - Use our React library to build forms in your app that allow your customers to configure SAML themselves.
+ 
  
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/com-n.png" width="40px" /></a>
