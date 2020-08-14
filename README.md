@@ -5,7 +5,7 @@
     </td>
     <td><br/>
     
-**Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Admin UI or osso-react to configure SAML for your customers that demand it, and sign them in to your application using OAuth with one of our OAuth client libraries.
+**Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Osso Admin UI or [osso-react](https://github.com/enterprise-oss/osso-react) to configure SAML for your customers that demand it, and sign them in to your application using OAuth with one of our OAuth client libraries, [omniuath-osso](https://github.com/enterprise-oss/omniauth-osso) or [passport-osso](https://github.com/enterprise-oss/omniauth-osso).
 <br/><br/>
 <table>
   <tr>
@@ -85,9 +85,9 @@ Please see our extensive documentation [here](https://eventnative-docs.ksense.io
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/com-n.png" width="40px" /></a>
 ##  Community
-We'd be thrilled to receive community contributions, but please note that Osso is owned and managed by a for-profit company, EnterpriseOSS, and you will not be compensated for your contributions. The goal of the project is to provide boilerplate code that you can evaluate to be certain you're confident running it in production, lowering the cost of adding better security for your customers while staying off of the SSO Wall of Shame.
+We'd be thrilled to receive community contributions, but please note that Osso is owned and managed by a for-profit company, EnterpriseOSS, and you will not be compensated for your contributions. The goal of the project is to provide boilerplate code that you can evaluate to be certain you're confident running it in production, lowering the cost of adding better security for your customers while staying off of the [SSO Wall of Shame](https://sso.tax/).
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/bb6a40cc5f0a84d29b270f510ea4f632f3314e71/artwork/ksense-logo.svg" width="40px" /></a>
 ## Open Source
 
-Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like Sentry and MariaDB. While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with EnterpriseOSS hosted Osso plans.
+Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like [Sentry](https://sentry.io/_/open-source/) and [MariaDB](https://mariadb.com/bsl-faq-mariadb/). While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with hosted Osso plans offered by EnterpriseOSS.
