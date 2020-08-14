@@ -46,6 +46,7 @@
 
 ## Quick Start
 
+### Deploy
 The fastest way to get started is to [deploy to Heroku](https://docs.eventnative.dev/deployment/deploy-on-heroku):
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
@@ -56,15 +57,29 @@ Git-based deploys are another recommended way to deploy and maintain your own Os
 
 We also offer A Dockerfile for Docker based deploys. *TODO: get some help with this*
 
+### Authenticate to Admin UI
+
+Osso uses JWTs for Admin auth. Craft a JWT on your own server with `{scope: 'admin', email: 'you@company.com'}`, sign it with your `JWT_HMAC_SECRET` and send yourself to Osso with a `token` query parameter - see our JWT Authentication docs for more.
+
+Osso hosted plans let you skip this step, and provide a team management portal (SAML auth supported 😉) for logging in to your Osso Admin UI.
+
+### Consume OAuth
+
+When a user wants to sign in to your application with SAML, send them to Osso with their email domain as part of an OAuth 2.0 authorization flow. Osso routes the user to their SAML provider, normalizes the payload, and sends them back to your application to complete the OAuth flow.
+
+Use [omniauth-osso](https://github.com/enterprise-oss/omniauth-osso) or [passport-osso](https://github.com/enterprise-oss/omniauth-osso) for more convenience.
+
+
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/feat-n.png" width="40px" /></a>
+
+
 
 ## Features
  * **Treat SAML like OAuth**: SAML is clunky, and you're probably already using OAuth. Osso provides an OAuth server, an Admin UI for managing OAuth clients, and OAuth client libraries for Ruby and NodeJS. Let Osso worry about the ugly SAML bits, while your team can focus on making your application great.
  
  * **SAML Config in Osso's UI or yours**: For every customer who demands SAML SSO, you'll need to go through a multistep process of creating a secure handshake between Osso and the customer's SAML provider. Get started quickly by configuring your customers' SAML providers in the Osso Admin UI, or allow your customers to perform configuration themselves in your UI with hooks and components from our React library.
  
- * **Docs for your whole team and customers**: SAML is an open specification, but each provider uses specific terminolgoy and offers their own workflows for adding a new application. Osso provides thorough documentation for every provider we support, and generates PDFs with the data your customer needs to configure your app in their provider.
-
+ * **Docs for everyone**: SAML is an open specification, but each provider uses specific terminolgoy and offers their own workflows for adding a new application. Osso generates PDF documentation with the data your customer needs to configure your app in any provider, and provides thorough documentation for your team who integrates and manages your Osso instance.
 
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/demo-n.png" width="40px" /></a>
