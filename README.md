@@ -34,7 +34,8 @@
 </td>
 <td>
     
-**passport-osso** <br/> [![Build status](https://badge.buildkite.com/3ef31f87d8369e801ccdfde95f3e25dce4ba791a0f6dac288e.svg?branch=main)](https://buildkite.com/enterpriseoss/osso-react)
+**passport-osso** <br/> [![Build status](https://badge.buildkite.com/6a1e4b4b0def8422ba056fcbb321f153ef875a48f15547988a.svg?branch=main)](https://buildkite.com/enterpriseoss/passport-osso)
+
 </td>
 </tr>
 </table>
