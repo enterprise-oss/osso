@@ -1,3 +1,9 @@
+<p align="center">
+  Osso (logo)
+  <img width="600px" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/en-video.gif" />
+</p>
+
+
 <table>
   <tr>
     <td>
@@ -36,10 +42,6 @@
   </tr>
 </table>
 <br>
-<p align="center">
-  <img width="600px" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/en-video.gif" />
-</p>
-
 
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/feat-n.png" width="40px" /></a>
