@@ -82,6 +82,14 @@ Osso hosted plans let you skip this step, and provide a team management portal (
 When a user wants to sign in to your application with SAML, send them to Osso with their email domain as part of an OAuth 2.0 authorization flow. Osso routes the user to their SAML provider, normalizes the payload, and sends them back to your application to complete the OAuth flow.
 
 Use [omniauth-osso](https://github.com/enterprise-oss/omniauth-osso) or [passport-osso](https://github.com/enterprise-oss/omniauth-osso) for more convenience.
+
+## Documentation
+
+Please see our extensive documentation [here](https://eventnative-docs.ksense.io). Key sections include:
+ * [Deployment](https://docs.eventnative.dev/deployment) - Getting EventNative running on Heroku, Docker, and building from source.
+ * [Configuration](https://docs.eventnative.dev/configuration) - How to modify EventNative's `yaml` file. 
+ * [Geo Data](https://docs.eventnative.dev/geo-data-resolution) - Configuring data enrichment with [MaxMind](https://www.maxmind.com/en/home).
+ * [Scaling](https://docs.eventnative.dev/scaling-eventnative) - How to setup a distributed deployment of EventNative. 
  
 
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/com-n.png" width="40px" /></a>
