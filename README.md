@@ -1,6 +1,6 @@
 <p align="center">
   Osso (logo)
-  <img width="600px" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/en-video.gif" />
+  <img width="600px" src="https://github.com/enterprise-oss/osso/blob/main/.github/logo.png" />
 </p>
 
 
@@ -53,7 +53,7 @@
  
  * **SAML Config in Osso's UI or yours**: For every customer who demands SAML SSO, you'll need to go through a multistep process of creating a secure handshake between Osso and the customer's SAML provider. Get started quickly by configuring your customers' SAML providers in the Osso Admin UI, or allow your customers to perform configuration themselves in your UI with hooks and components from our React library [osso-react](https://github.com/enterprise-oss/osso-react).
  
- * **Docs for everyone**: SAML is an open specification, but each provider uses specific terminolgoy and offers their own workflows for adding a new application. Osso generates PDF documentation with the data your customer needs to configure your app in any provider, and provides thorough documentation for your team who integrates and manages your Osso instance.
+ * **Docs for everyone**: SAML is an open specification, but each provider uses specific terminology and offers their own workflows for adding a new application. Osso generates PDF documentation with the data your customer needs to configure your app in any provider, and provides thorough documentation for your team who integrates and manages your Osso instance.
 
 
 <a href="#">
@@ -77,7 +77,7 @@ We also offer A Dockerfile for Docker based deploys. *TODO: get some help with t
 
 Osso uses JWTs for Admin auth. Craft a JWT on your own server with `{scope: 'admin', email: 'you@company.com'}`, sign it with your `JWT_HMAC_SECRET` and send yourself to Osso with a `token` query parameter - see our JWT Authentication docs for more.
 
-Osso hosted plans let you skip this step, and provide a team management portal (SAML auth supported 😉) for logging in to your Osso Admin UI.
+Osso hosted plans let you skip this step, and provide a team management portal for logging in to your Osso Admin UI.
 
 #### Consume OAuth
 
@@ -103,4 +103,4 @@ We'd be thrilled to receive community contributions, but please note that Osso i
 <a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/bb6a40cc5f0a84d29b270f510ea4f632f3314e71/artwork/ksense-logo.svg" width="40px" /></a>
 ## Open Source
 
-Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like [Sentry](https://sentry.io/_/open-source/) and [MariaDB](https://mariadb.com/bsl-faq-mariadb/). While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with hosted Osso plans offered by EnterpriseOSS.
+Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like [Sentry](https://sentry.io/_/open-source/) and [MariaDB](https://mariadb.com/bsl-faq-mariadb/). While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with hosted Osso plans offered by EnterpriseOSS. See the [full license text](LICENSE)
