@@ -1,0 +1,15 @@
+.card {
+  height: 100%;
+}
+
+.cardTopRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardTopRow > h1 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}

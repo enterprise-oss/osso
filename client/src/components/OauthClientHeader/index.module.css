@@ -1,0 +1,45 @@
+.topRow {
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  margin-bottom: 24px;
+  justify-content: space-between;
+  width: '100%',
+}
+
+.avatar {
+  height: 80px;
+  width: 80px;
+  margin-right: 15px;
+}
+
+.info{
+  flex-direction: column;
+}
+
+.nameRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.name {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+  margin-right: 16px;
+}
+
+.since {
+  font-size: 12px;
+  line-height: 20px;
+  color: #8c8c8c;
+  margin-left: 6px;
+}
+
+.description {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
