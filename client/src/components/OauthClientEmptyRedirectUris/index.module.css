@@ -1,0 +1,35 @@
+.cardRoot {
+  margin-bottom: 24px;
+  height: 100%;
+}
+.cardTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardTitle > p {
+  margin: 0;
+}
+
+.cardBody {
+  padding: 40px 24px 24px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.icon {
+  margin-right: 30px;
+  font-size: 28px;
+}
+
+.cardFooter {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

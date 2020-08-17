@@ -11,6 +11,7 @@ import Sidebar from './components/Sidebar';
 import DeveloperConfig from './pages/developerConfiguration';
 import EnterpriseAccount from './pages/enterpriseAccount';
 import EnterpriseAccounts from './pages/enterpriseAccounts';
+import OauthClientConfig from './pages/oauthClientConfig';
 
 function App(): ReactElement {
   return (
@@ -24,6 +25,7 @@ function App(): ReactElement {
               <Route exact path="/enterprise" component={EnterpriseAccounts} />
               <Route path="/enterprise/:domain" component={EnterpriseAccount} />
               <Route exact path="/config" component={DeveloperConfig} />
+              <Route path="/config/:id" component={OauthClientConfig} />
             </Switch>
           </Layout.Content>
         </Layout>

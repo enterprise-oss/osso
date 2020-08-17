@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom';
 
 const PAGE_SIZE = 10;
 
+type SortOrder = 'ascend' | 'descend';
+
 export default function enterpriseAccounts(): ReactElement {
-  const { loading, data, fetchMore, refetch } = useEnterpriseAccounts({
+  const { data, loading, fetchMore, refetch } = useEnterpriseAccounts({
     limit: PAGE_SIZE,
   });
 
@@ -15,7 +17,7 @@ export default function enterpriseAccounts(): ReactElement {
   const total = data?.enterpriseAccounts?.totalCount;
   const pageInfo = data?.enterpriseAccounts?.pageInfo;
   const [page, setPage] = useState<number>(1);
-  const [sort, setSort] = useState<[string, string]>(['created_at', 'desc']);
+  const [sort, setSort] = useState<[string, SortOrder]>(['name', 'ascend']);
 
   const handlePagination = () => {
     if (!data) return;
@@ -23,7 +25,9 @@ export default function enterpriseAccounts(): ReactElement {
     fetchMore({
       variables: {
         first: PAGE_SIZE,
-        ...(pageInfo.endCursor && { after: pageInfo.endCursor }),
+        ...(pageInfo.hasNextPage && { after: pageInfo.endCursor }),
+        sortColumn: sort[0],
+        sortOrder: sort[1],
       },
     });
   };
@@ -32,7 +36,9 @@ export default function enterpriseAccounts(): ReactElement {
 
   const handleSort = () => {
     if (!data) return;
+
     const [field, order] = sort;
+    if (!field || !order) return;
 
     refetch({
       first: PAGE_SIZE,
@@ -41,7 +47,7 @@ export default function enterpriseAccounts(): ReactElement {
     });
   };
 
-  useEffect(handleSort, [sort]);
+  useEffect(handleSort, [sort[0], sort[1]]);
 
   return (
     <Table
@@ -62,6 +68,7 @@ export default function enterpriseAccounts(): ReactElement {
         title="Name"
         dataIndex="name"
         sorter={true}
+        defaultSortOrder="ascend"
         key="name"
         render={(text: string, record: EnterpriseAccount) => (
           <Link to={`/enterprise/${record.domain}`}>{text}</Link>
