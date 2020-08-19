@@ -1,7 +1,11 @@
 import { LinkOutlined, PlusOutlined } from '@ant-design/icons';
-import { createEnterpriseAccount } from '@enterprise-oss/osso';
-import { Button, Form, Input, Modal } from 'antd';
-import React, { ReactElement, useState } from 'react';
+import {
+  createEnterpriseAccount,
+  OssoContext,
+  useOAuthClients,
+} from '@enterprise-oss/osso';
+import { Button, Form, Input, Modal, Select } from 'antd';
+import React, { ReactElement, useContext, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
 import styles from './index.module.css';
@@ -14,6 +18,8 @@ export default function CreateAccountButton(): ReactElement {
   const [debouncedDomain] = useDebounce(domain, 300);
 
   const [form] = Form.useForm();
+  const { data } = useOAuthClients();
+  const { currentUser } = useContext(OssoContext);
 
   return (
     <>
@@ -97,6 +103,21 @@ export default function CreateAccountButton(): ReactElement {
               }
             />
           </Form.Item>
+          {currentUser?.scope === 'admin' && (
+            <Form.Item
+              label="OAuth client"
+              name="oauth_client_id"
+              rules={[{ required: true, message: 'Select OAuth client' }]}
+            >
+              <Select>
+                {data?.oauthClients.map((client) => (
+                  <Select.Option key={client.id} value={client.id}>
+                    {client.name}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Form.Item>
+          )}
         </Form>
       </Modal>
     </>
