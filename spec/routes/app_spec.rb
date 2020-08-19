@@ -18,13 +18,13 @@ describe App do
   end
 
   describe 'post /graphql' do
-    xit 'returns 401 unauthorized without a session or token' do
+    it 'returns 401 unauthorized without a session or token' do
       post('/graphql')
 
       expect(last_response.status).to eq(401)
     end
 
-    xit 'returns 401 unauthorized with an invalid token' do
+    it 'returns 401 unauthorized with an invalid token' do
       post('/graphql', admin_token: SecureRandom.hex(32))
 
       expect(last_response.status).to eq(401)
