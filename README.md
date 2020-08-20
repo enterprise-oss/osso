@@ -3,12 +3,6 @@
 </p>
 
 
-<table>
-  <tr>
-    <td>
-      <img width="200"  src="https://github.com/enterprise-oss/osso/blob/main/public/favicon/android-chrome-512x512.png?raw=true" />
-    </td>
-    <td><br/>
     
 **Osso** is an open source microservice for adding SAML based SSO to your app. Deploy Osso to your infrastructure of choice, use the Osso Admin UI or [osso-react](https://github.com/enterprise-oss/osso-react) to configure SAML for your customers that demand it, and sign them in to your application using OAuth with one of our OAuth client libraries, [omniuath-osso](https://github.com/enterprise-oss/omniauth-osso) or [passport-osso](https://github.com/enterprise-oss/omniauth-osso).
 <br/><br/>
@@ -37,9 +31,6 @@
 
 </td>
 </tr>
-</table>
-</td>
-  </tr>
 </table>
 <br>
 
