@@ -22,7 +22,7 @@
 </td>
 <td>
     
-**omniauth-osso** <br/> [![Build status](https://badge.buildkite.com/3ef31f87d8369e801ccdfde95f3e25dce4ba791a0f6dac288e.svg?branch=main)](https://buildkite.com/enterpriseoss/osso-react)
+**omniauth-osso** <br/> [![Build status](https://badge.buildkite.com/3ef31f87d8369e801ccdfde95f3e25dce4ba791a0f6dac288e.svg?branch=main)](https://buildkite.com/enterpriseoss/omniauth-osso)
 </td>
 <td>
     
