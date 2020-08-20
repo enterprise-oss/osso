@@ -1,6 +1,6 @@
 <p align="center">
   Osso (logo)
-  <img width="600px" src="https://github.com/enterprise-oss/osso/blob/readme/.github/logo.png" />
+  <img width="600px" src="https://github.com/enterprise-oss/osso/blob/sbauch/readme/.github/logo.png" />
 </p>
 
 
