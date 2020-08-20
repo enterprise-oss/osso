@@ -94,4 +94,4 @@ We'd be thrilled to receive community contributions, but please note that Osso i
 <a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a>
 ## Open Source
 
-Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like [Sentry](https://sentry.io/_/open-source/) and [MariaDB](https://mariadb.com/bsl-faq-mariadb/). While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with hosted Osso plans offered by EnterpriseOSS. See the [full license text](LICENSE)
+Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like [Sentry](https://sentry.io/_/open-source/) and [MariaDB](https://mariadb.com/bsl-faq-mariadb/). While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with hosted Osso plans offered by EnterpriseOSS. See the [full license text](LICENSE).
