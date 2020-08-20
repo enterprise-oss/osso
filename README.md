@@ -64,7 +64,7 @@
 ## Get Started
 
 #### Deploy
-The fastest way to get started is to [deploy to Heroku](https://docs.eventnative.dev/deployment/deploy-on-heroku):
+The fastest way to get started is to deploy to Heroku. Heroku will deploy your app, generating required ENV variables, and boostrapping your instance's database.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
