@@ -45,7 +45,7 @@
 <br>
 
 
-<a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/feat-n.png" width="40px" /></a>
+<a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a>
 
 
 
@@ -57,9 +57,8 @@
  * **Docs for everyone**: SAML is an open specification, but each provider uses specific terminology and offers their own workflows for adding a new application. Osso generates PDF documentation with the data your customer needs to configure your app in any provider, and provides thorough documentation for your team who integrates and manages your Osso instance.
 
 
-<a href="#">
-  <img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/quick-n.png" width="40px">
-</a>
+<a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a>
+
 
 ## Get Started
 
@@ -86,6 +85,7 @@ When a user wants to sign in to your application with SAML, send them to Osso wi
 
 Use [omniauth-osso](https://github.com/enterprise-oss/omniauth-osso) or [passport-osso](https://github.com/enterprise-oss/passport-osso) for more convenience.
 
+<a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a>
 ## Documentation
 
 Osso's primary documentation is at [ossoapp.com](https://ossoapp.com). Key sections include:
@@ -97,11 +97,11 @@ Osso's primary documentation is at [ossoapp.com](https://ossoapp.com). Key secti
  
  
 
-<a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/master/artwork/com-n.png" width="40px" /></a>
+<a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a>
 ##  Community
 We'd be thrilled to receive community contributions, but please note that Osso is owned and managed by a for-profit company, EnterpriseOSS, and you will not be compensated for your contributions. The goal of the project is to provide boilerplate code that you can evaluate to be certain you're confident running it in production, lowering the cost of adding better security for your customers while staying off of the [SSO Wall of Shame](https://sso.tax/).
 
-<a href="#"><img align="right" src="https://raw.githubusercontent.com/ksensehq/eventnative/bb6a40cc5f0a84d29b270f510ea4f632f3314e71/artwork/ksense-logo.svg" width="40px" /></a>
+<a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a>
 ## Open Source
 
 Osso is developed and maintained by EntepriseOSS with a Business Source License. BSL is used by companies like [Sentry](https://sentry.io/_/open-source/) and [MariaDB](https://mariadb.com/bsl-faq-mariadb/). While not _technically_ an open source license according to OSI, you are only prohibited from using Osso to compete with hosted Osso plans offered by EnterpriseOSS. See the [full license text](LICENSE)
