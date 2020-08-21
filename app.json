@@ -33,6 +33,10 @@
     },
     "JWT_URL": {
       "description": "The authorization URL in your application where Osso can send a user to get a JWT"
+    },
+    "CYPRESS_INSTALL_BINARY": {
+      "description": "Prevent heroku from installing the Cypress binary during deploy",
+      "value": "0"
     }
   },
   "addons": [
