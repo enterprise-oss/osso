@@ -1,9 +1,4 @@
-import {
-  BookOutlined,
-  LinkOutlined,
-  SettingOutlined,
-  TeamOutlined,
-} from '@ant-design/icons';
+import { BookOutlined, SettingOutlined, TeamOutlined } from '@ant-design/icons';
 import { OssoContext } from '@enterprise-oss/osso';
 import { Menu as AntMenu } from 'antd';
 import React, { ReactElement, useContext } from 'react';
@@ -33,11 +28,17 @@ export default function Menu(): ReactElement {
         </AntMenu.Item>
       )}
 
-      <AntMenu.Item key="docs" icon={<BookOutlined />}>
-        <a href="https://ossoapp.com" target="_blank" rel="noopener noreferrer">
-          Docs <LinkOutlined />
-        </a>
-      </AntMenu.Item>
+      {currentUser?.scope === 'admin' && (
+        <AntMenu.Item key="docs" icon={<BookOutlined />}>
+          <a
+            href="https://ossoapp.com/docs/overview"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Docs
+          </a>
+        </AntMenu.Item>
+      )}
     </AntMenu>
   );
 }
