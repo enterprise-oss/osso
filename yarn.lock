@@ -1087,13 +1087,12 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-"@enterprise-oss/osso@^0.0.5-alpha.42":
+"@enterprise-oss/osso@file:.yalc/@enterprise-oss/osso":
   version "0.0.5-alpha.42"
-  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.42.tgz#138a06abb295f6641d1a3d61cda17b8cfaaa842e"
-  integrity sha512-I7vpeQk9u+J+63cAMbWDnfgmFjkjQLrUcAk9ps44d++kgZHzYZgwN/hc8c/S2C5kL9K1twLZWjMoK3dCZkpsjw==
   dependencies:
     "@apollo/client" "^3.0.0-rc.10"
-    "@types/jest" "^26.0.7"
+    "@pdf-lib/fontkit" "^1.0.0"
+    downloadjs "^1.4.7"
     fast-xml-parser "^3.17.4"
     graphql "^15.1.0"
     pdf-lib "^1.9.0"
@@ -2146,6 +2145,13 @@
     chrome-trace-event "^1.0.2"
     nullthrows "^1.1.1"
 
+"@pdf-lib/fontkit@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pdf-lib/fontkit/-/fontkit-1.0.0.tgz#26249d7ba865714625bafeecb5677796037e8051"
+  integrity sha512-C1Hn6wqRMAXZMW5vTa/oCvcTPq0FQsqKKP2mzzzMxUcx0BWZuJKeH4ZRS320y0LKvRBEs1ntFG2txstSsMGr2g==
+  dependencies:
+    pako "^1.0.6"
+
 "@pdf-lib/standard-fonts@^0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@pdf-lib/standard-fonts/-/standard-fonts-0.0.4.tgz#49fffa97fe1a5fff9b8b60fd9decf79b10bd0982"
@@ -2425,14 +2431,6 @@
   version "26.0.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.3.tgz#79534e0e94857171c0edc596db0ebe7cb7863251"
   integrity sha512-v89ga1clpVL/Y1+YI0eIu1VMW+KU7Xl8PhylVtDKVWaSUHBHYPLXMQGBdrpHewaKoTvlXkksbYqPgz8b4cmRZg==
-  dependencies:
-    jest-diff "^25.2.1"
-    pretty-format "^25.2.1"
-
-"@types/jest@^26.0.7":
-  version "26.0.9"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.9.tgz#0543b57da5f0cd949c5f423a00c56c492289c989"
-  integrity sha512-k4qFfJ5AUKrWok5KYXp2EPm89b0P/KZpl7Vg4XuOTVVQEhLDBDBU3iBFrjjdgd8fLw96aAtmnwhXHl63bWeBQQ==
   dependencies:
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
@@ -4555,6 +4553,11 @@ dotenv@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
+downloadjs@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/downloadjs/-/downloadjs-1.4.7.tgz#f69f96f940e0d0553dac291139865a3cd0101e3c"
+  integrity sha1-9p+W+UDg0FU9rCkROYZaPNAQHjw=
 
 duplexer@^0.1.1, duplexer@~0.1.1:
   version "0.1.1"
