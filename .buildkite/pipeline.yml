@@ -7,8 +7,17 @@ steps:
     - RACK_ENV=test bundle exec rake db:migrate
     - bundle exec rspec
     label: ":rspec:"
+    artifact_paths:
+      - coverage/*
   
   - wait
+
+  - name: ":codeclimate: Report coverage"
+    plugins:
+      - jobready/codeclimate-test-reporter#v2.0:
+          artifact: "coverage/.resultset.json"
+          input_type: simplecov
+          prefix: '/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'
   
   - commands: 
     - "yarn install"
