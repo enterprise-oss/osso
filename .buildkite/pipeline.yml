@@ -12,13 +12,6 @@ steps:
   
   - wait
 
-  - name: ":codeclimate: Report coverage"
-    plugins:
-      - jobready/codeclimate-test-reporter#v2.0:
-          artifact: "coverage/.resultset.json"
-          input_type: simplecov
-          prefix: '/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'
-  
   - commands: 
     - "yarn install"
     - "tsc -p client --declaration false"
@@ -35,10 +28,19 @@ steps:
   
   - commands: 
     - "yarn install"
-    - "yarn test"
+    - "yarn test --collectCoverage"
     label: ":jest:"
 
   - wait
+
+  - name: ":codeclimate:" #TODO: need to sum coverage
+      plugins:
+        - jobready/codeclimate-test-reporter#v2.0:
+            artifact: "coverage/.resultset.json"
+            input_type: simplecov
+            prefix: '/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'
+
+  - wait 
 
   - commands: 
       - "yarn install"
