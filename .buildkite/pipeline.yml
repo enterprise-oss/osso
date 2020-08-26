@@ -39,7 +39,9 @@ steps:
           artifact: 
             - "coverage/.resultset.json"
             - "coverage/lcov.info"
-          input_type: simplecov
+          input_type: 
+            - simplecov
+            - lcov
           prefix: '/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'
 
   - wait 
