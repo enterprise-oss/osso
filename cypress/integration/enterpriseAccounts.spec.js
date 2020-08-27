@@ -4,7 +4,7 @@ describe("EnterpriseAccounts", () => {
   describe("with an Admin user", () => {
     before(() => {
       cy.exec("RACK_ENV=test bundle exec rake db:migrate");
-      // cy.exec("RACK_ENV=test bundle exec rake osso:bootstrap");
+      cy.exec("RACK_ENV=test bundle exec rake osso:bootstrap");
       cy.login("admin@example.com", "admin");
     });
 
