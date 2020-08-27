@@ -25,7 +25,7 @@ download_artifacts() {
 
 format_reports() {
   # Ruby
-   printf -- "Formatting simplecov"
+   printf -- "Formatting simplecov\\n"
   ./cc-test-reporter format-coverage \
     --input-type "simplecov" \
     --prefix ${PREFIX} \
@@ -33,7 +33,7 @@ format_reports() {
     "./coverage/.resultset.json"
  
   # TS
-  printf -- "Formatting lcov"
+  printf -- "Formatting lcov\\n"
     ./cc-test-reporter format-coverage \
       --input-type "lcov" \
       --prefix ${PREFIX} \
