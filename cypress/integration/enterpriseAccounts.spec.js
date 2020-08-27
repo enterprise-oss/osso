@@ -4,7 +4,7 @@ describe("EnterpriseAccounts", () => {
   describe("with an Admin user", () => {
     before(() => {
       cy.exec("RACK_ENV=test bundle exec rake db:migrate");
-      cy.exec("RACK_ENV=test bundle exec rake osso:bootstrap");
+      // cy.exec("RACK_ENV=test bundle exec rake osso:bootstrap");
       cy.login("admin@example.com", "admin");
     });
 
@@ -21,7 +21,7 @@ describe("EnterpriseAccounts", () => {
       cy.get("div").contains("Production").click();
       cy.contains("Done").click();
 
-      cy.get("table tbody tr").get("td > a").contains(company).click();
+      cy.contains(company).click();
 
       cy.url().should("include", `/enterprise/${domain}`);
 
