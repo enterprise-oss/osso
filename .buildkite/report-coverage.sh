@@ -28,7 +28,7 @@ format_reports() {
    printf -- "Formatting simplecov"
   ./cc-test-reporter format-coverage \
     --input-type "simplecov" \
-    --prefix ${PREFIX}
+    --prefix ${PREFIX} \
     --output "coverage/codeclimate.ruby.json" \
     "./coverage/.resultset.json"
  
@@ -36,7 +36,7 @@ format_reports() {
   printf -- "Formatting lcov"
     ./cc-test-reporter format-coverage \
       --input-type "lcov" \
-      --prefix ${PREFIX}
+      --prefix ${PREFIX} \
       --output "coverage/codeclimate.ts.json" \
       "./coverage/lcov.info"
 }
