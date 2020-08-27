@@ -11,10 +11,6 @@ steps:
       - coverage/*
   
   - wait
-
-  - name: ":codeclimate:"
-    commands:
-      - '.buildkite/report-coverage'
   
   - commands: 
     - "yarn install"
@@ -34,6 +30,12 @@ steps:
     - "yarn install"
     - "yarn test"
     label: ":jest:"
+
+  - wait
+
+  - name: ":codeclimate:"
+    commands:
+      - '.buildkite/report-coverage.sh'
 
   - wait
 
