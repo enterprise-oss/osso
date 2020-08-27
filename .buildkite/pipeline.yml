@@ -30,6 +30,8 @@ steps:
     - "yarn install"
     - "yarn test"
     label: ":jest:"
+    artifact_paths:
+      - coverage/*
 
   - wait
 
