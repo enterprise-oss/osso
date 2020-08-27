@@ -12,12 +12,9 @@ steps:
   
   - wait
 
-  - name: ":codeclimate: Report coverage"
-    plugins:
-      - jobready/codeclimate-test-reporter#v2.0:
-          artifact: "coverage/.resultset.json"
-          input_type: simplecov
-          prefix: '/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'
+  - name: ":codeclimate:"
+    commands:
+      - '.buildkite/report-coverage'
   
   - commands: 
     - "yarn install"
