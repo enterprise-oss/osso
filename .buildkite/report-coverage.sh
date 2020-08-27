@@ -15,7 +15,7 @@ install_reporter() {
 }
 
 download_artifacts() {
-  printf -- "--- :buildkite: downloading artifact\\n"
+  printf -- "--- :buildkite: downloading artifacts\\n"
   # Ruby
   buildkite-agent artifact download "coverage/.resultset.json" ./
 
@@ -25,16 +25,16 @@ download_artifacts() {
 
 combine_reports() {
   # Ruby
-   printf -- "Formatting file: %s\\n" "$1"
-  ./cc-test-reporter format-coverage ${debug:+"-d"} \
+   printf -- "Formatting simplecov"
+  ./cc-test-reporter format-coverage \
     --input-type "simplecov" \
     --prefix ${PREFIX}
     --output "coverage/codeclimate.ruby.json" \
     "./coverage/.resultset.json"
  
   # TS
-  printf -- "Formatting file: %s\\n" "$1"
-    ./cc-test-reporter format-coverage ${debug:+"-d"} \
+  printf -- "Formatting lcov"
+    ./cc-test-reporter format-coverage \
       --input-type "lcov" \
       --prefix ${PREFIX}
       --output "coverage/codeclimate.ts.json" \
@@ -43,9 +43,9 @@ combine_reports() {
 
 report_coverage() {
   printf -- "--- :codeclimate: reporting coverage\\n"
-  ./cc-test-reporter sum-coverage ${debug:+"-d"} ${SUM_PARTS} coverage/codeclimate.*.json
+  ./cc-test-reporter sum-coverage 2 coverage/codeclimate.*.json
 
-  ./cc-test-reporter upload-coverage ${debug:+"-d"}
+  ./cc-test-reporter upload-coverage
 }
 
 PREFIX='/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'

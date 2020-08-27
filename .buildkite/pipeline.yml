@@ -28,7 +28,7 @@ steps:
   
   - commands: 
     - "yarn install"
-    - "yarn test"
+    - "yarn test --collectCoverage"
     label: ":jest:"
     artifact_paths:
       - coverage/*
