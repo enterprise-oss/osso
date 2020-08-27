@@ -23,7 +23,7 @@ download_artifacts() {
   buildkite-agent artifact download "coverage/lcov.info" ./
 }
 
-combine_reports() {
+format_reports() {
   # Ruby
    printf -- "Formatting simplecov"
   ./cc-test-reporter format-coverage \
