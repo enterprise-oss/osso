@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-PREFIX = '/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'
-
 install_reporter() {
   if [ -f ./cc-test-reporter ]; then
     printf -- "--- :codeclimate: Using local binary ./cc-test-reporter"
@@ -50,12 +48,7 @@ report_coverage() {
   ./cc-test-reporter upload-coverage ${debug:+"-d"}
 }
 
-if [[ -z "${BUILDKITE_PLUGIN_CODECLIMATE_TEST_REPORTER_VERSION:-}" ]] ; then
-  BUILDKITE_PLUGIN_CODECLIMATE_TEST_REPORTER_VERSION="latest"
-fi
-
-debug=""
-[[ -v BUILDKITE_PLUGIN_CODECLIMATE_TEST_REPORTER_DEBUG ]] && debug="yes"
+PREFIX='/var/lib/buildkite-agent/builds/enterprise-oss-bk-1/enterpriseoss/osso/'
 
 install_reporter
 download_artifacts
