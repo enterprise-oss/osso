@@ -5,6 +5,7 @@ Cypress.Commands.add("login", (email, scope) => {
     {
       email,
       scope,
+      id: "fake-id",
     },
     Cypress.env("JWT_HMAC_SECRET")
   );

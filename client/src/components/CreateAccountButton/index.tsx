@@ -48,8 +48,8 @@ export default function CreateAccountButton(): ReactElement {
               onClick={() => {
                 form
                   .validateFields()
-                  .then(({ name, domain }) => {
-                    createAccount(name, domain);
+                  .then(({ name, domain, oauthClientId }) => {
+                    createAccount(name, domain, oauthClientId);
                     form.resetFields();
                     setModalOpen(false);
                   })
@@ -106,10 +106,10 @@ export default function CreateAccountButton(): ReactElement {
           {currentUser?.scope === 'admin' && (
             <Form.Item
               label="OAuth client"
-              name="oauth_client_id"
+              name="oauthClientId"
               rules={[{ required: true, message: 'Select OAuth client' }]}
             >
-              <Select>
+              <Select id="oauthClientId">
                 {data?.oauthClients.map((client) => (
                   <Select.Option key={client.id} value={client.id}>
                     {client.name}
