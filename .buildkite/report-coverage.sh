@@ -43,7 +43,7 @@ format_reports() {
 
 report_coverage() {
   printf -- "--- :codeclimate: reporting coverage\\n"
-  ./cc-test-reporter sum-coverage 2 coverage/codeclimate.*.json
+  ./cc-test-reporter sum-coverage --parts 2 coverage/codeclimate.*.json
 
   ./cc-test-reporter upload-coverage
 }
