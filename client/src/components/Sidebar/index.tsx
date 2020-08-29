@@ -1,7 +1,6 @@
-import Layout from 'antd/es/layout';
+import { Layout } from 'antd';
 import React, { ReactElement } from 'react';
 const { Sider } = Layout;
-
 import Menu from '~/client/src/components/Menu/index';
 import LogoWhite from '~/client/src/resources/LogoWhite.svg';
 
