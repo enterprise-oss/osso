@@ -8,8 +8,8 @@ import {
 import { Button, Form, Modal, Spin } from 'antd';
 import React, { ReactElement, useEffect, useState } from 'react';
 
+import ButtonComponent from '~/client/src/components/Osso/ButtonComponent';
 import CopyValueComponent from '~/client/src/components/Osso/CopyValueComponent';
-import LinkComponent from '~/client/src/components/Osso/LinkComponent';
 import ProviderPicker from '~/client/src/components/ProviderPicker';
 
 import styles from './index.module.css';
@@ -49,7 +49,7 @@ function Documentation({
       </h2>
       <Form layout="vertical">
         <OssoGeneratedFields
-          LinkComponent={LinkComponent}
+          ButtonComponent={ButtonComponent}
           InputComponent={CopyValueComponent}
           identityProvider={identityProvider}
         />
