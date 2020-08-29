@@ -5,9 +5,11 @@ Cypress.Commands.add("login", (email, scope) => {
     {
       email,
       scope,
+      id: "fake-id",
+      oauth_client_id: "production",
     },
     Cypress.env("JWT_HMAC_SECRET")
   );
 
-  cy.visit(`/admin?admin_token=${token}`);
+  cy.visit(`/admin/login?admin_token=${token}`);
 });
