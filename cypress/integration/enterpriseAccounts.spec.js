@@ -30,6 +30,7 @@ describe("EnterpriseAccounts", () => {
       cy.url().should("match", /\/enterprise\/.*$/);
     });
   });
+
   describe("with an Internal user", () => {
     beforeEach(() => {
       cy.login("internal@example.com", "internal");
