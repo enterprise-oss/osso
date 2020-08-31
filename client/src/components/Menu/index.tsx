@@ -1,6 +1,7 @@
 import { SettingOutlined, TeamOutlined } from '@ant-design/icons';
+import { OssoContext } from '@enterprise-oss/osso';
 import { Menu as AntMenu } from 'antd';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 export default function Menu(): ReactElement {
@@ -9,6 +10,8 @@ export default function Menu(): ReactElement {
   const selectedKeys = pathname
     .split('/')
     .filter((key) => !['', 'admin'].includes(key));
+
+  const { currentUser } = useContext(OssoContext);
 
   return (
     <AntMenu
@@ -20,9 +23,11 @@ export default function Menu(): ReactElement {
       <AntMenu.Item key="enterprise" icon={<TeamOutlined />}>
         <NavLink to="/enterprise">Customers</NavLink>
       </AntMenu.Item>
-      <AntMenu.Item key="config" icon={<SettingOutlined />}>
-        <NavLink to="/config">Configuration</NavLink>
-      </AntMenu.Item>
+      {currentUser?.scope === 'admin' && (
+        <AntMenu.Item key="config" icon={<SettingOutlined />}>
+          <NavLink to="/config">Configuration</NavLink>
+        </AntMenu.Item>
+      )}
     </AntMenu>
   );
 }
