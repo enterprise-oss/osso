@@ -47,7 +47,7 @@ describe("Customer Identity Providers", () => {
         });
     });
 
-    it("can download the PDF setup docs", () => {
+    xit("can download the PDF setup docs", () => {
       cy.task("allowDownloads");
 
       cy.contains("Download").click();

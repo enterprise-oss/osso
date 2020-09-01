@@ -14,7 +14,15 @@ module.exports = (on, config) => {
   const downloadPath = path.resolve(config.projectRoot, "./cypress/downloads");
 
   function ensureRdpPort(args) {
-    const port = 9292;
+    const existing = args.find((arg) =>
+      arg.startsWith("--remote-debugging-port")
+    );
+
+    if (existing) {
+      return Number(existing.split("=")[1]);
+    }
+
+    const port = 40000 + Math.round(Math.random() * 25000);
 
     args.push(`--remote-debugging-port=${port}`);
 
