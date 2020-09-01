@@ -2,7 +2,7 @@
 
 if ENV['RACK_ENV'] != 'production'
   require 'dotenv'
-  Dotenv.load('.env.development', '.env')
+  Dotenv.load('.env', '.env.development', '.env.test')
   require 'pry'
 end
 
