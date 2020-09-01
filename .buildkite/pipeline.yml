@@ -42,11 +42,11 @@ steps:
   - wait
 
   - commands:
-      - buildkite-agent artifact download .parcel-cache/* .parcel-cache/ 
       - "yarn install"
-      - "yarn build"
+      - "PARCEL_BUNDLE_ANALYZER=1 yarn build"
       - "yarn cypress:ci"
     label: ":parcel: :cypress:"
     artifact_paths:
       - cypress/videos/*
       - .parcel-cache/*
+      - .parcel-bundle-reports
