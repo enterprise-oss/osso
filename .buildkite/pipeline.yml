@@ -43,9 +43,9 @@ steps:
 
   - commands:
       - "yarn install"
-      - "PARCEL_BUNDLE_ANALYZER=1 yarn build"
+      - "yarn build"
       - "yarn cypress:ci"
     label: ":parcel: :cypress:"
     artifact_paths:
       - cypress/videos/*
-      - .parcel-bundle-reports
+      - .parcel-bundle-reports/*
