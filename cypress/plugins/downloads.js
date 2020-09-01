@@ -11,7 +11,7 @@ let port = 0;
 let client = null;
 
 module.exports = (on, config) => {
-  const downloadPath = path.resolve(config.projectRoot, "./downloads");
+  const downloadPath = path.resolve(config.projectRoot, "./cypress/downloads");
 
   function ensureRdpPort(args) {
     const existing = args.find((arg) =>
