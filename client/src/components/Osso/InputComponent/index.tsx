@@ -8,6 +8,7 @@ export default function InputComponent({
   name,
   onChange,
   type,
+  error,
   ...inputProps
 }: OssoInputProps): ReactElement {
   const Component = type === 'textarea' ? Input.TextArea : Input;
