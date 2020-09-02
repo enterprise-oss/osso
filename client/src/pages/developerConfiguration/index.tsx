@@ -19,7 +19,7 @@ export default function DeveloperConfig(): ReactElement {
             pagination={false}
           >
             <Table.Column
-              title="Oauth Client"
+              title="OAuth Client"
               dataIndex="name"
               key="name"
               render={(text: string, record: OauthClient) => (
