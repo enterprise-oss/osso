@@ -50,7 +50,7 @@ describe("EnterpriseAccounts", () => {
 
       cy.contains(company);
     });
-
+    
     it("can view any enterprise account", () => {
       cy.visit("/admin/enterprise");
 

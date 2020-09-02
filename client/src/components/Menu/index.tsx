@@ -6,12 +6,11 @@ import { NavLink, useLocation } from 'react-router-dom';
 
 export default function Menu(): ReactElement {
   const { pathname } = useLocation();
+  const { currentUser } = useContext(OssoContext);
 
   const selectedKeys = pathname
     .split('/')
     .filter((key) => !['', 'admin'].includes(key));
-
-  const { currentUser } = useContext(OssoContext);
 
   return (
     <AntMenu
