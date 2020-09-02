@@ -24,7 +24,7 @@ describe App do
       expect(last_response.status).to eq(401)
     end
 
-    it 'rreturns 401 unauthorized with an invalid token' do
+    it 'returns 401 unauthorized with an invalid token' do
       post('/graphql', admin_token: SecureRandom.hex(32))
 
       expect(last_response.status).to eq(401)

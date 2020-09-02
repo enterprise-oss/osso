@@ -11,7 +11,7 @@ steps:
       - coverage/*
   
   - wait
-  
+
   - commands: 
     - "yarn install"
     - "tsc -p client --declaration false"
@@ -39,7 +39,7 @@ steps:
     commands:
       - '.buildkite/report-coverage.sh'
 
-  - wait
+  - wait 
 
   - commands:
       - "yarn install"

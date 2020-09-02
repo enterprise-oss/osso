@@ -1,13 +1,18 @@
 import {
   CheckCircleFilled,
-  DownloadOutlined,
   ExclamationCircleFilled,
   InfoCircleFilled,
   WarningFilled,
 } from '@ant-design/icons';
-import { IdentityProvider, IdentityProviderStatus } from '@enterprise-oss/osso';
+import {
+  DownloadDocs,
+  IdentityProvider,
+  IdentityProviderStatus,
+} from '@enterprise-oss/osso';
 import { Button, Tag } from 'antd';
 import React, { ReactElement } from 'react';
+
+import ButtonComponent from '~/client/src/components/Osso/ButtonComponent';
 
 import { blue, gold, green, red } from './colors';
 
@@ -100,14 +105,10 @@ export function StatusActions({
     case IdentityProviderStatus.pending:
       return (
         <>
-          <Button
-            type="ghost"
-            style={{ marginLeft: 16, marginTop: 6 }}
-            href={identityProvider.documentationPdfUrl}
-            icon={<DownloadOutlined />}
-          >
-            Download PDF
-          </Button>
+          <DownloadDocs
+            identityProvider={identityProvider}
+            ButtonComponent={ButtonComponent}
+          />
           <Button
             onClick={(args) => onActions[1](args)}
             style={{ marginLeft: 16, marginTop: 6 }}
