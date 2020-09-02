@@ -41,11 +41,11 @@ steps:
 
   - wait 
 
-  - commands: 
+  - commands:
       - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
     label: ":parcel: :cypress:"
     artifact_paths:
-      - public/*
       - cypress/videos/*
+      - .parcel-bundle-reports/*

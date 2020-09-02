@@ -13,3 +13,7 @@ Cypress.Commands.add("login", (email, scope) => {
 
   cy.visit(`/admin/login?admin_token=${token}`);
 });
+
+Cypress.Commands.add("getDownload", (filepath) => {
+  cy.readFile(`downloads/${filepath}`);
+});
