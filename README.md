@@ -44,7 +44,7 @@
  
  * **SAML Config in Osso's UI or yours**: For every customer who demands SAML SSO, you'll need to go through a multistep process of creating a secure handshake between Osso and the customer's SAML provider. Get started quickly by configuring your customers' SAML providers in the Osso Admin UI, or allow your customers to perform configuration themselves in your UI with hooks and components from our React library [osso-react](https://github.com/enterprise-oss/osso-react).
  
- * **Docs for everyone**: SAML is an open specification, but each provider uses specific terminology and offers their own workflows for adding a new application. Osso generates PDF documentation with the data your customer needs to configure your app in any provider, and provides thorough documentation for your team who integrates and manages your Osso instance.
+ * **Docs for everyone**: SAML is an open specification, but each Identity Provider uses specific terminology and offers their own workflows for adding a new application. Osso generates PDF documentation with the data your customer needs to configure your app in any provider, and provides thorough documentation for your team who integrates and manages your Osso instance.
 
 
 <!-- <a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a> -->
