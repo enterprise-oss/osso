@@ -1088,7 +1088,6 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
-
 "@enterprise-oss/osso@^0.0.5-alpha.44":
   version "0.0.5-alpha.44"
   resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.44.tgz#425b37eb5a841be75a89d45e72bc5d8eafb3f7f0"
@@ -2340,14 +2339,16 @@
   dependencies:
     defer-to-connect "^2.0.0"
 
-"@testing-library/dom@^7.22.3":
-  version "7.22.5"
-  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.22.5.tgz#178fb0bfb52540538667f2f72d4b7fb406a49499"
-  integrity sha512-qALmosaNSny/JqQ+mDhdT0N5u1a76pEcOvfWFDpBQOchtkxDm/w/bCfe0J/K7nHrwJPHelFiAZksaBs//P9fsw==
+"@testing-library/dom@^7.23.0":
+  version "7.24.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.24.0.tgz#b50066100947e4d1bd0f2f6855c7ff3f2a8770e2"
+  integrity sha512-Q83bQctoBse3NbHrUHlLypSp+cIchmpLCtVTG2rgVL2RhzgNOjlYgqH/gmwg3ztHVPADSD3PwtoXRhgU6dfTxQ==
   dependencies:
+    "@babel/code-frame" "^7.10.4"
     "@babel/runtime" "^7.10.3"
     "@types/aria-query" "^4.2.0"
     aria-query "^4.2.2"
+    chalk "^4.1.0"
     dom-accessibility-api "^0.5.1"
     pretty-format "^26.4.2"
 
@@ -2365,13 +2366,13 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react@^10.4.9":
-  version "10.4.9"
-  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-10.4.9.tgz#9faa29c6a1a217bf8bbb96a28bd29d7a847ca150"
-  integrity sha512-pHZKkqUy0tmiD81afs8xfiuseXfU/N7rAX3iKjeZYje86t9VaB0LrxYVa+OOsvkrveX5jCK3IjajVn2MbePvqA==
+"@testing-library/react@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-11.0.0.tgz#b8ab18752dbb09986925cda73da789c3cdbc4ff0"
+  integrity sha512-C3CL59UljaWe4f+/0vdfTKz54XPGod56egcdQLysowpJ/KUMyr5rhY2z+qRzbSlF73Soq3vHFGm+DTnl98s9fQ==
   dependencies:
-    "@babel/runtime" "^7.10.3"
-    "@testing-library/dom" "^7.22.3"
+    "@babel/runtime" "^7.11.2"
+    "@testing-library/dom" "^7.23.0"
 
 "@types/aria-query@^4.2.0":
   version "4.2.0"
