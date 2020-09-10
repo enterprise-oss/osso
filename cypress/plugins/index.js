@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /// <reference types="cypress" />
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
@@ -16,37 +15,7 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-
-const downloads = require("./downloads");
-const chromium = require("chromium");
-const execa = require("execa");
-
-module.exports = async (on, config) => {
-  on("task", downloads(on, config));
-
-  const hasChromium = config.browsers.some(
-    (browser) => browser.name === "chromium"
-  );
-
-  if (!hasChromium) {
-    const { stdout } = await execa(chromium.path, ["--version"]);
-    const [version] = /[\d\.]+/.exec(stdout);
-    const majorVersion = parseInt(version.split(".")[0]);
-
-    // Note: this extends the global config!
-    return {
-      browsers: [
-        ...config.browsers,
-        {
-          name: "chromium",
-          family: "chromium",
-          channel: "stable",
-          displayName: "Chromium (npm)",
-          path: chromium.path,
-          version,
-          majorVersion,
-        },
-      ],
-    };
-  }
-};
+module.exports = (on, config) => {
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
+}
