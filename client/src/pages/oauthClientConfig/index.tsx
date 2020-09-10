@@ -22,7 +22,7 @@ export default function OauthClientConfig(
   return (
     <>
       <Row gutter={[24, 24]}>
-        <Col span={12}>
+        <Col sm={24} lg={12}>
           <Card className={styles.card}>
             {loading ? (
               <Spin />
@@ -31,7 +31,7 @@ export default function OauthClientConfig(
             )}
           </Card>
         </Col>
-        <Col span={12}>
+        <Col sm={24} lg={12}>
           <Card className={styles.card}>
             <div className={styles.cardTopRow}>
               <h1>Redirects</h1>

@@ -1,4 +1,4 @@
-import './index.less';
+import '@enterprise-oss/ant-theme';
 
 import { OssoProvider } from '@enterprise-oss/osso';
 import { Layout } from 'antd';
