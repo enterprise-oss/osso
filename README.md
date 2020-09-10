@@ -61,8 +61,6 @@ We also offer paid hosted plans that can reduce the integration workload on your
 
 Git-based deploys are another recommended way to deploy and maintain your own Osso instance. Updates will primarily be made in osso-rb and osso-react, libraries that provide the core functionality, so be sure to stay on top of updates.
 
-We also offer A Dockerfile for Docker based deploys. *TODO: get some help with this. maybe make a list of options?*
-
 #### Authenticate to Admin UI
 
 Osso uses JWTs for Admin auth. Craft a JWT on your own server with `{scope: 'admin', email: 'you@company.com'}`, sign it with your `JWT_HMAC_SECRET` and send yourself to Osso with a `token` query parameter - see our [JWT Authentication docs](https://ossoapp.com/docs/integration/jwt-authentication) for more.
