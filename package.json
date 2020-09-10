@@ -10,8 +10,7 @@
     "clean": "rm -rf client/dist && rm -rf .parcel-cache",
     "test": "jest",
     "lint": "eslint 'client/src/**/*.{js,jsx,ts,tsx}'",
-    "lintfix": "eslint 'client/src/**/*.{js,jsx,ts,tsx}' --fix",
-    "build:theme": "lessc --js ./client/src/index.less ./client/src/antd.css"
+    "lintfix": "eslint 'client/src/**/*.{js,jsx,ts,tsx}' --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -63,6 +62,7 @@
     "@ant-design/colors": "^4.0.5",
     "@ant-design/icons": "^4.2.2",
     "@apollo/client": "^3.1.5",
+    "@enterprise-oss/ant-theme": "^1.0.0",
     "@enterprise-oss/osso": "^0.0.5-alpha.44",
     "antd": "^4.6.3",
     "date-fns": "^2.16.1",
@@ -91,7 +91,8 @@
     "moduleNameMapper": {
       "\\.(png|svg)$": "<rootDir>/client/__mocks__/fileMock.js",
       "\\.(css|less)$": "identity-obj-proxy",
-      "~(.*)$": "<rootDir>/$1"
+      "~(.*)$": "<rootDir>/$1",
+      "@enterprise-oss/ant-theme": "identity-obj-proxy"
     },
     "testPathIgnorePatterns": [
       "<rootDir>/.yalc/*",

@@ -10,7 +10,7 @@ describe("Oauth Client", () => {
       cy.get("input#osso-client-id")
         .invoke("val")
         .then((val1) => {
-          cy.contains("Regenerate").click();
+          cy.contains("Regenerate").click({ force: true });
 
           cy.get("input#osso-client-id")
             .invoke("val")
