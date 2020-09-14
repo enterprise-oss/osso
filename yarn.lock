@@ -2196,12 +2196,11 @@
   dependencies:
     pako "^1.0.6"
 
-"@pdf-lib/standard-fonts@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@pdf-lib/standard-fonts/-/standard-fonts-0.0.4.tgz#49fffa97fe1a5fff9b8b60fd9decf79b10bd0982"
-  integrity sha512-2pg8hXnChVAF6aSFraXtwB0cx/AgE15FvuLJbdPJSq9LYp1xMp0lapH4+t1HsdD9cA05rnWYLqlEBwS4YK1jLg==
+"@pdf-lib/standard-fonts@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pdf-lib/standard-fonts/-/standard-fonts-1.0.0.tgz#8ba691c4421f71662ed07c9a0294b44528af2d7f"
+  integrity sha512-hU30BK9IUN/su0Mn9VdlVKsWBS6GyhVfqjwl1FjZN4TxP6cCw0jP2w7V3Hf5uX7M0AZJ16vey9yE0ny7Sa59ZA==
   dependencies:
-    base64-arraybuffer "^0.1.5"
     pako "^1.0.6"
 
 "@pdf-lib/upng@^1.0.1":
@@ -2627,9 +2626,9 @@
     "@types/yargs-parser" "*"
 
 "@types/zen-observable@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
-  integrity sha512-te5lMAWii1uEJ4FwLjzdlbw3+n0FZNOvFXHxQDKeT0dilh7HOzdMzV2TrJVUzq8ep7J4Na8OUYPRLSQkJHAlrg==
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.1.tgz#5668c0bce55a91f2b9566b1d8a4c0a8dbbc79764"
+  integrity sha512-wmk0xQI6Yy7Fs/il4EpOcflG4uonUpYGqvZARESLc2oy4u69fkatFLbJOeW4Q6awO15P4rduAe6xkwHevpXcUQ==
 
 "@typescript-eslint/eslint-plugin@^3.10.1":
   version "3.10.1"
@@ -3222,11 +3221,6 @@ base-x@^3.0.8:
   integrity sha512-Rl/1AWP4J/zRrk54hhlxH4drNxPJXYUaKffODVI53/dAsV4t9fBxyxYKAVPU1XBHxYwOWP9h9H0hM2MVw4YfJA==
   dependencies:
     safe-buffer "^5.0.1"
-
-base64-arraybuffer@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
-  integrity sha1-c5JncZI7Whl0etZmqlzUv5xunOg=
 
 base64-arraybuffer@^0.2.0:
   version "0.2.0"
@@ -8593,11 +8587,11 @@ pbkdf2@^3.0.3:
     sha.js "^2.4.8"
 
 pdf-lib@^1.9.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.10.0.tgz#04c8c2f1b56e24758b25b6234e940f4f133ffc63"
-  integrity sha512-r9+GL84EI7HIwkgDo191ArhGZgbUPqPRwddTrfV6Th7U4u8UayPixx0FZ/Sv8Dl3K/AZLQ1nrUVFqjTlmy9uJQ==
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.11.0.tgz#2d38b2ace2bd7d03bc473f006e4ec90cd9fc7c49"
+  integrity sha512-39wSdvUYHHQU6JF1V5hk/Z+3xuMFP5ItQWEkBFlDAR9MEUMLCxp/6JZfh+BqWA7nbojVqoEfTSL20PP5kbhhvg==
   dependencies:
-    "@pdf-lib/standard-fonts" "^0.0.4"
+    "@pdf-lib/standard-fonts" "^1.0.0"
     "@pdf-lib/upng" "^1.0.1"
     pako "^1.0.11"
     tslib "^1.11.1"
@@ -10894,9 +10888,9 @@ terser@^4.3.9:
     source-map-support "~0.5.12"
 
 terser@^5.2.0:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.2.1.tgz#40b971b8d28b4fe98c9e8c0d073ab48e7bb96cd8"
-  integrity sha512-/AOtjRtAMNGO0fIF6m8HfcvXTw/2AKpsOzDn36tA5RfhRdeXyb4RvHxJ5Pah7iL6dFkLk+gOnCaNHGwJPl6TrQ==
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.3.1.tgz#f50fe20ab48b15234fe9bdd86b10148ad5fca787"
+  integrity sha512-yD80f4hdwCWTH5mojzxe1q8bN1oJbsK/vfJGLcPZM/fl+/jItIVNKhFIHqqR71OipFWMLgj3Kc+GIp6CeIqfnA==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
