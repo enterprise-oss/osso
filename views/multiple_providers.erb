@@ -1,0 +1,5 @@
+<p>Choose your IDP</p>
+
+<% @providers.map do |provider| %>
+    <a href="<%=provider.sso_url %>"> <%=provider.name %></a>
+<% end %>
