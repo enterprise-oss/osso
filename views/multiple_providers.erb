@@ -1,5 +1,15 @@
-<p>Choose your IDP</p>
-
-<% @providers.map do |provider| %>
-    <a href="<%=provider.sso_url %>"> <%=provider.name %></a>
-<% end %>
+<div class="container">
+  <div class="idp-selector">
+    <p>Please select your Identity Provider</p>
+    <div class="providers <%= @providers.count > 3 ? 'two-cols' : 'three-cols' %>">
+      <% @providers.map do |provider| %>
+        <a href="<%=provider.sso_url %>">
+          <div class="provider">
+            <img class='logo' src='<%="/logos/#{provider.name.downcase}.svg"%>' />
+            <p class="name"><%=provider.name %></p>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div> 
+</div>
