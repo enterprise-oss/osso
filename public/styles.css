@@ -26,20 +26,21 @@ html, body {
 }
 
 .providers{
-  display: grid;
-  grid-gap: 8px;
   margin-bottom: 32px;
+  grid-gap: 8px;
 }
 
 .providers a {
   text-decoration: none;
 }
 
-.three-cols {
-  grid-template-columns: repeat(3, 1fr);
+.one-row {
+  display: flex;
+  align-items: center;
 }
 
-.two-cols {
+.multi-rows {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
 
