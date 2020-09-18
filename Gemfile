@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso'
+gem 'osso', '= 0.0.5.pre.delta'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rake'
@@ -22,7 +22,7 @@ group :test do
   gem 'rack-test'
   gem 'rspec', '~> 3.2'
   gem 'simplecov', '= 0.17', require: false
-  gem 'webmock', '~> 3.0'
+  gem 'webmock', '~> 3.9'
 end
 
 group :development, :test do
