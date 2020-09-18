@@ -3,7 +3,7 @@
     <p class="title">Please select your Identity Provider</p>
     <div class="providers <%= @providers.count > 3 ? 'multi-rows' : 'one-row' %>">
       <% @providers.map do |provider| %>
-        <a href="<%=provider.sso_url %>">
+        <a href='<%= "/auth/saml/#{provider.id}" %>'>
           <div class="provider">
             <img class='logo' src='<%="/logos/#{provider.name.downcase}.svg"%>' />
             <p class="name"><%=provider.name %></p>
