@@ -1094,10 +1094,10 @@
   resolved "https://registry.yarnpkg.com/@enterprise-oss/ant-theme/-/ant-theme-1.0.1.tgz#12cbd0b65879cac3fb37b925077284b5be1ee211"
   integrity sha512-ggujk7KK9KakleY05RfhwzLjUB7SMojXDYQPsMhA0Sva1sNPpKpu4W7A0Abs4thcNmM3QztNL5pF1ozLHqdPIw==
 
-"@enterprise-oss/osso@^0.0.5-alpha.44":
-  version "0.0.5-alpha.44"
-  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.5-alpha.44.tgz#425b37eb5a841be75a89d45e72bc5d8eafb3f7f0"
-  integrity sha512-x9ObjkO2b7YlntOxIx/3tpDwNZ76iWr7Xll0e+rigC89I0pHQFCzUT9ggroBAx/QMllQHXqYV+VhgZAdoT9BcQ==
+"@enterprise-oss/osso@^0.0.7-alpha":
+  version "0.0.7-gamma"
+  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.0.7-gamma.tgz#818dc1e5b534925d3f774503d365d84898eb6788"
+  integrity sha512-MEHQZ/9XtlEl4dK9GjvizBnh61Gim7NT33PRq8EydJl8ocsKuLwnEzJ0X+CDt6eEJdn9Zo/VNqUq3zkiZ7XBnw==
   dependencies:
     "@apollo/client" "^3.0.0-rc.10"
     "@pdf-lib/fontkit" "^1.0.0"
@@ -2202,12 +2202,11 @@
   dependencies:
     pako "^1.0.6"
 
-"@pdf-lib/standard-fonts@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@pdf-lib/standard-fonts/-/standard-fonts-0.0.4.tgz#49fffa97fe1a5fff9b8b60fd9decf79b10bd0982"
-  integrity sha512-2pg8hXnChVAF6aSFraXtwB0cx/AgE15FvuLJbdPJSq9LYp1xMp0lapH4+t1HsdD9cA05rnWYLqlEBwS4YK1jLg==
+"@pdf-lib/standard-fonts@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pdf-lib/standard-fonts/-/standard-fonts-1.0.0.tgz#8ba691c4421f71662ed07c9a0294b44528af2d7f"
+  integrity sha512-hU30BK9IUN/su0Mn9VdlVKsWBS6GyhVfqjwl1FjZN4TxP6cCw0jP2w7V3Hf5uX7M0AZJ16vey9yE0ny7Sa59ZA==
   dependencies:
-    base64-arraybuffer "^0.1.5"
     pako "^1.0.6"
 
 "@pdf-lib/upng@^1.0.1":
@@ -2633,9 +2632,9 @@
     "@types/yargs-parser" "*"
 
 "@types/zen-observable@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
-  integrity sha512-te5lMAWii1uEJ4FwLjzdlbw3+n0FZNOvFXHxQDKeT0dilh7HOzdMzV2TrJVUzq8ep7J4Na8OUYPRLSQkJHAlrg==
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@types/zen-observable/-/zen-observable-0.8.1.tgz#5668c0bce55a91f2b9566b1d8a4c0a8dbbc79764"
+  integrity sha512-wmk0xQI6Yy7Fs/il4EpOcflG4uonUpYGqvZARESLc2oy4u69fkatFLbJOeW4Q6awO15P4rduAe6xkwHevpXcUQ==
 
 "@typescript-eslint/eslint-plugin@^3.10.1":
   version "3.10.1"
@@ -3228,11 +3227,6 @@ base-x@^3.0.8:
   integrity sha512-Rl/1AWP4J/zRrk54hhlxH4drNxPJXYUaKffODVI53/dAsV4t9fBxyxYKAVPU1XBHxYwOWP9h9H0hM2MVw4YfJA==
   dependencies:
     safe-buffer "^5.0.1"
-
-base64-arraybuffer@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
-  integrity sha1-c5JncZI7Whl0etZmqlzUv5xunOg=
 
 base64-arraybuffer@^0.2.0:
   version "0.2.0"
@@ -8599,11 +8593,11 @@ pbkdf2@^3.0.3:
     sha.js "^2.4.8"
 
 pdf-lib@^1.9.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.10.0.tgz#04c8c2f1b56e24758b25b6234e940f4f133ffc63"
-  integrity sha512-r9+GL84EI7HIwkgDo191ArhGZgbUPqPRwddTrfV6Th7U4u8UayPixx0FZ/Sv8Dl3K/AZLQ1nrUVFqjTlmy9uJQ==
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.11.1.tgz#1de63751d97b2f06e10dde26c786fc6d9ad50d40"
+  integrity sha512-gfMG3AKmKriMitbDZLBU2paVk3moAHtr03l79Y8bt+exSA4jBJyetLbzT8/S73suLWn37ZfWpp8vVWPHi7KNdA==
   dependencies:
-    "@pdf-lib/standard-fonts" "^0.0.4"
+    "@pdf-lib/standard-fonts" "^1.0.0"
     "@pdf-lib/upng" "^1.0.1"
     pako "^1.0.11"
     tslib "^1.11.1"
@@ -10933,9 +10927,9 @@ terser@^4.3.9:
     source-map-support "~0.5.12"
 
 terser@^5.2.0:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.2.1.tgz#40b971b8d28b4fe98c9e8c0d073ab48e7bb96cd8"
-  integrity sha512-/AOtjRtAMNGO0fIF6m8HfcvXTw/2AKpsOzDn36tA5RfhRdeXyb4RvHxJ5Pah7iL6dFkLk+gOnCaNHGwJPl6TrQ==
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.3.2.tgz#f4bea90eb92945b2a028ceef79181b9bb586e7af"
+  integrity sha512-H67sydwBz5jCUA32ZRL319ULu+Su1cAoZnnc+lXnenGRYWyLE3Scgkt8mNoAsMx0h5kdo758zdoS0LG9rYZXDQ==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"

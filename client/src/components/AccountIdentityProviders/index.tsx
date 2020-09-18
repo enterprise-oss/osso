@@ -22,9 +22,10 @@ export default function AccountIdentityProviders({
   enterpriseAccount: EnterpriseAccount;
   onFinalize: (identityProvider: IdentityProvider) => void;
 }): ReactElement {
-  const identityProviders = [...enterpriseAccount?.identityProviders].sort(
-    byStatus,
-  );
+  const identityProviders = (
+    [...enterpriseAccount?.identityProviders] || []
+  ).sort(byStatus);
+
   const [currentProvider, setCurrentProvider] = useState(
     identityProviders?.[0],
   );
