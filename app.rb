@@ -20,12 +20,16 @@ class App < Sinatra::Base
   set :allow_methods, 'GET,HEAD,POST,OPTIONS'
   set :allow_headers, 'content-type,if-modified-since'
   set :expose_headers, 'location,link'
-
+  
   get '/' do
     redirect '/admin/enterprise' # if ENV['RACK_ENV'] == 'development'
   end
 
   get '/health' do
     'ok'
+  end
+
+  error do
+    erb :error
   end
 end
