@@ -37,8 +37,10 @@ export default function ConfigureIdentityProvider({
             onClick={() => {
               form
                 .validateFields()
-                .then((formState) => {
-                  configureProvider(identityProvider?.id, formState);
+                .then((formState) =>
+                  configureProvider(identityProvider?.id, formState),
+                )
+                .then(() => {
                   closeModal();
                 })
                 .catch((error) => {
