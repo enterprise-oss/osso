@@ -1,5 +1,5 @@
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import { Card, Col, Row, Spin } from 'antd';
+import { Col, Row, Spin } from 'antd';
 import React, { ReactElement, useState } from 'react';
 
 import AccountIdentityProvider from '~/client/src/components/AccountIdentityProvider';
@@ -8,7 +8,6 @@ import EmptyAccountIdentityProviders from '~/client/src/components/EmptyAccountI
 import chunk from '~/client/src/utils/chunk';
 import { byStatus } from '~/client/src/utils/identityProviderStatus';
 
-import styles from './index.module.css';
 import { EnterpriseAccountPageProps } from './index.types';
 
 export default function enterpriseAccount(
@@ -39,9 +38,7 @@ export default function enterpriseAccount(
           <Row key={`row-${rowIndex}`} gutter={[24, 24]}>
             {providerChunk.map((provider, colIndex) => (
               <Col key={`row-${rowIndex}-col-${colIndex}`} sm={24} lg={12}>
-                <Card className={styles.card} bodyStyle={{ height: '100%' }}>
-                  <AccountIdentityProvider identityProvider={provider} />
-                </Card>
+                <AccountIdentityProvider identityProvider={provider} />
               </Col>
             ))}
           </Row>
