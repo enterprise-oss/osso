@@ -8,12 +8,13 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso', '= 0.0.5.pre.delta'
+gem 'osso', '= 0.0.5.pre.eta'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
+gem 'rack-cors'
 gem 'rake'
 gem 'sinatra'
-gem 'sinatra-cors'
+
 
 group :test do
   gem 'database_cleaner-active_record'

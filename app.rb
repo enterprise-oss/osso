@@ -1,25 +1,20 @@
 # frozen_string_literal: true
 
 require 'sinatra/reloader'
-require 'sinatra/cors'
+# require 'sinatra/cors'
 require 'osso'
 
 class App < Sinatra::Base
   include Osso::AppConfig
   include Osso::Helpers::Auth
-  include Osso::RouteMap
 
-  configure :development do
-    register Sinatra::Reloader
-  end
+  # configure :development do
+  #   register Sinatra::Reloader
+  # end
 
   register Sinatra::ActiveRecordExtension
-  register Sinatra::Cors
 
-  set :allow_origin, '*'
-  set :allow_methods, 'GET,HEAD,POST,OPTIONS'
-  set :allow_headers, 'content-type,if-modified-since'
-  set :expose_headers, 'location,link'
+  include Osso::RouteMap
 
   get '/' do
     redirect '/admin/enterprise' # if ENV['RACK_ENV'] == 'development'
@@ -29,8 +24,16 @@ class App < Sinatra::Base
     'ok'
   end
 
-  # TODO: move to gem and build the actual PDF writer
-  get '/identity_provider/documentation/:id' do
-    send_file('okta.pdf', disposition: 'attachment', filename: 'Okta Setup Docs.pdf')
-  end
+  # options '/pdfv1/:filename' do
+  #   response.headers["Access-Control-Allow-Origin"] = "http://localhost:3000"
+  #   response.headers["Access-Control-Allow-Methods"] = 'GET,HEAD,POST,OPTIONS'
+  #   response.headers["Access-Control-Allow-Headers"] = "Content-Type,Accept,Origin,Authorization,content-type,if-modified-since"
+  #   response.headers["Access-Control-Allow-Credentials"] = "true"
+    
+  #   puts "================================"
+  #   puts 'OUR OWN OPTIONS BLOCK'
+  #   puts "================================"
+
+  #   200
+  # end
 end
