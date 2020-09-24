@@ -73,3 +73,21 @@ html, body {
   color: #8C8C8C;
   margin-bottom: 6px;
 }
+
+
+/* TODO: DRY up / refactor CSS once Sam designs this */
+.error-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+}
+
+.error-main {
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 36px;
+
+}

@@ -20,7 +20,7 @@ class App < Sinatra::Base
   set :allow_methods, 'GET,HEAD,POST,OPTIONS'
   set :allow_headers, 'content-type,if-modified-since'
   set :expose_headers, 'location,link'
-
+  
   get '/' do
     redirect '/admin/enterprise' # if ENV['RACK_ENV'] == 'development'
   end
@@ -29,8 +29,7 @@ class App < Sinatra::Base
     'ok'
   end
 
-  # TODO: move to gem and build the actual PDF writer
-  get '/identity_provider/documentation/:id' do
-    send_file('okta.pdf', disposition: 'attachment', filename: 'Okta Setup Docs.pdf')
+  error do
+    erb :error
   end
 end
