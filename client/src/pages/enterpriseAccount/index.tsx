@@ -1,12 +1,11 @@
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import { Col, Row, Spin } from 'antd';
+import { Card, Col, Row, Spin } from 'antd';
 import React, { ReactElement, useState } from 'react';
 
 import AccountIdentityProvider from '~/client/src/components/AccountIdentityProvider';
 import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
 import CustomerHeader from '~/client/src/components/CustomerHeader';
 import EmptyAccountIdentityProviders from '~/client/src/components/EmptyAccountIdentityProviders';
-import chunk from '~/client/src/utils/chunk';
 import { byStatus } from '~/client/src/utils/identityProviderStatus';
 
 import { EnterpriseAccountPageProps } from './index.types';
@@ -36,15 +35,16 @@ export default function enterpriseAccount(
           </Col>
         </Row>
       ) : (
-        chunk(providers, 2).map((providerChunk, rowIndex) => (
-          <Row key={`row-${rowIndex}`} gutter={[24, 24]}>
-            {providerChunk.map((provider, colIndex) => (
-              <Col key={`row-${rowIndex}-col-${colIndex}`} sm={24} lg={12}>
+        <Card>
+          <h3>Identity providers</h3>
+          {providers.map((provider, index) => (
+            <Row key={index}>
+              <Col span={24}>
                 <AccountIdentityProvider identityProvider={provider} />
               </Col>
-            ))}
-          </Row>
-        ))
+            </Row>
+          ))}
+        </Card>
       )}
       <CreateIdentityProvider
         closeModal={() => setModalOpen(false)}
