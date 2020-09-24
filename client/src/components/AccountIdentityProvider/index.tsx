@@ -8,9 +8,7 @@ import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentity
 import {
   StatusActions,
   StatusCopy,
-  StatusIcon,
   StatusStringTag,
-  StatusTag,
 } from '~/client/src/utils/identityProviderStatus';
 
 import styles from './index.module.css';

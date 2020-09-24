@@ -1,8 +1,4 @@
-import {
-  ExclamationCircleFilled,
-  FilePdfFilled,
-  FilePdfOutlined,
-} from '@ant-design/icons';
+import { ExclamationCircleFilled, FilePdfFilled } from '@ant-design/icons';
 import {
   DownloadDocs,
   IdentityProvider,
