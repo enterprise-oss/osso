@@ -29,5 +29,4 @@ end
 group :development, :test do
   gem 'pry'
   gem 'rubocop'
-  gem 'sinatra-contrib'
 end

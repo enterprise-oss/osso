@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'sinatra/reloader'
-# require 'sinatra/cors'
 require 'osso'
 
 class App < Sinatra::Base
