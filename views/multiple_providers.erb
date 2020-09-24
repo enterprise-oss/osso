@@ -2,7 +2,7 @@
   <div class="idp-selector">
     <p class="title">Please select your Identity Provider</p>
     <div class="providers <%= @providers.count > 3 ? 'multi-rows' : 'one-row' %>">
-      <% @providers.reject{|p| p.status == 'PENDING'}.map do |provider| %>
+      <% @providers.map do |provider| %>
         <a href='<%= "/auth/saml/#{provider.id}" %>'>
           <div class="provider">
             <img class='logo' src='<%="/logos/#{provider.name.downcase}.svg"%>' />
