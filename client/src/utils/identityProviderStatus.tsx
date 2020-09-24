@@ -1,4 +1,9 @@
-import { ExclamationCircleFilled, FilePdfFilled } from '@ant-design/icons';
+import {
+  DeleteOutlined,
+  ExclamationCircleFilled,
+  FilePdfFilled,
+  PlusOutlined,
+} from '@ant-design/icons';
 import {
   DownloadDocs,
   IdentityProvider,
@@ -43,68 +48,6 @@ export function StatusCopy({
           Something went wrong with a user signing into this IDP. Review
           configuration with your customer.
         </span>
-      );
-  }
-}
-
-export function StatusActions({
-  identityProvider,
-  className,
-  onActions,
-}: {
-  identityProvider: IdentityProvider;
-  className?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onActions?: ((arg?: any) => void)[];
-}): ReactElement {
-  return (
-    <ul style={{ listStyle: 'none', padding: 0 }}>
-      <li>
-        <a>
-          <FilePdfFilled /> Download setup PDF
-        </a>
-        {/* <DownloadDocs
-          identityProvider={identityProvider}
-          ButtonComponent={ButtonComponent}
-        /> */}
-      </li>
-      <li>
-        <Button
-          onClick={(args) => onActions[1](args)}
-          style={{ marginLeft: 16, marginTop: 6 }}
-          type="primary"
-        >
-          Complete setup
-        </Button>
-      </li>
-    </ul>
-  );
-  switch (identityProvider.status) {
-    case IdentityProviderStatus.pending:
-      return (
-        <>
-          <DownloadDocs
-            identityProvider={identityProvider}
-            ButtonComponent={ButtonComponent}
-          />
-          <Button
-            onClick={(args) => onActions[1](args)}
-            style={{ marginLeft: 16, marginTop: 6 }}
-            type="primary"
-          >
-            Complete setup
-          </Button>
-        </>
-      );
-    case IdentityProviderStatus.configured:
-    case IdentityProviderStatus.active:
-      return null;
-    case IdentityProviderStatus.error:
-      return (
-        <ExclamationCircleFilled
-          style={{ color: color(identityProvider.status).primary }}
-          className={className}
-        />
       );
   }
 }
@@ -154,7 +97,7 @@ export function StatusStringTag({
 }): ReactElement {
   return (
     <span
-      style={{ color: colorString(identityProvider.status), fontWeight: 600 }}
+      style={{ color: color(identityProvider.status).primary, fontWeight: 600 }}
       className={className}
     >
       {identityProvider.status}
