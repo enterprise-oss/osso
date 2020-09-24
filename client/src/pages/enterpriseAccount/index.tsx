@@ -4,6 +4,7 @@ import React, { ReactElement, useState } from 'react';
 
 import AccountIdentityProvider from '~/client/src/components/AccountIdentityProvider';
 import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
+import CustomerHeader from '~/client/src/components/CustomerHeader';
 import EmptyAccountIdentityProviders from '~/client/src/components/EmptyAccountIdentityProviders';
 import chunk from '~/client/src/utils/chunk';
 import { byStatus } from '~/client/src/utils/identityProviderStatus';
@@ -24,6 +25,7 @@ export default function enterpriseAccount(
 
   return (
     <>
+      <CustomerHeader enterpriseAccount={data?.enterpriseAccount} />
       {!providers.length ? (
         <Row gutter={[24, 24]}>
           <Col sm={24} lg={12}>
