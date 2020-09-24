@@ -150,19 +150,19 @@ const colorString = (status: IdentityProviderStatus) => {
 };
 
 export function StatusTag({
-  status,
+  identityProvider,
   className,
 }: {
-  status: IdentityProviderStatus;
+  identityProvider: IdentityProvider;
   className?: string;
 }): ReactElement {
   return (
     <Tag
       style={{ margin: 0 }}
-      color={colorString(status)}
+      color={colorString(identityProvider.status)}
       className={className}
     >
-      {status}
+      {identityProvider.status}
     </Tag>
   );
 }

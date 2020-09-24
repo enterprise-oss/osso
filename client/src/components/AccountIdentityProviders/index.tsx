@@ -30,20 +30,14 @@ export default function AccountIdentityProviders({
     identityProviders?.[0],
   );
 
-  const [modalOpen, setModalOpen] = useState(false);
-  const [editingIdentityProvider, setEditingIdentityProvider] = useState<
-    IdentityProvider
-  >();
-
   useEffect(() => {
     setCurrentProvider(identityProviders[0]);
   }, [identityProviders.length]);
 
-  useEffect(() => {
-    if (modalOpen) return;
-
-    setCurrentProvider(identityProviders[0]);
-  }, [modalOpen]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [editingIdentityProvider, setEditingIdentityProvider] = useState<
+    IdentityProvider
+  >();
 
   const [createModalOpen, setCreateModalOpen] = useState(false);
 
@@ -86,7 +80,7 @@ export default function AccountIdentityProviders({
               title={
                 <div className={styles.cardTitle}>
                   <p>{currentProvider.service}</p>
-                  <StatusTag status={currentProvider.status} />
+                  <StatusTag identityProvider={currentProvider} />
                 </div>
               }
             >
