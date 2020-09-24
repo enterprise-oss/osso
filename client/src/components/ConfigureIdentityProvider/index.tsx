@@ -1,3 +1,4 @@
+import { ApolloError } from '@apollo/client';
 import {
   configureIdentityProvider,
   IdentityProvider,
@@ -40,11 +41,14 @@ export default function ConfigureIdentityProvider({
                 .then((formState) =>
                   configureProvider(identityProvider?.id, formState),
                 )
-                .then(() => {
-                  closeModal();
-                })
-                .catch((error) => {
-                  console.error(error);
+                .then(() => closeModal())
+                .catch((error: ApolloError) => {
+                  const errors = error.graphQLErrors?.[0]?.extensions?.errors;
+                  const fields = errors.map((error) => ({
+                    name: [error.attribute],
+                    errors: error.message,
+                  }));
+                  form.setFields(fields);
                 });
             }}
           >
