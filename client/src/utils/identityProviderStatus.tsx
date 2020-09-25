@@ -1,21 +1,8 @@
-import { orange } from '@ant-design/colors';
-import {
-  DeleteOutlined,
-  ExclamationCircleFilled,
-  FilePdfFilled,
-  PlusOutlined,
-} from '@ant-design/icons';
-import {
-  DownloadDocs,
-  IdentityProvider,
-  IdentityProviderStatus,
-} from '@enterprise-oss/osso';
-import { Button, Tag } from 'antd';
+import { IdentityProvider, IdentityProviderStatus } from '@enterprise-oss/osso';
+import { Tag } from 'antd';
 import React, { ReactElement } from 'react';
 
-import ButtonComponent from '~/client/src/components/Osso/ButtonComponent';
-
-import { blue, gold, green, red } from './colors';
+import { blue, green, orange, red } from './colors';
 
 export function StatusCopy({
   identityProvider,
