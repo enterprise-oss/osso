@@ -1,3 +1,4 @@
+import { orange } from '@ant-design/colors';
 import {
   DeleteOutlined,
   ExclamationCircleFilled,
@@ -54,7 +55,7 @@ export function StatusCopy({
 
 const color = (status: IdentityProviderStatus) => {
   return {
-    [IdentityProviderStatus.pending]: gold,
+    [IdentityProviderStatus.pending]: orange,
     [IdentityProviderStatus.configured]: blue,
     [IdentityProviderStatus.active]: green,
     [IdentityProviderStatus.error]: red,
@@ -63,7 +64,7 @@ const color = (status: IdentityProviderStatus) => {
 
 const colorString = (status: IdentityProviderStatus) => {
   return {
-    [IdentityProviderStatus.pending]: 'gold',
+    [IdentityProviderStatus.pending]: 'orange',
     [IdentityProviderStatus.configured]: 'blue',
     [IdentityProviderStatus.active]: 'green',
     [IdentityProviderStatus.error]: 'red',

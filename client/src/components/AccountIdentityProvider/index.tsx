@@ -1,23 +1,48 @@
 import {
   DeleteOutlined,
+  ExclamationCircleFilled,
   FilePdfFilled,
   MinusOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
 import { IdentityProvider, useOssoFields } from '@enterprise-oss/osso';
 import { IdentityProviderStatus } from '@enterprise-oss/osso';
-import { Button, Card, Col, Row, Table, Tooltip } from 'antd';
+import {
+  Badge,
+  Button,
+  Card,
+  Col,
+  Popconfirm,
+  Row,
+  Table,
+  Tooltip,
+} from 'antd';
 import Avatar from 'antd/lib/avatar/avatar';
 import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import React, { ReactElement, useEffect, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
+import { blue, green, orange, red } from '~/client/src/utils/colors';
 import {
   StatusCopy,
   StatusStringTag,
 } from '~/client/src/utils/identityProviderStatus';
 
 import styles from './index.module.css';
+
+const backgroundForStatus = {
+  [IdentityProviderStatus.pending]: '#FEF3E8',
+  [IdentityProviderStatus.configured]: '#EDEFF6',
+  [IdentityProviderStatus.active]: '#F1F8F5',
+  [IdentityProviderStatus.error]: '#FEF4F4',
+};
+
+const colorForStatus = {
+  [IdentityProviderStatus.pending]: orange,
+  [IdentityProviderStatus.configured]: blue,
+  [IdentityProviderStatus.active]: green,
+  [IdentityProviderStatus.error]: red,
+};
 
 export default function AccountIdentityProviders({
   identityProvider,
@@ -34,25 +59,47 @@ export default function AccountIdentityProviders({
     ...identityProvider,
   };
 
-  const backgroundForStatus = {
-    [IdentityProviderStatus.pending]: '#FEF3E8',
-    [IdentityProviderStatus.configured]: '#EDEFF6',
-    [IdentityProviderStatus.active]: '#F1F8F5',
-    [IdentityProviderStatus.error]: '#FEF4F4',
-  };
-
   const tableData = provider.ossoGeneratedFields.manual.map((field) => ({
     key: field.name,
     label: field.inputProps.label,
     value: provider[field.name],
   }));
 
-  const { lg } = useBreakpoint();
-  const [showDetails, setShowDetails] = useState(lg);
+  const { xl } = useBreakpoint();
+  const [showDetails, setShowDetails] = useState(xl);
 
   useEffect(() => {
-    setShowDetails(lg);
-  }, [lg]);
+    setShowDetails(xl);
+  }, [xl]);
+
+  const mainActionButton = (status: IdentityProviderStatus) => {
+    switch (status) {
+      case IdentityProviderStatus.pending:
+        return (
+          <Button
+            size="small"
+            type="primary"
+            onClick={() => setModalOpen(true)}
+          >
+            Complete Configuration
+          </Button>
+        );
+      case IdentityProviderStatus.error:
+        return (
+          <Button
+            size="small"
+            type="primary"
+            onClick={() => setModalOpen(true)}
+          >
+            Reconfigure
+          </Button>
+        );
+      case IdentityProviderStatus.configured:
+      case IdentityProviderStatus.active:
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
@@ -71,56 +118,69 @@ export default function AccountIdentityProviders({
         }}
         title={
           <div className={styles.cardTitle}>
-            <div className={styles.avatarContainer}>
-              <Avatar
-                src={provider.icon}
-                shape="square"
-                className={styles.icon}
-                size={28}
-              />
-            </div>
-            <span>{provider.label}</span>
+            <Badge
+              style={{ height: '12px', width: '12px' }}
+              dot
+              color={colorForStatus[identityProvider.status].primary}
+            >
+              <div className={styles.avatarContainer}>
+                <Avatar
+                  src={provider.icon}
+                  shape="square"
+                  className={styles.icon}
+                  size={28}
+                />
+              </div>
+            </Badge>
+            <span className={styles.providerName}>{provider.label}</span>
           </div>
         }
       >
         <div className={styles.cardBody}>
-          <Row>
-            <Col flex="1 0 302px">
+          <Row gutter={[32, 0]}>
+            <Col lg={24} xl={12}>
               <div className={styles.mainContainer}>
                 <div className={styles.statusRow}>
-                  <label>
-                    Status:{' '}
+                  <div>
+                    <label>Status: </label>
                     <StatusStringTag identityProvider={identityProvider} />
-                  </label>
-                  {identityProvider.status !==
-                    IdentityProviderStatus.active && (
-                    <Button size="small" type="primary">
-                      Main Action
-                    </Button>
-                  )}
+                  </div>
+                  {mainActionButton(identityProvider.status)}
                 </div>
                 <div className={styles.copyContainer}>
                   <StatusCopy identityProvider={identityProvider} />
                 </div>
                 <div>
-                  <label>Actions:</label>
-                  <ul style={{ listStyle: 'none', padding: 0 }}>
+                  <ul className={styles.actionsList}>
+                    <li>
+                      <label>Actions:</label>
+                    </li>
                     <li>
                       <a onClick={() => console.log('download')}>
                         <FilePdfFilled /> Download setup PDF
                       </a>
                     </li>
                     <li>
-                      <a
-                        style={{ color: '#E52019' }}
-                        onClick={() => console.log('delete')}
+                      <Popconfirm
+                        icon={
+                          <ExclamationCircleFilled style={{ color: red[5] }} />
+                        }
+                        title="Are you sure you’d like to delete this IDP?"
+                        onConfirm={() => console.log('delete')}
+                        okText="Yes, delete"
+                        cancelText="Cancel"
+                        okButtonProps={{
+                          danger: true,
+                        }}
                       >
-                        <DeleteOutlined /> Delete IDP
-                      </a>
+                        <a style={{ color: '#E52019' }}>
+                          <DeleteOutlined /> Delete IDP
+                        </a>
+                      </Popconfirm>
                     </li>
                     <li>
                       <a onClick={() => setShowDetails((details) => !details)}>
-                        {!lg &&
+                        {!xl &&
                           (showDetails ? (
                             <span>
                               <MinusOutlined /> Hide details
@@ -136,10 +196,7 @@ export default function AccountIdentityProviders({
                 </div>
               </div>
             </Col>
-            <Col sm={0} lg={1} style={{ flex: 0 }}>
-              <div className={styles.separator} />
-            </Col>
-            <Col flex="1 0 302px">
+            <Col md={24} lg={24} xl={12}>
               {showDetails && (
                 <>
                   <label style={{ marginBottom: 16 }}>Customer data:</label>
@@ -149,12 +206,10 @@ export default function AccountIdentityProviders({
                     size="small"
                     columns={[
                       {
-                        title: 'Field',
                         dataIndex: 'label',
                         key: 'field',
                       },
                       {
-                        title: 'Data',
                         dataIndex: 'value',
                         key: 'data',
                         ellipsis: {

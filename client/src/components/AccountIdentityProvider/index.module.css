@@ -25,8 +25,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 16px;
   background-color: #ffffff;
+}
+
+.providerName {
+  margin-left: 16px;
 }
 
 .mainContainer {
@@ -34,6 +37,18 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .mainContainer::after {
+    content: '';
+    border: 1px solid #E8E8E8;
+    width: 0px;
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    top: 4px;
+  }
 }
 
 .statusRow {
@@ -52,9 +67,13 @@ label {
   height: 72px;
 }
 
-.separator {
-  border: 1px solid #E8E8E8;
-  width: 0px;
-  height: 260px;
-  margin: 0 16px;  
+.actionsList {
+  list-style: none;
+  padding: 0;
 }
+
+.actionsList > li {
+  margin-bottom: 8px;
+}
+
+

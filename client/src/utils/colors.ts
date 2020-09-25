@@ -1,4 +1,4 @@
-import { generate, PalettesProps } from '@ant-design/colors';
+import { generate, orange, PalettesProps } from '@ant-design/colors';
 
 const presetPrimaryColors: {
   [key: string]: string;
@@ -21,4 +21,4 @@ const gold = presetPalettes.gold;
 const green = presetPalettes.green;
 const blue = presetPalettes.blue;
 
-export { red, gold, blue, green };
+export { red, gold, blue, green, orange };
