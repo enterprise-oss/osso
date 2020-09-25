@@ -3,6 +3,7 @@ import { EnterpriseAccount } from '@enterprise-oss/osso';
 import { Avatar, Card } from 'antd';
 import React, { ReactElement } from 'react';
 
+import Timestamp from '../Timestamp';
 import styles from './index.module.css';
 
 export default function CustomerHeader({
@@ -13,7 +14,9 @@ export default function CustomerHeader({
   const companyAttrs = [
     {
       label: 'Added',
-      value: '05/2020',
+      value: (
+        <Timestamp timestamp={enterpriseAccount.createdAt} variant="month" />
+      ),
     },
     {
       label: 'Users',
@@ -34,7 +37,7 @@ export default function CustomerHeader({
           />
           <div className={styles.nameContainer}>
             <h1 className={styles.name}>{enterpriseAccount?.name}</h1>
-            <p>
+            <span>
               <LinkOutlined />{' '}
               <a
                 href={`https://${enterpriseAccount?.domain}`}
@@ -43,7 +46,7 @@ export default function CustomerHeader({
               >
                 {enterpriseAccount?.domain}
               </a>
-            </p>
+            </span>
           </div>
         </div>
         <div className={styles.companyAttributes}>

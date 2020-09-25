@@ -16,6 +16,7 @@ import {
   Button,
   Card,
   Col,
+  Divider,
   Grid,
   Popconfirm,
   Row,
@@ -52,12 +53,10 @@ export default function AccountIdentityProviders({
   };
 
   const tableData = provider.ossoGeneratedFields.manual.map((field) => ({
-    key: field.name,
+    key: field.inputProps.id,
     label: field.inputProps.label,
     value: provider[field.name],
   }));
-
-  console.log(tableData);
 
   const { xl } = Grid.useBreakpoint();
   const [showDetails, setShowDetails] = useState(xl);
@@ -188,7 +187,9 @@ export default function AccountIdentityProviders({
             <Col lg={24} xl={12}>
               {showDetails && (
                 <>
-                  <label style={{ marginBottom: 16 }}>Customer data:</label>
+                  <label style={{ display: 'block', marginBottom: 16 }}>
+                    IDP configuration data:
+                  </label>
                   <Table
                     showHeader={false}
                     pagination={false}
