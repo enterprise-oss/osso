@@ -37,11 +37,11 @@ export default function CustomerHeader({
             <p>
               <LinkOutlined />{' '}
               <a
-                href={`https://${enterpriseAccount.domain}`}
+                href={`https://${enterpriseAccount?.domain}`}
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                {enterpriseAccount.domain}
+                {enterpriseAccount?.domain}
               </a>
             </p>
           </div>
