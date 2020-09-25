@@ -1,10 +1,10 @@
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
-import { Card, Col, Row, Spin } from 'antd';
+import { Affix, Card, Col, Row, Spin } from 'antd';
 import React, { ReactElement, useState } from 'react';
 
 import AccountIdentityProvider from '~/client/src/components/AccountIdentityProvider';
 import CreateIdentityProvider from '~/client/src/components/CreateIdentityProvider';
-// import CustomerHeader from '~/client/src/components/CustomerHeader';
+import CustomerHeader from '~/client/src/components/CustomerHeader';
 import EmptyAccountIdentityProviders from '~/client/src/components/EmptyAccountIdentityProviders';
 import { byStatus } from '~/client/src/utils/identityProviderStatus';
 
@@ -25,6 +25,9 @@ export default function enterpriseAccountPage(
 
   return (
     <>
+      <Affix offsetTop={88}>
+        <CustomerHeader enterpriseAccount={data?.enterpriseAccount} />
+      </Affix>
       {!providers.length ? (
         <Row gutter={[24, 24]}>
           <Col sm={24} lg={12}>
