@@ -5,44 +5,35 @@ import {
   MinusOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
-import { IdentityProvider, useOssoFields } from '@enterprise-oss/osso';
-import { IdentityProviderStatus } from '@enterprise-oss/osso';
 import {
+  IdentityProvider,
+  IdentityProviderStatus,
+  useOssoFields,
+} from '@enterprise-oss/osso';
+import {
+  Avatar,
   Badge,
   Button,
   Card,
   Col,
+  Grid,
   Popconfirm,
   Row,
   Table,
   Tooltip,
 } from 'antd';
-import Avatar from 'antd/lib/avatar/avatar';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 import React, { ReactElement, useEffect, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
-import { blue, green, orange, red } from '~/client/src/utils/colors';
+import { red } from '~/client/src/utils/colors';
 import {
+  backgroundColor,
+  color,
   StatusCopy,
   StatusStringTag,
 } from '~/client/src/utils/identityProviderStatus';
 
 import styles from './index.module.css';
-
-const backgroundForStatus = {
-  [IdentityProviderStatus.pending]: '#FEF3E8',
-  [IdentityProviderStatus.configured]: '#EDEFF6',
-  [IdentityProviderStatus.active]: '#F1F8F5',
-  [IdentityProviderStatus.error]: '#FEF4F4',
-};
-
-const colorForStatus = {
-  [IdentityProviderStatus.pending]: orange,
-  [IdentityProviderStatus.configured]: blue,
-  [IdentityProviderStatus.active]: green,
-  [IdentityProviderStatus.error]: red,
-};
 
 export default function AccountIdentityProviders({
   identityProvider,
@@ -50,6 +41,7 @@ export default function AccountIdentityProviders({
   identityProvider: IdentityProvider;
 }): ReactElement {
   const [modalOpen, setModalOpen] = useState(false);
+
   const { fieldsForProvider } = useOssoFields();
 
   const providerDetails = fieldsForProvider(identityProvider.service);
@@ -65,7 +57,9 @@ export default function AccountIdentityProviders({
     value: provider[field.name],
   }));
 
-  const { xl } = useBreakpoint();
+  console.log(tableData);
+
+  const { xl } = Grid.useBreakpoint();
   const [showDetails, setShowDetails] = useState(xl);
 
   useEffect(() => {
@@ -114,22 +108,17 @@ export default function AccountIdentityProviders({
         }}
         headStyle={{
           padding: '0 16px 0 24px',
-          backgroundColor: backgroundForStatus[identityProvider.status],
+          backgroundColor: backgroundColor(identityProvider.status),
         }}
         title={
           <div className={styles.cardTitle}>
             <Badge
               style={{ height: '12px', width: '12px' }}
-              dot
-              color={colorForStatus[identityProvider.status].primary}
+              dot={true}
+              color={color(identityProvider.status).primary}
             >
               <div className={styles.avatarContainer}>
-                <Avatar
-                  src={provider.icon}
-                  shape="square"
-                  className={styles.icon}
-                  size={28}
-                />
+                <Avatar src={provider.icon} shape="square" size={28} />
               </div>
             </Badge>
             <span className={styles.providerName}>{provider.label}</span>
@@ -196,7 +185,7 @@ export default function AccountIdentityProviders({
                 </div>
               </div>
             </Col>
-            <Col md={24} lg={24} xl={12}>
+            <Col lg={24} xl={12}>
               {showDetails && (
                 <>
                   <label style={{ marginBottom: 16 }}>Customer data:</label>
