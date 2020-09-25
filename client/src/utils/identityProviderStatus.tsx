@@ -40,7 +40,11 @@ export function StatusCopy({
   }
 }
 
-export const color = (status: IdentityProviderStatus) => {
+export const color = (
+  status: IdentityProviderStatus,
+): string[] & {
+  primary?: string | undefined;
+} => {
   return {
     [IdentityProviderStatus.pending]: orange,
     [IdentityProviderStatus.configured]: blue,
@@ -58,7 +62,7 @@ const colorString = (status: IdentityProviderStatus) => {
   }[status];
 };
 
-export const backgroundColor = (status: IdentityProviderStatus) => {
+export const backgroundColor = (status: IdentityProviderStatus): string => {
   return {
     [IdentityProviderStatus.pending]: '#FEF3E8',
     [IdentityProviderStatus.configured]: '#EDEFF6',
