@@ -9,7 +9,6 @@ import {
   deleteIdentityProvider,
   IdentityProvider,
   IdentityProviderStatus,
-  useIdentityProvider,
   useOssoDocs,
   useOssoFields,
 } from '@enterprise-oss/osso';

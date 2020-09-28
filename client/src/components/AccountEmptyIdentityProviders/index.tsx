@@ -3,7 +3,6 @@ import { EnterpriseAccount } from '@enterprise-oss/osso';
 import { Avatar, Badge, Button, Card, Col, Row } from 'antd';
 import React, { ReactElement } from 'react';
 
-import ConfigureIdentityProvider from '../ConfigureIdentityProvider';
 import styles from './index.module.css';
 
 export default function EmptyAccountIdentityProviders({
