@@ -6,8 +6,11 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import {
+  deleteIdentityProvider,
   IdentityProvider,
   IdentityProviderStatus,
+  useIdentityProvider,
+  useOssoDocs,
   useOssoFields,
 } from '@enterprise-oss/osso';
 import {
@@ -43,7 +46,8 @@ export default function AccountIdentityProviders({
   const [modalOpen, setModalOpen] = useState(false);
 
   const { fieldsForProvider } = useOssoFields();
-
+  const { downloadDocs } = useOssoDocs(identityProvider.id);
+  const { deleteProvider } = deleteIdentityProvider(identityProvider.id);
   const providerDetails = fieldsForProvider(identityProvider.service);
 
   const { __typename, ...provider } = {
@@ -143,7 +147,7 @@ export default function AccountIdentityProviders({
                       <label>Actions:</label>
                     </li>
                     <li>
-                      <a onClick={() => console.log('download')}>
+                      <a onClick={downloadDocs}>
                         <FilePdfFilled /> Download setup PDF
                       </a>
                     </li>
@@ -153,7 +157,7 @@ export default function AccountIdentityProviders({
                           <ExclamationCircleFilled style={{ color: red[5] }} />
                         }
                         title="Are you sure you’d like to delete this IDP?"
-                        onConfirm={() => console.log('delete')}
+                        onConfirm={deleteProvider}
                         okText="Yes, delete"
                         cancelText="Cancel"
                         okButtonProps={{
