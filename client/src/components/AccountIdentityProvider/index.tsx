@@ -72,7 +72,7 @@ export default function AccountIdentityProviders({
       case IdentityProviderStatus.pending:
         return (
           <Button
-            size="large"
+            size="medium"
             type="primary"
             onClick={() => setModalOpen(true)}
           >
@@ -82,7 +82,7 @@ export default function AccountIdentityProviders({
       case IdentityProviderStatus.error:
         return (
           <Button
-            size="large"
+            size="medium"
             type="primary"
             onClick={() => setModalOpen(true)}
           >
