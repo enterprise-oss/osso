@@ -12,7 +12,7 @@ describe("Customer Identity Providers", () => {
       cy.contains("Okta").click();
       cy.contains("Next").click();
 
-      cy.contains("Congratulations");
+      cy.contains("Custom PDF");
     });
 
     it("can add a new Azure provider", () => {
@@ -22,7 +22,7 @@ describe("Customer Identity Providers", () => {
       cy.contains("Azure").click();
       cy.contains("Next").click();
 
-      cy.contains("Congratulations");
+      cy.contains("Custom PDF");
     });
 
     xit("can download the PDF setup docs", () => {
