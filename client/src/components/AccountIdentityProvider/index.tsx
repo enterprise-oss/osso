@@ -72,7 +72,7 @@ export default function AccountIdentityProviders({
       case IdentityProviderStatus.pending:
         return (
           <Button
-            size="small"
+            size="large"
             type="primary"
             onClick={() => setModalOpen(true)}
           >
@@ -82,7 +82,7 @@ export default function AccountIdentityProviders({
       case IdentityProviderStatus.error:
         return (
           <Button
-            size="small"
+            size="large"
             type="primary"
             onClick={() => setModalOpen(true)}
           >
@@ -112,17 +112,20 @@ export default function AccountIdentityProviders({
           backgroundColor: backgroundColor(identityProvider.status),
         }}
         title={
-          <div className={styles.cardTitle}>
-            <Badge
-              style={{ height: '12px', width: '12px' }}
-              dot={true}
-              color={color(identityProvider.status).primary}
-            >
-              <div className={styles.avatarContainer}>
-                <Avatar src={provider.icon} shape="square" size={28} />
-              </div>
-            </Badge>
-            <span className={styles.providerName}>{provider.label}</span>
+          <div className={styles.header}>
+            <div className={styles.cardTitle}>
+              <Badge
+                style={{ height: '12px', width: '12px' }}
+                dot={true}
+                color={color(identityProvider.status).primary}
+              >
+                <div className={styles.avatarContainer}>
+                  <Avatar src={provider.icon} shape="square" size={28} />
+                </div>
+              </Badge>
+              <span className={styles.providerName}>{provider.label}</span>
+            </div>
+            {mainActionButton(identityProvider.status)}
           </div>
         }
       >
@@ -135,7 +138,6 @@ export default function AccountIdentityProviders({
                     <label>Status: </label>
                     <StatusStringTag identityProvider={identityProvider} />
                   </div>
-                  {mainActionButton(identityProvider.status)}
                 </div>
                 <div className={styles.copyContainer}>
                   <StatusCopy identityProvider={identityProvider} />

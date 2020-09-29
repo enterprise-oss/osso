@@ -2,7 +2,6 @@ import {
   createIdentityProvider,
   EnterpriseAccount,
   IdentityProvider,
-  OssoGeneratedFields,
   Providers,
   useOssoDocs,
   useOssoFields,
@@ -11,7 +10,6 @@ import { Button, Form, Modal, Spin } from 'antd';
 import React, { ReactElement, useEffect, useState } from 'react';
 
 import ButtonComponent from '~/client/src/components/Osso/ButtonComponent';
-import CopyValueComponent from '~/client/src/components/Osso/CopyValueComponent';
 import ProviderPicker from '~/client/src/components/ProviderPicker';
 
 import styles from './index.module.css';

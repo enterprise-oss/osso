@@ -27,20 +27,25 @@ export default function EmptyAccountIdentityProviders({
         backgroundColor: '#F5F5F5',
       }}
       title={
-        <div className={styles.cardTitle}>
-          <Badge
-            style={{ height: '12px', width: '12px' }}
-            dot={true}
-            color="#8C8C8C"
-          >
-            <Avatar
-              className={styles.avatarContainer}
-              icon={<PlusCircleFilled style={{ color: '#8c8c8c' }} />}
-              shape="square"
-              size={64}
-            />
-          </Badge>
-          <span className={styles.providerName}>New Identity Provider</span>
+        <div className={styles.header}>
+          <div className={styles.cardTitle}>
+            <Badge
+              style={{ height: '12px', width: '12px' }}
+              dot={true}
+              color="#8C8C8C"
+            >
+              <Avatar
+                className={styles.avatarContainer}
+                icon={<PlusCircleFilled style={{ color: '#8c8c8c' }} />}
+                shape="square"
+                size={64}
+              />
+            </Badge>
+            <span className={styles.providerName}>New Identity Provider</span>
+          </div>
+          <Button size="large" type="primary" onClick={onAdd}>
+            Get Started
+          </Button>
         </div>
       }
     >
@@ -53,9 +58,6 @@ export default function EmptyAccountIdentityProviders({
                   <label>Status: </label>
                   <span className={styles.status}>Awaiting setup</span>
                 </div>
-                <Button size="small" type="primary" onClick={onAdd}>
-                  Add IDP
-                </Button>{' '}
               </div>
               <div className={styles.copyContainer}>
                 Get started by adding a new Identity Provider (IDP) so that{' '}

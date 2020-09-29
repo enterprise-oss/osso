@@ -1,3 +1,4 @@
+import { PlusOutlined } from '@ant-design/icons';
 import { useEnterpriseAccount } from '@enterprise-oss/osso';
 import { Button, Card, Col, Row, Spin } from 'antd';
 import React, { ReactElement, useState } from 'react';
@@ -40,7 +41,7 @@ export default function enterpriseAccountPage(
             type="default"
             onClick={() => setModalOpen(true)}
           >
-            Add new
+            <PlusOutlined /> Add new
           </Button>
         </div>
         {providers.length ? (
