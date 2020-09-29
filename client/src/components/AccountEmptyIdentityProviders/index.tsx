@@ -58,7 +58,7 @@ export default function EmptyAccountIdentityProviders({
                 </Button>{' '}
               </div>
               <div className={styles.copyContainer}>
-                Get started by adding a new Identity Provider (IDP) so that
+                Get started by adding a new Identity Provider (IDP) so that{' '}
                 {enterpriseAccount.name} employees can start signing in.
               </div>
             </div>
