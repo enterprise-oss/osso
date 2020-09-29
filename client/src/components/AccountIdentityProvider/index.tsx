@@ -71,21 +71,13 @@ export default function AccountIdentityProviders({
     switch (status) {
       case IdentityProviderStatus.pending:
         return (
-          <Button
-            size="medium"
-            type="primary"
-            onClick={() => setModalOpen(true)}
-          >
+          <Button type="primary" onClick={() => setModalOpen(true)}>
             Complete Configuration
           </Button>
         );
       case IdentityProviderStatus.error:
         return (
-          <Button
-            size="medium"
-            type="primary"
-            onClick={() => setModalOpen(true)}
-          >
+          <Button type="primary" onClick={() => setModalOpen(true)}>
             Reconfigure
           </Button>
         );

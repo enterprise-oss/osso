@@ -43,7 +43,7 @@ export default function EmptyAccountIdentityProviders({
             </Badge>
             <span className={styles.providerName}>New Identity Provider</span>
           </div>
-          <Button size="medium" type="primary" onClick={onAdd}>
+          <Button type="primary" onClick={onAdd}>
             Get Started
           </Button>
         </div>
