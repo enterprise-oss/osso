@@ -12,17 +12,7 @@ describe("Customer Identity Providers", () => {
       cy.contains("Okta").click();
       cy.contains("Next").click();
 
-      cy.get("input#osso-okta-acs-url")
-        .invoke("val")
-        .then((acsUrl) => {
-          expect(acsUrl).to.match(/.*\/auth\/saml\/.*\/callback/);
-        });
-
-      cy.get("input#osso-okta-entity-id")
-        .invoke("val")
-        .then((entityId) => {
-          expect(entityId).to.eq("customer.com");
-        });
+      cy.contains("Custom PDF");
     });
 
     it("can add a new Azure provider", () => {
@@ -32,19 +22,7 @@ describe("Customer Identity Providers", () => {
       cy.contains("Azure").click();
       cy.contains("Next").click();
 
-      cy.get("input#osso-azure-acs-url")
-        .invoke("val")
-        .then((acsUrl) => {
-          expect(acsUrl).to.match(
-            /http:\/\/localhost:9292\/auth\/saml\/.*\/callback/
-          );
-        });
-
-      cy.get("input#osso-azure-entity-id")
-        .invoke("val")
-        .then((entityId) => {
-          expect(entityId).to.eq("customer.com");
-        });
+      cy.contains("Custom PDF");
     });
 
     xit("can download the PDF setup docs", () => {

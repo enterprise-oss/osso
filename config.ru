@@ -12,4 +12,21 @@ require 'bundler'
 Bundler.require
 
 require './app'
-run App
+
+app = Rack::Builder.new do
+  use Rack::Cors do
+    allow do
+      origins '*'
+      resource '/pdfv1/*', headers: :any, methods: [:get, :options]
+    end
+
+    allow do
+      origins '*'
+      resource '/graphql', headers: :any, methods: [:post, :options]
+    end
+  end
+
+  run App
+end
+
+run app

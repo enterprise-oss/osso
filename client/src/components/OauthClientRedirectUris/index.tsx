@@ -5,7 +5,7 @@ import React, { ReactElement } from 'react';
 
 import { blue } from '~/client/src/utils/colors';
 
-export default function AccountIdentityProviders({
+export default function OauthClientRedirectUris({
   oauthClient,
 }: {
   oauthClient: OauthClient;

@@ -1,20 +1,8 @@
-import {
-  CheckCircleFilled,
-  ExclamationCircleFilled,
-  InfoCircleFilled,
-  WarningFilled,
-} from '@ant-design/icons';
-import {
-  DownloadDocs,
-  IdentityProvider,
-  IdentityProviderStatus,
-} from '@enterprise-oss/osso';
-import { Button, Tag } from 'antd';
+import { IdentityProvider, IdentityProviderStatus } from '@enterprise-oss/osso';
+import { Tag } from 'antd';
 import React, { ReactElement } from 'react';
 
-import ButtonComponent from '~/client/src/components/Osso/ButtonComponent';
-
-import { blue, gold, green, red } from './colors';
+import { blue, green, orange, red } from './colors';
 
 export function StatusCopy({
   identityProvider,
@@ -52,88 +40,13 @@ export function StatusCopy({
   }
 }
 
-export function StatusIcon({
-  identityProvider,
-  className,
-}: {
-  identityProvider: IdentityProvider;
-  className: string;
-}): ReactElement {
-  switch (identityProvider.status) {
-    case IdentityProviderStatus.pending:
-      return (
-        <WarningFilled
-          style={{ color: color(identityProvider.status).primary }}
-          className={className}
-        />
-      );
-    case IdentityProviderStatus.configured:
-      return (
-        <InfoCircleFilled
-          style={{ color: color(identityProvider.status).primary }}
-          className={className}
-        />
-      );
-    case IdentityProviderStatus.active:
-      return (
-        <CheckCircleFilled
-          style={{ color: color(identityProvider.status).primary }}
-          className={className}
-        />
-      );
-    case IdentityProviderStatus.error:
-      return (
-        <ExclamationCircleFilled
-          style={{ color: color(identityProvider.status).primary }}
-          className={className}
-        />
-      );
-  }
-}
-
-export function StatusActions({
-  identityProvider,
-  className,
-  onActions,
-}: {
-  identityProvider: IdentityProvider;
-  className?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onActions?: ((arg?: any) => void)[];
-}): ReactElement {
-  switch (identityProvider.status) {
-    case IdentityProviderStatus.pending:
-      return (
-        <>
-          <DownloadDocs
-            identityProvider={identityProvider}
-            ButtonComponent={ButtonComponent}
-          />
-          <Button
-            onClick={(args) => onActions[1](args)}
-            style={{ marginLeft: 16, marginTop: 6 }}
-            type="primary"
-          >
-            Complete setup
-          </Button>
-        </>
-      );
-    case IdentityProviderStatus.configured:
-    case IdentityProviderStatus.active:
-      return null;
-    case IdentityProviderStatus.error:
-      return (
-        <ExclamationCircleFilled
-          style={{ color: color(identityProvider.status).primary }}
-          className={className}
-        />
-      );
-  }
-}
-
-const color = (status: IdentityProviderStatus) => {
+export const color = (
+  status: IdentityProviderStatus,
+): string[] & {
+  primary?: string | undefined;
+} => {
   return {
-    [IdentityProviderStatus.pending]: gold,
+    [IdentityProviderStatus.pending]: orange,
     [IdentityProviderStatus.configured]: blue,
     [IdentityProviderStatus.active]: green,
     [IdentityProviderStatus.error]: red,
@@ -142,10 +55,19 @@ const color = (status: IdentityProviderStatus) => {
 
 const colorString = (status: IdentityProviderStatus) => {
   return {
-    [IdentityProviderStatus.pending]: 'gold',
+    [IdentityProviderStatus.pending]: 'orange',
     [IdentityProviderStatus.configured]: 'blue',
     [IdentityProviderStatus.active]: 'green',
     [IdentityProviderStatus.error]: 'red',
+  }[status];
+};
+
+export const backgroundColor = (status: IdentityProviderStatus): string => {
+  return {
+    [IdentityProviderStatus.pending]: '#FEF3E8',
+    [IdentityProviderStatus.configured]: '#EDEFF6',
+    [IdentityProviderStatus.active]: '#F1F8F5',
+    [IdentityProviderStatus.error]: '#FEF4F4',
   }[status];
 };
 
@@ -166,6 +88,24 @@ export function StatusTag({
     </Tag>
   );
 }
+
+export function StatusStringTag({
+  identityProvider,
+  className,
+}: {
+  identityProvider: IdentityProvider;
+  className?: string;
+}): ReactElement {
+  return (
+    <span
+      style={{ color: color(identityProvider.status).primary, fontWeight: 600 }}
+      className={className}
+    >
+      {identityProvider.status}
+    </span>
+  );
+}
+
 const order = [
   IdentityProviderStatus.error,
   IdentityProviderStatus.pending,

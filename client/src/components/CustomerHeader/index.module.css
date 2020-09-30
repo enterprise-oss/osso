@@ -1,0 +1,75 @@
+.card {
+  margin-bottom: 24px;
+  height: 112px;
+}
+.root {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.avatar {
+  height: 64px;
+  width: 64px;
+  margin-right: 15px;
+}
+
+.nameContainer {
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+  margin-right: 16px;
+}
+
+.companyAttributes {
+  display: flex;
+  flex-direction: row;
+}
+
+.companyAttribute {
+  position: relative;
+  max-width: 64px;
+  text-align: center;
+  flex-direction: row;
+  margin: 0 16px;
+}
+
+.companyAttribute > h4 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 4px;
+}
+
+.companyAttribute > p {
+  font-size: 12px;
+  line-height: 20px;
+  color: #8C8C8C;
+  text-align: center;
+}
+
+.companyAttribute::after {
+  content:'';
+  position: absolute;
+  background-color: #e8e8e8;
+  width: 1px;
+  height: 64px;
+  top: 0;
+  right: -16px;
+}
+
+.companyAttribute:last-of-type::after {
+  display: none;
+}

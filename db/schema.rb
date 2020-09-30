@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_201852) do
+ActiveRecord::Schema.define(version: 2020_09_29_154117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -57,12 +57,13 @@ ActiveRecord::Schema.define(version: 2020_08_26_201852) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "users_count", default: 0
     t.index ["domain"], name: "index_enterprise_accounts_on_domain", unique: true
     t.index ["oauth_client_id"], name: "index_enterprise_accounts_on_oauth_client_id"
   end
 
 # Could not dump table "identity_providers" because of following StandardError
-#   Unknown type 'identity_provider_status' for column 'status'
+#   Unknown type 'identity_provider_service' for column 'service'
 
   create_table "oauth_clients", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
