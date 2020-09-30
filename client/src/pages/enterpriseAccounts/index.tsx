@@ -1,5 +1,5 @@
 import { EnterpriseAccount, useEnterpriseAccounts } from '@enterprise-oss/osso';
-import { Table, Tag } from 'antd';
+import { Table } from 'antd';
 import { SorterResult } from 'antd/lib/table/interface';
 import React, { ReactElement, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -81,14 +81,10 @@ export default function enterpriseAccounts(): ReactElement {
         key="domain"
       />
       <Table.Column
-        title="Status"
-        dataIndex="status"
-        key="status"
-        render={(status: string) => (
-          <Tag color={status == 'active' ? 'green' : 'gold'}>
-            {status.toUpperCase()}
-          </Tag>
-        )}
+        sorter={true}
+        title="Users"
+        dataIndex="usersCount"
+        key="users"
       />
     </Table>
   );

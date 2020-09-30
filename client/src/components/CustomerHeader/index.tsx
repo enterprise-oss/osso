@@ -15,12 +15,12 @@ export default function CustomerHeader({
     {
       label: 'Added',
       value: (
-        <Timestamp timestamp={enterpriseAccount.createdAt} variant="month" />
+        <Timestamp timestamp={enterpriseAccount?.createdAt} variant="month" />
       ),
     },
     {
       label: 'Users',
-      value: 200,
+      value: enterpriseAccount?.usersCount,
     },
   ];
 
