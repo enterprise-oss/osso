@@ -13,7 +13,6 @@ import {
   useOssoFields,
 } from '@enterprise-oss/osso';
 import {
-  Avatar,
   Badge,
   Button,
   Card,
