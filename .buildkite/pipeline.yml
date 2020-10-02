@@ -48,6 +48,7 @@ steps:
   - wait
 
   - commands:
+      - "yarn clean"
       - "yarn install"
       - "yarn build"
       - "yarn cypress:ci"
