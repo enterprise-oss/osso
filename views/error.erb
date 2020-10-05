@@ -1,14 +1,13 @@
 <div class="error-container">
   <div class="error-main">
-    <h1>:(</h1>
-    <h2>uh-SS-oh!</h2>
-    <h4>SSOmething went wrong</h4>
-    <h4><%= @error %></h4>
+    <h1>☠️</h1>
+    
+    <h4><%= @error.to_s.split("::").join('::&#8203;') %></h4>
 
-    <%= @error.message %>
+    <p><%= @error.message %></p>
     <% if @error.docs_url %> 
       <hr />
       <a target="_blank" href='<%= @error.docs_url %>'>Review Documentation</a>
     <% end %>  
-    </div>
+  </div>
 </div>

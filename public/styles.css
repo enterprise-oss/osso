@@ -2,6 +2,7 @@ html, body {
   height: 100vh;
   background-color: #e8e8e8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
 }
 
 .container {
@@ -89,5 +90,19 @@ html, body {
   background: #FFFFFF;
   border-radius: 4px;
   padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.error-main h1 {
+  font-size: 46px;
+  margin-bottom: 16px;
+}
+.error-main h4 {
+  color: #E52019;
+}
 
+.error-main p { 
+  margin: 12px auto;
 }
