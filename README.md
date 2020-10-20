@@ -55,7 +55,7 @@
 #### Deploy
 The fastest way to get started is to deploy to Heroku. Heroku will deploy your app, generating required ENV variables, and boostrapping your instance's database.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/enterprise-oss/osso/tree/main)
 
 We also offer paid hosted plans that can reduce the integration workload on your development team.
 
