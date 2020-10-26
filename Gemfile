@@ -22,7 +22,7 @@ group :test do
   gem 'faker'
   gem 'rack-test'
   gem 'rspec', '~> 3.2'
-  gem 'simplecov', '= 0.17', require: false
+  gem 'simplecov', '0.19.1', require: false
   gem 'webmock', '~> 3.9'
 end
 
