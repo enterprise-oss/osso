@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso', git: 'https://github.com/enterprise-oss/osso-rb', ref: '91f4a9d'
+gem 'osso', git: 'https://github.com/enterprise-oss/osso-rb', ref: '01b76f1'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
