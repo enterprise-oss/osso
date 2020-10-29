@@ -1,0 +1,42 @@
+.card {
+  height: 100%;
+}
+
+.cardTopRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cardTopRow > h1 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.table {
+  margin-bottom: 24px;
+}
+
+.switchGroup {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.switchContainer {
+  height: 32px;
+  border: 1px solid #d9d9d9;
+  border-radius: 0 2px 2px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 8px;
+  border-left: none;
+}
+
+.buttonRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
