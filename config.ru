@@ -13,15 +13,17 @@ Bundler.require
 
 require './app'
 
-Mail.defaults do
-  delivery_method :smtp, {
-    port: ENV['SMTP_PORT'],
-    address: ENV['SMTP_SERVER'],
-    user_name: ENV['SMTP_LOGIN'],
-    password: ENV['SMTP_PASSWORD'],
-    domain: "#{ENV['SMTP_DOMAIN']}",
-    authentication: :plain,
-  }
+if ENV['RACK_ENV'] == 'production'
+  Mail.defaults do
+    delivery_method :smtp, {
+      port: ENV['SMTP_PORT'],
+      address: ENV['SMTP_SERVER'],
+      user_name: ENV['SMTP_LOGIN'],
+      password: ENV['SMTP_PASSWORD'],
+      domain: "#{ENV['SMTP_DOMAIN']}",
+      authentication: :plain,
+    }
+  end
 end
 
 app = Rack::Builder.new do
