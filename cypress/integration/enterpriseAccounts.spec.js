@@ -3,7 +3,7 @@ import faker from "faker";
 describe("EnterpriseAccounts", () => {
   describe("with an Admin user", () => {
     beforeEach(() => {
-      cy.login("admin@example.com", "admin");
+      cy.login("admin@saas.co");
     });
 
     it("can create any enterprise account", () => {
@@ -33,7 +33,7 @@ describe("EnterpriseAccounts", () => {
 
   describe("with an Internal user", () => {
     beforeEach(() => {
-      cy.login("internal@example.com", "internal");
+      cy.login("basic@saas.co");
     });
 
     it("can create any enterprise account", () => {
@@ -50,7 +50,7 @@ describe("EnterpriseAccounts", () => {
 
       cy.contains(company);
     });
-    
+
     it("can view any enterprise account", () => {
       cy.visit("/admin/enterprise");
 
@@ -59,7 +59,7 @@ describe("EnterpriseAccounts", () => {
     });
   });
 
-  describe("with an end-user", () => {
+  xdescribe("with an end-user", () => {
     it("can create an enterprise account for own domain", () => {
       const company = "NewCo";
       const domain = faker.internet.domainName();

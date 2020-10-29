@@ -1,7 +1,7 @@
 describe("Oauth Client", () => {
   describe("with an Admin user", () => {
     beforeEach(() => {
-      cy.login("admin@example.com", "admin");
+      cy.login("admin@saas.co");
       cy.visit("/admin/config");
       cy.get("table tr").get("td > a").last().click();
     });
