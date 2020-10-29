@@ -15,7 +15,6 @@ gem 'rack-cors'
 gem 'rake'
 gem 'sinatra'
 
-
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot'
