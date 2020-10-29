@@ -13,7 +13,9 @@ gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
 gem 'rake'
+gem 'rodauth', :git => 'https://github.com/jeremyevans/rodauth', ref: 'f89179'
 gem 'sinatra'
+
 
 group :test do
   gem 'database_cleaner-active_record'

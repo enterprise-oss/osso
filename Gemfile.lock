@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/jeremyevans/rodauth
+  revision: f89179ca9718ba6bd356330b5f9272b4a5a60216
+  ref: f89179
+  specs:
+    rodauth (2.5.0)
+      roda (>= 2.6.0)
+      sequel (>= 4)
+
 PATH
   remote: ../osso-rb
   specs:
@@ -115,9 +124,6 @@ GEM
     rexml (3.2.4)
     roda (3.37.0)
       rack
-    rodauth (2.5.0)
-      roda (>= 2.6.0)
-      sequel (>= 4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
@@ -160,7 +166,7 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
-    sinatra-activerecord (2.0.19)
+    sinatra-activerecord (2.0.21)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
     sinatra-contrib (2.1.0)
@@ -197,6 +203,7 @@ DEPENDENCIES
   rack-cors
   rack-test
   rake
+  rodauth!
   rspec (~> 3.2)
   rubocop
   simplecov (= 0.17)
