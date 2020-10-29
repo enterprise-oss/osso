@@ -15,11 +15,11 @@ require './app'
 
 Mail.defaults do
   delivery_method :smtp, {
-    port: ENV['MAILGUN_SMTP_PORT'],
-    address: ENV['MAILGUN_SMTP_SERVER'],
-    user_name: ENV['MAILGUN_SMTP_LOGIN'],
-    password: ENV['MAILGUN_SMTP_PASSWORD'],
-    domain: "#{ENV['HEROKU_APP_NAME']}.herokuapp.com",
+    port: ENV['SMTP_PORT'],
+    address: ENV['SMTP_SERVER'],
+    user_name: ENV['SMTP_LOGIN'],
+    password: ENV['SMTP_PASSWORD'],
+    domain: "#{ENV['SMTP_DOMAIN']}",
     authentication: :plain,
   }
 end
