@@ -1,18 +1,6 @@
-import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import { inviteAdminUser, useAdminUsers } from '@enterprise-oss/osso';
-import {
-  Button,
-  Card,
-  Form,
-  Input,
-  Modal,
-  Select,
-  Switch,
-  Table,
-  Tooltip,
-} from 'antd';
+import { Button, Card, Form, Input, Modal, Select, Table } from 'antd';
 import React, { ReactElement, useState } from 'react';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import styles from './index.module.css';
 
