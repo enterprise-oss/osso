@@ -59,7 +59,13 @@ export default function TeamManagement(): ReactElement {
                   .validateFields()
                   .then((values) => {
                     console.log(values);
-                    inviteUser(values);
+                    inviteUser(
+                      values as {
+                        email: string;
+                        role: string;
+                        oauthClientId?: string;
+                      },
+                    );
                   })
                   .then(() => {
                     form.resetFields();
