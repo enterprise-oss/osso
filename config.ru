@@ -15,13 +15,12 @@ require './app'
 
 Mail.defaults do
   delivery_method :smtp, {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
-    domain: 'ossoapp.io',
-    address: 'smtp.sendgrid.net',
-    port: 587,
+    port: ENV['MAILGUN_SMTP_PORT'],
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    user_name: ENV['MAILGUN_SMTP_LOGIN'],
+    password: ENV['MAILGUN_SMTP_PASSWORD'],
+    domain: "#{ENV['HEROKU_APP_NAME']}.herokuapp.com",
     authentication: :plain,
-    enable_starttls_auto: true,
   }
 end
 
