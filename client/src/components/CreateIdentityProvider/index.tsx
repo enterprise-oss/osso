@@ -42,7 +42,9 @@ function Documentation({
   identityProvider: IdentityProvider;
 }): ReactElement {
   const { fieldsForProvider } = useOssoFields();
-  const { downloadDocs } = useOssoDocs(identityProvider.id);
+  const { downloadDocs, loading: docsLoading } = useOssoDocs(
+    identityProvider.id,
+  );
   const fullProvider = fieldsForProvider(identityProvider.service);
 
   return (
@@ -56,7 +58,7 @@ function Documentation({
       </p>
       <Form>
         <Form.Item label="Download">
-          <ButtonComponent onClick={downloadDocs}>
+          <ButtonComponent loading={docsLoading} onClick={downloadDocs}>
             <span>
               {fullProvider.label} setup - {identityProvider.domain}.pdf
             </span>

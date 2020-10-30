@@ -20,6 +20,7 @@ import {
   Grid,
   Popconfirm,
   Row,
+  Spin,
   Table,
   Tooltip,
 } from 'antd';
@@ -44,7 +45,9 @@ export default function AccountIdentityProviders({
   const [modalOpen, setModalOpen] = useState(false);
 
   const { fieldsForProvider } = useOssoFields();
-  const { downloadDocs } = useOssoDocs(identityProvider.id);
+  const { downloadDocs, loading: docsLoading } = useOssoDocs(
+    identityProvider.id,
+  );
   const { deleteProvider } = deleteIdentityProvider(identityProvider.id);
   const providerDetails = fieldsForProvider(identityProvider.service);
 
@@ -140,7 +143,12 @@ export default function AccountIdentityProviders({
                     </li>
                     <li>
                       <a onClick={downloadDocs}>
-                        <FilePdfFilled /> Download setup PDF
+                        {docsLoading ? (
+                          <Spin size="small" />
+                        ) : (
+                          <FilePdfFilled />
+                        )}{' '}
+                        Download setup PDF
                       </a>
                     </li>
                     <li>
