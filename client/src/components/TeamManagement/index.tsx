@@ -101,37 +101,3 @@ export default function TeamManagement(): ReactElement {
     </Card>
   );
 }
-
-{
-  /* <Form.Item label="Open registration">
-        <div className={styles.switchGroup}>
-          <Input
-            value="https://ossoapp.com/signup/035yu904whf08eh"
-            style={{ width: '70%', borderRadius: '2px 0 0 2px' }}
-            disabled={!registrationOpen}
-            suffix={
-              <CopyToClipboard
-                onCopy={onCopy}
-                text="https://ossoapp.com/signup/035yu904whf08eh"
-                className={styles.copyContainer}
-              >
-                <Tooltip title="Copy to clipboard">
-                  {copied ? <CheckOutlined /> : <CopyOutlined />}
-                </Tooltip>
-              </CopyToClipboard>
-            }
-          />
-          <div className={styles.switchContainer}>
-            <Switch
-              checked={registrationOpen}
-              onChange={(value) => setRegistrationOpen(value)}
-            />
-          </div>
-        </div>
-      </Form.Item>
-      <p>
-        Open registration allows anyone with this link to sign up. There is some
-        security through obscurity, but we recommend turning this off once your
-        initial set of team members registers.
-      </p> */
-}
