@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_154117) do
+ActiveRecord::Schema.define(version: 2020_10_23_142158) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
@@ -25,6 +26,38 @@ ActiveRecord::Schema.define(version: 2020_09_29_154117) do
     t.uuid "oauth_client_id"
     t.index ["oauth_client_id"], name: "index_access_tokens_on_oauth_client_id"
     t.index ["user_id"], name: "index_access_tokens_on_user_id"
+  end
+
+  create_table "account_password_hashes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "password_hash", null: false
+  end
+
+  create_table "account_password_reset_keys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "key", null: false
+    t.datetime "deadline", null: false
+    t.datetime "email_last_sent", default: -> { "CURRENT_TIMESTAMP" }, null: false
+  end
+
+  create_table "account_remember_keys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "key", null: false
+    t.datetime "deadline", null: false
+  end
+
+  create_table "account_verification_keys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "key", null: false
+    t.datetime "requested_at", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "email_last_sent", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.uuid "account_id"
+    t.index ["account_id"], name: "index_account_verification_keys_on_account_id"
+  end
+
+  create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.citext "email", null: false
+    t.integer "status_id", default: 1, null: false
+    t.string "role", default: "admin", null: false
+    t.uuid "oauth_client_id"
+    t.index ["email"], name: "index_accounts_on_email", unique: true, where: "(status_id = ANY (ARRAY[1, 2]))"
+    t.index ["oauth_client_id"], name: "index_accounts_on_oauth_client_id"
   end
 
   create_table "app_configs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -95,5 +128,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_154117) do
     t.index ["enterprise_account_id"], name: "index_users_on_enterprise_account_id"
   end
 
+  add_foreign_key "account_password_hashes", "accounts", column: "id"
+  add_foreign_key "account_password_reset_keys", "accounts", column: "id"
+  add_foreign_key "account_remember_keys", "accounts", column: "id"
   add_foreign_key "users", "identity_providers"
 end

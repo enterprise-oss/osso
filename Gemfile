@@ -8,13 +8,13 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso', '= 0.0.5.pre.lambda'
+gem 'osso', git: 'https://github.com/enterprise-oss/osso-rb', branch: 'sbauch/rodauth'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
 gem 'rake'
+gem 'rodauth', git: 'https://github.com/jeremyevans/rodauth'
 gem 'sinatra'
-
 
 group :test do
   gem 'database_cleaner-active_record'

@@ -1,7 +1,7 @@
 describe("Customer Identity Providers", () => {
   describe("an Admin user", () => {
     beforeEach(() => {
-      cy.login("admin@example.com", "admin");
+      cy.login("admin@saas.co");
       cy.visit("/admin/enterprise/customer.com");
     });
 

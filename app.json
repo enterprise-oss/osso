@@ -9,7 +9,7 @@
   "logo": "https://www.ossoapp.com/img/logo.svg",
   "repository": "https://github.com/enterprise-oss/osso",
   "website": "https://ossoapp.com",
-  "success_url": "https://ossoapp.com/docs/guides/deployment#post-deployment",
+  "success_url": "/create-account",
   "buildpacks": [
     {
       "url": "heroku/ruby"
@@ -37,6 +37,21 @@
     "CYPRESS_INSTALL_BINARY": {
       "description": "Prevent heroku from installing the Cypress binary during deploy",
       "value": "0"
+    },
+    "SMTP_LOGIN": {
+      "description": "SMTP server login - email sending is needed for team management. We recommend Mailgun"
+    },
+    "SMTP_PASSWORD": {
+      "description": "SMTP server password."
+    },
+    "SMTP_DOMAIN": {
+      "description": "A domain you own and can send SMTP emails from"
+    },
+    "SMTP_PORT": {
+      "value": 25
+    },
+    "SMTP_SERVER": {
+      "description": "The location of your SMTP server for sending email, i.e. smtp.mailgun.org"
     }
   },
   "addons": [

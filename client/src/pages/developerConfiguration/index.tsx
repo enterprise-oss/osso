@@ -4,6 +4,7 @@ import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
 import AppConfig from '~/client/src/components/AppConfig';
+import TeamManagement from '~/client/src/components/TeamManagement';
 
 export default function DeveloperConfig(): ReactElement {
   const { data, loading } = useOAuthClients();
@@ -32,6 +33,9 @@ export default function DeveloperConfig(): ReactElement {
       <Row gutter={[24, 24]}>
         <Col span={12}>
           <AppConfig />
+        </Col>
+        <Col span={12}>
+          <TeamManagement />
         </Col>
       </Row>
     </>

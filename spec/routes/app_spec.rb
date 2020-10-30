@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe App do
+xdescribe App do
   let(:jwt_url) { 'https://foo.com/jwt' }
   let(:jwt_hmac_secret) { SecureRandom.hex(32) }
   let(:valid_token) do

@@ -3,7 +3,7 @@ import faker from "faker";
 describe("Configuration", () => {
   describe("with an Admin user", () => {
     beforeEach(() => {
-      cy.login("admin@example.com", "admin");
+      cy.login("admin@saas.co");
     });
 
     it("renders the configuration menu item", () => {
@@ -42,7 +42,7 @@ describe("Configuration", () => {
 
   describe("with an Internal user", () => {
     beforeEach(() => {
-      cy.login("internal@example.com", "internal");
+      cy.login("basic@saas.co");
     });
 
     it("does not have the configuration menu item", () => {
@@ -50,28 +50,7 @@ describe("Configuration", () => {
       cy.contains("Configuration").should("not.be.visible");
     });
 
-    it("cannot visit configuration", () => {
-      cy.request({ url: "/admin/config", followRedirect: false }).then(
-        (resp) => {
-          expect(resp.status).to.eq(302);
-        }
-      );
-    });
-  });
-
-  describe("with an end-user", () => {
-    it("does not have the configuration menu item", () => {
-      const domain = faker.internet.domainName();
-      cy.login(`end-user@${domain}`, "end-user");
-
-      // cy.visit(`/admin`);
-      cy.contains("Configuration").should("not.be.visible");
-    });
-
-    it("cannot visit configuration", () => {
-      const domain = faker.internet.domainName();
-      cy.login(`end-user@${domain}`, "end-user");
-
+    xit("cannot visit configuration", () => {
       cy.request({ url: "/admin/config", followRedirect: false }).then(
         (resp) => {
           expect(resp.status).to.eq(302);

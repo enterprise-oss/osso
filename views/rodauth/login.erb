@@ -1,0 +1,22 @@
+<div class="container">
+  <form class="ant-form ant-form-vertical ant-form-hide-required-mark rodauth" method="post" role="form" id="login-form">
+    <%= rodauth.csrf_tag %>
+    <div class="ant-row ant-form-item">
+      <div class="ant-col ant-form-item-label"><label for="login" class="ant-form-item-required" title="Email">Email</label></div>
+      <div class="ant-col ant-form-item-control">
+        <div class="ant-form-item-control-input">
+          <div class="ant-form-item-control-input-content"><input autocomplete="off" required name="login" id="login" placeholder="you@company.com" type="text" class="ant-input" value=""></div>
+        </div>
+      </div>
+    </div>
+    <div class="ant-row ant-form-item">
+      <div class="ant-col ant-form-item-label"><label for="password" class="ant-form-item-required" title="Password">Password</label></div>
+      <div class="ant-col ant-form-item-control">
+        <div class="ant-form-item-control-input">
+          <div class="ant-form-item-control-input-content"><input autocomplete="off" required id="password" name="password" type="password" class="ant-input" value=""></div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="ant-btn ant-btn-primary">Login</button>
+  </form>
+</div>

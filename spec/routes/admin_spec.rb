@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Osso::Admin do
+xdescribe Osso::Admin do
   let(:jwt_url) { 'https://foo.com/jwt' }
   let(:jwt_hmac_secret) { SecureRandom.hex(32) }
 

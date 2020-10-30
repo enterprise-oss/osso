@@ -6,9 +6,15 @@ import React, { ReactElement } from 'react';
 export default function ButtonComponent({
   children,
   onClick,
+  loading,
 }: OssoButtonComponentProps): ReactElement {
   return (
-    <Button type="ghost" onClick={onClick} icon={<DownloadOutlined />}>
+    <Button
+      loading={loading}
+      type="ghost"
+      onClick={onClick}
+      icon={<DownloadOutlined />}
+    >
       {children}
     </Button>
   );
