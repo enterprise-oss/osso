@@ -25,13 +25,7 @@ export default function TeamManagement(): ReactElement {
         className={styles.table}
       >
         <Table.Column title="Email" dataIndex="email" key="email" />
-        <Table.Column
-          title="Last login"
-          dataIndex="updatedAt"
-          key="updatedAt"
-        />
         <Table.Column title="Role" dataIndex="role" key="role" />
-        <Table.Column title="Actions" dataIndex="domain" key="domain" />
       </Table>
 
       <Modal
