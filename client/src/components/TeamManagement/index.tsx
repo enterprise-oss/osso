@@ -92,7 +92,7 @@ export default function TeamManagement(): ReactElement {
             rules={[{ required: true, message: 'Choose a role' }]}
           >
             <Select>
-              <Select.Option value="base">Base</Select.Option>
+              <Select.Option value="base">Default</Select.Option>
               <Select.Option value="admin">Admin</Select.Option>
             </Select>
           </Form.Item>
