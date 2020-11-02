@@ -15,6 +15,7 @@ gem 'rack-cors'
 gem 'rake'
 gem 'rodauth', git: 'https://github.com/jeremyevans/rodauth'
 gem 'sinatra'
+gem 'sentry-raven'
 
 group :test do
   gem 'database_cleaner-active_record'
