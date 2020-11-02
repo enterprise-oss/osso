@@ -6,8 +6,13 @@ if ENV['RACK_ENV'] != 'production'
   require 'pry'
 end
 
+use_sentry = !ENV['SENTRY_DSN'].nil?
+use_posthog = !ENV['POSTHOG_API_KEY'].nil?
+
 require 'rubygems'
 require 'bundler'
+
+require 'raven' if use_sentry
 
 Bundler.require
 
@@ -27,6 +32,8 @@ if ENV['RACK_ENV'] == 'production'
 end
 
 app = Rack::Builder.new do
+  use Raven::Rack if use_sentry
+
   use Rack::Cors do
     allow do
       origins '*'
