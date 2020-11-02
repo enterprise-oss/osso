@@ -7,7 +7,6 @@ if ENV['RACK_ENV'] != 'production'
 end
 
 use_sentry = !ENV['SENTRY_DSN'].nil?
-use_posthog = !ENV['POSTHOG_API_KEY'].nil?
 
 require 'rubygems'
 require 'bundler'
