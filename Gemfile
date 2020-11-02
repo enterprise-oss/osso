@@ -21,7 +21,7 @@ group :test do
   gem 'factory_bot'
   gem 'faker'
   gem 'rack-test'
-  gem 'rspec', '~> 3.2'
+  gem 'rspec', '~> 3.10'
   gem 'simplecov', '= 0.17', require: false
   gem 'webmock', '~> 3.9'
 end

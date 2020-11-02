@@ -125,19 +125,19 @@ GEM
     rexml (3.2.4)
     roda (3.37.0)
       rack
-    rspec (3.9.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.2)
-      rspec-support (~> 3.9.3)
-    rspec-expectations (3.9.2)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.1)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-support (3.9.3)
+      rspec-support (~> 3.10.0)
+    rspec-support (3.10.0)
     rubocop (1.1.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -205,7 +205,7 @@ DEPENDENCIES
   rack-test
   rake
   rodauth!
-  rspec (~> 3.2)
+  rspec (~> 3.10)
   rubocop
   simplecov (= 0.17)
   sinatra
