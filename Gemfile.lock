@@ -65,6 +65,9 @@ GEM
       activesupport (>= 5.0.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
+    faraday (1.1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords
     graphql (1.11.6)
     hashdiff (1.0.1)
     hashie (4.1.0)
@@ -84,6 +87,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.14.2)
     multi_json (1.15.0)
+    multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.10.10)
@@ -153,6 +157,8 @@ GEM
     ruby-saml (1.11.0)
       nokogiri (>= 1.5.10)
     ruby2_keywords (0.0.2)
+    sentry-raven (3.1.1)
+      faraday (>= 1.0)
     sequel (5.37.0)
     sequel-activerecord_connection (0.4.1)
       activerecord (>= 4.2, < 7)
@@ -207,6 +213,7 @@ DEPENDENCIES
   rodauth!
   rspec (~> 3.10)
   rubocop
+  sentry-raven
   simplecov (= 0.17)
   sinatra
   webmock (~> 3.9)
