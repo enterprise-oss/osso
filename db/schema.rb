@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_11_06_154936) do
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "user_id"
     t.uuid "oauth_client_id"
-    t.jsonb "requested", default: "{}"
+    t.jsonb "requested", default: {}
     t.index ["oauth_client_id"], name: "index_access_tokens_on_oauth_client_id"
     t.index ["token", "expires_at"], name: "index_access_tokens_on_token_and_expires_at", unique: true
     t.index ["user_id"], name: "index_access_tokens_on_user_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2020_11_06_154936) do
     t.datetime "updated_at", precision: 6, null: false
     t.uuid "user_id"
     t.uuid "oauth_client_id"
+    t.jsonb "requested", default: {}
     t.index ["oauth_client_id"], name: "index_authorization_codes_on_oauth_client_id"
     t.index ["token"], name: "index_authorization_codes_on_token", unique: true
     t.index ["user_id"], name: "index_authorization_codes_on_user_id"
