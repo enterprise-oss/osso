@@ -17,11 +17,9 @@ import ProviderPicker from '~/client/src/components/ProviderPicker';
 import styles from './index.module.css';
 
 function ChooseProvider({
-  onChange,
   service,
   form,
 }: {
-  onChange: (provider: Providers) => void;
   service?: Providers;
   form: any;
 }): ReactElement {
@@ -102,8 +100,6 @@ function Loader(): ReactElement {
 
 function ModalBody({
   step,
-  service,
-  setService,
   identityProvider,
   form,
 }: {
@@ -115,9 +111,7 @@ function ModalBody({
 }): ReactElement {
   switch (step) {
     case FormSteps.PickProvider:
-      return (
-        <ChooseProvider form={form} onChange={setService} service={service} />
-      );
+      return <ChooseProvider form={form} />;
     case FormSteps.Loading:
       return <Loader />;
     case FormSteps.Documentation:
