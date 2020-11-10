@@ -46,8 +46,8 @@ export default function CreateAccountButton(): ReactElement {
               onClick={() => {
                 form
                   .validateFields()
-                  .then(({ name, domain, oauthClientId }) => {
-                    createAccount(name, domain, oauthClientId);
+                  .then(({ name, domain }) => {
+                    createAccount(name, domain);
                     form.resetFields();
                     setModalOpen(false);
                   })
