@@ -3,10 +3,12 @@ import {
   EnterpriseAccount,
   IdentityProvider,
   Providers,
+  useOAuthClients,
   useOssoDocs,
   useOssoFields,
 } from '@enterprise-oss/osso';
-import { Button, Form, Modal, Spin } from 'antd';
+import { Button, Form, Modal, Select, Spin } from 'antd';
+import { FormInstance } from 'antd/lib/form/hooks/useForm';
 import React, { ReactElement, useEffect, useState } from 'react';
 
 import ButtonComponent from '~/client/src/components/Osso/ButtonComponent';
@@ -17,21 +19,41 @@ import styles from './index.module.css';
 function ChooseProvider({
   onChange,
   service,
+  form,
 }: {
-  onChange: (Providers) => void;
+  onChange: (provider: Providers) => void;
   service?: Providers;
+  form: any;
 }): ReactElement {
+  const { data } = useOAuthClients();
+
   return (
     <>
       <h2 className={styles.modalHeader}>
         Which Identity Provider does the customer use?
       </h2>
-      <ProviderPicker
-        onChange={(service) => {
-          onChange(service);
-        }}
-        provider={service}
-      />
+      <Form form={form} layout="vertical" hideRequiredMark>
+        <Form.Item
+          name="service"
+          valuePropName="provider"
+          rules={[{ required: true, message: 'Select Provider' }]}
+        >
+          <ProviderPicker provider={service} />
+        </Form.Item>
+        <Form.Item
+          label="OAuth client"
+          name="oauthClientId"
+          rules={[{ required: true, message: 'Select OAuth client' }]}
+        >
+          <Select id="oauthClientId">
+            {data?.oauthClients.map((client) => (
+              <Select.Option key={client.id} value={client.id}>
+                {client.name}
+              </Select.Option>
+            ))}
+          </Select>
+        </Form.Item>
+      </Form>
     </>
   );
 }
@@ -83,15 +105,19 @@ function ModalBody({
   service,
   setService,
   identityProvider,
+  form,
 }: {
   step: FormSteps;
   service: Providers;
   setService: (service: Providers) => void;
   identityProvider: IdentityProvider;
+  form: FormInstance<any>;
 }): ReactElement {
   switch (step) {
     case FormSteps.PickProvider:
-      return <ChooseProvider onChange={setService} service={service} />;
+      return (
+        <ChooseProvider form={form} onChange={setService} service={service} />
+      );
     case FormSteps.Loading:
       return <Loader />;
     case FormSteps.Documentation:
@@ -119,6 +145,7 @@ export default function IdentityProviderForm({
   const [service, setService] = useState<Providers>();
   const [step, setStep] = useState<FormSteps>(FormSteps.PickProvider);
   const identityProvider = data?.createIdentityProvider?.identityProvider;
+  const [form] = Form.useForm();
 
   useEffect(() => {
     if (loading) return setStep(FormSteps.Loading);
@@ -132,7 +159,16 @@ export default function IdentityProviderForm({
     if (identityProvider?.id) {
       return closeModal();
     }
-    createProvider(enterpriseAccount.id, service);
+    form.validateFields().then(() => {
+      console.log(form.getFieldsValue());
+      createProvider(
+        enterpriseAccount.id,
+        form.getFieldValue('oauthClientId'),
+        form.getFieldValue('service'),
+      ).then(() => {
+        form.resetFields();
+      });
+    });
   };
 
   const DestructiveButton = () => {
@@ -155,7 +191,7 @@ export default function IdentityProviderForm({
       case FormSteps.PickProvider:
         return (
           <Button
-            disabled={!service}
+            disabled={false}
             onClick={onSubmit}
             type="primary"
             loading={loading}
@@ -176,6 +212,7 @@ export default function IdentityProviderForm({
 
   return (
     <Modal
+      destroyOnClose={true}
       width={640}
       title="New Identity Provider"
       visible={open}
@@ -188,6 +225,7 @@ export default function IdentityProviderForm({
       }
     >
       <ModalBody
+        form={form}
         step={step}
         identityProvider={identityProvider}
         service={service}

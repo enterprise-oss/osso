@@ -10,6 +10,10 @@ describe("Customer Identity Providers", () => {
       cy.contains("Add new IDP").click();
 
       cy.contains("Okta").click();
+
+      // cy.get("input#oauthClientId").click();
+      // cy.get("div").contains("Production").click();
+
       cy.contains("Next").click();
 
       cy.contains("Custom PDF");
@@ -20,6 +24,10 @@ describe("Customer Identity Providers", () => {
       cy.contains("Add new IDP").click();
 
       cy.contains("Azure").click();
+
+      // cy.get("input#oauthClientId").click();
+      // cy.get("div").contains("Production").click();
+
       cy.contains("Next").click();
 
       cy.contains("Custom PDF");

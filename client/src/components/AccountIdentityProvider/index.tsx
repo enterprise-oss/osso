@@ -55,7 +55,7 @@ export default function AccountIdentityProviders({
     ...providerDetails,
     ...identityProvider,
   };
-
+  console.log(provider);
   const tableData = provider.ossoGeneratedFields.manual.map((field) => ({
     key: field.inputProps.id,
     label: field.inputProps.label,
