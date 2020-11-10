@@ -190,12 +190,7 @@ export default function IdentityProviderForm({
     switch (step) {
       case FormSteps.PickProvider:
         return (
-          <Button
-            disabled={false}
-            onClick={onSubmit}
-            type="primary"
-            loading={loading}
-          >
+          <Button onClick={onSubmit} type="primary" loading={loading}>
             Next
           </Button>
         );
