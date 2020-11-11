@@ -21,7 +21,7 @@ function ChooseProvider({
   form,
 }: {
   service?: Providers;
-  form: any;
+  form: FormInstance<Record<string, string>>;
 }): ReactElement {
   const { data } = useOAuthClients();
 
@@ -107,7 +107,7 @@ function ModalBody({
   service: Providers;
   setService: (service: Providers) => void;
   identityProvider: IdentityProvider;
-  form: FormInstance<any>;
+  form: FormInstance<Record<string, string>>;
 }): ReactElement {
   switch (step) {
     case FormSteps.PickProvider:

@@ -12,7 +12,7 @@ describe("Customer Identity Providers", () => {
       cy.get(".ant-form-item").contains("Okta").click();
 
       cy.get("input#oauthClientId").click();
-      cy.get("div").contains("Production").click();
+      cy.get(".ant-form-item div").contains("Production").click();
 
       cy.contains("Next").click();
 
@@ -26,7 +26,7 @@ describe("Customer Identity Providers", () => {
       cy.get(".ant-form-item").contains("Azure").click();
 
       cy.get("input#oauthClientId").click();
-      cy.get("div").contains("Production").click();
+      cy.get(".ant-form-item div").contains("Production").click();
 
       cy.contains("Next").click();
 
