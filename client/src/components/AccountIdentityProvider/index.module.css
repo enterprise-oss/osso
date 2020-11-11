@@ -38,8 +38,15 @@
   max-width: 40px;
 }
 
-.providerName {
+.nameContainer {
   margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.providerName {
+  font-size: 22px;
 }
 
 .mainContainer {
