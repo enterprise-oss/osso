@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_190754) do
+ActiveRecord::Schema.define(version: 2020_11_12_160120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_190754) do
     t.citext "email", null: false
     t.integer "status_id", default: 1, null: false
     t.string "role", default: "admin", null: false
-    t.uuid "oauth_client_id"
+    t.string "oauth_client_id"
     t.index ["email"], name: "index_accounts_on_email", unique: true, where: "(status_id = ANY (ARRAY[1, 2]))"
     t.index ["oauth_client_id"], name: "index_accounts_on_oauth_client_id"
   end

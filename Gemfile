@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso', git: 'https://github.com/enterprise-oss/osso-rb', branch: 'sbauch/rodauth'
+gem 'osso', path: '../osso-rb' #git: 'https://github.com/enterprise-oss/osso-rb', branch: 'sbauch/rodauth'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
