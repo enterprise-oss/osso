@@ -1,13 +1,7 @@
 GIT
-  remote: https://github.com/jeremyevans/rodauth
-  revision: b3402f4b0567a1d0ed69a295f6e04725ac75ddd4
-  specs:
-    rodauth (2.5.0)
-      roda (>= 2.6.0)
-      sequel (>= 4)
-
-PATH
-  remote: ../osso-rb
+  remote: https://github.com/enterprise-oss/osso-rb
+  revision: 0360be26b7bb46bc7739bd4bd438de91bb89f463
+  branch: sbauch/rodauth
   specs:
     osso (0.0.5.pre.lambda)
       activesupport (>= 6.0.3.2)
@@ -27,6 +21,14 @@ PATH
       sinatra
       sinatra-activerecord
       sinatra-contrib
+
+GIT
+  remote: https://github.com/jeremyevans/rodauth
+  revision: b3402f4b0567a1d0ed69a295f6e04725ac75ddd4
+  specs:
+    rodauth (2.5.0)
+      roda (>= 2.6.0)
+      sequel (>= 4)
 
 GEM
   remote: https://rubygems.org/
