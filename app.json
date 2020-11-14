@@ -27,13 +27,6 @@
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
-    "JWT_HMAC_SECRET": {
-      "description": "A secret key for verifying the integrity of signed JWTs from your application - you'll need to add this to your main application environment to sign JWTs for authenticating the Admin UI",
-      "generator": "secret"
-    },
-    "JWT_URL": {
-      "description": "The authorization URL in your application where Osso can send a user to get a JWT"
-    },
     "CYPRESS_INSTALL_BINARY": {
       "description": "Prevent heroku from installing the Cypress binary during deploy",
       "value": "0"
