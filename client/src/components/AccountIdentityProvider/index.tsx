@@ -9,6 +9,7 @@ import {
   deleteIdentityProvider,
   IdentityProvider,
   IdentityProviderStatus,
+  OssoContext,
   useOssoDocs,
   useOssoFields,
 } from '@enterprise-oss/osso';
@@ -22,9 +23,10 @@ import {
   Row,
   Spin,
   Table,
+  Tag,
   Tooltip,
 } from 'antd';
-import React, { ReactElement, useEffect, useState } from 'react';
+import React, { ReactElement, useContext, useEffect, useState } from 'react';
 
 import ConfigureIdentityProvider from '~/client/src/components/ConfigureIdentityProvider';
 import { red } from '~/client/src/utils/colors';
@@ -42,6 +44,7 @@ export default function AccountIdentityProviders({
 }: {
   identityProvider: IdentityProvider;
 }): ReactElement {
+  const { currentUser } = useContext(OssoContext);
   const [modalOpen, setModalOpen] = useState(false);
 
   const { fieldsForProvider } = useOssoFields();
@@ -117,7 +120,12 @@ export default function AccountIdentityProviders({
                   <img src={provider.icon} />
                 </div>
               </Badge>
-              <span className={styles.providerName}>{provider.label}</span>
+              <div className={styles.nameContainer}>
+                <span className={styles.providerName}>{provider.label}</span>
+                {currentUser.scope === 'admin' && (
+                  <Tag>{provider.oauthClient.name}</Tag>
+                )}
+              </div>
             </div>
             {mainActionButton(identityProvider.status)}
           </div>

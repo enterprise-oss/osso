@@ -8,13 +8,6 @@ module.exports = {
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
-
-    // "plugin:react/recommended",
-    // "plugin:@typescript-eslint/recommended",
-    // "plugin:cypress/recommended",
-    // "prettier/react",
-    // "prettier/@typescript-eslint",
-    // "plugin:prettier/recommended",
   ],
   globals: {
     Atomics: "readonly",
@@ -46,7 +39,7 @@ module.exports = {
     "prettier/prettier": ["error"],
     "sort-imports": "off",
     "import/order": "off",
-    "simple-import-sort/sort": "error",
+    "simple-import-sort/imports": "error",
   },
   settings: {
     react: { version: "detect" },

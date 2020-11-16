@@ -7,8 +7,8 @@ export default function ProviderPicker({
   provider,
   onChange,
 }: {
-  provider: Providers;
-  onChange: (value: Providers) => void;
+  provider?: Providers;
+  onChange?: (value: Providers) => void;
 }): ReactElement {
   const { providers } = useOssoFields();
 
