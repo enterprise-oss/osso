@@ -1,30 +1,6 @@
 GIT
-  remote: https://github.com/enterprise-oss/osso-rb
-  revision: 0360be26b7bb46bc7739bd4bd438de91bb89f463
-  branch: sbauch/rodauth
-  specs:
-    osso (0.0.5.pre.lambda)
-      activesupport (>= 6.0.3.2)
-      bcrypt (~> 3.1.13)
-      graphql
-      jwt
-      mail (~> 2.7.1)
-      omniauth-multi-provider
-      omniauth-saml
-      rack (>= 2.1.4)
-      rack-contrib
-      rack-oauth2
-      rake
-      rodauth (~> 2.5.0)
-      sequel (~> 5.37.0)
-      sequel-activerecord_connection (~> 0.3)
-      sinatra
-      sinatra-activerecord
-      sinatra-contrib
-
-GIT
   remote: https://github.com/jeremyevans/rodauth
-  revision: b3402f4b0567a1d0ed69a295f6e04725ac75ddd4
+  revision: 4b636900f8071061d021f7111fd550af7f70cb9b
   specs:
     rodauth (2.5.0)
       roda (>= 2.6.0)
@@ -100,6 +76,24 @@ GEM
     omniauth-saml (1.10.3)
       omniauth (~> 1.3, >= 1.3.2)
       ruby-saml (~> 1.9)
+    osso (0.0.5)
+      activesupport (>= 6.0.3.2)
+      bcrypt (~> 3.1.13)
+      graphql
+      jwt
+      mail (~> 2.7.1)
+      omniauth-multi-provider
+      omniauth-saml
+      rack (>= 2.1.4)
+      rack-contrib
+      rack-oauth2
+      rake
+      rodauth (~> 2.5.0)
+      sequel (~> 5.37.0)
+      sequel-activerecord_connection (~> 0.3)
+      sinatra
+      sinatra-activerecord
+      sinatra-contrib
     parallel (1.19.2)
     parser (2.7.2.0)
       ast (~> 2.4.1)
@@ -203,7 +197,7 @@ DEPENDENCIES
   factory_bot
   faker
   graphql
-  osso!
+  osso
   pg
   pry
   rack (>= 2.1.4)
