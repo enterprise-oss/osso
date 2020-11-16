@@ -27,13 +27,6 @@
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
-    "JWT_HMAC_SECRET": {
-      "description": "A secret key for verifying the integrity of signed JWTs from your application - you'll need to add this to your main application environment to sign JWTs for authenticating the Admin UI",
-      "generator": "secret"
-    },
-    "JWT_URL": {
-      "description": "The authorization URL in your application where Osso can send a user to get a JWT"
-    },
     "CYPRESS_INSTALL_BINARY": {
       "description": "Prevent heroku from installing the Cypress binary during deploy",
       "value": "0"
@@ -48,7 +41,7 @@
       "description": "A domain you own and can send SMTP emails from"
     },
     "SMTP_PORT": {
-      "value": 25
+      "value": "25"
     },
     "SMTP_SERVER": {
       "description": "The location of your SMTP server for sending email, i.e. smtp.mailgun.org"
@@ -62,6 +55,12 @@
   "environments": {
     "review": {
       "addons": []
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "hobby"
     }
   }
 }
