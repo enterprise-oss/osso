@@ -15,8 +15,6 @@ describe("EnterpriseAccounts", () => {
 
       cy.get("input#domain").type(domain);
       cy.get("input#name").type(company);
-      cy.get("input#oauthClientId").click();
-      cy.get("div").contains("Production").click();
 
       cy.contains("Done").click();
 
