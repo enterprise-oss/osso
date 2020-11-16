@@ -62,5 +62,8 @@
       "quantity": 1,
       "size": "hobby"
     }
+  },
+  "scripts": {
+    postdeploy: "bundle exec rake osso:bootstrap"
   }
 }
