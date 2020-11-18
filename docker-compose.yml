@@ -1,17 +1,24 @@
-version: '3'
+version: '3.1'
 services:
-  db:
-    image: postgres
+  postgres:
+    environment:
+      - POSTGRES_DB=osso
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
     ports:
       - "5432:5432"
     volumes:
-      - postgres-volume:/var/lib/postgresql/data  
+      - postgres-volume:/var/lib/postgresql/data
+    image: postgres
   web:
     env_file:
       - .env
+    environment:
+      RACK_ENV: production
+      DATABASE_URL: 'postgres://postgres:password@postgres:5432/osso'
     build: .
-    depends_on:
-      - db
+    links:
+      - postgres
     ports:
       - "4567:4567"
 volumes:

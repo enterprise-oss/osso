@@ -7,7 +7,7 @@
     "start": "parcel serve ./client/src/index.tsx",
     "build": "parcel build ./client/src/index.tsx --dist-dir ./public --log-level=error",
     "typecheck": "tsc --noEmit -p client",
-    "clean": "rm -rf client/dist && rm -rf .parcel-cache",
+    "clean": "rm -rf client/dist && rm -rf .parcel-cache && git clean -f -X ./public",
     "test": "jest",
     "lint": "eslint 'client/src/**/*.{js,jsx,ts,tsx}'",
     "lintfix": "eslint 'client/src/**/*.{js,jsx,ts,tsx}' --fix"

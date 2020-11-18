@@ -8,6 +8,6 @@ fi
 
 # this would blow up the db if the migration failed for any reason.
 # prob not the best approach!
-bundle exec rake db:migrate 2>/dev/null || bundle exec rake db:setup
+# bundle exec rake db:migrate 2>/dev/null || bundle exec rake db:setup
 
 exec "$@"

@@ -2,7 +2,7 @@
 
 if ENV['RACK_ENV'] != 'production'
   require 'dotenv'
-  Dotenv.load('.env', '.env.development', '.env.test')
+  Dotenv.load('.env')
   require 'pry'
 end
 
@@ -24,7 +24,7 @@ if ENV['RACK_ENV'] == 'production'
       address: ENV['SMTP_SERVER'],
       user_name: ENV['SMTP_LOGIN'],
       password: ENV['SMTP_PASSWORD'],
-      domain: "#{ENV['SMTP_DOMAIN']}",
+      domain: ENV['SMTP_DOMAIN'],
       authentication: :plain,
     }
   end
