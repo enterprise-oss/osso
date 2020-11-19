@@ -1,4 +1,4 @@
-FROM https://122562668695.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest as builder
+FROM node:current-alpine as builder
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
@@ -6,7 +6,7 @@ RUN yarn install
 COPY . /usr/src/app
 RUN yarn build
 
-FROM https://122562668695.dkr.ecr.us-east-1.amazonaws.com/ruby:latest
+FROM ruby:2.6.6
 RUN gem update --system
 
 RUN apt-get update -qq && apt-get install -y build-essential
