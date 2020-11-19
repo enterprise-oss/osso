@@ -89,7 +89,7 @@ data "template_file" "db_migrate_task" {
   vars = {
     image           = "sambauch/osso"
     session_secret  = local.session_secret
-    database_url    = "postgresql://${var.database_username}:${var.database_password}@${var.database_endpoint}:5432/${var.database_name}?encoding=utf8&pool=40"
+    database_url    = "postgresql://${local.db_creds.username}:${local.db_creds.password}@${var.database_endpoint}:5432/${var.database_name}?encoding=utf8&pool=40"
     log_group       = "osso"
     base_url        = "https://aws.ossoapp.io"
     smtp_login      = local.smtp_creds.smtp_login

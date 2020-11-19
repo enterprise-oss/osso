@@ -1,10 +1,10 @@
 version: '3.1'
 services:
   postgres:
-    environment:
-      - POSTGRES_DB=osso
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+    # environment:
+    #   - POSTGRES_DB=osso
+    #   - POSTGRES_USER=postgres
+    #   - POSTGRES_PASSWORD=password
     ports:
       - "5432:5432"
     volumes:
