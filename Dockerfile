@@ -6,7 +6,6 @@ RUN yarn install
 COPY . /usr/src/app
 RUN yarn build
 
-
 FROM ruby:2.6.6
 RUN gem update --system
 
