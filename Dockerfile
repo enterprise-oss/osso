@@ -1,4 +1,4 @@
-FROM node as builder
+FROM 122562668695.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest as builder
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
@@ -6,7 +6,7 @@ RUN yarn install
 COPY . /usr/src/app
 RUN yarn build
 
-FROM ruby
+FROM 122562668695.dkr.ecr.us-east-1.amazonaws.com/ruby:latest
 RUN gem update --system
 
 RUN apt-get update -qq && apt-get install -y build-essential
