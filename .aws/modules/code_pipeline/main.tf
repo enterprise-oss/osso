@@ -104,11 +104,6 @@ resource "aws_codebuild_project" "osso_build" {
       name  = "DOCKER_PASSWORD"
       value = local.dockerhub_creds.password
     }
-
-    # registry_credential {
-    #   credential = local.dockerhub_creds
-    #   credential_provider = "SECRETS_MANAGER"
-    # }
   }
 
   source {
