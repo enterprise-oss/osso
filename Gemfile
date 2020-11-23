@@ -13,7 +13,6 @@ gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
 gem 'rake'
-gem 'rodauth', git: 'https://github.com/jeremyevans/rodauth'
 gem 'sinatra'
 gem 'sentry-raven'
 
