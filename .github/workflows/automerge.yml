@@ -10,7 +10,7 @@ jobs:
       - name: Wait on CI
         uses: lewagon/wait-on-check-action@v0.1
         with:
-          ref: ${{ github.base_ref }}
+          ref: ${{ github.ref }}
           check-name: buildkite/osso # name of the existing check
           repo-token: ${{ secrets.TOKEN }}
           wait-interval: 3000 # seconds 
