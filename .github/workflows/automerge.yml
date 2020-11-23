@@ -10,7 +10,7 @@ jobs:
     - uses: hmarr/auto-approve-action@v2.0.0
       if: github.actor == 'dependabot[bot]' || github.actor == 'mergify[bot]'
       with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+        github-token: "${{ secrets.TOKEN }}"
   auto-merge:
     runs-on: ubuntu-latest
     steps:
@@ -18,4 +18,4 @@ jobs:
       - uses: ahmadnassri/action-dependabot-auto-merge@v2
         with:
           target: minor
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TOKEN }}
