@@ -75,14 +75,9 @@
     "react-router-dom": "^5.2.0",
     "use-debounce": "^5.1.0"
   },
-  "browserslist": {
-    "development": [
-      "last 1 Chrome version"
-    ],
-    "production": [
-      "defaults"
-    ]
-  },
+  "browserslist": [
+    "defaults"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "yalc check"
