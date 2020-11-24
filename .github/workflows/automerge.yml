@@ -1,0 +1,26 @@
+name: auto-merge
+
+on:
+  pull_request:
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    steps:
+#       - name: Wait on CI
+#         uses: lewagon/wait-on-check-action@v0.1
+#         with:
+#           ref: ${{ github.sha }}
+#           check-name: buildkite/osso # name of the existing check
+#           repo-token: ${{ secrets.TOKEN }}
+#           wait-interval: 3000 # seconds 
+      - uses: actions/checkout@v2
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+        with:
+          target: minor
+          github-token: ${{ secrets.TOKEN }}
+      - uses: hmarr/auto-approve-action@v2.0.0
+        if: github.actor == 'dependabot[bot]'
+        with:
+          github-token: "${{ secrets.TOKEN }}"
+      

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_160120) do
     t.citext "email", null: false
     t.integer "status_id", default: 1, null: false
     t.string "role", default: "admin", null: false
-    t.string "oauth_client_id"
+    t.uuid "oauth_client_id"
     t.index ["email"], name: "index_accounts_on_email", unique: true, where: "(status_id = ANY (ARRAY[1, 2]))"
     t.index ["oauth_client_id"], name: "index_accounts_on_oauth_client_id"
   end

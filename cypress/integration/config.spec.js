@@ -47,7 +47,7 @@ describe("Configuration", () => {
 
     it("does not have the configuration menu item", () => {
       cy.visit("/admin");
-      cy.contains("Configuration").should("not.be.visible");
+      cy.contains("Configuration").should("not.exist");
     });
 
     xit("cannot visit configuration", () => {
