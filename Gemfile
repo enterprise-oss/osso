@@ -8,12 +8,11 @@ source 'https://rubygems.org'
 
 gem 'activesupport', '>= 6.0.3.2'
 gem 'graphql'
-gem 'osso', git: 'https://github.com/enterprise-oss/osso-rb', branch: 'sbauch/emails-in-rake'
+gem 'osso', '0.0.6.alpha'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
 gem 'rake'
-gem 'rodauth', git: 'https://github.com/jeremyevans/rodauth'
 gem 'sinatra'
 gem 'sentry-raven'
 
