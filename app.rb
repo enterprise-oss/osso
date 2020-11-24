@@ -5,7 +5,6 @@ require 'osso'
 
 class App < Sinatra::Base
   include Osso::AppConfig
-  include Osso::Helpers::Auth
   include Osso::RouteMap
 
   register Sinatra::ActiveRecordExtension
