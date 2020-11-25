@@ -5,7 +5,7 @@
       <% @providers.map do |provider| %>
         <a href='<%= "/auth/saml/#{provider.id}" %>'>
           <div class="provider">
-            <img class='logo' src='<%="/logos/#{provider.name.downcase}.svg"%>' />
+            <img class='logo' src='<%="https://assets.ossoapp.io/icons/#{provider.name.downcase}.svg"%>' />
             <p class="name"><%=provider.name %></p>
           </div>
         </a>
