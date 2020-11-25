@@ -117,7 +117,7 @@ export default function AccountIdentityProviders({
                 color={color(identityProvider.status).primary}
               >
                 <div className={styles.avatarContainer}>
-                  <img src={provider.icon} />
+                  <img src={provider.iconUrl} />
                 </div>
               </Badge>
               <div className={styles.nameContainer}>
