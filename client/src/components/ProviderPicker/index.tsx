@@ -22,7 +22,7 @@ export default function ProviderPicker({
           })}
           onClick={() => onChange(providerOption.value)}
         >
-          <img src={providerOption.icon} className={styles.providerLogo} />
+          <img src={providerOption.iconUrl} className={styles.providerLogo} />
           <span className={styles.providerLabel}>{providerOption.label}</span>
         </div>
       ))}
