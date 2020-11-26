@@ -55,20 +55,20 @@
   "environments": {
     "review": {
       "addons": [],
-      "formation": {
+      "formation": [{
         "web": {
           "quantity": 1,
           "size": "free"
         }
-      }
+      }]
     }
   },
-  "formation": {
+  "formation": [{
     "web": {
       "quantity": 1,
       "size": "hobby"
     }
-  },
+  }],
   "scripts": {
     "postdeploy": "bundle exec rake osso:bootstrap"
   }
