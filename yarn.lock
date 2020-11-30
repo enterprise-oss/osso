@@ -8953,6 +8953,15 @@ postcss-filter-plugins@^3.0.1:
   dependencies:
     postcss "^6.0.14"
 
+postcss-icss-keyframes@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/postcss-icss-keyframes/-/postcss-icss-keyframes-0.2.1.tgz#80c4455e0112b0f2f9c3c05ac7515062bb9ff295"
+  integrity sha1-gMRFXgESsPL5w8Bax1FQYruf8pU=
+  dependencies:
+    icss-utils "^3.0.1"
+    postcss "^6.0.2"
+    postcss-value-parser "^3.3.0"
+
 postcss-icss-selectors@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/postcss-icss-selectors/-/postcss-icss-selectors-2.0.3.tgz#27fa1afcaab6c602c866cbb298f3218e9bc1c9b3"
@@ -9270,7 +9279,7 @@ postcss-unique-selectors@^4.0.1:
     postcss "^7.0.0"
     uniqs "^2.0.0"
 
-postcss-value-parser@^3.0.0:
+postcss-value-parser@^3.0.0, postcss-value-parser@^3.3.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
   integrity sha512-pISE66AbVkp4fDQ7VHBwRNXzAAKJjw4Vw7nWI/+Q3vuly7SNfgYXvm6i5IgFylHGK5sP/xHAbB7N49OS4gWNyQ==
@@ -11456,10 +11465,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript-plugin-css-modules@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/typescript-plugin-css-modules/-/typescript-plugin-css-modules-2.8.0.tgz#87c8825d77663407ef3091c72335b88b78387636"
-  integrity sha512-zx/MZNKvP8TogSBKuMOr/+gfknhfq15D87UGeMhrDdm051MmrnxlOIrFPzWZ1usN7GQMjYzp5w0eGGrGzlZrxQ==
+typescript-plugin-css-modules@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/typescript-plugin-css-modules/-/typescript-plugin-css-modules-3.0.1.tgz#6d9a9e11660fcba60b5679797bdcf61621705062"
+  integrity sha512-nrnI1ZX6o4iTELlYV2P+yapoaWhdWGbJRiKSeNf5yE10QrAX9MfiKVBxRF7wCdolkK9N1g0u1egUto7hojomLg==
   dependencies:
     dotenv "^8.2.0"
     icss-utils "^4.1.1"
@@ -11467,6 +11476,7 @@ typescript-plugin-css-modules@^2.8.0:
     lodash.camelcase "^4.3.0"
     postcss "^7.0.27"
     postcss-filter-plugins "^3.0.1"
+    postcss-icss-keyframes "^0.2.1"
     postcss-icss-selectors "^2.0.3"
     postcss-load-config "^2.1.0"
     reserved-words "^0.1.2"
