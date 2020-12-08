@@ -1,7 +1,9 @@
-PATH
-  remote: ../osso-rb
+GIT
+  remote: https://github.com/enterprise-oss/osso-rb.git
+  revision: 8d652203c4110f3e3bc4ba9e489cd066ba2f5521
+  branch: sbauch/hosted-login
   specs:
-    osso (0.0.7)
+    osso (0.0.8.alpha)
       activesupport (>= 6.0.3.2)
       bcrypt (~> 3.1.13)
       graphql
