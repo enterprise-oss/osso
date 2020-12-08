@@ -1,6 +1,9 @@
 .root {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 32px; 
+  justify-items: center;
+  align-items: center;
 }
 
 .provider {
