@@ -14,30 +14,42 @@ html, body {
   height: 60%;
 }
 
-.idp-selector {
+.main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   background: #FFFFFF;
   border-radius: 4px;
+  width: 325px;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
+  padding: 32px;
 }
 
-.idp-selector .title {
-  color: #595959;
+.main-content h1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin-bottom: 16px;
+  text-align: center;
+  width: 100%;
 }
 
 .providers{
-  margin-bottom: 32px;
   grid-gap: 8px;
+  margin: auto
 }
 
 .providers a {
+
   text-decoration: none;
 }
 
 .one-row {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 .multi-rows {
@@ -55,11 +67,13 @@ html, body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  transition: border 300ms;
+  margin: auto;
 }
 
 .provider:hover {
   border: 1px solid #4E61A5;
+  transition: border 300ms;
+
 }
 
 .provider .logo {
@@ -105,4 +119,86 @@ html, body {
 
 .error-main p { 
   margin: 12px auto;
+}
+
+.hosted-login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hosted-login-form label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  color: #8C8C8C;
+}
+
+.hosted-login .button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hosted-login-form input[type="email"] {
+  border: 1px solid #D9D9D9;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 8px 6px;
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #595959;
+}
+
+
+.hosted-login input[type="submit"],
+.hosted-login button {
+  padding: 5px 16px;
+  border-radius: 2px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.hosted-login input[type="submit"] {
+  background: #595959;
+  color: #FFFFFF;
+}
+
+.hosted-login input[type="submit"]:hover,
+.hosted-login input[type="submit"]:focus {
+}
+
+.hosted-login input[type="submit"]:focus {
+
+}
+
+.hosted-login input[type="submit"]:disabled {
+  opacity: 0.25;
+}
+
+.hosted-login input[type="submit"]:active {
+    transform: scale(0.99);
+}
+
+.hosted-login button {
+  background: #FFFFFF;
+  border: 1px solid #262626;
 }
