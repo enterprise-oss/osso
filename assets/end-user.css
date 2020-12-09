@@ -3,6 +3,7 @@ html, body {
   background-color: #e8e8e8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   margin: 0;
+  overscroll-behavior: none;
 }
 
 .container {
@@ -11,7 +12,8 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 60%;
+  padding-top: 120px;
+  height: auto;
 }
 
 .main-content {
@@ -32,7 +34,6 @@ html, body {
   line-height: 24px;
   color: #262626;
   margin-bottom: 16px;
-  text-align: center;
   width: 100%;
 }
 
@@ -150,9 +151,28 @@ html, body {
   margin-bottom: 28px;
   font-size: 14px;
   line-height: 22px;
-  color: #595959;
+  color: #000000;
 }
 
+.hosted-login-form input[type="email"]::placeholder {
+color: #BFBFBF;
+}
+
+
+.hosted-login-form input[type="email"]:hover {
+  box-shadow: 0px 0px 4px rgba(217, 217, 217, 0.74);
+}
+
+.hosted-login-form input[type="email"]:focus {
+  border: 1px solid #8BC7FF;
+  box-shadow: 0px 0px 4px rgba(24, 144, 255, 0.5);
+  outline: none;
+}
+
+.hosted-login-form input[type="email"]:valid:not(:focus) {
+  border: 1px solid #000000;
+  outline: none;
+}
 
 .hosted-login input[type="submit"],
 .hosted-login button {
@@ -171,7 +191,7 @@ html, body {
   text-decoration: none;
   cursor: pointer;
   text-align: center;
-  transition: background 250ms ease-in-out, 
+  transition: all 250ms ease-in-out, 
               transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -182,23 +202,34 @@ html, body {
   color: #FFFFFF;
 }
 
-.hosted-login input[type="submit"]:hover,
-.hosted-login input[type="submit"]:focus {
-}
-
-.hosted-login input[type="submit"]:focus {
-
-}
-
 .hosted-login input[type="submit"]:disabled {
   opacity: 0.25;
 }
 
-.hosted-login input[type="submit"]:active {
-    transform: scale(0.99);
+.hosted-login input[type="submit"]:hover:not(:disabled),
+.hosted-login input[type="submit"]:focus {
+  background-color: #000000;
 }
+
+.hosted-login input[type="submit"]:active {
+  box-shadow: 0px 0px 4px rgba(24, 144, 255, 0.5); */
+}
+
+.hosted-login input[type="submit"]:active,
+.hosted-login input[type="submit"]:focus {
+  outline-color: #8BC7FF;
+}
+
 
 .hosted-login button {
   background: #FFFFFF;
-  border: 1px solid #262626;
+  border: 1px solid #595959;
+}
+
+.hosted-login button:active,
+.hosted-login button:hover,
+.hosted-login button:focus {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  outline-color: #8BC7FF;
 }

@@ -5,6 +5,7 @@ require 'dotenv/load' unless ENV['RACK_ENV']
 require './app'
 require 'osso'
 require 'sinatra/activerecord/rake'
+require 'sinatra/asset_pipeline/task'
 
 if ENV['RACK_ENV'] == 'production'
   Mail.defaults do
@@ -25,3 +26,5 @@ load osso_rakefile
 
 Dir.glob("#{osso.gem_dir}/lib/tasks/*.rake").each { |r| load r }
 Dir.glob('lib/tasks/*.rake').each { |r| load r }
+
+Sinatra::AssetPipeline::Task.define! App

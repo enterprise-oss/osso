@@ -14,6 +14,7 @@ gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
 gem 'rake'
 gem 'sinatra'
+gem 'sinatra-asset-pipeline', '~> 2.2.0'
 gem 'sentry-raven'
 
 group :test do
