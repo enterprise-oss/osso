@@ -5,6 +5,8 @@ require 'osso'
 require 'sinatra/asset_pipeline'
 
 class App < Sinatra::Base
+  set :assets_paths, %w(assets)
+
   include Osso::AppConfig
   include Osso::RouteMap
 
