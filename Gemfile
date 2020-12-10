@@ -17,6 +17,8 @@ gem 'sinatra'
 gem 'sinatra-asset-pipeline', '~> 2.2.0'
 gem 'sentry-raven'
 
+gem 'sinatra-activerecord', '2.0.20'
+
 group :test do
   gem 'database_cleaner-active_record'
   gem 'factory_bot'
