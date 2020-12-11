@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="main-content hosted-login">
+    <h1>Please enter your email address</h1>
+    <form id="hosted-login-form" class="hosted-login-form" method='get'>
+      <label for="email">Work email</label>
+      <input id="email-input" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" type="email" name="email" required placeholder="you@company.com" />
+      <input type="hidden" name="redirect_uri" value="<%= params[:redirect_uri] %>" />
+      <input type="hidden" name="client_id" value="<%= params[:client_id] %>" />
+      <input type="hidden" name="state" value="<%= params[:state] %>" />
+      <input type="hidden" name="response_type" value="code" />
+    </form>
+
+      <div class="button-row">
+        <button onclick="window.history.go(-1)">Go back</button>
+        <input id="hosted-login-button" type="submit" value="Sign in" form="hosted-login-form"/>
+      </div>  
+  </div>  
+</div>  

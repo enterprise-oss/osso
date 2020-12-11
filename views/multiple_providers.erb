@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="idp-selector">
-    <p class="title">Please select your Identity Provider</p>
+  <div class="main-content">
+    <h1>Please select your Identity Provider</h1>
     <div class="providers <%= @providers.count > 3 ? 'multi-rows' : 'one-row' %>">
       <% @providers.map do |provider| %>
         <a href='<%= "/auth/saml/#{provider.id}" %>'>
