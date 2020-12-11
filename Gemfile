@@ -16,7 +16,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'sentry-raven'
 
-gem 'sinatra-activerecord', '2.0.21'
+gem 'sinatra-activerecord', '2.0.20'
 
 group :test do
   gem 'database_cleaner-active_record'
