@@ -18,3 +18,6 @@ updates:
     - "dependencies"
     - "ruby"
     - "automerge"
+  ignore:
+    - dependency-name: "sinatra-activerecord"
+      versions: ["2.0.21"]
