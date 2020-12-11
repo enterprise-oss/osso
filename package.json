@@ -7,7 +7,7 @@
     "start": "parcel serve ./client/src/index.tsx",
     "build": "parcel build ./client/src/index.tsx --dist-dir ./public --log-level=error",
     "typecheck": "tsc --noEmit -p client",
-    "clean": "rm -rf client/dist && rm -rf .parcel-cache",
+    "clean": "rm -rf client/dist && rm -rf .parcel-cache && git clean -f ./public/",
     "test": "jest",
     "lint": "eslint 'client/src/**/*.{js,jsx,ts,tsx}'",
     "lintfix": "eslint 'client/src/**/*.{js,jsx,ts,tsx}' --fix"
@@ -71,14 +71,6 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "use-debounce": "^5.1.0"
-  },
-  "browserslist": {
-    "development": [
-      "last 1 Chrome version"
-    ],
-    "production": [
-      "defaults"
-    ]
   },
   "husky": {
     "hooks": {
