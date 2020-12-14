@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_143501) do
+ActiveRecord::Schema.define(version: 2020_12_02_150159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2020_11_25_143501) do
     t.index ["oauth_client_id"], name: "index_access_tokens_on_oauth_client_id"
     t.index ["token", "expires_at"], name: "index_access_tokens_on_token_and_expires_at", unique: true
     t.index ["user_id"], name: "index_access_tokens_on_user_id"
+  end
+
+  create_table "account_jwt_refresh_keys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "account_id"
+    t.string "key", null: false
+    t.datetime "deadline", default: -> { "(CURRENT_TIMESTAMP + 'P1D'::interval)" }, null: false
+    t.index ["account_id"], name: "index_account_jwt_refresh_keys_on_account_id"
   end
 
   create_table "account_password_hashes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -58,7 +65,9 @@ ActiveRecord::Schema.define(version: 2020_11_25_143501) do
     t.integer "status_id", default: 1, null: false
     t.string "role", default: "admin", null: false
     t.string "oauth_client_id"
+    t.uuid "enterprise_account_id"
     t.index ["email"], name: "index_accounts_on_email", unique: true, where: "(status_id = ANY (ARRAY[1, 2]))"
+    t.index ["enterprise_account_id"], name: "index_accounts_on_enterprise_account_id"
     t.index ["oauth_client_id"], name: "index_accounts_on_oauth_client_id"
   end
 

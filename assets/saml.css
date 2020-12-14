@@ -1,0 +1,237 @@
+@import './reset.min.css';
+
+html, body {
+  height: 100vh;
+  background-color: #e8e8e8;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+.container {
+  max-width: 368px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 120px;
+  height: auto;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #FFFFFF;
+  border-radius: 4px;
+  width: 400px;
+  filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
+  padding: 32px;
+}
+
+.main-content h1 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #262626;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.providers{
+  grid-gap: 8px;
+  margin: auto
+}
+
+.providers a {
+
+  text-decoration: none;
+}
+
+.one-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.multi-rows {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.provider {
+  width: 96px;
+  height: 96px;
+  border: 1px solid #D9D9D9;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+}
+
+.provider:hover {
+  border: 1px solid #4E61A5;
+  transition: border 300ms;
+
+}
+
+.provider .logo {
+  margin-top: 18px;
+  width: 42px;
+  height: 42px;
+}
+
+.provider .name {
+  font-size: 12px;
+  line-height: 20px;
+  color: #8C8C8C;
+  margin-bottom: 6px;
+}
+
+
+/* TODO: DRY up / refactor CSS once Sam designs this */
+.error-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60%;
+}
+
+.error-main {
+  background: #FFFFFF;
+  border-radius: 4px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.error-main h1 {
+  font-size: 46px;
+  margin-bottom: 16px;
+}
+.error-main h4 {
+  color: #E52019;
+}
+
+.error-main p { 
+  margin: 12px auto;
+}
+
+.hosted-login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hosted-login-form label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  color: #8C8C8C;
+}
+
+.hosted-login .button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hosted-login-form input[type="email"] {
+  border: 1px solid #D9D9D9;
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 8px 6px;
+  margin-bottom: 44px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.hosted-login-form input[type="email"]::placeholder {
+color: #BFBFBF;
+}
+
+
+.hosted-login-form input[type="email"]:hover {
+  box-shadow: 0px 0px 4px rgba(217, 217, 217, 0.74);
+}
+
+.hosted-login-form input[type="email"]:focus {
+  border: 1px solid #8BC7FF;
+  box-shadow: 0px 0px 4px rgba(24, 144, 255, 0.5);
+  outline: none;
+}
+
+.hosted-login-form input[type="email"]:valid:not(:focus) {
+  border: 1px solid #000000;
+  outline: none;
+}
+
+.hosted-login input[type="submit"],
+.hosted-login button {
+  padding: 5px 16px;
+  border-radius: 2px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.hosted-login input[type="submit"] {
+  background: #595959;
+  color: #FFFFFF;
+}
+
+.hosted-login input[type="submit"]:disabled {
+  opacity: 0.25;
+}
+
+.hosted-login input[type="submit"]:hover:not(:disabled),
+.hosted-login input[type="submit"]:focus {
+  background-color: #000000;
+}
+
+.hosted-login input[type="submit"]:active {
+  box-shadow: 0px 0px 4px rgba(24, 144, 255, 0.5);
+}
+
+.hosted-login input[type="submit"]:active,
+.hosted-login input[type="submit"]:focus {
+  outline-color: #8BC7FF;
+}
+
+
+.hosted-login button {
+  background: #FFFFFF;
+  border: 1px solid #595959;
+}
+
+.hosted-login button:active,
+.hosted-login button:hover,
+.hosted-login button:focus {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  outline-color: #8BC7FF;
+}
