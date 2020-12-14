@@ -61,12 +61,6 @@ We also offer paid hosted plans that can reduce the integration workload on your
 
 Git-based deploys are another recommended way to deploy and maintain your own Osso instance. Updates will primarily be made in osso-rb and osso-react, libraries that provide the core functionality, so be sure to stay on top of updates.
 
-#### Authenticate to Admin UI
-
-Osso uses JWTs for Admin auth. Craft a JWT on your own server with `{scope: 'admin', email: 'you@company.com'}`, sign it with your `JWT_HMAC_SECRET` and send yourself to Osso with a `token` query parameter - see our [JWT Authentication docs](https://ossoapp.com/docs/integration/jwt-authentication) for more.
-
-Osso hosted plans let you skip this step, and provide a team management portal for logging in to your Osso Admin UI.
-
 #### Consume OAuth
 
 When a user wants to sign in to your application with SAML, send them to Osso with their email domain as part of an OAuth 2.0 authorization flow. Osso routes the user to their SAML provider, normalizes the payload, and sends them back to your application to complete the OAuth flow.
@@ -77,12 +71,11 @@ Use [omniauth-osso](https://github.com/enterprise-oss/omniauth-osso) or [passpor
 ## Documentation
 
 Osso's primary documentation is at [ossoapp.com](https://ossoapp.com). Key sections include:
-* [SSO and SAML Background](https://ossoapp.com/docs/what-is-saml) - Learn about Single Sign-On and SAML, why your customers want it and how to integrate it to your offering. 
- * [Deployment](https://ossoapp.com/docs/integration/deployment) - Guides for deploying Osso to Heroku, via git or Docker, plus how to keep your instance up to date.
- * [JWT Authentication](https://ossoapp.com/docs/integration/jwt-authentication) - Authenticating admin or end-users to your Osso instance to configure SAML providers or OAuth clients.
- * [OAuth Setup](https://ossoapp.com/docs/integration/oauth-consumption) - Authenticating SAML users to your application via OAuth.  
- * [Self-serve Integration](https://ossoapp.com/docs/integration/self-serve-osso-react) - Use our React library to build forms in your app that allow your customers to configure SAML themselves.
- 
+* [Overview](https://ossoapp.com/docs/overview) - Learn about Single Sign-On and SAML, why your customers want it and how to integrate it using Osso.
+* [Quick start](https://ossoapp.com/docs/quick-start) - A brief overview of a typical timeline for integrating Osso.
+ * [Deployment](https://ossoapp.com/docs/deploy/overview) - Guides for deploying Osso to Heroku, via git or Docker, plus how to keep your instance up to date.
+ * [OAuth Setup](https://ossoapp.com/docs/consume/overview) - Authenticating SAML users to your application via OAuth.  
+ * [Using Osso](https://ossoapp.com/docs/user-guide/overview) - A walk-through of the main functionality in our [Admin UI](https://demo.ossoapp.com/admin/enterprise).
  
 
 <!-- <a href="#"><img align="right" src="https://placekitten.com/40/40" width="40px" /></a> -->
