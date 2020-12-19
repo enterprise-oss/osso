@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/enterprise-oss/osso-rb.git
-  revision: 986d4251cf4c61cb9ebdcc004b3f48a263f65672
-  branch: sbauch/hosted-login
+  revision: a201204e899788c0a0f7865762c512a9b044937d
+  branch: sbauch/email-copy
   specs:
-    osso (0.0.8.alpha)
+    osso (0.0.8)
       activesupport (>= 6.0.3.2)
       bcrypt (~> 3.1.13)
       graphql
@@ -118,10 +118,10 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
-    rake (13.0.1)
+    rake (13.0.2)
     regexp_parser (2.0.0)
     rexml (3.2.4)
-    roda (3.38.0)
+    roda (3.39.0)
       rack
     rodauth (2.6.0)
       roda (>= 2.6.0)
@@ -181,7 +181,7 @@ GEM
       sinatra (= 2.1.0)
       tilt (~> 2.0)
     tilt (2.0.10)
-    tzinfo (2.0.3)
+    tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.7.0)
     webmock (3.10.0)
