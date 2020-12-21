@@ -39,6 +39,10 @@ steps:
   - name: ":codeclimate:"
     commands:
       - '.buildkite/report-coverage.sh'
+    soft_fail:
+      - exit_status: 1
+
+  - wait
 
   - name: ":broom:"
     commands: "yarn clean"
