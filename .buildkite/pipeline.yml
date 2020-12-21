@@ -40,8 +40,6 @@ steps:
     commands:
       - '.buildkite/report-coverage.sh'
 
-  - wait
-
   - name: ":broom:"
     commands: "yarn clean"
     branches: "main"
