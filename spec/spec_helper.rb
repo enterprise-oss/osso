@@ -11,6 +11,7 @@ require 'rack/test'
 require 'rspec'
 require 'webmock/rspec'
 
+ENV['BASE_URL'] = 'https://example.ossoapp.com'
 ENV['RACK_ENV'] = 'test'
 ENV['SESSION_SECRET'] = 'supersecret'
 
