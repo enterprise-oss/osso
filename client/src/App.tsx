@@ -1,7 +1,7 @@
 import '@enterprise-oss/ant-theme';
 
 import { OssoProvider } from '@enterprise-oss/osso';
-import { Col, Layout, Row } from 'antd';
+import { Layout } from 'antd';
 import React, {
   Dispatch,
   ReactElement,
