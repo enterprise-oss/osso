@@ -1,5 +1,7 @@
-PATH
-  remote: ../osso-rb
+GIT
+  remote: https://github.com/enterprise-oss/osso-rb.git
+  revision: e6db94759a8952429b89a6699b95387bc684a71a
+  branch: sbauch/jwt-login
   specs:
     osso (0.0.9)
       activesupport (>= 6.0.3.2)
@@ -13,7 +15,7 @@ PATH
       rack-contrib
       rack-oauth2
       rake
-      rodauth (~> 2.6.0)
+      rodauth (>= 2.6, < 2.8)
       sequel (>= 5.37, < 5.40)
       sequel-activerecord_connection (>= 0.3, < 2.0)
       sinatra
@@ -121,7 +123,7 @@ GEM
     rexml (3.2.4)
     roda (3.39.0)
       rack
-    rodauth (2.6.0)
+    rodauth (2.7.0)
       roda (>= 2.6.0)
       sequel (>= 4)
     rspec (3.10.0)
