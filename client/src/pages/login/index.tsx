@@ -128,7 +128,7 @@ export default function login({
 
         <Form.Item style={{ marginTop: 8 }}>
           <Button ghost htmlType="submit" size="large" block>
-            Log in
+            Login
           </Button>
         </Form.Item>
       </Form>
