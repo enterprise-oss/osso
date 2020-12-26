@@ -123,7 +123,12 @@ export default function login({
           name="password"
           rules={[{ required: true, message: 'Please input your password' }]}
         >
-          <Input.Password size="large" name="password" id="password" />
+          <Input.Password
+            size="large"
+            name="password"
+            id="password"
+            placeholder="8 characters minimum"
+          />
         </Form.Item>
 
         <Form.Item style={{ marginTop: 8 }}>
