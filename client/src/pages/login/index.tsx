@@ -114,7 +114,7 @@ export default function login({
           className={styles.formItem}
           rules={[{ required: true, message: 'Please input your email' }]}
         >
-          <Input size="large" name="login" />
+          <Input size="large" name="login" id="login" />
         </Form.Item>
 
         <Form.Item
@@ -123,7 +123,7 @@ export default function login({
           name="password"
           rules={[{ required: true, message: 'Please input your password' }]}
         >
-          <Input.Password size="large" name="password" />
+          <Input.Password size="large" name="password" id="password" />
         </Form.Item>
 
         <Form.Item style={{ marginTop: 8 }}>
