@@ -63,23 +63,21 @@
       }]
     }
   },
-  "formation": [
-    {
+  "formation": [{
+    "web": {
       "type": "web",
       "quantity": 1,
       "size": "hobby"
     },
-    {
-      "type": "release",
+    "release": {
       "quantity": 1,
       "size": "hobby"
     },
-    {
-      "type": "run",
+    "run": {
       "quantity": 1,
       "size": "hobby"
     }
-  ],
+  }],
   "scripts": {
     "postdeploy": "bundle exec rake osso:bootstrap"
   }
