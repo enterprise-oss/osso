@@ -63,7 +63,7 @@
       }]
     }
   },
-  "formation": {
+  "formation": [{
     "web": {
       "quantity": 1,
       "size": "hobby"
@@ -76,7 +76,7 @@
       "quantity": 0,
       "size": "hobby"
     }
-  },
+  }],
   "scripts": {
     "postdeploy": "bundle exec rake osso:bootstrap"
   }
