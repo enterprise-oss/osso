@@ -137,7 +137,7 @@ export default function AccountIdentityProviders({
               <div className={styles.mainContainer}>
                 <div className={styles.statusRow}>
                   <div>
-                    <label>Status: </label>
+                    <label className={styles.statusRow}>Status: </label>
                     <StatusStringTag identityProvider={identityProvider} />
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function AccountIdentityProviders({
                 <div>
                   <ul className={styles.actionsList}>
                     <li>
-                      <label>Actions:</label>
+                      <label className={styles.statusRow}>Actions:</label>
                     </li>
                     <li>
                       <a onClick={downloadDocs}>
@@ -198,7 +198,10 @@ export default function AccountIdentityProviders({
             <Col lg={24} xl={12}>
               {showDetails && (
                 <>
-                  <label style={{ display: 'block', marginBottom: 16 }}>
+                  <label
+                    className={styles.statusRow}
+                    style={{ display: 'block', marginBottom: 16 }}
+                  >
                     IDP configuration data:
                   </label>
                   <Table
