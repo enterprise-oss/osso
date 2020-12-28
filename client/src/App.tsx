@@ -9,7 +9,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 
 import styles from './App.module.css';
 import Header from './components/Header';
@@ -65,10 +65,14 @@ function AdminApp(): ReactElement {
 
 function App(): ReactElement {
   const [token, setToken] = useState(localStorage.getItem('adminJwt') || '');
+  const history = useHistory();
 
   useEffect(() => {
     localStorage.setItem('adminJwt', token);
   }, [token]);
+
+  // TODO: show a login modal for re-authenticate?
+  const onUnauthorized = () => history.replace('/login');
 
   return (
     <Switch>
@@ -76,7 +80,7 @@ function App(): ReactElement {
         <AuthRoutes setToken={setToken} />
       </Route>
 
-      <OssoProvider client={{ jwt: token }}>
+      <OssoProvider client={{ jwt: token, onUnauthorized }}>
         <Route component={AdminApp} />
       </OssoProvider>
     </Switch>
