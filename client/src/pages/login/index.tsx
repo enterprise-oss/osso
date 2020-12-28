@@ -124,6 +124,7 @@ export default function login({
             name="password"
             id="password"
             placeholder="8 characters minimum"
+            visibilityToggle={false}
           />
         </Form.Item>
 

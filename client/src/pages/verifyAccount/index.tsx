@@ -108,7 +108,7 @@ export default function verifyAccountPage({
           name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
-          <Input.Password size="large" />
+          <Input.Password size="large" visibilityToggle={false} />
         </Form.Item>
 
         <Form.Item
@@ -118,7 +118,7 @@ export default function verifyAccountPage({
           style={{ marginBottom: 32 }}
           rules={[{ required: true, message: 'Please input your password!' }]}
         >
-          <Input.Password size="large" />
+          <Input.Password size="large" visibilityToggle={false} />
         </Form.Item>
 
         <Form.Item style={{ marginTop: 8, marginBottom: 0 }}>
