@@ -121,7 +121,7 @@ export default function verifyAccountPage({
           <Input.Password size="large" />
         </Form.Item>
 
-        <Form.Item>
+        <Form.Item style={{ marginTop: 8, marginBottom: 0 }}>
           <Button ghost htmlType="submit" size="large" block>
             Create account
           </Button>
