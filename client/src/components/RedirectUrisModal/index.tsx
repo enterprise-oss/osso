@@ -158,7 +158,6 @@ export default function RedirectUrisModal({
           </Form.Item>
         ))}
         <Button
-          type="ghost"
           shape="circle"
           icon={<PlusOutlined />}
           onClick={() => dispatch({ type: 'addNew' })}

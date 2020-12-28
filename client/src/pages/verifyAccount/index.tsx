@@ -115,7 +115,13 @@ export default function verifyAccountPage({
         </Form.Item>
 
         <Form.Item style={{ marginTop: 8, marginBottom: 0 }}>
-          <Button ghost htmlType="submit" size="large" block>
+          <Button
+            ghost
+            htmlType="submit"
+            size="large"
+            block
+            className={styles.submitButton}
+          >
             Create account
           </Button>
         </Form.Item>

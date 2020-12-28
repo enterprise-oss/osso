@@ -9,12 +9,7 @@ export default function ButtonComponent({
   loading,
 }: OssoButtonComponentProps): ReactElement {
   return (
-    <Button
-      loading={loading}
-      type="ghost"
-      onClick={onClick}
-      icon={<DownloadOutlined />}
-    >
+    <Button loading={loading} onClick={onClick} icon={<DownloadOutlined />}>
       {children}
     </Button>
   );
