@@ -19,7 +19,6 @@ export default function login({
   onAuth: Dispatch<SetStateAction<string>>;
 }): ReactElement {
   const [form] = useForm();
-  const [csrfToken, setCSRF] = useState('');
   const history = useHistory();
 
   const onFinish = (values) => {
@@ -31,8 +30,6 @@ export default function login({
         'Content-Type': 'application/json',
       },
     }).then((response) => {
-      console.log('token');
-
       if (response.status === 200) {
         const token = response.headers.get('Authorization');
         onAuth(token);
@@ -47,42 +44,13 @@ export default function login({
           },
         ]);
       }
-
-      // const form = document.createElement('form');
-      // form.method = 'POST';
-      // form.action = '/login';
-
-      // for (const key in values) {
-      //   if (values.hasOwnProperty(key)) {
-      //     const hiddenField = document.createElement('input');
-      //     hiddenField.type = 'hidden';
-      //     hiddenField.name = key;
-      //     hiddenField.value = values[key];
-
-      //     form.appendChild(hiddenField);
-      //   }
-      // }
-
-      // document.body.appendChild(form);
-      // form.submit();
     });
   };
-
-  useEffect(() => {
-    const jsonNode = document.querySelector("script[type='application/json']");
-    const jsonText = jsonNode.textContent;
-    const jsonData = JSON.parse(jsonText);
-    const regex = /(value)=["']?((?:.(?!["']?\+(?:\S+)=|\s*\/?[>"']))+.)["']?/g;
-    const matches = regex.exec(jsonData?.csrfTag);
-    setCSRF(matches[2]);
-  }, []);
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
 
-  console.log(csrfToken);
-  if (!csrfToken) return null;
   return (
     <div className={styles.main}>
       <Logo width={57} />
@@ -99,7 +67,6 @@ export default function login({
         initialValues={{
           remember: true,
           email: 'sam@enterpriseoss.dev',
-          _csrf: csrfToken,
         }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}

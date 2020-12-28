@@ -19,7 +19,6 @@ export default function verifyAccountPage({
   onAuth: Dispatch<SetStateAction<string>>;
 }): ReactElement {
   const [form] = useForm();
-  const [csrfToken, setCSRF] = useState('');
   const [email, setEmail] = useState('');
   const [key, setKey] = useState('');
   const history = useHistory();
@@ -61,9 +60,6 @@ export default function verifyAccountPage({
     const jsonNode = document.querySelector("script[type='application/json']");
     const jsonText = jsonNode.textContent;
     const jsonData = JSON.parse(jsonText);
-    const regex = /(value)=["']?((?:.(?!["']?\+(?:\S+)=|\s*\/?[>"']))+.)["']?/g;
-    const matches = regex.exec(jsonData?.csrfTag);
-    setCSRF(matches[2]);
     setEmail(jsonData.account.email);
     setKey(jsonData.session.verify_account_key);
   }, []);
@@ -72,8 +68,6 @@ export default function verifyAccountPage({
     console.log('Failed:', errorInfo);
   };
 
-  console.log(csrfToken);
-  if (!csrfToken) return null;
   return (
     <div className={styles.main}>
       <Logo width={57} />
@@ -88,7 +82,6 @@ export default function verifyAccountPage({
         initialValues={{
           remember: true,
           login: email,
-          _csrf: csrfToken,
           key,
         }}
         onFinish={onFinish}
