@@ -1,12 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
-import React, {
-  Dispatch,
-  ReactElement,
-  SetStateAction,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Dispatch, ReactElement, SetStateAction } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Logo from '~/client/src/resources/Logo.svg';
