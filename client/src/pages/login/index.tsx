@@ -104,10 +104,6 @@ export default function login({
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
-        {/* <Form.Item name="_csrf" noStyle>
-          <input value={csrfToken} type="hidden" name="_csrf" />
-        </Form.Item> */}
-
         <Form.Item
           label="Email"
           name="login"

@@ -94,16 +94,12 @@ export default function verifyAccountPage({
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
       >
-        <Form.Item name="_csrf" noStyle>
-          <input value={csrfToken} type="hidden" />
-        </Form.Item>
-
         <Form.Item name="key" noStyle>
           <input value={key} type="hidden" />
         </Form.Item>
 
         <Form.Item label="Email" name="login" className={styles.formItem}>
-          <Input readOnly size="large" value={email} />
+          <Input disabled readOnly size="large" value={email} />
         </Form.Item>
 
         <Form.Item
