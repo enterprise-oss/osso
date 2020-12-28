@@ -55,7 +55,7 @@ export default function EmptyAccountIdentityProviders({
             <div className={styles.mainContainer}>
               <div className={styles.statusRow}>
                 <div>
-                  <label>Status: </label>
+                  <label className={styles.label}>Status: </label>
                   <span className={styles.status}>Awaiting setup</span>
                 </div>
               </div>

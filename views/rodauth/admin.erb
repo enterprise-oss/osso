@@ -7,11 +7,18 @@
         <link rel="stylesheet" type="text/css" href="http://localhost:1234/index.css">
     <% else %>  
         <link rel="stylesheet" type="text/css" href="/index.css">
-    <% end %> 
+    <% end %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <script type="application/json">
+      <%= {csrfTag: rodauth.csrf_tag, account: rodauth.account, session: rodauth.session.to_hash }.to_json %>
+    </script>
   </head>
   <body>
     <div id="root"></div>
