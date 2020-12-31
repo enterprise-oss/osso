@@ -68,6 +68,8 @@ export default function verifyAccountPage({
     console.log('Failed:', errorInfo);
   };
 
+  if (!email) return null;
+
   return (
     <div className={styles.main}>
       <Logo width={57} />
