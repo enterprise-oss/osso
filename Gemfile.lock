@@ -156,7 +156,7 @@ GEM
       activerecord (>= 4.2, < 7)
       after_commit_everywhere (~> 0.1.5)
       sequel (~> 5.16)
-    simplecov (0.21.0)
+    simplecov (0.21.1)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
@@ -206,7 +206,7 @@ DEPENDENCIES
   rspec (~> 3.10)
   rubocop
   sentry-raven
-  simplecov (= 0.21.0)
+  simplecov (= 0.21.1)
   sinatra
   sinatra-activerecord (= 2.0.20)
   webmock (~> 3.11)
