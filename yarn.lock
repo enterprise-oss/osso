@@ -1259,17 +1259,17 @@
   resolved "https://registry.yarnpkg.com/@enterprise-oss/ant-theme/-/ant-theme-1.0.7.tgz#b4a1e521606d9545a9fd0aaf7fd44feac989cedd"
   integrity sha512-vKYt92gzrvV99jYL+t0wz6hybzpV9wcvKkYHqRQjF8hAeMh5FB4SnoFyEIRN2k1D255xigEf9KOtlAR40QnNnw==
 
-"@enterprise-oss/osso@^0.1.2-alpha":
-  version "0.1.2-alpha"
-  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.1.2-alpha.tgz#32fb383cc18fcdbdc284276f4bd867077110659b"
-  integrity sha512-BouBk0jTyMAEs3WHOx+T6xfPF4vXsuAuSQvwRrpQJdmyc0DOnp4a9nCxkH/5e9+lMM26wp07XDn2GAFNgh7nzg==
+"@enterprise-oss/osso@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@enterprise-oss/osso/-/osso-0.1.2.tgz#28a85999dd8c33dd67c4946fc16192802aadf5f6"
+  integrity sha512-gAGA3w8s+Qtxm5U/hlKPqCZSxjhx9h9m2VBS5iRatCr873774rdo5yDyUkk307XRTK5VTUxUM5Rlf54xnfKxgg==
   dependencies:
     "@apollo/client" "^3.2.7"
     "@pdf-lib/fontkit" "^1.1.0"
     apollo-link-context "^1.0.20"
     base64-arraybuffer "^0.2.0"
     downloadjs "^1.4.7"
-    fast-xml-parser "^3.17.4"
+    fast-xml-parser "^3.17.6"
     graphql "^15.4.0"
     graphql-tag "^2.11.0"
     pdf-lib "^1.12.0"
@@ -2394,6 +2394,70 @@
   integrity sha512-MI4Xx6LHs4Webyvi6EbspgyAb4D2Q2VtnCQ1blOJcoLS6mVa8lNN2rkIy1CVxfTUpoyIbCTkXES1rLXztFD1lg==
   dependencies:
     any-observable "^0.3.0"
+
+"@sentry/browser@5.29.2":
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-5.29.2.tgz#51adb4005511b1a4a70e4571880fc6653d651f91"
+  integrity sha512-uxZ7y7rp85tJll+RZtXRhXPbnFnOaxZqJEv05vJlXBtBNLQtlczV5iCtU9mZRLVHDtmZ5VVKUV8IKXntEqqDpQ==
+  dependencies:
+    "@sentry/core" "5.29.2"
+    "@sentry/types" "5.29.2"
+    "@sentry/utils" "5.29.2"
+    tslib "^1.9.3"
+
+"@sentry/core@5.29.2":
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-5.29.2.tgz#9e05fe197234161d57aabaf52fab336a7c520d81"
+  integrity sha512-7WYkoxB5IdlNEbwOwqSU64erUKH4laavPsM0/yQ+jojM76ErxlgEF0u//p5WaLPRzh3iDSt6BH+9TL45oNZeZw==
+  dependencies:
+    "@sentry/hub" "5.29.2"
+    "@sentry/minimal" "5.29.2"
+    "@sentry/types" "5.29.2"
+    "@sentry/utils" "5.29.2"
+    tslib "^1.9.3"
+
+"@sentry/hub@5.29.2":
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/@sentry/hub/-/hub-5.29.2.tgz#208f10fe6674695575ad74182a1151f71d6df00a"
+  integrity sha512-LaAIo2hwUk9ykeh9RF0cwLy6IRw+DjEee8l1HfEaDFUM6TPGlNNGObMJNXb9/95jzWp7jWwOpQjoIE3jepdQJQ==
+  dependencies:
+    "@sentry/types" "5.29.2"
+    "@sentry/utils" "5.29.2"
+    tslib "^1.9.3"
+
+"@sentry/minimal@5.29.2":
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/@sentry/minimal/-/minimal-5.29.2.tgz#420bebac8d03d30980fdb05c72d7b253d8aa541b"
+  integrity sha512-0aINSm8fGA1KyM7PavOBe1GDZDxrvnKt+oFnU0L+bTcw8Lr+of+v6Kwd97rkLRNOLw621xP076dL/7LSIzMuhw==
+  dependencies:
+    "@sentry/hub" "5.29.2"
+    "@sentry/types" "5.29.2"
+    tslib "^1.9.3"
+
+"@sentry/react@^5.29.2":
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/@sentry/react/-/react-5.29.2.tgz#e0e2055db6f9c7a3957630e726b23d6a0f2d12f2"
+  integrity sha512-Fvh4l6/wrnO3FWqte7lPUsuWE5o6t3FHwZqVINgCIabpwPMorvOVzm/gwG7uzhuCoyNTP28svR670sl4BnRuTg==
+  dependencies:
+    "@sentry/browser" "5.29.2"
+    "@sentry/minimal" "5.29.2"
+    "@sentry/types" "5.29.2"
+    "@sentry/utils" "5.29.2"
+    hoist-non-react-statics "^3.3.2"
+    tslib "^1.9.3"
+
+"@sentry/types@5.29.2":
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-5.29.2.tgz#ac87383df1222c2d9b9f8f9ed7a6b86ea41a098a"
+  integrity sha512-dM9wgt8wy4WRty75QkqQgrw9FV9F+BOMfmc0iaX13Qos7i6Qs2Q0dxtJ83SoR4YGtW8URaHzlDtWlGs5egBiMA==
+
+"@sentry/utils@5.29.2":
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-5.29.2.tgz#99a5cdda2ea19d34a41932f138d470adcb3ee673"
+  integrity sha512-nEwQIDjtFkeE4k6yIk4Ka5XjGRklNLThWLs2xfXlL7uwrYOH2B9UBBOOIRUraBm/g/Xrra3xsam/kRxuiwtXZQ==
+  dependencies:
+    "@sentry/types" "5.29.2"
+    tslib "^1.9.3"
 
 "@sideway/address@^4.1.0":
   version "4.1.0"
@@ -5628,10 +5692,10 @@ fast-url-parser@1.1.3:
   dependencies:
     punycode "^1.3.2"
 
-fast-xml-parser@^3.17.4:
-  version "3.17.4"
-  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.17.4.tgz#d668495fb3e4bbcf7970f3c24ac0019d82e76477"
-  integrity sha512-qudnQuyYBgnvzf5Lj/yxMcf4L9NcVWihXJg7CiU1L+oUCq8MUnFEfH2/nXR/W5uq+yvUN1h7z6s7vs2v1WkL1A==
+fast-xml-parser@^3.17.6:
+  version "3.17.6"
+  resolved "https://registry.yarnpkg.com/fast-xml-parser/-/fast-xml-parser-3.17.6.tgz#4f5df8cf927c3e59a10362abcfb7335c34bc5c5f"
+  integrity sha512-40WHI/5d2MOzf1sD2bSaTXlPn1lueJLAX6j1xH5dSAr6tNeut8B9ktEL6sjAK9yVON4uNj9//axOdBJUuruCzw==
 
 fastest-levenshtein@^1.0.8:
   version "1.0.12"
@@ -5670,6 +5734,11 @@ fd-slicer@~1.1.0:
   integrity sha1-JcfInLH5B3+IkbvmHY85Dq4lbx4=
   dependencies:
     pend "~1.2.0"
+
+fflate@^0.4.1:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.4.7.tgz#2a7616edfea50f89de85a1b80bd35dc06508f084"
+  integrity sha512-brIbiq14j/sTlDYLCRps1FDk81RHFYSpLu+j1gMeV4+lLphuDIdD8yVWYZfBedT80sdM0x8rnC10M/xx3BO+lA==
 
 figures@^1.7.0:
   version "1.7.0"
@@ -9373,6 +9442,13 @@ postcss@^8.0.5, postcss@^8.2.2:
     colorette "^1.2.1"
     nanoid "^3.1.20"
     source-map "^0.6.1"
+
+posthog-js@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.8.0.tgz#7529a29662c03e59e8ca0f506e5909adff6f30cc"
+  integrity sha512-5vG6/3Tchbc1xN2VGpeWjGvQm8OVyJjjfcI67fXP4gOw//b2Ve4B2qmg5PM+xCytBaum4XcVOK8hXfdSjhy63A==
+  dependencies:
+    fflate "^0.4.1"
 
 posthtml-parser@^0.4.1:
   version "0.4.2"
