@@ -39,6 +39,7 @@ steps:
   - name: ":codeclimate:"
     commands:
       - '.buildkite/report-coverage.sh'
+    soft_fail: true
 
   - wait
 
