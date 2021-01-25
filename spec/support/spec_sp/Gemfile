@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'omniauth-osso'
+gem 'rake'
+gem 'sinatra'
+gem 'sinatra-contrib', require: 'sinatra/extension'
+
+group :development, :test do
+  gem 'dotenv'
+  gem 'pry'
+end
