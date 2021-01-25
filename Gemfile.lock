@@ -1,7 +1,5 @@
-GIT
-  remote: https://github.com/enterprise-oss/osso-rb
-  revision: 8b9f27a76b5904aca92411c4b6def647fdae0508
-  branch: sbauch/v-1.0.0
+PATH
+  remote: ../osso-rb
   specs:
     osso (1.0.0)
       activesupport (>= 6.0.3.2)
@@ -15,9 +13,10 @@ GIT
       rack (>= 2.1.4)
       rack-contrib
       rack-oauth2
+      rack_csrf (>= 2.6.0)
       rake
-      rodauth (>= 2.6, < 2.9)
-      sequel (>= 5.37, < 5.41)
+      rodauth (~> 2.9)
+      sequel (~> 5.40)
       sequel-activerecord_connection (>= 0.3, < 2.0)
       sinatra
       sinatra-activerecord (>= 2.0.22)
@@ -81,14 +80,12 @@ GEM
       mini_mime (>= 0.1.1)
     method_source (1.0.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
     minitest (5.14.3)
     multi_json (1.15.0)
     multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.11.1)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.11.1-x86_64-darwin)
       racc (~> 1.4)
     omniauth (2.0.1)
       hashie (>= 3.4.6)
@@ -124,13 +121,15 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack_csrf (2.6.0)
+      rack (>= 1.1.0)
     rainbow (3.0.0)
     rake (13.0.3)
     regexp_parser (2.0.3)
     rexml (3.2.4)
     roda (3.40.0)
       rack
-    rodauth (2.8.0)
+    rodauth (2.9.0)
       roda (>= 2.6.0)
       sequel (>= 4)
     rspec (3.10.0)
