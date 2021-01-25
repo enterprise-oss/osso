@@ -1,5 +1,7 @@
-PATH
-  remote: ../osso-rb
+GIT
+  remote: https://github.com/enterprise-oss/osso-rb
+  revision: 7797b0cdf6f1101e17987023a54e1f454739fd94
+  branch: sbauch/v-1.0.0
   specs:
     osso (1.0.0)
       activesupport (>= 6.0.3.2)
@@ -80,12 +82,14 @@ GEM
       mini_mime (>= 0.1.1)
     method_source (1.0.0)
     mini_mime (1.0.2)
+    mini_portile2 (2.5.0)
     minitest (5.14.3)
     multi_json (1.15.0)
     multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.11.1-x86_64-darwin)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     omniauth (2.0.1)
       hashie (>= 3.4.6)
