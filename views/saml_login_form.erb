@@ -4,7 +4,7 @@
     const tokenInput = document.createElement("input"); 
     tokenInput.value = '<%= request.env["rack.session"]["csrf"] %>';
     tokenInput.name = "authenticity_token"
-    form.action = "/auth/saml/<%= @identity_provider_id %>";   
+    form.action = "/auth/saml/<%= @providers.first.id %>";   
     form.hidden = true
     form.method = "POST";
     
