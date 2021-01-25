@@ -23,7 +23,7 @@ describe("Configuration", () => {
 
       cy.contains("Add new client").click();
 
-      cy.get("input").type("NewClient");
+      cy.get("input#client-name").type("NewClient");
       cy.contains("Done").click();
 
       cy.contains("NewClient");

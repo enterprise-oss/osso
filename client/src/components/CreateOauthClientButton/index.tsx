@@ -62,7 +62,10 @@ export default function CreateAccountButton(): ReactElement {
             name="name"
             rules={[{ required: true, message: 'Add a name' }]}
           >
-            <Input id="name" placeholder="Amazing SAAS App - Production" />
+            <Input
+              id="client-name"
+              placeholder="Amazing SAAS App - Production"
+            />
           </Form.Item>
         </Form>
       </Modal>
