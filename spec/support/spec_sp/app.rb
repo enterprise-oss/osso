@@ -1,10 +1,12 @@
+require 'rack/protection'
 require 'sinatra'
 require 'sinatra/json'
 require 'omniauth-osso'
 
 class App < Sinatra::Base
   use Rack::Session::Cookie, secret: ENV['SESSION_SECRET'], key: 'osso-saas-app'
-
+  use Rack::Protection
+  
   get '/' do
     erb :index
   end
