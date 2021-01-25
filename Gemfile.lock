@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/enterprise-oss/osso-rb
-  revision: eb4bdb444dc408b5b266db53a88b30be57f241c1
+  revision: 33755e03b5e99bcb5808ed2c0a3efe23dcba293e
   branch: sbauch/v-1.0.0
   specs:
     osso (1.0.0)
@@ -15,7 +15,6 @@ GIT
       rack (>= 2.1.4)
       rack-contrib
       rack-oauth2
-      rack_csrf (>= 2.6.0)
       rake
       rodauth (~> 2.9)
       sequel (~> 5.40)
@@ -125,8 +124,6 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack_csrf (2.6.0)
-      rack (>= 1.1.0)
     rainbow (3.0.0)
     rake (13.0.3)
     regexp_parser (2.0.3)
