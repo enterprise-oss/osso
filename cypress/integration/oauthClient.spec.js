@@ -22,10 +22,12 @@ describe("Oauth Client", () => {
 
     it("can add a redirect URI", () => {
       const callback = "https://foo.com/callback";
-      cy.contains("Add new redirect").click();
+      const uriInput = '[id^="uri-"]';
+
+      cy.contains("Edit").click();
       cy.get("button.ant-btn-icon-only").click();
 
-      cy.get("div#uri-0").find("input").type(callback);
+      cy.get(uriInput).last().type(callback);
 
       cy.contains("Done").click();
 
