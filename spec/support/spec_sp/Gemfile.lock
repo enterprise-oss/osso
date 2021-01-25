@@ -1,3 +1,10 @@
+PATH
+  remote: ../../../../omniauth-osso
+  specs:
+    omniauth-osso (0.1.8.pre)
+      omniauth (~> 2.0.1)
+      omniauth-oauth2 (>= 1.6, < 1.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,8 +36,6 @@ GEM
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
-    omniauth-osso (0.1.7)
-      omniauth-oauth2 (>= 1.6, < 1.8)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -57,7 +62,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  omniauth-osso
+  omniauth-osso!
   pry
   rake
   sinatra

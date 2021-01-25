@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'omniauth-osso'
+gem 'omniauth-osso', path: '../../../../omniauth-osso'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-contrib', require: 'sinatra/extension'
