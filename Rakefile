@@ -13,7 +13,7 @@ if ENV['RACK_ENV'] == 'production'
       address: ENV['SMTP_SERVER'],
       user_name: ENV['SMTP_LOGIN'],
       password: ENV['SMTP_PASSWORD'],
-      domain: "#{ENV['SMTP_DOMAIN']}",
+      domain: (ENV['SMTP_DOMAIN']).to_s,
       authentication: :plain,
     }
   end

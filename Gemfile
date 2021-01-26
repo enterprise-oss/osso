@@ -12,8 +12,8 @@ gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
 gem 'rake'
-gem 'sinatra'
 gem 'sentry-raven'
+gem 'sinatra'
 
 group :test do
   gem 'database_cleaner-active_record'
