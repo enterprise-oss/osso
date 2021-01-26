@@ -1,0 +1,19 @@
+<form id="saml" action="/auth/osso" method="post">
+  <input type="hidden" value='<%= request.env["rack.session"]["csrf"] %>' name="authenticity_token" />
+  <div class="form-field">
+    <label>Email</label>
+    <input id='email' name='email' type='text' />
+  </div>
+
+  <div class="form-field">
+    <label>Domain</label>
+    <input id='domain' name='domain' type='text' />
+  </div>
+  <button id='sign-in-btn' type='submit'>Sign In</button>
+</form>
+
+
+<form id="saml" action="/auth/osso" method="post">
+  <input type="hidden" value='<%= request.env["rack.session"]["csrf"] %>' name="authenticity_token" />
+  <button type='submit'>Hosted Sign In</button>
+</form>

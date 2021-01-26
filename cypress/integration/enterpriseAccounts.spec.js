@@ -76,7 +76,7 @@ describe("EnterpriseAccounts", () => {
     });
 
     it("can view its own enterprise account", () => {
-      cy.login("end-user@customer.com", "end-user");
+      cy.login("end-user@example.com", "end-user");
 
       cy.visit("/admin/enterprise");
 

@@ -1,8 +1,7 @@
 {
   "baseUrl": "http://localhost:9292",
-  "env": {
-    "JWT_HMAC_SECRET": "27ccd722ef2646ce3ac3406a7547029b89dd5520f5e0263fd07750fe7a5ffc65"
-  },
+  "chromeWebSecurity": false,
+  "env": {},
   "loader": "ts-loader",
   "options": {
     "transpileOnly": true,

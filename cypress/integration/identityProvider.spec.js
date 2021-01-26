@@ -2,7 +2,7 @@ describe("Customer Identity Providers", () => {
   describe("an Admin user", () => {
     beforeEach(() => {
       cy.login("admin@saas.co");
-      cy.visit("/admin/enterprise/customer.com");
+      cy.visit("/admin/enterprise/example.com");
     });
 
     it("can add a new Okta provider", () => {

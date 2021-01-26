@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    const form = document.createElement("form");
+    const tokenInput = document.createElement("input"); 
+    tokenInput.value = '<%= request.env["rack.session"]["csrf"] %>';
+    tokenInput.name = "authenticity_token"
+    form.action = "/auth/saml/<%= @providers.first.id %>";   
+    form.hidden = true
+    form.method = "POST";
+    
+    form.appendChild(tokenInput);  
+    document.body.appendChild(form);
+    
+    form.submit();
+  });
+</script>
