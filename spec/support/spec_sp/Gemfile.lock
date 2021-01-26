@@ -29,7 +29,7 @@ GEM
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
       omniauth (>= 1.9, < 3)
-    omniauth-osso (0.1.8)
+    omniauth-osso (0.2.0)
       omniauth (~> 2.0.1)
       omniauth-oauth2 (>= 1.6, < 1.8)
     pry (0.13.1)
@@ -58,7 +58,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  omniauth-osso (~> 0.1.8)
+  omniauth-osso
   pry
   rake
   sinatra
