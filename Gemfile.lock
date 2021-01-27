@@ -1,3 +1,27 @@
+PATH
+  remote: ../osso-rb
+  specs:
+    osso (0.1.0)
+      activesupport (>= 6.0.3.2)
+      bcrypt (~> 3.1.13)
+      graphql
+      jwt
+      mail (~> 2.7.1)
+      omniauth-multi-provider
+      omniauth-saml
+      posthog-ruby
+      rack (>= 2.1.4)
+      rack-contrib
+      rack-oauth2
+      rack-protection (~> 2.1.0)
+      rake
+      rodauth (~> 2.9)
+      sequel (~> 5.40)
+      sequel-activerecord_connection (>= 0.3, < 2.0)
+      sinatra
+      sinatra-activerecord (>= 2.0.22)
+      sinatra-contrib
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,7 +65,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
-    graphql (1.12.2)
+    graphql (1.12.3)
     hashdiff (1.0.1)
     hashie (4.1.0)
     httpclient (2.8.3)
@@ -74,26 +98,6 @@ GEM
     omniauth-saml (2.0.0)
       omniauth (~> 2.0)
       ruby-saml (~> 1.9)
-    osso (0.1.0)
-      activesupport (>= 6.0.3.2)
-      bcrypt (~> 3.1.13)
-      graphql
-      jwt
-      mail (~> 2.7.1)
-      omniauth-multi-provider
-      omniauth-saml
-      posthog-ruby
-      rack (>= 2.1.4)
-      rack-contrib
-      rack-oauth2
-      rack-protection (~> 2.1.0)
-      rake
-      rodauth (~> 2.9)
-      sequel (~> 5.40)
-      sequel-activerecord_connection (>= 0.3, < 2.0)
-      sinatra
-      sinatra-activerecord (>= 2.0.22)
-      sinatra-contrib
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -202,7 +206,7 @@ DEPENDENCIES
   dotenv
   factory_bot
   faker
-  osso (~> 0.1.0)
+  osso!
   pg
   pry
   rack (>= 2.1.4)
