@@ -1,7 +1,7 @@
 {
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "start:server": "RACK_ENV=test bundle exec rackup -p 9292",
+    "start:server": "RACK_ENV=test bundle install && bundle exec rackup -p 9292",
     "start:spec_sp": "cd ./spec/support/spec_sp/ && bundle install && RACK_ENV=test bundle exec rackup -p 4567",
     "cypress:open": "cypress open",
     "cypress:ci": "start-test start:server http-get://localhost:9292/health start:spec_sp http-get://localhost:4567/ 'cypress run'",
