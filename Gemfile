@@ -7,7 +7,7 @@ ruby '2.6.6'
 source 'https://rubygems.org'
 
 gem 'activesupport', '~> 6.1.1'
-gem 'osso', path: '../osso-rb'# '~> 0.1.0'
+gem 'osso', git: 'https://github.com/enterprise-oss/osso', branch: 'sbauch/idp-discovery'
 gem 'pg'
 gem 'rack', '>= 2.1.4'
 gem 'rack-cors'
