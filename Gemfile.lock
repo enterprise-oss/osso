@@ -1,7 +1,9 @@
-PATH
-  remote: ../osso-rb
+GIT
+  remote: https://github.com/enterprise-oss/osso-rb
+  revision: 8b2718845b23fa4a825736ab6cf181444ecc99a9
+  branch: sbauch/idp-discovery
   specs:
-    osso (0.1.0)
+    osso (0.1.1)
       activesupport (>= 6.0.3.2)
       bcrypt (~> 3.1.13)
       graphql
