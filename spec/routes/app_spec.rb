@@ -2,47 +2,85 @@
 
 require 'spec_helper'
 
-xdescribe App do
-  let(:jwt_url) { 'https://foo.com/jwt' }
-  let(:jwt_hmac_secret) { SecureRandom.hex(32) }
-  let(:valid_token) do
-    JWT.encode(
-      { email: 'admin@saas.com', scope: 'admin' },
-      jwt_hmac_secret,
-      'HS256',
-    )
-  end
+describe App do  
+  describe 'CORS protection' do
+    describe 'from another origin server' do
+      let(:origin) { 'https://' + Faker::Internet.domain_name }
+      before do
+        header 'Origin', origin
+        header 'Access-Control-Request-Method', 'POST'
+        header 'Content-Type', 'application/json'
+        header 'Accept', 'application/json'
+      end
 
-  before do
-    ENV['JWT_HMAC_SECRET'] = jwt_hmac_secret
-  end
+      describe 'without a CORS origin allowed' do
+        describe 'options /graphql' do
+          it 'does not allow the origin to make a request' do
+            options('/graphql')
 
-  describe 'post /graphql' do
-    it 'returns 401 unauthorized without a session or token' do
-      post('/graphql')
+            expect(last_response.headers['Access-Control-Allow-Origin']).to be nil
+          end  
+        end
 
-      expect(last_response.status).to eq(401)
-    end
+        describe 'options /idp' do
+          it 'does not allow the origin to make a request' do
 
-    it 'returns 401 unauthorized with an invalid token' do
-      post('/graphql', admin_token: SecureRandom.hex(32))
+            options('/idp')
 
-      expect(last_response.status).to eq(401)
-    end
+            expect(last_response.headers['Access-Control-Allow-Origin']).to be nil
+          end
+        end  
+      end
 
-    it 'executes the GraphQL schema with valid token in query params' do
-      allow(Osso::GraphQL::Schema).to receive(:execute)
+      describe 'with a single CORS origin allowed' do
+        before do
+          ENV['CORS_ORIGINS'] = origin
+        end
 
-      post('/graphql', { admin_token: valid_token })
+        describe 'options /graphql' do
+          it 'allows the origin to make a POST request' do
+            options('/graphql')
 
-      expect(Osso::GraphQL::Schema).to have_received(:execute).once
-    end
+            expect(last_response.headers['Access-Control-Allow-Origin']).to eq(origin)
+            expect(last_response.headers['Access-Control-Allow-Methods']).to match(/POST/)
+          end  
+        end
 
-    it 'executes the GraphQL schema with valid token in session' do
-      allow(Osso::GraphQL::Schema).to receive(:execute)
+        describe 'options /idp' do
+          it 'allows the origin to make a POST request' do
+            options('/idp')
 
-      get('/admin', {}, 'rack.session' => { admin_token: valid_token })
-      expect(last_response).to be_ok
+            expect(last_response.headers['Access-Control-Allow-Origin']).to eq(origin)
+            expect(last_response.headers['Access-Control-Allow-Methods']).to match(/POST/)
+          end
+        end  
+      end
+
+      describe 'with multiple CORS origins allowed' do
+        before do
+          ENV['CORS_ORIGINS'] = [origin, "https://dev.#{Faker::Internet.domain_name}"].join(',')
+        end
+
+        describe 'options /graphql' do
+          it 'allows the origin to make a POST request' do
+            options('/graphql')
+
+            expect(last_response.headers['Access-Control-Allow-Origin']).to eq(origin)
+            expect(last_response.headers['Access-Control-Allow-Methods']).to match(/POST/)
+          end  
+        end
+
+        describe 'options /idp' do
+          it 'allows the origin to make a POST request' do
+            ENV['CORS_ORIGINS'] = origin
+
+            options('/idp')
+
+            expect(last_response.headers['Access-Control-Allow-Origin']).to eq(origin)
+            expect(last_response.headers['Access-Control-Allow-Methods']).to match(/POST/)
+          end
+        end  
+      end
     end
   end
 end

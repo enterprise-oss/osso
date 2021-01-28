@@ -41,7 +41,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
-    graphql (1.12.2)
+    graphql (1.12.3)
     hashdiff (1.0.1)
     hashie (4.1.0)
     httpclient (2.8.3)
@@ -74,7 +74,7 @@ GEM
     omniauth-saml (2.0.0)
       omniauth (~> 2.0)
       ruby-saml (~> 1.9)
-    osso (0.1.0)
+    osso (0.1.1)
       activesupport (>= 6.0.3.2)
       bcrypt (~> 3.1.13)
       graphql
@@ -141,7 +141,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.1)
-    rubocop (1.8.1)
+    rubocop (1.9.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -202,7 +202,7 @@ DEPENDENCIES
   dotenv
   factory_bot
   faker
-  osso (~> 0.1.0)
+  osso (~> 0.1.1)
   pg
   pry
   rack (>= 2.1.4)
