@@ -32,9 +32,9 @@ describe App do
         end  
       end
 
-      describe 'with the CORS origin allowed' do
+      describe 'with a single CORS origin allowed' do
         before do
-          ENV['CORS_ORIGIN'] = origin
+          ENV['CORS_ORIGINS'] = origin
         end
 
         describe 'options /graphql' do
@@ -48,6 +48,32 @@ describe App do
 
         describe 'options /idp' do
           it 'allows the origin to make a POST request' do
+            options('/idp')
+
+            expect(last_response.headers['Access-Control-Allow-Origin']).to eq(origin)
+            expect(last_response.headers['Access-Control-Allow-Methods']).to match(/POST/)
+          end
+        end  
+      end
+
+      describe 'with multiple CORS origins allowed' do
+        before do
+          ENV['CORS_ORIGINS'] = [origin, "https://dev.#{Faker::Internet.domain_name}"].join(',')
+        end
+
+        describe 'options /graphql' do
+          it 'allows the origin to make a POST request' do
+            options('/graphql')
+
+            expect(last_response.headers['Access-Control-Allow-Origin']).to eq(origin)
+            expect(last_response.headers['Access-Control-Allow-Methods']).to match(/POST/)
+          end  
+        end
+
+        describe 'options /idp' do
+          it 'allows the origin to make a POST request' do
+            ENV['CORS_ORIGINS'] = origin
+
             options('/idp')
 
             expect(last_response.headers['Access-Control-Allow-Origin']).to eq(origin)

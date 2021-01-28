@@ -34,14 +34,14 @@ app = Rack::Builder.new do
   use Raven::Rack if use_sentry
 
   use Rack::Cors do
-    if ENV['CORS_ORIGIN']
+    if ENV['CORS_ORIGINS']
       allow do
-        origins ENV['CORS_ORIGIN']
+        origins *ENV['CORS_ORIGINS'].split(',')
         resource '/graphql', headers: :any, methods: %i[post options]
       end
 
       allow do
-        origins ENV['CORS_ORIGIN']
+        origins *ENV['CORS_ORIGINS'].split(',')
         resource '/idp', headers: :any, methods: %i[post options]
       end
     end
