@@ -21,7 +21,7 @@ module RSpecMixin
   include Rack::Test::Methods
 
   def app
-    App
+    Rack::Builder.parse_file('config.ru').first
   end
 
   def last_json_response
