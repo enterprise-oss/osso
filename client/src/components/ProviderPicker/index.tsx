@@ -13,19 +13,45 @@ export default function ProviderPicker({
   const { providers } = useOssoFields();
 
   return (
-    <div className={styles.root}>
-      {Object.values(providers).map((providerOption) => (
-        <div
-          key={providerOption.value}
-          className={classnames(styles.provider, {
-            [styles.providerActive]: provider === providerOption.value,
-          })}
-          onClick={() => onChange(providerOption.value)}
-        >
-          <img src={providerOption.iconUrl} className={styles.providerLogo} />
-          <span className={styles.providerLabel}>{providerOption.label}</span>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className={styles.primaryContainer}>
+        {Object.values(providers)
+          .filter((provider) => provider.primary)
+          .map((providerOption) => (
+            <div
+              key={providerOption.value}
+              className={classnames(styles.provider, {
+                [styles.providerActive]: provider === providerOption.value,
+              })}
+              onClick={() => onChange(providerOption.value)}
+            >
+              <img
+                src={providerOption.iconUrl}
+                className={styles.providerLogo}
+              />
+              <span className={styles.providerLabel}>
+                {providerOption.label}
+              </span>
+            </div>
+          ))}
+      </div>
+      <div className={styles.secondaryContainer}>
+        {Object.values(providers)
+          .filter((provider) => !provider.primary)
+          .map((providerOption) => (
+            <div
+              key={providerOption.value}
+              className={classnames(styles.secondaryProvider, {
+                [styles.providerActive]: provider === providerOption.value,
+              })}
+              onClick={() => onChange(providerOption.value)}
+            >
+              <span className={styles.providerLabel}>
+                {providerOption.description}
+              </span>
+            </div>
+          ))}
+      </div>
+    </>
   );
 }
