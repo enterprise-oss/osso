@@ -3,12 +3,19 @@
     <h1>Please select your Identity Provider</h1>
     <div class="providers <%= @providers.count > 3 ? 'multi-rows' : 'one-row' %>">
       <% @providers.map do |provider| %>
-        <a href='<%= "/auth/saml/#{provider.id}" %>'>
+      <form action='<%= "/auth/saml/#{provider.id}" %>' method='post'>
+        <input type="hidden" name="authenticity_token" value="<%= request.env["rack.session"]["csrf"] %>" />
+        <input type="hidden" name="redirect_uri" value="<%= params[:redirect_uri] %>" />
+        <input type="hidden" name="client_id" value="<%= params[:client_id] %>" />
+        <input type="hidden" name="state" value="<%= params[:state] %>" />
+        <input type="hidden" name="response_type" value="code" />
+        <button type='submit'>
           <div class="provider">
             <img class='logo' src='<%="https://assets.ossoapp.io/icons/#{provider.name.downcase}.svg"%>' />
             <p class="name"><%=provider.name %></p>
           </div>
-        </a>
+         </button> 
+      </form>
       <% end %>
     </div>
   </div> 

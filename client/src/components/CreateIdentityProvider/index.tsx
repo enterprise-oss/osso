@@ -207,10 +207,10 @@ export default function IdentityProviderForm({
       visible={open}
       onCancel={closeModal}
       footer={
-        <div className={styles.buttonRow}>
+        <>
           <DestructiveButton />
           <NextButton />
-        </div>
+        </>
       }
     >
       <ModalBody

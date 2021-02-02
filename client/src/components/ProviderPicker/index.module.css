@@ -1,9 +1,10 @@
-.root {
+.primaryContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 32px; 
   justify-items: center;
   align-items: center;
+  margin-bottom: 24px;
 }
 
 .provider {
@@ -17,7 +18,29 @@
   justify-content: flex-end;
   margin: 0 8px;
   transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
 }
+
+.secondaryContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+
+.secondaryProvider {
+  height: 54px;
+  border: 1px solid #D9D9D9;
+  border-radius: 2px;
+  flex: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 34px;
+  transition: all 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+}
+
 
 .providerActive {
   border: 2px solid #4E61A5;
