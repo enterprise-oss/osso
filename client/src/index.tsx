@@ -1,6 +1,6 @@
 import './index.css';
 
-import * as Sentry from '@sentry/react';
+import { init as sentryInit } from '@sentry/react';
 import posthog from 'posthog-js';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 
 if (process.env.CLIENT_SENTRY_DSN) {
-  Sentry.init({
+  sentryInit({
     dsn: process.env.CLIENT_SENTRY_DSN,
   });
 }
