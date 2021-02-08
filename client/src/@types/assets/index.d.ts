@@ -5,6 +5,6 @@ declare module '*.svg' {
 }
 
 declare module '*.module.css' {
-  const content: { [className: string]: string };
-  export default content;
+  const classes: { [key: string]: string };
+  export default classes;
 }

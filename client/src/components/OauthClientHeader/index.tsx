@@ -8,7 +8,7 @@ import Hr from '~/client/src/components/Hr';
 import CopyValueComponent from '~/client/src/components/Osso/CopyValueComponent';
 import Timestamp from '~/client/src/components/Timestamp';
 
-import styles from './index.module.css';
+import { info, name, nameRow, since, topRow } from './index.module.css';
 
 export default function OauthClientHeader({
   oauthClient,
@@ -18,14 +18,14 @@ export default function OauthClientHeader({
   const { regenerateCredentials } = useOAuthClient(oauthClient.id);
   return (
     <div>
-      <div className={styles.topRow}>
-        <div className={styles.info}>
-          <div className={styles.nameRow}>
-            <h1 className={styles.name}>{oauthClient?.name}</h1>
+      <div className={topRow}>
+        <div className={info}>
+          <div className={nameRow}>
+            <h1 className={name}>{oauthClient?.name}</h1>
           </div>
           <div>
             <CalendarOutlined />
-            <span className={styles.since}>
+            <span className={since}>
               Created <Timestamp timestamp={oauthClient.createdAt} />
             </span>
           </div>

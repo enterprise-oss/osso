@@ -4,7 +4,16 @@ import { Avatar, Card } from 'antd';
 import React, { ReactElement } from 'react';
 
 import Timestamp from '../Timestamp';
-import styles from './index.module.css';
+import {
+  avatar,
+  card,
+  companyAttribute,
+  companyAttributes,
+  leftContainer,
+  name,
+  nameContainer,
+  root,
+} from './index.module.css';
 
 export default function CustomerHeader({
   enterpriseAccount,
@@ -25,18 +34,18 @@ export default function CustomerHeader({
   ];
 
   return (
-    <Card className={styles.card}>
-      <div className={styles.root}>
-        <div className={styles.leftContainer}>
+    <Card className={card}>
+      <div className={root}>
+        <div className={leftContainer}>
           <Avatar
             size={64}
             icon={<BankOutlined />}
             shape="square"
-            className={styles.avatar}
+            className={avatar}
             src={`https://logo.clearbit.com/${enterpriseAccount?.domain}`}
           />
-          <div className={styles.nameContainer}>
-            <h1 className={styles.name}>{enterpriseAccount?.name}</h1>
+          <div className={nameContainer}>
+            <h1 className={name}>{enterpriseAccount?.name}</h1>
             <span>
               <LinkOutlined />{' '}
               <a
@@ -49,9 +58,9 @@ export default function CustomerHeader({
             </span>
           </div>
         </div>
-        <div className={styles.companyAttributes}>
+        <div className={companyAttributes}>
           {companyAttrs.map(({ value, label }) => (
-            <div key={label} className={styles.companyAttribute}>
+            <div key={label} className={companyAttribute}>
               <h4>{value}</h4>
               <p>{label}</p>
             </div>

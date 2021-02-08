@@ -7,7 +7,7 @@ import OauthClientHeader from '~/client/src/components/OauthClientHeader';
 import OauthClientRedirectUris from '~/client/src/components/OauthClientRedirectUris';
 import RedirectUrisModal from '~/client/src/components/RedirectUrisModal';
 
-import styles from './index.module.css';
+import { card, cardTopRow } from './index.module.css';
 import { OauthClientPageProps } from './index.types';
 
 export default function OauthClientConfig(
@@ -23,7 +23,7 @@ export default function OauthClientConfig(
     <>
       <Row gutter={[24, 24]}>
         <Col sm={24} lg={12}>
-          <Card className={styles.card}>
+          <Card className={card}>
             {loading ? (
               <Spin />
             ) : (
@@ -32,8 +32,8 @@ export default function OauthClientConfig(
           </Card>
         </Col>
         <Col sm={24} lg={12}>
-          <Card className={styles.card}>
-            <div className={styles.cardTopRow}>
+          <Card className={card}>
+            <div className={cardTopRow}>
               <h1>Redirects</h1>
               <Button size="small" onClick={() => setModalOpen(true)}>
                 Edit

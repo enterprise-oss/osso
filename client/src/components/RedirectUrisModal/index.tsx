@@ -9,8 +9,6 @@ import { Button, Form, Input, Modal, Tooltip } from 'antd';
 import { useForm } from 'antd/lib/form/Form';
 import React, { ReactElement, useReducer } from 'react';
 
-import styles from './index.module.css';
-
 const reducer = (state: RedirectUri[], action) => {
   switch (action.type) {
     case 'valueChanged':
@@ -59,7 +57,7 @@ export default function RedirectUrisModal({
       onCancel={closeModal}
       destroyOnClose={true}
       footer={
-        <div className={styles.buttonRow}>
+        <>
           <Button
             onClick={() => {
               closeModal();
@@ -94,7 +92,7 @@ export default function RedirectUrisModal({
           >
             Done
           </Button>
-        </div>
+        </>
       }
     >
       <Form

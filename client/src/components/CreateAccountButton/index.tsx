@@ -4,7 +4,7 @@ import { Button, Form, Input, Modal } from 'antd';
 import React, { ReactElement, useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
-import styles from './index.module.css';
+import { buttonRow, companyLogo, linkIcon } from './index.module.css';
 
 export default function CreateAccountButton(): ReactElement {
   const { createAccount, loading } = createEnterpriseAccount();
@@ -34,7 +34,7 @@ export default function CreateAccountButton(): ReactElement {
           form.resetFields();
         }}
         footer={
-          <div className={styles.buttonRow}>
+          <div className={buttonRow}>
             <Button onClick={() => setModalOpen(false)}>Cancel</Button>
             <Button
               disabled={
@@ -91,12 +91,12 @@ export default function CreateAccountButton(): ReactElement {
               prefix={
                 debouncedDomain && imageResult ? (
                   <img
-                    className={styles.companyLogo}
+                    className={companyLogo}
                     src={`https://logo.clearbit.com/${debouncedDomain}`}
                     onError={() => setImageResult(false)}
                   />
                 ) : (
-                  <LinkOutlined className={styles.linkIcon} />
+                  <LinkOutlined className={linkIcon} />
                 )
               }
             />

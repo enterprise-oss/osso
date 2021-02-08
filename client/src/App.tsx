@@ -11,7 +11,7 @@ import React, {
 } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 
-import styles from './App.module.css';
+import { content, main } from './App.module.css';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import DeveloperConfig from './pages/developerConfiguration';
@@ -47,9 +47,9 @@ function AdminApp(): ReactElement {
   return (
     <>
       <Sidebar />
-      <Layout className={styles.main}>
+      <Layout className={main}>
         <Header />
-        <Layout.Content className={styles.content}>
+        <Layout.Content className={content}>
           <Switch>
             <Redirect exact path="/" to="/enterprise" />
             <Route exact path="/enterprise" component={EnterpriseAccounts} />

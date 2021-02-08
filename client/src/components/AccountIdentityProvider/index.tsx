@@ -37,7 +37,18 @@ import {
   StatusStringTag,
 } from '~/client/src/utils/identityProviderStatus';
 
-import styles from './index.module.css';
+import {
+  actionsList,
+  avatarContainer,
+  cardRoot,
+  cardTitle,
+  copyContainer,
+  header,
+  mainContainer,
+  nameContainer,
+  providerName,
+  statusRow,
+} from './index.module.css';
 
 export default function AccountIdentityProviders({
   identityProvider,
@@ -96,7 +107,7 @@ export default function AccountIdentityProviders({
   return (
     <>
       <Card
-        className={styles.cardRoot}
+        className={cardRoot}
         bodyStyle={{
           padding: 24,
           display: 'flex',
@@ -109,19 +120,19 @@ export default function AccountIdentityProviders({
           backgroundColor: backgroundColor(identityProvider.status),
         }}
         title={
-          <div className={styles.header}>
-            <div className={styles.cardTitle}>
+          <div className={header}>
+            <div className={cardTitle}>
               <Badge
                 style={{ height: '12px', width: '12px' }}
                 dot={true}
                 color={color(identityProvider.status).primary}
               >
-                <div className={styles.avatarContainer}>
+                <div className={avatarContainer}>
                   <img src={provider.iconUrl} />
                 </div>
               </Badge>
-              <div className={styles.nameContainer}>
-                <span className={styles.providerName}>{provider.label}</span>
+              <div className={nameContainer}>
+                <span className={providerName}>{provider.label}</span>
                 {currentUser.scope === 'admin' && (
                   <Tag>{provider.oauthClient.name}</Tag>
                 )}
@@ -131,23 +142,23 @@ export default function AccountIdentityProviders({
           </div>
         }
       >
-        <div className={styles.cardBody}>
+        <div>
           <Row gutter={[32, 0]}>
             <Col lg={24} xl={12}>
-              <div className={styles.mainContainer}>
-                <div className={styles.statusRow}>
+              <div className={mainContainer}>
+                <div className={statusRow}>
                   <div>
-                    <label className={styles.statusRow}>Status: </label>
+                    <label className={statusRow}>Status: </label>
                     <StatusStringTag identityProvider={identityProvider} />
                   </div>
                 </div>
-                <div className={styles.copyContainer}>
+                <div className={copyContainer}>
                   <StatusCopy identityProvider={identityProvider} />
                 </div>
                 <div>
-                  <ul className={styles.actionsList}>
+                  <ul className={actionsList}>
                     <li>
-                      <label className={styles.statusRow}>Actions:</label>
+                      <label className={statusRow}>Actions:</label>
                     </li>
                     <li>
                       <a onClick={downloadDocs}>
@@ -199,7 +210,7 @@ export default function AccountIdentityProviders({
               {showDetails && (
                 <>
                   <label
-                    className={styles.statusRow}
+                    className={statusRow}
                     style={{ display: 'block', marginBottom: 16 }}
                   >
                     IDP configuration data:
