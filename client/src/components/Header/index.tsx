@@ -10,7 +10,15 @@ import CreateOauthClientButton from '~/client/src/components/CreateOauthClientBu
 import EnterpriseAccountActions from '~/client/src/components/EnterpriseAccountActions';
 import OauthClientActions from '~/client/src/components/OauthClientActions';
 
-import styles from './index.module.css';
+import {
+  back,
+  breadcrumb,
+  breadcrumbRoot,
+  breadcrumbs,
+  header,
+  noBack,
+  separator,
+} from './index.module.css';
 
 export default function Header(): ReactElement {
   const location = useLocation();
@@ -80,16 +88,16 @@ export default function Header(): ReactElement {
   const { cta, nested, backPath, Inner, Outer } = headerState;
 
   return (
-    <Layout.Header className={styles.header}>
-      <div className={styles.breadcrumbs}>
+    <Layout.Header className={header}>
+      <div className={breadcrumbs}>
         <h1
           onClick={() => nested && history.push(backPath)}
-          className={classnames(styles.breadcrumb, {
-            [styles.breadcrumbRoot]: nested,
+          className={classnames(breadcrumb, {
+            [breadcrumbRoot]: nested,
           })}
         >
           <ArrowLeftOutlined
-            className={classnames(styles.back, { [styles.noBack]: !nested })}
+            className={classnames(back, { [noBack]: !nested })}
           />
           {Outer}
         </h1>
@@ -106,17 +114,15 @@ export default function Header(): ReactElement {
 }
 
 function Separator() {
-  return <div className={styles.separator}></div>;
+  return <div className={separator}></div>;
 }
 
 function EnterpriseAccountName({ domain }: { domain: string }) {
   const { data } = useEnterpriseAccount(domain);
-  return (
-    <span className={styles.breadcrumb}>{data?.enterpriseAccount?.name}</span>
-  );
+  return <span className={breadcrumb}>{data?.enterpriseAccount?.name}</span>;
 }
 
 function OauthClientName({ id }: { id: string }) {
   const { data } = useOAuthClient(id);
-  return <span className={styles.breadcrumb}>{data?.oauthClient?.name}</span>;
+  return <span className={breadcrumb}>{data?.oauthClient?.name}</span>;
 }

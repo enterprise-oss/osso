@@ -2,7 +2,7 @@ import { inviteAdminUser, useAdminUsers } from '@enterprise-oss/osso';
 import { Button, Card, Form, Input, Modal, Select, Table } from 'antd';
 import React, { ReactElement, useState } from 'react';
 
-import styles from './index.module.css';
+import { cardTopRow, table } from './index.module.css';
 
 export default function TeamManagement(): ReactElement {
   const { data, loading } = useAdminUsers();
@@ -12,7 +12,7 @@ export default function TeamManagement(): ReactElement {
 
   return (
     <Card>
-      <div className={styles.cardTopRow}>
+      <div className={cardTopRow}>
         <h2>Team</h2>
         <Button size="small" onClick={() => setModalOpen(true)}>
           Invite Teammate
@@ -22,7 +22,7 @@ export default function TeamManagement(): ReactElement {
         loading={loading}
         rowKey="id"
         dataSource={data?.adminUsers}
-        className={styles.table}
+        className={table}
       >
         <Table.Column title="Email" dataIndex="email" key="email" />
         <Table.Column title="Role" dataIndex="role" key="role" />
@@ -32,7 +32,7 @@ export default function TeamManagement(): ReactElement {
         title="Invite teammate"
         onCancel={() => setModalOpen(false)}
         footer={
-          <div className={styles.buttonRow}>
+          <>
             <Button onClick={() => setModalOpen(false)}>Cancel</Button>
             <Button
               type="primary"
@@ -60,7 +60,7 @@ export default function TeamManagement(): ReactElement {
             >
               Done
             </Button>
-          </div>
+          </>
         }
         visible={modalOpen}
       >

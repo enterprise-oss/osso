@@ -14,7 +14,12 @@ import React, { ReactElement, useEffect, useState } from 'react';
 import ButtonComponent from '~/client/src/components/Osso/ButtonComponent';
 import ProviderPicker from '~/client/src/components/ProviderPicker';
 
-import styles from './index.module.css';
+import {
+  loaderContainer,
+  loaderText,
+  modalBody,
+  modalHeader,
+} from './index.module.css';
 
 function ChooseProvider({
   service,
@@ -27,7 +32,7 @@ function ChooseProvider({
 
   return (
     <>
-      <h2 className={styles.modalHeader}>
+      <h2 className={modalHeader}>
         Which Identity Provider does the customer use?
       </h2>
       <Form form={form} layout="vertical" hideRequiredMark>
@@ -69,8 +74,8 @@ function Documentation({
 
   return (
     <>
-      <h2 className={styles.modalHeader}>Custom PDF generated successfully!</h2>
-      <p className={styles.modalBody}>
+      <h2 className={modalHeader}>Custom PDF generated successfully!</h2>
+      <p className={modalBody}>
         The next step is to download and share this PDF with your customer so
         they can follow the instructions for configuring {fullProvider.label} on
         their end. Once that’s done, they’ll return some data to you to complete
@@ -91,9 +96,9 @@ function Documentation({
 
 function Loader(): ReactElement {
   return (
-    <div className={styles.loaderContainer}>
+    <div className={loaderContainer}>
       <Spin size="large" />
-      <p className={styles.loaderText}>Generating documentation...</p>
+      <p className={loaderText}>Generating documentation...</p>
     </div>
   );
 }

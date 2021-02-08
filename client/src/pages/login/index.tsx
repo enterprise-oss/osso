@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import Logo from '~/client/src/resources/Logo.svg';
 
-import styles from './styles.module.css';
+import { formItem, formStyle, main, submitButton } from './styles.module.css';
 
 export default function login({
   onAuth,
@@ -46,11 +46,11 @@ export default function login({
   };
 
   return (
-    <div className={styles.main}>
+    <div className={main}>
       <Logo width={57} />
       <h1>Osso</h1>
       <Form
-        className={styles.form}
+        className={formStyle}
         form={form}
         method="post"
         id="login-form"
@@ -68,14 +68,14 @@ export default function login({
         <Form.Item
           label="Email"
           name="login"
-          className={styles.formItem}
+          className={formItem}
           rules={[{ required: true, message: 'Please input your email' }]}
         >
           <Input size="large" name="login" id="login" />
         </Form.Item>
 
         <Form.Item
-          className={styles.formItem}
+          className={formItem}
           label="Password"
           name="password"
           rules={[{ required: true, message: 'Please input your password' }]}
@@ -95,7 +95,7 @@ export default function login({
             htmlType="submit"
             size="large"
             block
-            className={styles.submitButton}
+            className={submitButton}
           >
             Login
           </Button>

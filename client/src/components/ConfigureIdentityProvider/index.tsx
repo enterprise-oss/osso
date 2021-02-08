@@ -10,7 +10,7 @@ import React, { ReactElement } from 'react';
 import InputComponent from '~/client/src/components/Osso/InputComponent';
 import UploadComponent from '~/client/src/components/Osso/UploadComponent';
 
-import styles from './index.module.css';
+import { buttonRow, ossoFormInstructions } from './index.module.css';
 
 export default function ConfigureIdentityProvider({
   closeModal,
@@ -31,7 +31,7 @@ export default function ConfigureIdentityProvider({
       visible={open}
       onCancel={closeModal}
       footer={
-        <div className={styles.buttonRow}>
+        <div className={buttonRow}>
           <Button onClick={closeModal}>Cancel</Button>
           <Button
             type="primary"
@@ -72,7 +72,7 @@ export default function ConfigureIdentityProvider({
           identityProvider={identityProvider}
           UploadComponent={UploadComponent}
           classes={{
-            formInstructions: styles.ossoFormInstructions,
+            formInstructions: ossoFormInstructions,
           }}
         />
       </Form>

@@ -4,8 +4,6 @@ import { Form, Input, Tooltip } from 'antd';
 import React, { ReactElement, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
-import styles from './index.module.css';
-
 export default function CopyValueComponent({
   label,
   copyable,
@@ -25,11 +23,7 @@ export default function CopyValueComponent({
         {...inputProps}
         suffix={
           copyable && (
-            <CopyToClipboard
-              onCopy={onCopy}
-              text={inputProps.value}
-              className={styles.copyContainer}
-            >
+            <CopyToClipboard onCopy={onCopy} text={inputProps.value}>
               <Tooltip title="Copy to clipboard">
                 {copied ? <CheckOutlined /> : <CopyOutlined />}
               </Tooltip>

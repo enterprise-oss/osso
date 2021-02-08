@@ -3,7 +3,18 @@ import { EnterpriseAccount } from '@enterprise-oss/osso';
 import { Avatar, Badge, Button, Card, Col, Row } from 'antd';
 import React, { ReactElement } from 'react';
 
-import styles from './index.module.css';
+import {
+  avatarContainer,
+  cardRoot,
+  cardTitle,
+  copyContainer,
+  header,
+  label,
+  mainContainer,
+  providerName,
+  status,
+  statusRow,
+} from './index.module.css';
 
 export default function EmptyAccountIdentityProviders({
   enterpriseAccount,
@@ -14,7 +25,7 @@ export default function EmptyAccountIdentityProviders({
 }): ReactElement {
   return (
     <Card
-      className={styles.cardRoot}
+      className={cardRoot}
       bodyStyle={{
         padding: 24,
         display: 'flex',
@@ -27,21 +38,21 @@ export default function EmptyAccountIdentityProviders({
         backgroundColor: '#F5F5F5',
       }}
       title={
-        <div className={styles.header}>
-          <div className={styles.cardTitle}>
+        <div className={header}>
+          <div className={cardTitle}>
             <Badge
               style={{ height: '12px', width: '12px' }}
               dot={true}
               color="#8C8C8C"
             >
               <Avatar
-                className={styles.avatarContainer}
+                className={avatarContainer}
                 icon={<PlusCircleFilled style={{ color: '#8c8c8c' }} />}
                 shape="square"
                 size={64}
               />
             </Badge>
-            <span className={styles.providerName}>New Identity Provider</span>
+            <span className={providerName}>New Identity Provider</span>
           </div>
           <Button type="primary" onClick={onAdd}>
             Get Started
@@ -49,17 +60,17 @@ export default function EmptyAccountIdentityProviders({
         </div>
       }
     >
-      <div className={styles.cardBody}>
+      <div>
         <Row gutter={[32, 0]}>
           <Col span={24}>
-            <div className={styles.mainContainer}>
-              <div className={styles.statusRow}>
+            <div className={mainContainer}>
+              <div className={statusRow}>
                 <div>
-                  <label className={styles.label}>Status: </label>
-                  <span className={styles.status}>Awaiting setup</span>
+                  <label className={label}>Status: </label>
+                  <span className={status}>Awaiting setup</span>
                 </div>
               </div>
-              <div className={styles.copyContainer}>
+              <div className={copyContainer}>
                 Get started by adding a new Identity Provider (IDP) so that{' '}
                 {enterpriseAccount.name} employees can start signing in.
               </div>

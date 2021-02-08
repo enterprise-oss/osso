@@ -11,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 
 import Logo from '~/client/src/resources/Logo.svg';
 
-import styles from './styles.module.css';
+import { formItem, main, submitButton } from './styles.module.css';
 
 export default function verifyAccountPage({
   onAuth,
@@ -71,7 +71,7 @@ export default function verifyAccountPage({
   if (!email) return null;
 
   return (
-    <div className={styles.main}>
+    <div className={main}>
       <Logo width={57} />
       <h1>Osso</h1>
       <p>To begin using Osso, please choose a password.</p>
@@ -93,12 +93,12 @@ export default function verifyAccountPage({
           <input value={key} type="hidden" />
         </Form.Item>
 
-        <Form.Item label="Email" name="login" className={styles.formItem}>
+        <Form.Item label="Email" name="login" className={formItem}>
           <Input disabled readOnly size="large" value={email} />
         </Form.Item>
 
         <Form.Item
-          className={styles.formItem}
+          className={formItem}
           label="Password"
           name="password"
           rules={[{ required: true, message: 'Please input your password!' }]}
@@ -107,7 +107,7 @@ export default function verifyAccountPage({
         </Form.Item>
 
         <Form.Item
-          className={styles.formItem}
+          className={formItem}
           label="Confirm password"
           name="password-confirm"
           style={{ marginBottom: 32 }}
@@ -122,7 +122,7 @@ export default function verifyAccountPage({
             htmlType="submit"
             size="large"
             block
-            className={styles.submitButton}
+            className={submitButton}
           >
             Create account
           </Button>
