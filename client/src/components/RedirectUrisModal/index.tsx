@@ -117,7 +117,7 @@ export default function RedirectUrisModal({
             key={uriObject.id}
             name={`uri-${index}`}
           >
-            <div className={styles.inputRow}>
+            <div>
               <Input
                 defaultValue={uriObject.uri}
                 onChange={(event) =>

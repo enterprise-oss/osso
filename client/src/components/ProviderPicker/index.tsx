@@ -4,10 +4,10 @@ import React, { ReactElement } from 'react';
 
 import {
   primaryContainer,
-  provider,
   providerActive,
   providerLabel,
   providerLogo,
+  providerStyles,
   secondaryContainer,
   secondaryProvider,
 } from './index.module.css';
@@ -28,7 +28,7 @@ export default function ProviderPicker({
           .map((providerOption) => (
             <div
               key={providerOption.value}
-              className={classnames(provider, {
+              className={classnames(providerStyles, {
                 [providerActive]: provider === providerOption.value,
               })}
               onClick={() => onChange(providerOption.value)}
