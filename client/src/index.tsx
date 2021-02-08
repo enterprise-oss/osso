@@ -1,4 +1,4 @@
-// import './index.css';
+import './index.css';
 
 import { init as sentryInit } from '@sentry/react';
 import posthog from 'posthog-js';
