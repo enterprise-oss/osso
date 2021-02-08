@@ -15,7 +15,7 @@ steps:
 
   - commands: 
     - "yarn install"
-    - "tsc -p client --declaration false"
+    - "yarn typecheck"
     label: ":typescript:"
 
   - wait
