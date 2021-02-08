@@ -7,7 +7,7 @@
     "cypress:ci": "start-test start:server http-get://localhost:9292/health start:spec_sp http-get://localhost:4567/ 'cypress run'",
     "start": "yarn build-saml-assets && parcel serve ./client/src/index.tsx ",
     "build": "yarn build-saml-assets && parcel build ./client/src/index.tsx --dist-dir ./public --log-level=verbose",
-    "typecheck": "tsc --noEmit --project client/tsconfig.json",
+    "typecheck": "tcm client/src && tsc --noEmit --project client/tsconfig.json && git clean client/src -f -x",
     "build-saml-assets": "parcel build assets/saml.* --dist-dir ./public",
     "clean": "rm -rf client/dist && rm -rf .parcel-cache && git clean -f -x ./public/",
     "test": "jest",
