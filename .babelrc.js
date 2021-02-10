@@ -24,7 +24,7 @@ module.exports = (api) => {
   return {
     plugins: isTest ? [] : antPlugins,
     presets: [
-      '@babel/preset-env',
+      '@parcel/babel-preset-env',
       '@babel/preset-react',
       '@babel/preset-typescript',
     ],
