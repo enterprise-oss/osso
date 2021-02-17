@@ -9,7 +9,10 @@
   "logo": "https://www.ossoapp.com/img/logo.svg",
   "repository": "https://github.com/enterprise-oss/osso",
   "website": "https://ossoapp.com",
-  "success_url": "/create-account",
+  "success_url": "/admin/login",
+  "scripts": {
+    "postdeploy": "bundle exec rake osso:bootstrap"
+  },
   "buildpacks": [
     {
       "url": "heroku/ruby"
@@ -19,6 +22,9 @@
     }
   ],
   "env": {
+    "ADMIN_EMAIL": {
+      "description": "Your email address for creating the first user account",
+    },
     "BASE_URL": {
       "description": "The host where your application is deployed - replace APP-NAME with the app name you choose above, and be usre to update this ENV var when you set up a custom domain",
       "value": "https://APP-NAME.herokuapp.com"
