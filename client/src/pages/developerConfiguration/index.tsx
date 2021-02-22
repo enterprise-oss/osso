@@ -1,5 +1,5 @@
 import { OauthClient, useOAuthClients } from '@enterprise-oss/osso';
-import { Col, Row, Table } from 'antd';
+import { Col, Row, Space, Table } from 'antd';
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ export default function DeveloperConfig(): ReactElement {
 
   return (
     <>
-      <Row gutter={[24, 24]}>
+      <Row gutter={24} style={{ marginBottom: 24 }}>
         <Col span={24}>
           <Table
             loading={loading}
@@ -30,7 +30,7 @@ export default function DeveloperConfig(): ReactElement {
           </Table>
         </Col>
       </Row>
-      <Row gutter={[24, 24]}>
+      <Row gutter={24}>
         <Col span={12}>
           <AppConfig />
         </Col>
