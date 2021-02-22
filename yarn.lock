@@ -1831,12 +1831,12 @@
     nullthrows "^1.1.1"
     querystring "^0.2.0"
 
-"@parcel/optimizer-cssnano@2.0.0-nightly.600":
-  version "2.0.0-nightly.600"
-  resolved "https://registry.yarnpkg.com/@parcel/optimizer-cssnano/-/optimizer-cssnano-2.0.0-nightly.600.tgz#9244460a4d860f828cca3329ac53b719be95aa7e"
-  integrity sha512-LlmRvBF/XzcEas1XM+WOwbu3bdyxH/amuurYE+GIOEiKPraXN366knDjQRZN5FI7Ok/xzM2ATn2IJmZ9RHKgFA==
+"@parcel/optimizer-cssnano@2.0.0-nightly.607":
+  version "2.0.0-nightly.607"
+  resolved "https://registry.yarnpkg.com/@parcel/optimizer-cssnano/-/optimizer-cssnano-2.0.0-nightly.607.tgz#0dc01f81c9b0d5a86262aee4aeab79498021b040"
+  integrity sha512-OXOKxsS7PzQxqUq6lgMDl7ZcT4IXYGXCGU+6CgQgdyxaNd75h3cB9QtzkCaXj3RWbMtxgUPV5CQ0SQmmO2vl4g==
   dependencies:
-    "@parcel/plugin" "2.0.0-nightly.600+f28eaf60"
+    "@parcel/plugin" "2.0.0-nightly.607+61859206"
     "@parcel/source-map" "2.0.0-alpha.4.21"
     cssnano "^4.1.10"
     postcss "^8.0.5"
@@ -1912,6 +1912,13 @@
   integrity sha512-ayP0i+VqiCLoDnOyZON/uYlal9G9NJt8ISeZ/ec5OeXOMdeAhJ56zDf0pM8fSajWS106CS1DhKpJfOLhpj/oyg==
   dependencies:
     "@parcel/types" "2.0.0-nightly.600+f28eaf60"
+
+"@parcel/plugin@2.0.0-nightly.607+61859206":
+  version "2.0.0-nightly.607"
+  resolved "https://registry.yarnpkg.com/@parcel/plugin/-/plugin-2.0.0-nightly.607.tgz#6d213778001e5f6415345d37e5c728c22102000a"
+  integrity sha512-IcJT/SYGHZu8c87R27rID6Du5jurWUnGUmc9UCTTJX2O9uM7POuCR5WcPAmIWU+fjoEom5KbDkB1D4tkRbY6vA==
+  dependencies:
+    "@parcel/types" "2.0.0-nightly.607+61859206"
 
 "@parcel/reporter-cli@2.0.0-nightly.600+f28eaf60":
   version "2.0.0-nightly.600"
@@ -2131,6 +2138,11 @@
   version "2.0.0-nightly.600"
   resolved "https://registry.yarnpkg.com/@parcel/types/-/types-2.0.0-nightly.600.tgz#7960ceef58c99d0a08b386e0d426a524bea5deb8"
   integrity sha512-0cNRLMTNSgKGmphlCckCLtp+vDpgmVoys0opfrI4Pn71Lma+l839hOklrhr6lIA6DF9IRy2V/DTmSb6o2XeAig==
+
+"@parcel/types@2.0.0-nightly.607+61859206":
+  version "2.0.0-nightly.607"
+  resolved "https://registry.yarnpkg.com/@parcel/types/-/types-2.0.0-nightly.607.tgz#d6347c703ed06648704258f5df4c94ac19e98773"
+  integrity sha512-TNZR/KIvnpaqA9a0I3+Nls6vu7OswAm4/nBaX/3aGV0E6UNPFh7mz1vUMBUniSMKDG1oIegk74CXWdmmHSUwEw==
 
 "@parcel/utils@2.0.0-nightly.600+f28eaf60":
   version "2.0.0-nightly.600"
