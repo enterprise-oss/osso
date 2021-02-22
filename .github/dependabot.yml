@@ -9,6 +9,15 @@ updates:
     - "dependencies"
     - "javascript"
     - "automerge"
+  ignore:
+    - dependency-name: "parcel"
+    - dependency-name: "@parcel/babel-preset-env"
+    - dependency-name: "@parcel/optimizer-cssnano"
+    - dependency-name: "@parcel/packager-css"
+    - dependency-name: "@parcel/transformer-css"
+    - dependency-name: "@parcel/transformer-less"
+    - dependency-name: "@parcel/transformer-postcss"
+    - dependency-name: "@parcel/transformer-svg-react" 
 - package-ecosystem: bundler
   directory: "/"
   schedule:
