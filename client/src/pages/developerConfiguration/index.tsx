@@ -1,5 +1,5 @@
 import { OauthClient, useOAuthClients } from '@enterprise-oss/osso';
-import { Col, Row, Space, Table } from 'antd';
+import { Col, Row, Table } from 'antd';
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 
