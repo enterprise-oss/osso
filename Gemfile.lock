@@ -12,7 +12,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     aes_key_wrap (1.1.0)
     after_commit_everywhere (0.1.5)
@@ -125,7 +125,7 @@ GEM
     rainbow (3.0.0)
     rake (13.0.3)
     regexp_parser (2.1.1)
-    rexml (3.2.4)
+    rexml (3.2.5)
     roda (3.40.0)
       rack
     rodauth (2.9.0)
@@ -190,8 +190,8 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.0.0)
-    webmock (3.12.1)
-      addressable (>= 2.3.6)
+    webmock (3.14.0)
+      addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     zeitwerk (2.4.2)
@@ -218,7 +218,7 @@ DEPENDENCIES
   sentry-raven
   simplecov (= 0.21.2)
   sinatra
-  webmock (~> 3.12)
+  webmock (~> 3.14)
 
 RUBY VERSION
    ruby 2.6.6p146
