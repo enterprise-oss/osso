@@ -6,7 +6,7 @@ ruby '2.6.6'
 
 source 'https://rubygems.org'
 
-gem 'activesupport', '~> 6.1.3'
+gem 'activesupport', '~> 6.1.5'
 gem 'osso', '~> 0.1.2'
 gem 'pg'
 gem 'puma'
