@@ -2,15 +2,15 @@
 
 gem 'dotenv', require: 'dotenv/load', groups: %i[development test]
 
-ruby '2.6.6'
+ruby '3.1.2'
 
 source 'https://rubygems.org'
 
-gem 'activesupport', '~> 6.1.3'
-gem 'osso', '~> 0.1.2'
+gem 'activesupport'
+gem 'osso'
 gem 'pg'
 gem 'puma'
-gem 'rack', '>= 2.1.4'
+gem 'rack'
 gem 'rack-cors'
 gem 'rake'
 gem 'sentry-raven'
@@ -21,9 +21,9 @@ group :test do
   gem 'factory_bot'
   gem 'faker'
   gem 'rack-test'
-  gem 'rspec', '~> 3.10'
-  gem 'simplecov', '0.21.2', require: false
-  gem 'webmock', '~> 3.12'
+  gem 'rspec'
+  gem 'simplecov'
+  gem 'webmock'
 end
 
 group :development, :test do
